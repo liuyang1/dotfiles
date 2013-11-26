@@ -50,6 +50,8 @@ unsetopt correct_all
 # Customize to your needs...
 
 eval `dircolors ~/.dircolors`
+# set dircolors colorful completion
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 
 ulimit -c unlimited

@@ -13,7 +13,7 @@ func! MyRunitcmd()
 		return 'racket -f '.fn
 	elseif &filetype=='sh'
 		return './'.fn
-	elseif &filetype=='pyhton'
+	elseif &filetype=='python'
 		return 'python '.fn
 	elseif &filetype=='cpp'
 		if filereadable('Makefile')
@@ -48,7 +48,9 @@ func! MyRunit()
 		exe 'silent! botright vertical split MyRunit'
 	endif
 	echomsg cmd
-	silent execute '0read !'.cmd
+	" output tmpfile and stdout
+	execute '!'.cmd.' | tee /tmp/TmpForRunIt'
+	silent execute '0read /tmp/TmpForRunIt'
 	silent! setlocal nobuflisted
 	silent! setlocal nonumber
 	silent! setlocal buftype=nofile
