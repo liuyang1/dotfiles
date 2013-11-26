@@ -1,0 +1,74 @@
+# compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+a.out
+*.so
+*.a
+*.beam
+erl_crash.dump
+*.pyc
+*.pyo
+
+# test file
+*.test
+
+# Packetages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.gz
+*.bz2
+*.xz
+*.zip
+
+# log and db
+log
+*.db
+*.log
+*.sql
+*.sqlite
+
+# OS generated file
+*.core
+.DS_Store
+.DS_Store?
+._*
+core.*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# video/audio file
+*.ts
+*.mpg
+*.mp4
+*.h264
+*.avc
+*.svc
+
+tags
+ctags
+
+.shdeps
+.deps
+
+core
+
+*.lib
+*.exp
+*.pdb
+*.conf
+*.bak
+
+gmon.*
+*.flow
+*.fasl

@@ -1,0 +1,6 @@
+--color
+--smart-case
+--sort-files
+--type-set=wiki=.wiki
+--type=nohtml
+--type-set=txt=.lst,.json,.info
