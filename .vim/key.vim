@@ -48,8 +48,8 @@ func! MyRunit()
 		exe 'silent! botright vertical split MyRunit'
 	endif
 	echomsg cmd
-	" output tmpfile and stdout
-	execute '!'.cmd.' | tee /tmp/TmpForRunIt'
+	" stdout && stderr to  tmpfile and stdout
+	execute '!'.cmd.' 2>&1 | tee /tmp/TmpForRunIt'
 	silent execute '0read /tmp/TmpForRunIt'
 	silent! setlocal nobuflisted
 	silent! setlocal nonumber
