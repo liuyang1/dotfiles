@@ -104,3 +104,8 @@ set path=..,.,/usr/include,/usr/src/linux/include,/usr/local/include,
 
 " wrap
 set wrap
+
+" 持久撤销功能
+set undofile
+set undodir=~/.vim/undodir
+set undolevels=100

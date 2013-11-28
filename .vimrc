@@ -43,4 +43,3 @@ Bundle 'clarity.vim'
 
 Bundle 'vim-autopep8'
 autocmd FileType python map <buffer> <Leader>cc :call Autopep8()<CR>
-Bundle 'css_color.vim'

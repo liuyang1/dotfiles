@@ -2,22 +2,27 @@
 nnoremap ,s :source ~/.vimrc<CR>
 nnoremap ,e :edit ~/.vimrc<CR>
 
+" auto open quickfix window
+autocmd QuickFixCmdPost * :copen
 "  make &c
-noremap <Leader>mm	:make<CR>
-noremap <Leader>md	:make clean<CR>
-noremap <Leader>mr	:make run<CR>
+noremap <Leader>mm	:silent make\|redraw!\|cope<CR>
+noremap <Leader>md	:make clean<CR><CR>
+noremap <Leader>mr	:silent make run\|redraw!\|cope<CR>
+
 
 func! MyRunitcmd()
 	let fn=expand('%')
 	if &filetype=='scheme'
-		return 'racket -f '.fn
+		"return 'racket -f '.fn
+		return 'guile -s '.fn
 	elseif &filetype=='sh'
 		return './'.fn
 	elseif &filetype=='python'
 		return 'python '.fn
 	elseif &filetype=='cpp'
 		if filereadable('Makefile')
-			return 'make && make run'
+			" can not execute two cmd
+			return 'make'
 		else
 			return 'g++ a.cpp && ./a.out'
 		endif
@@ -34,6 +39,13 @@ function! Autoquit()
 	endif
 endfunc
 func! MyRunit()
+	if &filetype=='cpp'
+		if filereadable('Makefile')
+			:make
+			:cope
+			return
+		endif
+	endif
 	silent! up
 	let cmd=MyRunitcmd()
 	let MyRunit_title='MyRunit'
@@ -58,6 +70,8 @@ func! MyRunit()
 	autocmd BufEnter MyRunit nested call Autoquit()
 endfunc
 noremap <Leader>rr	:call MyRunit()<cr>
+" open helper tmux windows, and send-keys
+noremap <Leader>rt	:!tmux send-keys "make && make run" Enter<cr><cr>
 
 " buffer
 nnoremap <Leader>s :buffers<cr>:buffer<Space>
@@ -67,4 +81,4 @@ noremap <Leader>tg	:TlistToggle<CR>
 noremap <Leader>ti  :!ctags-exuberant -R --fields=+iaS --extra=+q . --recurse=no<CR><CR>
 
 noremap <Leader>x	:sh<CR>
-
+nnoremap <Leader>wu :!ftpsync<cr>
