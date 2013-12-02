@@ -1,0 +1,30 @@
+[color]
+	ui = true
+[alias]
+    st = status
+	co = checkout
+	ci = commit -v
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset %Cgreen%cd%Creset - %s %C(yellow)%d%Creset' --abbrev-commit --
+    gs = log --color --graph --stat
+	stat = diff --stat
+	df = difftool
+	br = branch
+	last = log -1 HEAD
+[user]
+	name = liuyang1
+	email = liuyang1@mail.ustc.edu.cn
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	tool = vimdiff
+[core]
+	editor = vim
+	excludesfile = /home/liuy/.gitignore_global
+	quotepath = false
+[i18n]
+	logoutputencoding = utf8
+	commitencoding = utf8
+[log]
+	date = local
