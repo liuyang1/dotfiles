@@ -109,3 +109,6 @@ set wrap
 set undofile
 set undodir=~/.vim/undodir
 set undolevels=100
+
+au FileType c	setlocal makeprg=gcc\ %\ -o\ %<
+au FileType cpp setlocal makeprg=g++\ %\ -o\ %<
