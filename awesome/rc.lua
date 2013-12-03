@@ -203,11 +203,13 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
-    awful.key({ modkey,           }, "j",
-        function ()
-            awful.client.focus.byidx( 1)
-            if client.focus then client.focus:raise() end
-        end),
+    -- awful.key({ modkey,           }, "j",
+    --     function ()
+    --         awful.client.focus.byidx( 1)
+    --         if client.focus then client.focus:raise() end
+    --     end),
+	awful.key({ modkey,			  }, "j", function () awful.util.spawn(terminal)	end),
+	awful.key({ modkey,			  }, "c", function () awful.util.spawn(terminal)	end),
     awful.key({ modkey,           }, "k",
         function ()
             awful.client.focus.byidx(-1)
@@ -223,7 +225,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "Tab",
         function ()
-            awful.client.focus.history.previous()
+            -- awful.client.focus.history.previous()
+			awful.client.focus.byidx( 1)
             if client.focus then
                 client.focus:raise()
             end
@@ -238,8 +241,8 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
-    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),
-    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),
+    -- awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),
+    -- awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),
     awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1)         end),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
@@ -381,13 +384,13 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 -- }}}
 
 function run_once(cmd)
-	findme = cmd
-	firstspace = cmd:find(" ")
-	if firstspace then
-		findme = cmd:sub(0, firstspace - 1)
-	end
+ 	findme = cmd
+  	firstspace = cmd:find(" ")
+  	if firstspace then
+    	findme = cmd:sub(0, firstspace - 1)
+  	end
 	-- check program is running, if not, then run it
-	awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > dev/null || (" .. cmd .. ")")
+  	awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
 
 run_once("nm-applet")
