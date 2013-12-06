@@ -1,23 +1,16 @@
 !$HOME/.Xdefaults
-URxvt.preeditType:Root
+URxvt.preeditType:		Root
 !!调整此处设置输入法
 URxvt.inputMethod:ibus
 !!颜色设置
 URxvt.depth:32
-URxvt.geometry:		90x30
+URxvt.geometry:			90x30
+URxvt.iconFile:			/home/liuy/.config/awesome/terminal.png
+
+! disable this, to avoid URxvt flicking in AwesomeWM
+!URxvt.inheritPixmap:	True
+!URxvt.transparent:		False
 !!中括号内数表示透明度
-! URxvt.background:[90]#000000
-! URxvt.foreground:#ffffff
-! URxvt.colorBD:Gray95
-! URxvt.colorUL:Green
-! URxvt.color1:Red2
-! URxvt.color4:RoyalBlue
-! URxvt.color5:Magenta2
-! URxvt.color8:Gray50
-! URxvt.color10:Green2
-! URxvt.color12:White
-! URxvt.color14:Cyan2
-! URxvt.color15:Gray95
 !!URL操作
 URxvt.urlLauncher:chromium
 URxvt.matcher.button:1
@@ -34,9 +27,15 @@ URxvt.scrollWithBuffer:True
 URxvt.scrollTtyKeypress:True
 !!光标闪烁
 URxvt.cursorBlink:True
-URxvt.saveLines:3000
+URxvt.cursorUnderLine:True
+!添加会导致中文字体设置存在不成功
+URxvt.urgentOnBell:True
+URxvt.saveLines:65535
 !!边框
-URxvt.borderLess:False
+! setting this true cause window floating in awesomeWM
+URxvt.borderLess:		False
+URxvt.internalBorder:	0
+URxvt.externalBorder:	0
 !!字体设置
 Xft.dpi:96
 !URxvt.font:xft:文泉驿等宽正黑:size=9:style=Regular:antialias=true,xft:文泉驿等宽正黑:size=8:style=Regular:antialias=true
@@ -53,10 +52,9 @@ Xft.hinting:	true
 Xft.hintstyle:	histslight
 URxvt.intensityStyles: false
 
-URxvt.internalBorder:	1
 
 !-- Default URxvt (Solarized Dark)
-!URxvt*fading:					30
+URxvt*fading:					0
 URxvt*fadeColor:				#002b36
 URxvt*cursorColor:				#93a1a1
 URxvt*pointerColorBackground:	#586e75
@@ -101,22 +99,43 @@ URxvt*color15:					#fdf6e3
 ! ref:http://datamaskinen.medeltiden.org/urxvt-solarized-dark-light-font-test.html
 ! Light URxvt (Solarized Light)
 ! LURxvt*font:                   xft:Anonymous Pro-10
-LURxvt*fading:                 0
-LURxvt*background:             #fdf6e3
-LURxvt*foreground:             #839496
-LURxvt*fadeColor:              #fdf6e3
-LURxvt*cursorColor:            #586e75
-LURxvt*pointerColorBackground: #93a1a1
-LURxvt*pointerColorForeground: #586e75
-LURxvt*color0:                 #eee8d5
-LURxvt*color8:                 #fdf6e3
-LURxvt*color10:                #93a1a1
-LURxvt*color11:                #839496
-LURxvt*color12:                #657b83
-LURxvt*color14:                #586e75
-LURxvt*color7:                 #839496
-LURxvt*color15:                #002b36
+LURxvt*fading:                  0
+LURxvt*background:				#fdf6e3
+LURxvt*foreground:             	#839496
+LURxvt*fadeColor:              	#fdf6e3
+LURxvt*cursorColor:            	#586e75
+LURxvt*pointerColorBackground: 	#93a1a1
+LURxvt*pointerColorForeground: 	#586e75
+LURxvt*color0:                 	#eee8d5
+LURxvt*color8:                 	#fdf6e3
+LURxvt*color10:                	#93a1a1
+LURxvt*color11:                	#839496
+LURxvt*color12:                	#657b83
+LURxvt*color14:                	#586e75
+LURxvt*color7:                 	#839496
+LURxvt*color15:                	#002b36
 
+!! Molokai theme
+MolokaiURxvt*background:		#1B1D1E
+MolokaiURxvt*foreground:		#F8F8F2
+MolokaiURxvt*cursorColor:		#F92672
+MolokaiURxvt*color0:			#49483E
+MolokaiURxvt*color1:			#F92672
+MolokaiURxvt*color2:			#A6E22E
+MolokaiURxvt*color3:			#FD971F
+MolokaiURxvt*color4:			#66D9EF
+MolokaiURxvt*color5:			#AE81FF
+MolokaiURxvt*color6:			#A1EFE4
+MolokaiURxvt*color7:			#F8F8F2
+
+MolokaiURxvt*color8:			#75715E
+MolokaiURxvt*color9:			#FC5C94
+MolokaiURxvt*color10:			#C1F161
+MolokaiURxvt*color11:			#FEB257
+MolokaiURxvt*color12:			#8DE6F7
+MolokaiURxvt*color13:			#C2A1FF
+MolokaiURxvt*color14:			#BBF7EF
+MolokaiURxvt*color15:			#F8F8F0
 
 ! Render setting for cairo -> pango -> gtk
 !
@@ -147,4 +166,4 @@ URxvt.keysym.C-Up:		perl:font-size:increase
 URxvt.keysym.C-Down:	perl:font-size:decrease
 URxvt.keysym.C-S-Up:	perl:font-size:incglobal
 URxvt.keysym.C-S-Down:	perl:font-size:decglobal
-Urxvt.font-size.step:	1
+URxvt.font-size.step:	1

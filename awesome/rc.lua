@@ -7,6 +7,10 @@ require("beautiful")
 -- Notification library
 require("naughty")
 
+-- add eminent for dynamic tagging
+-- require("eminent")
+require("revelation")
+
 -- Load Debian menu entries
 require("debian.menu")
 
@@ -41,6 +45,8 @@ beautiful.init("/home/liuy/.config/awesome/themes/myfoo/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
+-- terminal = "urxvt -name LURxvt"
+-- terminal = "urxvt -name MolokaiURxvt"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -91,7 +97,9 @@ myawesomemenu = {
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
                                     { "Debian", debian.menu.Debian_menu.Debian },
-                                    { "open terminal", terminal }
+                                    { "open terminal", terminal },
+									{ "gnome-terminal", "gnome-terminal"},
+								    { "quit", awesome.quit }
                                   }
                         })
 
@@ -234,6 +242,8 @@ globalkeys = awful.util.table.join(
 
 	-- self-defined program
 	awful.key({ modkey,			  }, "i", function() awful.util.spawn("/opt/google/chrome/chrome") end),
+	awful.key({ modkey, "Shift"   }, "l", function() awful.util.spawn("xlock") end),
+	awful.key({ modkey}, "e", revelation),  -- Insert this line
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
