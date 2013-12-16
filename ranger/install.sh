@@ -11,5 +11,6 @@ installFile(){
 
 installFile $PWD/apps.py $PREFIX/apps.py
 installFile $PWD/scope.sh $PREFIX/scope.sh
+installFile $PWD/rc.conf $PREFIX/rc.conf
 
 echo "OK"
