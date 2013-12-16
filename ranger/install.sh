@@ -10,5 +10,6 @@ installFile(){
 }
 
 installFile $PWD/apps.py $PREFIX/apps.py
+installFile $PWD/scope.sh $PREFIX/scope.sh
 
 echo "OK"
