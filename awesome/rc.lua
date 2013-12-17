@@ -73,7 +73,7 @@ layouts =
     -- awful.layout.suit.spiral.dwindle,
     -- awful.layout.suit.max,
     -- awful.layout.suit.max.fullscreen,
-    -- awful.layout.suit.magnifier
+    -- awful.layout.suit.magnifier,
 }
 -- }}}
 
@@ -109,7 +109,7 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 
 -- {{{ Wibox
 -- Create a textclock widget
-mytextclock = awful.widget.textclock({ align = "right" })
+mytextclock = awful.widget.textclock({ align = "right" }, "%Y-%m-%d %H:%M:%S", 1)
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -179,7 +179,7 @@ for s = 1, screen.count() do
                                           end, mytasklist.buttons)
 
     -- Create the wibox
-    mywibox[s] = awful.wibox({ position = "top", screen = s })
+    mywibox[s] = awful.wibox({ position = "top", height=16, screen = s })
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {
@@ -350,7 +350,11 @@ awful.rules.rules = {
                      focus = true,
                      keys = clientkeys,
                      buttons = clientbuttons } },
+	{ rule = { class = "Zathura" },
+	  properties = { floating = true , width = 1366, height = 750} },
     { rule = { class = "MPlayer" },
+      properties = { floating = true } },
+    { rule = { class = "feh" },
       properties = { floating = true } },
     { rule = { class = "pinentry" },
       properties = { floating = true } },
