@@ -3,8 +3,9 @@ URxvt.preeditType:		Root
 !!调整此处设置输入法
 URxvt.inputMethod:ibus
 !!颜色设置
-URxvt.depth:32
-URxvt.geometry:			90x30
+! cancel transparent setting to avoid flickering
+URxvt.depth:24
+URxvt.geometry:			80x30
 URxvt.iconFile:			/home/liuy/.config/awesome/terminal.png
 
 ! disable this, to avoid URxvt flicking in AwesomeWM
@@ -42,9 +43,10 @@ Xft.dpi:96
 !URxvt.boldfont:xft:文泉驿等宽正黑:size=9:style=BOld:antialias=true,xft:文泉驿等宽正黑:size=8:style=Bold:antialias=true
 !URxvt.font:xft:Ubuntu Mono:size=13:style=Regular:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=22:style=Regular:antialias=true
 !URxvt.font:xft:PragmataPro:size=13:style=Regular:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=22:style=Regular:antialias=true
-URxvt.font:xft:Ubuntu Mono:size=12:style=Regular:antialias=true,xft:SimHei:pixelsize=22:style=Regular:antialias=true
-URxvt.boldfont:xft:Ubuntu Mono:size=12:style=Bold:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=22:style=Bold:antialias=true
-URxvt.italicfont:xft:Ubuntu Mono:size=12:style=Italic:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=22:style=Italic:antialias=true
+URxvt.font:xft:Monaco:size=11:style=Regular:antialias=true,xft:SimHei:pixelsize=16:style=Regular:antialias=true
+URxvt.boldfont:xft:Monaco:size=11:style=Bold:antialias=true,xft:SimHei:pixelsize=16:style=Bold:antialias=true
+URxvt.italicfont:xft:Monaco:size=11:style=Italic:antialias=true,xft:SimHei:pixelsize=16:style=Italic:antialias=true
+URxvt.letterSpace:-1
 
 Xft.antialias:	true
 Xft.rgba:		rgb
@@ -114,6 +116,9 @@ LURxvt*color12:                	#657b83
 LURxvt*color14:                	#586e75
 LURxvt*color7:                 	#839496
 LURxvt*color15:                	#002b36
+LURxvt.font:xft:PragmataPro:size=13:style=Regular:antialias=true,xft:SimHei:pixelsize=22:style=Regular:antialias=true
+LURxvt.boldfont:xft:ProgamataPro:size=13:style=Bold:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=22:style=Bold:antialias=true
+LURxvt.italicfont:xft:ProgamataPro:size=13:style=Italic:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=22:style=Italic:antialias=true
 
 !! Molokai theme
 MolokaiURxvt*background:		#1B1D1E
