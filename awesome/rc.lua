@@ -241,6 +241,7 @@ globalkeys = awful.util.table.join(
         end),
 
 	-- self-defined program
+    awful.key({ modkey,           }, "p", function () awful.screen.focus_relative( 1) end),
 	awful.key({ modkey,			  }, "i", function() awful.util.spawn("/opt/google/chrome/chrome") end),
 	awful.key({ modkey, "Shift"   }, "l", function() awful.util.spawn("xlock") end),
 	awful.key({ modkey}, "e", revelation),  -- Insert this line
@@ -352,6 +353,12 @@ awful.rules.rules = {
                      buttons = clientbuttons } },
 	{ rule = { class = "Zathura" },
 	  properties = { floating = true , width = 1366, height = 750} },
+    { rule = { class = "Yakuake" },
+      properties = { floating = true } },
+    { rule = { class = "Tilda" },
+      properties = { floating = true } },
+    { rule = { class = "Guake" },
+      properties = { floating = true , focus = true} },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
     { rule = { class = "feh" },
@@ -408,3 +415,4 @@ function run_once(cmd)
 end
 
 run_once("nm-applet")
+run_once("yakuake")
