@@ -108,7 +108,7 @@ STICKY 48;5;33;38;5;230 # dir with the sticky bit set (+t) and not other-writabl
 EXEC 01;38;5;64
 
 ## Archives or compressed (violet + bold for compression)
-.tar    00;38;5;61
+.tar    01;38;5;61
 .tgz    01;38;5;61
 .arj    01;38;5;61
 .taz    01;38;5;61
@@ -121,7 +121,7 @@ EXEC 01;38;5;64
 .z      01;38;5;61
 .Z      01;38;5;61
 .dz     01;38;5;61
-.gz     01;38;5;61
+.gz     01;38;5;33
 .lz     01;38;5;61
 .xz     01;38;5;61
 .bz2    01;38;5;61
