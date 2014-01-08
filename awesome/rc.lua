@@ -207,8 +207,8 @@ root.buttons(awful.util.table.join(
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
+    -- awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
+    -- awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
     -- awful.key({ modkey,           }, "j",
@@ -230,7 +230,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
-    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
+    -- awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "Tab",
         function ()
             -- awful.client.focus.history.previous()
@@ -241,9 +241,13 @@ globalkeys = awful.util.table.join(
         end),
 
 	-- self-defined program
+	awful.key({ modkey,           }, "Left",      awful.client.movetoscreen),
+	awful.key({ modkey,           }, "Right",     awful.client.movetoscreen),
     awful.key({ modkey,           }, "p", function () awful.screen.focus_relative( 1) end),
-	awful.key({ modkey,			  }, "i", function() awful.util.spawn("/opt/google/chrome/chrome") end),
-	awful.key({ modkey, "Shift"   }, "l", function() awful.util.spawn("xlock") end),
+	awful.key({ modkey,			  }, "b", function () mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible end),
+    awful.key({ modkey,           }, "u", function () awful.screen.focus_relative( -1) end),
+	awful.key({ modkey,			  }, "i", function () awful.util.spawn("/opt/google/chrome/chrome") end),
+	awful.key({ modkey, "Shift"   }, "l", function () awful.util.spawn("xlock") end),
 	awful.key({ modkey}, "e", revelation),  -- Insert this line
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
@@ -278,7 +282,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
-    awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
+    awful.key({ modkey,           }, "o",      function (c) awful.client.movetoscreen(c, c.screen-1) end),
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,           }, "n",
@@ -352,7 +356,9 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons } },
 	{ rule = { class = "Zathura" },
-	  properties = { floating = true , width = 1366, height = 750} },
+	  properties = { floating = true } },
+	{ rule = { class = "Chrome" },
+	  properties = { floating = false} },
     { rule = { class = "Yakuake" },
       properties = { floating = true } },
     { rule = { class = "Tilda" },
