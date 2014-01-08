@@ -1,4 +1,5 @@
 set adjust-open width
+set recolor
 
 # key bindings
 unmap j
