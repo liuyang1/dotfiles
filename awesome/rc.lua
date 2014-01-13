@@ -243,9 +243,11 @@ globalkeys = awful.util.table.join(
 	-- self-defined program
 	awful.key({ modkey,           }, "Left",      awful.client.movetoscreen),
 	awful.key({ modkey,           }, "Right",     awful.client.movetoscreen),
-    awful.key({ modkey,           }, "p", function () awful.screen.focus_relative( 1) end),
+    -- awful.key({ modkey,           }, "p", function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey,           }, "p", function () awful.screen.focus_relative_center( 1) end),
 	awful.key({ modkey,			  }, "b", function () mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible end),
-    awful.key({ modkey,           }, "u", function () awful.screen.focus_relative( -1) end),
+    -- awful.key({ modkey,           }, "u", function () awful.screen.focus_relative( -1) end),
+    awful.key({ modkey,           }, "u", function () awful.screen.focus_relative_center( -1) end),
 	awful.key({ modkey,			  }, "i", function () awful.util.spawn("/opt/google/chrome/chrome") end),
 	awful.key({ modkey, "Shift"   }, "l", function () awful.util.spawn("xlock") end),
 	awful.key({ modkey}, "e", revelation),  -- Insert this line
