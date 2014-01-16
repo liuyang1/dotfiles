@@ -45,4 +45,3 @@ export TERM=xterm-256color
 #source ~/.keychain/Jade-sh
 
 source ~/.bashrc
-_byobu_sourced=1 . /usr/bin/byobu-launch
