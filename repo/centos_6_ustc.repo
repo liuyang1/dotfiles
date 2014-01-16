@@ -1,0 +1,16 @@
+[base]
+name=Red Hat Enterprise Linux $releasever -Base
+baseurl=http://centos.ustc.edu.cn/centos/6/os/$basearch/
+gpgcheck=1
+[update]
+name=Red Hat Enterprise Linux $releasever -Updates
+baseurl=http://centos.ustc.edu.cn/centos/6/updates/$basearch/
+gpgcheck=1
+[extras]
+name=Red Hat Enterprise Linux $releasever -Extras
+baseurl=http://centos.ustc.edu.cn/centos/6/extras/$basearch/
+gpgcheck=1
+[addons]
+name=Red Hat Enterprise Linux $releasever -Addons
+baseurl=http://centos.ustc.edu.cn/centos/6/addons/$basearch/
+gpgcheck=1
