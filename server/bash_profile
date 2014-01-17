@@ -39,9 +39,3 @@ alias emacsnw="emacs -nw"
 export GREP_OPTIONS='--color=auto'
 
 export TERM=xterm-256color
-
-#keychain ~/.ssh/id_rsa
-#keychain ~/.ssh/id_rsa.github
-#source ~/.keychain/Jade-sh
-
-source ~/.bashrc

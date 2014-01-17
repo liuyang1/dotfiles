@@ -262,7 +262,11 @@ prompt_cmd2(){
     history -a
 }
 PROMPT_COMMAND=prompt_cmd2
-#PS1="\n$REGULAR$BLUE┌[$RED\H$REGULAR:$PINK\w$BLUE]-$ORANGE\${lastval}$BLUE\${fillval}$BLUE┐\n$BLUE└$GREEN\u$BLUE-$WHITE☯$BLUE->$REGULAR"
+FAKE_HOST=tobedefined
+if [ -f ~/.fakehost ]; then
+    . ~/.fakehost
+fi
+PS1="$REGULAR$BLUE┌[$RED$FAKE_HOST$REGULAR:$PINK\w$BLUE]\n$BLUE└$GREEN\u$BLUE-$WHITE☯$BLUE->$REGULAR"
 #PS1="\n$REGULAR$BLUE┌[$RED\H$REGULAR:$PINK\w$BLUE]-$ORANGE\${lastval}$BLUE\${fillval}$RED[\D{%Y-%m-%d %H:%M:%S}$RED]$BLUE┐\n$BLUE└$GREEN\u$BLUE-$WHITE☯$BLUE->$REGULAR"
 PS2="\[\e[31;1m\]  >> \[\e[m\]"
 PS3="\[\e[31;1m\]??>> \[\e[m\]"
