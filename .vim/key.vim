@@ -82,3 +82,12 @@ noremap <Leader>ti  :!ctags-exuberant -R --fields=+iaS --extra=+q . --recurse=no
 
 noremap <Leader>x	:sh<CR>
 nnoremap <Leader>wu :!ftpsync<cr>
+
+function! SwitchRelative()
+    if(&relativenumber == 1)
+        set number
+    else
+        set relativenumber
+    endif
+endfunc
+nnoremap <Leader>f :call SwitchRelative()<cr>
