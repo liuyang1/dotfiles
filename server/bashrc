@@ -193,13 +193,17 @@ alias '...'='cd ../..'
 alias vi='vim'
 alias e='vim'
 alias ls='/bin/ls -hF --color=tty --show-control-chars --time-style=long-iso'
-alias ll='ls -l'
-alias make='colormake'
-alias m='colormake'
-alias mc='colormake clean'
-alias mr='colormake run'
-alias me='colormake edit'
-alias mt='colormake test'
+alias ll='ls -lh'
+if hash colormake 2>/dev/null; then
+    MAKE_CMD=colormake
+else
+    MAKE_CMD=color
+fi
+alias m='$MAKE_CMD'
+alias mc='$MAKE_CMD clean'
+alias mr='$MAKE_CMD run'
+alias me='$MAKE_CMD edit'
+alias mt='$MAKE_CMD test'
 alias mtr='mtr --curses'
 alias python3='/home/liuy/code/open/Python-3.3.0/python'
 alias grep='grep --color'
