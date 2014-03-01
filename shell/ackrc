@@ -3,4 +3,4 @@
 --sort-files
 --type-set=wiki=.wiki
 --type=nohtml
---type-set=txt=.lst,.json,.info,.rst
+--type-set=txt=.lst,.json,.info,.rst,.txt

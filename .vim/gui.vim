@@ -12,3 +12,5 @@ map <silent><F2> :if &guioptions=~# 'T' <Bar>
 		\set guioptions+=T <Bar>
 		\set guioptions+=m <Bar>
 	\endif<cr>
+
+set guifont=Ubuntu\ Mono\ 11

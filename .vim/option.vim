@@ -7,12 +7,12 @@ set number			" how line number
 "autocmd InsertEnter *	:set number
 "autocmd InsertLeave *	:set relativenumber
 
-set noexpandtab
+"set noexpandtab
+set expandtab
+set smarttab
 set shiftwidth=4	" shift width
 set tabstop=4		" tab 4 space
 set softtabstop=4	" soft tab 4 space
-" for python set
-autocmd FileType python setlocal expandtab sta shiftwidth=4 softtabstop=4
 
 " search
 set incsearch
@@ -52,7 +52,7 @@ set matchtime=1		" default 5
 
 " suffiexes file ignore
 set suffixes=,~,.o,.h,.info,.swp,.obj,.gz,.ps,.tar,.aux,.dvi,.bz2,.idx,.pdf
-set wildignore=*.gz,*.bz2,*.tgz,*.tbz,*.zip,*.rar,*.mp3,*.png,*.jpg,*.o,*.obj,*.bak,*.exe
+set wildignore=*.gz,*.bz2,*.tgz,*.tbz,*.zip,*.rar,*.mp3,*.png,*.jpg,*.o,*.obj,*.exe
 
 set startofline		" page down / page up &c, to non-blank of the line
 
@@ -81,7 +81,8 @@ set visualbell
 
 " fold
 set foldenable
-set foldlevel=0		" close all folds. default: 0
+" set foldlevel=0		" close all folds. default: 0
+" set foldmethod=syntax
 
 " encoding
 set encoding=utf-8
@@ -110,5 +111,14 @@ set undofile
 set undodir=~/.vim/undodir
 set undolevels=100
 
-au FileType c	setlocal makeprg=gcc\ %\ -o\ %<
-au FileType cpp setlocal makeprg=g++\ %\ -o\ %<
+" au FileType c			setlocal makeprg=gcc\ %\ -o\ %<
+" au FileType cpp			setlocal makeprg=g++\ %\ -o\ %<
+au FileType scheme		setlocal makeprg=mit-scheme\ --load\ %
+" au FileType scheme		setlocal makeprg=guile\ -s\ %
+au FileType python		setlocal makeprg=time\ python\ %
+
+set listchars=tab:▸\ ,trail:.,extends:>
+"set listchars=tab:>\ ,trail:.,extends:>
+set list!
+
+"set scrolloff=999
