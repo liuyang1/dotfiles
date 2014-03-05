@@ -1,0 +1,17 @@
+# Write your default config options here!
+
+subfont-autoscale=1
+subfont-text-scale=3
+subfont-encoding="unicode"
+# support chinese subtitle
+subcp="cp936"
+alang=Chinese,chi,zh
+slang=Chinese,chi,zh
+
+# support multi-language subtitle
+overlapsub=1
+
+# auto load subtitle
+sub-fuzziness=1
+
+font="/usr/share/fonts/truetype/wqy/wqy-microhei.ttc"
