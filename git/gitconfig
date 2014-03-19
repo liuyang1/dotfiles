@@ -1,7 +1,7 @@
 [color]
 	ui = true
 [alias]
-    st = status
+    st = status -s
 	co = checkout
 	ci = commit -v
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset %Cgreen%cd%Creset - %s %C(yellow)%d%Creset' --abbrev-commit --
