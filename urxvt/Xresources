@@ -1,7 +1,10 @@
 !$HOME/.Xdefaults
-URxvt.preeditType:		Root
+!
+!输入法在左下角根部
+!URxvt.preeditType:		Root
+URxvt.preeditType:		OverTheSpot
 !!调整此处设置输入法
-URxvt.inputMethod:ibus
+URxvt.inputMethod:fcitx
 !!颜色设置
 ! cancel transparent setting to avoid flickering
 URxvt.depth:24
@@ -10,7 +13,8 @@ URxvt.iconFile:			/home/liuy/.config/awesome/terminal.png
 
 ! disable this, to avoid URxvt flicking in AwesomeWM
 !URxvt.inheritPixmap:	True
-!URxvt.transparent:		False
+URxvt.transparent:		False
+!URxvt.shading:          30
 !!中括号内数表示透明度
 !!URL操作
 URxvt.urlLauncher:chromium
@@ -43,10 +47,13 @@ Xft.dpi:96
 !URxvt.boldfont:xft:文泉驿等宽正黑:size=9:style=BOld:antialias=true,xft:文泉驿等宽正黑:size=8:style=Bold:antialias=true
 !URxvt.font:xft:Ubuntu Mono:size=13:style=Regular:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=22:style=Regular:antialias=true
 !URxvt.font:xft:PragmataPro:size=13:style=Regular:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=22:style=Regular:antialias=true
-URxvt.font:xft:Monaco:size=10:style=Regular:antialias=true,xft:SimHei:pixelsize=16:style=Regular:antialias=true
-URxvt.boldfont:xft:Monaco:size=10:style=Bold:antialias=true,xft:SimHei:pixelsize=16:style=Bold:antialias=true
-URxvt.italicfont:xft:Monaco:size=10:style=Italic:antialias=true,xft:SimHei:pixelsize=16:style=Italic:antialias=true
-URxvt.letterSpace:0
+!Monaco
+!Consolas
+URxvt.font:xft:Consolas:size=12:style=Regular:antialias=true,xft:SimHei:pixelsize=16:style=Regular:antialias=true
+URxvt.boldFont:xft:Consolas:size=12:style=Bold:antialias=true,xft:SimHei:pixelsize=16:style=Bold:antialias=true
+URxvt.italicFont:xft:Consolas:size=12:style=Italic:antialias=false,xft:SimHei:pixelsize=16:style=Italic:antialias=true
+URxvt.boldItalicFont:xft:Consolas:size=12:style=BoldItalic:antialias=true,xft:SimHei:pixelsize=16:style=BoldItalic:antialias=true
+URxvt.letterSpace:-1
 
 Xft.antialias:	true
 Xft.rgba:		rgb
@@ -119,12 +126,19 @@ LURxvt*color15:                	#002b36
 
 !! Molokai theme
 MolokaiURxvt*background:		#1B1D1E
-MolokaiURxvt*foreground:		#F8F8F2
-MolokaiURxvt*cursorColor:		#F92672
+!!MolokaiURxvt*foreground:		#F8F8F2
+MolokaiURxvt*foreground:		#fdf6e3
+!!MolokaiURxvt*cursorColor:		#F92672
+MolokaiURxvt*cursorColor:		#66D9EF
+! black
 MolokaiURxvt*color0:			#49483E
+! red
 MolokaiURxvt*color1:			#F92672
+! green
 MolokaiURxvt*color2:			#A6E22E
+! yellow
 MolokaiURxvt*color3:			#FD971F
+! blue
 MolokaiURxvt*color4:			#66D9EF
 MolokaiURxvt*color5:			#AE81FF
 MolokaiURxvt*color6:			#A1EFE4
@@ -164,8 +178,6 @@ MolokaiURxvt*color15:			#F8F8F0
 ! Rxvt.menu:/etc/X11/rxvt.menu
 ! 
 URxvt.perl-ext-common:	...,font-size
-URxvt.keysym.C-Up:		perl:font-size:increase
-URxvt.keysym.C-Down:	perl:font-size:decrease
 URxvt.keysym.C-S-Up:	perl:font-size:incglobal
 URxvt.keysym.C-S-Down:	perl:font-size:decglobal
 URxvt.font-size.step:	1
