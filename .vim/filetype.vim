@@ -12,3 +12,4 @@ autocmd FileType python setlocal expandtab
 " for C/CPP
 set formatprg=uncrustify\ -c\ ~/.uncrustify.cfg\ --no-backup\ 2>/dev/null
 autocmd FileType c map <buffer> <Leader>cc ggVGgq
+autocmd FileType cpp map <buffer> <Leader>cc ggVGgq

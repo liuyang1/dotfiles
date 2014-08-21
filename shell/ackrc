@@ -1,7 +1,6 @@
 --color
 --smart-case
 --sort-files
---pager=less -r
 --type-set=wiki=.wiki
 --type=nohtml
---type-set=txt=.lst,.json,.info,.rst,.txt,.conf
+--type-set=txt=.lst,.json,.info,.rst,.txt,.conf,.list

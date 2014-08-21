@@ -119,7 +119,7 @@ class CustomApplications(Applications):
 				c.flags += 'd'
 				handler = self.either(c,
 						'luakit', 'uzbl', 'vimprobable', 'vimprobable2', 'jumanji',
-						'firefox', 'seamonkey', 'iceweasel', 'opera',
+						'chrome', 'firefox', 'seamonkey', 'iceweasel', 'opera',
 						'surf', 'midori', 'epiphany', 'konqueror')
 				# Only return if some program was found:
 				if handler:
@@ -151,7 +151,7 @@ class CustomApplications(Applications):
 			if f.video:
 				c.flags += 'd'
 			return self.either(c, 'smplayer', 'gmplayer', 'mplayer2',
-					'mplayer', 'vlc', 'totem')
+					'vlc', 'mplayer', 'totem')
 
 		if f.image:
 			if c.mode in (11, 12, 13, 14):

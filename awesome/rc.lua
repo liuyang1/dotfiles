@@ -46,7 +46,7 @@ beautiful.init("/home/liuy/.config/awesome/themes/myfoo/theme.lua")
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
 -- terminal = "urxvt -name LURxvt"
--- terminal = "urxvt -name MolokaiURxvt"
+--terminal = "urxvt -name MolokaiURxvt"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -279,6 +279,18 @@ globalkeys = awful.util.table.join(
               end)
 )
 
+function onlymovetoscreen(c, s)
+    local sel = c or capi.client.focus
+    if sel then
+        local sc = capi.client.focus
+        if not s then
+            s = sel.screen + 1
+        end
+        if s > sc then s = 1 elseif s < 1 then s = sc end
+        sel.screen = s
+    end
+end
+
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
@@ -287,8 +299,9 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "o",      function (c) awful.client.movetoscreen(c, c.screen-1) end),
     awful.key({ modkey,           }, "`",
     function (c)
-        awful.client.movetoscreen(c, c.screen-1)
-        awful.screen.focus_relative_center( 1)
+        awful.client.onlymovetoscreen(c, c.screen - 1)
+        -- awful.client.movetoscreen(c, c.screen-1)
+        -- awful.screen.focus_relative_center( 1)
     end),
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
@@ -429,3 +442,5 @@ end
 
 run_once("nm-applet")
 run_once("yakuake")
+--run_once("dropbox start")
+run_once("fcitx-qimpanel")

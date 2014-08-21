@@ -14,7 +14,7 @@ URxvt.iconFile:			/home/liuy/.config/awesome/terminal.png
 ! disable this, to avoid URxvt flicking in AwesomeWM
 !URxvt.inheritPixmap:	True
 URxvt.transparent:		False
-!URxvt.shading:          30
+URxvt.shading:          30
 !!中括号内数表示透明度
 !!URL操作
 URxvt.urlLauncher:chromium
@@ -49,10 +49,10 @@ Xft.dpi:96
 !URxvt.font:xft:PragmataPro:size=13:style=Regular:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=22:style=Regular:antialias=true
 !Monaco
 !Consolas
-URxvt.font:xft:Consolas:size=12:style=Regular:antialias=true,xft:SimHei:pixelsize=16:style=Regular:antialias=true
-URxvt.boldFont:xft:Consolas:size=12:style=Bold:antialias=true,xft:SimHei:pixelsize=16:style=Bold:antialias=true
-URxvt.italicFont:xft:Consolas:size=12:style=Italic:antialias=false,xft:SimHei:pixelsize=16:style=Italic:antialias=true
-URxvt.boldItalicFont:xft:Consolas:size=12:style=BoldItalic:antialias=true,xft:SimHei:pixelsize=16:style=BoldItalic:antialias=true
+URxvt.font:xft:Consolas:size=12:style=Regular:antialias=true,xft:SimHei:pixelsize=22:style=Regular:antialias=true
+URxvt.boldFont:xft:Consolas:size=12:style=Bold:antialias=true,xft:SimHei:pixelsize=22:style=Bold:antialias=true
+URxvt.italicFont:xft:Consolas:size=12:style=Italic:antialias=false,xft:SimHei:pixelsize=22:style=Italic:antialias=true
+URxvt.boldItalicFont:xft:Consolas:size=12:style=BoldItalic:antialias=true,xft:SimHei:pixelsize=22:style=BoldItalic:antialias=true
 URxvt.letterSpace:-1
 
 Xft.antialias:	true

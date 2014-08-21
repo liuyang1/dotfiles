@@ -1,10 +1,11 @@
 set adjust-open					"width"
-set recolor
-set default-fg					"#121212"
+set default-fg					"#333333"
 set default-bg					"#d0d0d0"
-set recolor-keephue				"true"
+#set recolor
+set recolor-darkcolor			"#cccccc"
+set recolor-lightcolor			"#333333"
 
-set font						"Monaco normal 12"
+set font						"Monaco normal 10"
 
 # key bindings
 unmap j

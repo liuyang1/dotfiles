@@ -30,6 +30,14 @@ let Tlist_Compact_Format=1
 let Tlist_File_Fold_Auto_Close=1
 let tlist_vimwiki_settings='wiki;h:标题'
 
+Bundle 'vim-golang'
+filetype off
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
 source ~/.vim/option.vim
 source ~/.vim/syntax.vim
 source ~/.vim/key.vim
@@ -43,3 +51,11 @@ Bundle 'clarity.vim'
 
 Bundle 'vim-autopep8'
 autocmd FileType python map <buffer> <Leader>cc :call Autopep8()<CR>
+"let g:autopep8_disable_show_diff=1
+
+Bundle 'Align'
+Bundle 'octol/vim-cpp-enhanced-highlight'
+"Bundle 'vim-cpp-enhanced-highlight'
+
+Bundle 'pyflakes.vim'
+let g:pyflakes_use_quickfix=0

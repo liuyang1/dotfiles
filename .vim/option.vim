@@ -122,3 +122,4 @@ set listchars=tab:▸\ ,trail:.,extends:>
 set list!
 
 "set scrolloff=999
+autocmd BufWritePre * :%s/\s\+$//e
