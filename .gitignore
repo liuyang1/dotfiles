@@ -1,2 +1,4 @@
 .vim/bundle/*
 .vim/undodir/*
+morevim/bundle/*
+morevim/undodir/*
