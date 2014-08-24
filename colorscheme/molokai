@@ -1,0 +1,21 @@
+# Molokai theme
+background  = 1B1D1E
+foreground  = FDF6E3
+
+black       = 49483E
+red         = F92672
+green       = A6E22E
+yellow      = FD971F
+blue        = 66D9EF
+purple      = AE81FF
+cyan        = A1EFE4
+white       = F8F8F2
+
+lightblack  = 75715E
+lightred    = FC5C94
+lightgreen  = C1F161
+lightyellow = FEB257
+lightbule   = 8DE6F7
+lightpurple = C2A1FF
+lightcyan   = BBF7EF
+lightwhite  = F8F8F0
