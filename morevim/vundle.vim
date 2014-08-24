@@ -1,6 +1,9 @@
+set nocompatible
+
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'Vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 
 Plugin 'vimwiki'
 let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,br,hr,div,del,code,img'
@@ -28,10 +31,9 @@ Plugin 'Align'
 
 Plugin 'Auto-Pairs'
 
-filetype off
 Plugin 'UltiSnips'
 
-Plugin 'vim-snippets'
+Plugin 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
@@ -46,4 +48,16 @@ let g:syntastic_error_symbol = 'X'
 let g:syntastic_warning_symbol = 'x'
 let g:syntastic_enable_highlighting = 0
 
+Plugin 'slimv.vim'
+let g:lisp_rainbow=1
+let g:scheme_builtin_swank=1
+let g:slimv_ballon=1
+" only add one enter to save sapce and decrease line
+let g:paredit_electric_return=0
+
+Plugin 'liuyang1/vim-autopep8'
+autocmd FileType python map <buffer> <Leader>cc     :call Autopep8()<cr>
+let g:autopep8_disable_show_diff=1
+
 call vundle#end()
+filetype plugin indent on
