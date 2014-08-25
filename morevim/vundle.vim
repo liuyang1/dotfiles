@@ -17,17 +17,23 @@ let g:vimwiki_hl_cb_checked=1
 let g:vimwiki_menu=''
 let g:vimwiki_CJK_length=1
 
-Plugin 'Tagbar'
-let g:tagbar_usearrows = 1
-let g:tagbar_left = 1
-nnoremap <leader>t :TagbarToggle<CR>
-
 Plugin 'a.vim'
 
 Plugin 'ShowMarks7'
 let g:showmarks_include='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 Plugin 'Align'
+Plugin 'AutoAlign'
+
+Plugin 'Tagbar'
+map <leader>tt :TagbarToggle<CR>
+let g:tagbar_left             = 1
+let g:tagbar_autofocus        = 1
+let g:tagbar_compact          = 1
+"relative line number
+let g:tagbar_show_linenumbers = 2
+let g:tagbar_previewwin_pos   = "downright"
+let g:tagbar_autopreview      = 1
 
 Plugin 'Auto-Pairs'
 
