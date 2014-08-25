@@ -12,12 +12,3 @@ installFile(){
 installFile $PWD/root.vim $PREFIX/.vimrc
 installFile $PWD $PREFIX/.vim
 
-echo "update bundle of plugins"
-cd ~/.vim/bundle
-if [ ! -d "Vundle.vim" ]; then
-    echo "check Vundle first"
-    git clone https://github.com/gmarik/Vundle.vim.git
-fi
-
-vim +PluginInstall +qall
-echo "OK"
