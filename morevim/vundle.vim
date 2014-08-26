@@ -49,7 +49,6 @@ highlight SyntasticErrorLine    ctermbg=black
 highlight SyntasticErrorSign    ctermbg=darkgray
 let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_errors = 1
-
 let g:syntastic_error_symbol = 'X'
 let g:syntastic_warning_symbol = 'x'
 let g:syntastic_enable_highlighting = 0
@@ -61,9 +60,15 @@ let g:slimv_ballon=1
 " only add one enter to save sapce and decrease line
 let g:paredit_electric_return=0
 
+" if only use autopep8 as formatprg, also works.
+" then below 3 lines could delete
 Plugin 'liuyang1/vim-autopep8'
 autocmd FileType python map <buffer> <Leader>cc     :call Autopep8()<cr>
 let g:autopep8_disable_show_diff=1
+au FileType python setlocal formatprg=autopep8\ -aa\ -
+
+" TODO: make more test
+" Plugin 'Chiel92/vim-autoformat'
 
 call vundle#end()
 filetype plugin indent on

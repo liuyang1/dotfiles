@@ -13,14 +13,12 @@ autocmd FileType scheme setlocal commentstring=;%s
 
 " for c
 autocmd FileType c      setlocal formatprg=uncrustify\ -c\ ~/.uncrustify.cfg\ --no-backup\ 2>/dev/null
-" autocmd FileType c      setlocal makeprg=gcc\ -o\ %<\ %
 autocmd FileType c      setlocal makeprg=gcc\ %\ &&\ ./a.out
 
 autocmd FileType c      map <buffer> <Leader>cc     ggVGgq
 autocmd FileType c      nnoremap <silent> <Leader>ts  :vsp <cr>:exec("tag ".expand("<cword>"))<cr>
 
 " for cpp
-" autocmd FileType cpp    setlocal makeprg=g++\ -o\ %<\ %
 autocmd FileType cpp    setlocal makeprg=g++\ %\ &&\ ./a.out
 
 
