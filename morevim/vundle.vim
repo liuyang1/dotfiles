@@ -21,6 +21,7 @@ Plugin 'a.vim'
 
 Plugin 'ShowMarks7'
 let g:showmarks_include='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+let g:showmarks_enable=0
 
 Plugin 'Align'
 Plugin 'AutoAlign'
@@ -70,5 +71,19 @@ au FileType python setlocal formatprg=autopep8\ -aa\ -
 " TODO: make more test
 " Plugin 'Chiel92/vim-autoformat'
 
+" Plugin 'minibufexpl.vim'
+" nnoremap <Leader>bb     :TMiniBufExplorer<cr>
+" let g:miniBufExplSplitBelow  = 0
+Plugin 'ctrlp.vim'
+nnoremap <Leader>b      :CtrlPMRUFiles<cr>
+" let g:ctrlp_map             = "<c-p>"
+let g:ctrlp_cmd               = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*.so,*.swp,*.zip,*.gz,*.bz2
+
 call vundle#end()
 filetype plugin indent on
+
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup

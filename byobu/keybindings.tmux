@@ -14,3 +14,4 @@ bind k selectp -U
 bind j selectp -D
 bind h selectp -L
 bind l selectp -R
+bind ; selectp -R
