@@ -45,6 +45,8 @@ set hidden
 
 " status
 set laststatus=2    " always show status line
+set showtabline=2
+set noshowmode      " as powerline plugin already display this info
 
 " modeline
 set showmode    " ???

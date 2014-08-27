@@ -3,3 +3,4 @@
 morevim/bundle/*
 morevim/undodir/*
 morevim/local.vim
+morevim/.netrwhist
