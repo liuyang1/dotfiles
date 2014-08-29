@@ -50,9 +50,12 @@ highlight SyntasticErrorLine    ctermbg=black
 highlight SyntasticErrorSign    ctermbg=darkgray
 let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_errors = 1
-let g:syntastic_error_symbol = 'X'
-let g:syntastic_warning_symbol = 'x'
+let g:syntastic_error_symbol = 'E'
+let g:syntastic_warning_symbol = 'w'
 let g:syntastic_enable_highlighting = 0
+
+let g:syntastic_c_check_header          = 1
+let g:syntastic_c_remove_include_errors = 1
 
 Plugin 'slimv.vim'
 let g:lisp_rainbow=1
@@ -76,9 +79,9 @@ au FileType python setlocal formatprg=autopep8\ -aa\ -
 " let g:miniBufExplSplitBelow  = 0
 Plugin 'ctrlp.vim'
 nnoremap <Leader>b      :CtrlPMRUFiles<cr>
-" let g:ctrlp_map             = "<c-p>"
-let g:ctrlp_cmd               = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_map             = "<c-,>"
+let g:ctrlp_cmd               = 'CtrlPBuffer'
+let g:ctrlp_working_path_mode = 'a'
 set wildignore+=*.so,*.swp,*.zip,*.gz,*.bz2
 
 call vundle#end()
