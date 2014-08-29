@@ -79,10 +79,9 @@ au FileType python setlocal formatprg=autopep8\ -aa\ -
 " let g:miniBufExplSplitBelow  = 0
 Plugin 'ctrlp.vim'
 nnoremap <Leader>b      :CtrlPMRUFiles<cr>
-let g:ctrlp_map             = "<c-,>"
+let g:ctrlp_map               = "<c-,>"
 let g:ctrlp_cmd               = 'CtrlPBuffer'
 let g:ctrlp_working_path_mode = 'a'
-set wildignore+=*.so,*.swp,*.zip,*.gz,*.bz2
 
 call vundle#end()
 filetype plugin indent on
