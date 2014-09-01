@@ -21,7 +21,7 @@ autocmd FileType c      nnoremap <silent> <Leader>ts  :vsp <cr>:exec("tag ".expa
 " for cpp
 autocmd FileType cpp    setlocal formatprg=uncrustify\ -c\ ~/.uncrustify.cfg\ --no-backup\ 2>/dev/null
 autocmd FileType cpp    setlocal makeprg=g++\ %\ &&\ ./a.out
-
+autocmd FileType cpp    nnoremap <Leader>cc     ggVGgq
 
 " for one key compile
 nnoremap <Leader>rr :make<cr>

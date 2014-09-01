@@ -16,9 +16,9 @@ highlight VimwikiHeader4 ctermfg=red
 highlight VimwikiLInk ctermfg=darkblue
 
 highlight cType ctermfg=yellow
-highlight Function ctermfg=lightblue
+highlight Function   ctermfg=lightblue
 highlight Identifier ctermfg=darkyellow
-highlight SpellBad cterm=italic ctermfg=darkred
+highlight SpellBad   cterm=italic       ctermfg=darkred
 
 highlight Statement cterm=bold
 " for listchars

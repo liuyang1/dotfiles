@@ -21,7 +21,7 @@ Plugin 'a.vim'
 
 Plugin 'ShowMarks7'
 let g:showmarks_include='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-let g:showmarks_enable=0
+let g:showmarks_enable=1
 
 Plugin 'Align'
 Plugin 'AutoAlign'
@@ -53,6 +53,7 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_error_symbol = 'E'
 let g:syntastic_warning_symbol = 'w'
 let g:syntastic_enable_highlighting = 0
+let g:syntastic_c_checkers = ['gcc', 'make', 'cppcheck']
 
 let g:syntastic_c_check_header          = 1
 let g:syntastic_c_remove_include_errors = 1
@@ -79,9 +80,9 @@ au FileType python setlocal formatprg=autopep8\ -aa\ -
 " let g:miniBufExplSplitBelow  = 0
 Plugin 'ctrlp.vim'
 nnoremap <Leader>b      :CtrlPMRUFiles<cr>
-let g:ctrlp_map               = "<c-,>"
 let g:ctrlp_cmd               = 'CtrlPBuffer'
 let g:ctrlp_working_path_mode = 'a'
+noremap     ,f          :CtrlPBuffer<cr>
 
 call vundle#end()
 filetype plugin indent on
