@@ -9,13 +9,13 @@ highlight ColorColumn ctermbg=black
 set colorcolumn=81,100
 
 
-highlight VimwikiHeader1 ctermfg=darkred
-highlight VimwikiHeader2 ctermfg=darkyellow
-highlight VimwikiHeader3 ctermfg=darkgreen
+highlight VimwikiHeader1 ctermfg=red
+highlight VimwikiHeader2 ctermfg=yellow
+highlight VimwikiHeader3 ctermfg=green
 highlight VimwikiHeader4 ctermfg=red
-highlight VimwikiLInk ctermfg=darkblue
+highlight VimwikiLink ctermfg=blue
 
-highlight cType ctermfg=yellow
+highlight cType     ctermfg=yellow cterm=None
 highlight Function   ctermfg=lightblue
 highlight Identifier ctermfg=darkyellow
 highlight SpellBad   cterm=italic       ctermfg=darkred
