@@ -24,7 +24,7 @@ let g:showmarks_include='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 let g:showmarks_enable=1
 
 Plugin 'Align'
-Plugin 'AutoAlign'
+"Plugin 'AutoAlign'
 
 Plugin 'Tagbar'
 map <leader>tt :TagbarToggle<CR>

@@ -1,0 +1,93 @@
+From 9d864d6148dd5556741c86db5a0f9961254039a5 Mon Sep 17 00:00:00 2001
+From: liuyang1 <liuyang1@mail.ustc.edu.cn>
+Date: Wed, 3 Sep 2014 09:05:39 +0800
+Subject: [PATCH] add args for va_list and more tight code
+
+---
+ UltiSnips/c.snippets |   20 +++++++-------------
+ snippets/c.snippets  |    5 +++++
+ 2 files changed, 12 insertions(+), 13 deletions(-)
+
+diff --git a/UltiSnips/c.snippets b/UltiSnips/c.snippets
+index e6ea2f9..94b338c 100644
+--- a/UltiSnips/c.snippets
++++ b/UltiSnips/c.snippets
+@@ -46,15 +46,13 @@ int main(int argc, char *argv[])
+ endsnippet
+ 
+ snippet for "for loop (for)"
+-for (${2:i} = 0; $2 < ${1:count}; ${3:++$2})
+-{
++for (${2:i} = 0; $2 < ${1:count}; ${3:++$2}) {
+ 	${VISUAL}${0}
+ }
+ endsnippet
+ 
+ snippet fori "for int loop (fori)"
+-for (${4:int} ${2:i} = 0; $2 < ${1:count}; ${3:++$2})
+-{
++for (${4:int} ${2:i} = 0; $2 < ${1:count}; ${3:++$2}) {
+ 	${VISUAL}${0}
+ }
+ endsnippet
+@@ -64,14 +62,14 @@ enum ${1:name} { $0 };
+ endsnippet
+ 
+ snippet once "Include header once only guard"
+-#ifndef ${1:`!p
++#if !defined(${1:`!p
+ if not snip.c:
+ 	import random, string
+ 	name = re.sub(r'[^A-Za-z0-9]+','_', snip.fn).upper()
+ 	rand = ''.join(random.sample(string.ascii_letters+string.digits, 8))
+ 	snip.rv = ('%s_%s' % (name,rand)).upper()
+ else:
+-	snip.rv = snip.c`}
++	snip.rv = snip.c`})
+ #define $1
+ 
+ ${VISUAL}${0}
+@@ -101,8 +99,7 @@ fprintf(${1:stderr}, "${2:%s}\n"${2/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$3${2/([^%]|%
+ endsnippet
+ 
+ snippet if "if .. (if)"
+-if (${1:/* condition */})
+-{
++if (${1:/* condition */}) {
+ 	${VISUAL}${0}
+ }
+ endsnippet
+@@ -120,12 +117,9 @@ else if (${1:/* condition */}) {
+ endsnippet
+ 
+ snippet ife "if .. else (ife)"
+-if (${1:/* condition */})
+-{
++if (${1:/* condition */}) {
+ 	${2}
+-}
+-else
+-{
++} else {
+ 	${3:/* else */}
+ }
+ endsnippet
+diff --git a/snippets/c.snippets b/snippets/c.snippets
+index 96e19a0..7f12811 100644
+--- a/snippets/c.snippets
++++ b/snippets/c.snippets
+@@ -154,6 +154,11 @@ snippet pr
+ snippet fpr
+ 	fprintf(${1:stderr}, "${2:%s}\n"${3});
+ # getopt
++snippet args
++	va_list args;
++	va_start(args, ${1:format});
++	${2}
++	va_end(args);
+ snippet getopt
+ 	int choice;
+ 	while (1)
+-- 
+1.7.10.4
+
