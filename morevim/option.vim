@@ -150,6 +150,7 @@ augroup END
 " diff mode options
 set diffopt+=iwhite
 
-set tags=./tags;/
+"set tags=./tags;/
+set tags=./TAGS;/
 
 set nospell

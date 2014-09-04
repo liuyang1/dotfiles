@@ -1,3 +1,4 @@
+let g:mapleader = ";"
 source ~/.vim/vundle.vim
 
 source ~/.vim/option.vim
