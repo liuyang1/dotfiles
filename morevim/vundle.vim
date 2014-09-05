@@ -36,6 +36,16 @@ let g:tagbar_show_linenumbers = 2
 let g:tagbar_previewwin_pos   = "downright"
 let g:tagbar_autopreview      = 1
 
+let g:tagbar_type_vimwiki = {
+            \ 'ctagstype':'vimwiki'
+            \ , 'kinds':['h:header']
+            \ , 'sro':'&&&'
+            \ , 'kind2scope':{'h':'header'}
+            \ , 'sort':0
+            \ , 'ctagsbin':'~/.vim/vwtags.py'
+            \ , 'ctagsargs': 'default'
+            \ }
+
 Plugin 'Auto-Pairs'
 
 Plugin 'UltiSnips'
