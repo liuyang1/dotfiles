@@ -99,7 +99,7 @@ set visualbell
 syntax enable
 syntax on
 " fold
-set foldenable
+" set foldenable
 " set foldlevel=0 " close all folds. default: 0
 " set foldmethod=syntax
 
