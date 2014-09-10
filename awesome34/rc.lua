@@ -41,12 +41,12 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/home/liuy/.config/awesome/themes/myfoo/theme.lua")
+beautiful.init("/home/liuyang/.config/awesome/themes/myfoo/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "urxvt"
+-- terminal = "urxvt"
 -- terminal = "urxvt -name LURxvt"
---terminal = "urxvt -name MolokaiURxvt"
+terminal = "urxvt -name MolokaiURxvt"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -248,7 +248,7 @@ globalkeys = awful.util.table.join(
 	awful.key({ modkey,			  }, "b", function () mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible end),
     -- awful.key({ modkey,           }, "u", function () awful.screen.focus_relative( -1) end),
     awful.key({ modkey,           }, "u", function () awful.screen.focus_relative_center( -1) end),
-	awful.key({ modkey,			  }, "i", function () awful.util.spawn("/opt/google/chrome/chrome") end),
+	awful.key({ modkey,			  }, "i", function () awful.util.spawn("firefox") end),
 	awful.key({ modkey, "Shift"   }, "l", function () awful.util.spawn("xlock") end),
 	awful.key({ modkey}, "e", revelation),  -- Insert this line
     -- Standard program
