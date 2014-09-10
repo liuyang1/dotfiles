@@ -49,10 +49,10 @@ Xft.dpi:96
 !URxvt.font:xft:PragmataPro:size=13:style=Regular:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=22:style=Regular:antialias=true
 !Monaco
 !Consolas
-URxvt.font:xft:Consolas:size=12:style=Regular:antialias=true,xft:SimHei:pixelsize=22:style=Regular:antialias=true
-URxvt.boldFont:xft:Consolas:size=12:style=Bold:antialias=true,xft:SimHei:pixelsize=22:style=Bold:antialias=true
-URxvt.italicFont:xft:Consolas:size=12:style=Italic:antialias=false,xft:SimHei:pixelsize=22:style=Italic:antialias=true
-URxvt.boldItalicFont:xft:Consolas:size=12:style=BoldItalic:antialias=true,xft:SimHei:pixelsize=22:style=BoldItalic:antialias=true
+URxvt.font:xft:Ubuntu Mono derivative Powerline:size=12:style=Regular:antialias=true,xft:SimHei:pixelsize=22:style=Regular:antialias=true
+URxvt.boldFont:xft:Ubuntu Mono derivative Powerline:size=12:style=Bold:antialias=true,xft:SimHei:pixelsize=22:style=Bold:antialias=true
+URxvt.italicFont:xft:Ubuntu Mono derivative Powerline:size=12:style=Italic:antialias=false,xft:SimHei:pixelsize=22:style=Italic:antialias=true
+URxvt.boldItalicFont:xft:Ubuntu Mono derivative Powerline:size=12:style=BoldItalic:antialias=true,xft:SimHei:pixelsize=22:style=BoldItalic:antialias=true
 URxvt.letterSpace:-1
 
 Xft.antialias:	true
