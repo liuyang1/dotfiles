@@ -1,0 +1,15 @@
+alias vi="vim"
+alias e="vim"
+alias less='/bin/less -r'
+alias more='less'
+alias ls='ls -hF --color=tty --show-control-chars --time-style=long-iso'
+alias ll="ls -l"
+alias mtr='mtr --curses'
+alias cp='cp -i'
+alias df='df -h'
+alias du='du -h'
+alias ack='ack-grep'
+alias pslurp='parallel-slurp'
+alias hdrsync='parallel-rsync -av -h ~/.ssh/hd.lst'
+alias emacs='emacs -nw'
+alias cmatrix="cmatrix -a -b -s -C blue -u 4"

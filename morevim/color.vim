@@ -6,7 +6,7 @@ colorscheme molokai
 
 highlight Function ctermfg=lightblue
 highlight ColorColumn ctermbg=black
-set colorcolumn=81,100
+autocmd FileType c,cpp  setlocal colorcolumn=81,100
 
 
 highlight VimwikiHeader1 ctermfg=red
@@ -20,6 +20,10 @@ highlight Function   ctermfg=lightblue
 highlight Identifier ctermfg=darkyellow
 highlight SpellBad   cterm=italic       ctermfg=darkred
 
-highlight Statement cterm=bold
+highlight Conditional cterm=italic ctermfg=darkred
+highlight Statement cterm=italic ctermfg=red
 " for listchars
 highlight SpecialKey cterm=none ctermfg=gray
+
+" disable Background color erase
+set t_ut=
