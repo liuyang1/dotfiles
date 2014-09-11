@@ -151,6 +151,6 @@ augroup END
 set diffopt+=iwhite
 
 "set tags=./tags;/
-set tags=./TAGS;/
+set tags=./tags;/
 
 set nospell
