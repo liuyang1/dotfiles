@@ -1,7 +1,8 @@
 # Path to your oh-my-zsh installation.
 ZSH=$HOME/.oh-my-zsh
 
-source ~/.zsh_local
+ZSH_THEME=myagnoster
+[[ -f ~/.zsh_local ]] && source ~/.zsh_local
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -65,9 +66,9 @@ export LANG=en_US.UTF-8
 
 PATH=$PATH:/home/liuy/.local/bin
 
-source ~/.aliases
+[[ -f ~/.aliases ]] && source ~/.aliases
 
-[[ -s /home/liuy/.autojump/etc/profile.d/autojump.sh ]] && source /home/liuy/.autojump/etc/profile.d/autojump.sh
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
 
 # set dircolors colorful completion
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
@@ -157,5 +158,3 @@ setopt nolistambiguous
 setopt interactivecomments
 
 unset GNOME_KEYRING_CONTROL
-
-source ~/.aliases

@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#! /usr/bin/env zsh
 PREFIX=~
 PWD=`pwd`
 
@@ -13,5 +13,6 @@ installFile $PWD/zshrc          $PREFIX/.zshrc
 installFile $PWD/aliases        $PREFIX/.aliases
 installFile $PWD/zshenv         $PREFIX/.zshenv
 installFile $PWD/zsh_local      $PREFIX/.zsh_local
+installFile $PWD/myagnoster.zsh-theme       $PREFIX/.oh-my-zsh/themes/myagnoster.zsh-theme
 
 echo "OK"
