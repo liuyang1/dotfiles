@@ -9,6 +9,6 @@ installFile(){
 	ln -s $1 $2
 }
 
-installFile $PWD/xmodmap			$PREFIX/.xmodmap
+installFile $PWD/Xmodmap			$PREFIX/.Xmodmap
 
 echo "OK"
