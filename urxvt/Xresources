@@ -60,12 +60,13 @@ URxvt.letterSpace:-1
 Xft.antialias:	true
 Xft.rgba:		rgb
 Xft.hinting:	true
-Xft.hintstyle:	histslight
+Xft.hintstyle:	hintslight
+Xft.lcdfilter:  lcddefault
 URxvt.intensityStyles: false
 
 
 !-- Default URxvt (Solarized Dark)
-URxvt*fading:					15
+URxvt*fading:					10
 URxvt*fadeColor:				#002b36
 URxvt*cursorColor:				#93a1a1
 URxvt*pointerColorBackground:	#586e75
