@@ -83,7 +83,12 @@ set nottybuiltin    " search termcaps after the external ones.
 set autoread
 set autowrite
 
-set cursorline  " show current line
+" only show current line at active window
+augroup CursorLine
+    au!
+    au VimEnter,WinEnter,BufWinEnter    * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup END
 " set cursorcolumn
 
 " wild
