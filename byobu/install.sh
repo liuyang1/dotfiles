@@ -15,5 +15,6 @@ installFile $PWD/datetime.tmux $PREFIX/datetime.tmux
 installFile $PWD/keybindings.tmux $PREFIX/keybindings.tmux
 installFile $PWD/powerline.tmux.conf $PREFIX/powerline.tmux.conf
 installFile $PWD/windows.tmux $PREFIX/windows.tmux
+installFile $PWD/backend $PREFIX/backend
 
 echo "OK"
