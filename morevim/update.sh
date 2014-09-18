@@ -24,4 +24,16 @@ addPatch() {
 
 addPatch Align Align.patch
 addPatch slimv.vim slimv.patch
+
+addGitPatch() {
+    tput setaf 1
+    echo add git patch $1 $2
+    tput setaf 7
+    cd bundle $1
+    git am ../../patch/$2
+    cd -
+    echo ok
+}
+
+addPatch ShowMarks7 0001-showmarks7-my-color.patch
 echo "all patch"

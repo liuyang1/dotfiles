@@ -22,6 +22,9 @@ Plugin 'a.vim'
 Plugin 'ShowMarks7'
 let g:showmarks_include='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 let g:showmarks_enable=1
+let g:showmarks_textlower=')'
+let g:showmarks_textupper='>'
+highlight ShowMarksHlu  ctermbg=red ctermfg=green
 
 Plugin 'Align'
 "Plugin 'AutoAlign'
@@ -97,12 +100,32 @@ Plugin 'ctrlp.vim'
 nnoremap <Leader>b      :CtrlPMRUFiles<cr>
 let g:ctrlp_cmd               = 'CtrlPBuffer'
 let g:ctrlp_working_path_mode = 'a'
-noremap     ,f          :CtrlPBuffer<cr>
+noremap     ,f          :CtrlPMRUFiles<cr>
 
+" airline need this to display branch
+Plugin 'tpope/vim-fugitive'
+
+" show git diff mode
+Plugin 'airblade/vim-gitgutter'
+let g:gitgutter_sign_column_always = 1
+
+" Plugin 'bling/vim-bufferline'
+
+Plugin 'bling/vim-airline'
+let g:airline_theme             = 'powerlineish'
+let g:airline_enable_syntastic  = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#empty_message = '[]'
+let g:airline#extensions#tabline#enabled = 1
+
+let g:airline_powerline_fonts   = 1
+" vim-powerline symbols
+" let g:airline_left_sep          = '>'
+" let g:airline_left_alt_sep      = '>'
+" let g:airline_right_sep         = '<'
+" let g:airline_right_alt_sep     = '<'
+" let g:airline_branch_prefix     = 'Br'
+" let g:airline_readonly_symbol   = 'Lk'
+" let g:airline_linecolumn_prefix = 'L/n'
 call vundle#end()
 filetype plugin indent on
-
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-" set rtp+=~/.vim/local/powerline/powerline/bindings/vim
