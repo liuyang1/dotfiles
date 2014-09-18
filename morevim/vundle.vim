@@ -111,6 +111,15 @@ let g:gitgutter_sign_column_always = 1
 
 " Plugin 'bling/vim-bufferline'
 
+Plugin 'edkolev/tmuxline.vim'
+let g:tmuxline_powerline_separators = 1
+" let g:tmuxline_separators = {
+"       \ 'left' : '',
+"       \ 'left_alt': '>',
+"       \ 'right' : '',
+"       \ 'right_alt' : '<',
+"       \ 'space' : ' '}
+
 Plugin 'bling/vim-airline'
 let g:airline_theme             = 'powerlineish'
 let g:airline_enable_syntastic  = 1
