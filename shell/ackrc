@@ -2,5 +2,6 @@
 --smart-case
 --sort-files
 --type-set=wiki=.wiki
+--type-set=makefile=.mak,.mk
 --type=nohtml
 --type-set=txt=.lst,.json,.info,.rst,.txt,.conf,.list,.log,.idl

@@ -23,6 +23,8 @@ autocmd FileType cpp    setlocal formatprg=uncrustify\ -c\ ~/.uncrustify.cfg\ --
 autocmd FileType cpp    setlocal makeprg=g++\ %\ &&\ ./a.out
 autocmd FileType cpp    nnoremap <Leader>cc     ggVGgq
 
+autocmd FileType sh     setlocal makeprg=sh\ %
+autocmd FileType make   setlocal makeprg=make\ -f\ %
 " for one key compile
 nnoremap <Leader>rr :make<cr>
 vnoremap <Leader>rr <C-C>:make<cr>
