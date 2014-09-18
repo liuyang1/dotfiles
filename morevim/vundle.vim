@@ -112,6 +112,16 @@ let g:gitgutter_sign_column_always = 1
 " Plugin 'bling/vim-bufferline'
 
 Plugin 'edkolev/tmuxline.vim'
+let g:tmuxline_preset = {
+      \'a'       : ['#S', '#(whoami)'],
+      \'b'       : '#H',
+      \'c'       : '#F',
+      \'win'     : ['#I #W'],
+      \'cwin'    : '#I #W',
+      \'x'       : '',
+      \'y'       : '#(pwd)',
+      \'z'       : ['%R', '%m-%d %a', '%Y'],
+      \'options' : {'status-justify' : 'left'}}
 let g:tmuxline_powerline_separators = 1
 " let g:tmuxline_separators = {
 "       \ 'left' : '',
