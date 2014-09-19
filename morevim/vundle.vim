@@ -113,14 +113,14 @@ let g:gitgutter_sign_column_always = 1
 
 Plugin 'edkolev/tmuxline.vim'
 let g:tmuxline_preset = {
-      \'a'       : ['#S', '#(whoami)'],
-      \'b'       : '#H',
-      \'c'       : '#F',
-      \'win'     : ['#I #W'],
-      \'cwin'    : '#I #W',
+      \'a'       : ['#(whoami)', '#h'],
+      \'b'       : 'Ss:#S',
+      \'c'       : '',
+      \'win'     : ['#I #W #F'],
+      \'cwin'    : '#I #W #F',
       \'x'       : '',
-      \'y'       : '#(pwd)',
-      \'z'       : ['%R', '%m-%d %a', '%Y'],
+      \'y'       : '',
+      \'z'       : ['%R', '%m-%d %a'],
       \'options' : {'status-justify' : 'left'}}
 let g:tmuxline_powerline_separators = 1
 " let g:tmuxline_separators = {
@@ -136,6 +136,7 @@ let g:airline_enable_syntastic  = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = '[]'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tmuxline#enabled = 1
 
 let g:airline_powerline_fonts   = 1
 " vim-powerline symbols
