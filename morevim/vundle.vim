@@ -116,8 +116,8 @@ let g:tmuxline_preset = {
       \'a'       : ['#(whoami)', '#h'],
       \'b'       : 'Ss:#S',
       \'c'       : '',
-      \'win'     : ['#I #W #F'],
-      \'cwin'    : '#I #W #F',
+      \'win'     : ['#I#F', '#W'],
+      \'cwin'    : ['#I#F', '#W'],
       \'x'       : '',
       \'y'       : '',
       \'z'       : ['%R', '%m-%d %a'],
@@ -136,7 +136,7 @@ let g:airline_enable_syntastic  = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = '[]'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tmuxline#enabled = 1
+let g:airline#extensions#tmuxline#enabled = 0
 
 let g:airline_powerline_fonts   = 1
 " vim-powerline symbols
