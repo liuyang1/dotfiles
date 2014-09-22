@@ -147,5 +147,7 @@ let g:airline_powerline_fonts   = 1
 " let g:airline_branch_prefix     = 'Br'
 " let g:airline_readonly_symbol   = 'Lk'
 " let g:airline_linecolumn_prefix = 'L/n'
+
+Plugin 'Python-mode-klen'
 call vundle#end()
 filetype plugin indent on
