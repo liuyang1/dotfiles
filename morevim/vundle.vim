@@ -107,9 +107,13 @@ Plugin 'tpope/vim-fugitive'
 
 " show git diff mode
 Plugin 'airblade/vim-gitgutter'
+" when stop typing
 let g:gitgutter_realtime = 0
-let g:gitgutter_eager = 0
+" when switch buffer, tab, focus GUI
+let g:gitgutter_eager = 1
 let g:gitgutter_sign_column_always = 1
+nmap ]a     <Plug>GitGutterStageHunk
+nmap ]u     <Plug>GitGutterRevertHunk
 
 " Plugin 'bling/vim-bufferline'
 
