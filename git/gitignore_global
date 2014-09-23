@@ -72,3 +72,12 @@ gmon.*
 *.flow
 *.fasl
 *.expect
+prebuilds/*
+*.taghl
+tags
+TAGS
+*.bin
+
+*.syntastic*
+build_log/*
+.ropeproject
