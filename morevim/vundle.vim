@@ -151,5 +151,6 @@ let g:airline_powerline_fonts   = 1
 " let g:airline_linecolumn_prefix = 'L/n'
 
 Plugin 'Python-mode-klen'
+let g:pymode_folding = 0
 call vundle#end()
 filetype plugin indent on
