@@ -42,7 +42,7 @@ URxvt.borderLess:		False
 URxvt.internalBorder:	0
 URxvt.externalBorder:	0
 
-URxvt.underlineColor:   yellow
+URxvt.underlineColor:   gray
 !!字体设置
 Xft.dpi:96
 !URxvt.font:xft:文泉驿等宽正黑:size=9:style=Regular:antialias=true,xft:文泉驿等宽正黑:size=8:style=Regular:antialias=true
