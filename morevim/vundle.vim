@@ -86,7 +86,7 @@ let g:paredit_electric_return=0
 " if only use autopep8 as formatprg, also works.
 " then below 3 lines could delete
 Plugin 'liuyang1/vim-autopep8'
-autocmd FileType python map <buffer> <Leader>cc     :call Autopep8()<cr>
+autocmd FileType python map <buffer> <Leader>vv     :call Autopep8()<cr>
 let g:autopep8_disable_show_diff=1
 au FileType python setlocal formatprg=autopep8\ -aa\ -
 
@@ -156,5 +156,8 @@ let g:airline_powerline_fonts   = 1
 
 Plugin 'Python-mode-klen'
 let g:pymode_folding = 0
+
+Plugin 'The-NERD-Commenter'
+let NERDShutUp=1
 call vundle#end()
 filetype plugin indent on
