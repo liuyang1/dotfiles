@@ -159,5 +159,8 @@ let g:pymode_folding = 0
 
 Plugin 'The-NERD-Commenter'
 let NERDShutUp=1
+
+Plugin 'autoload_cscope.vim'
+Plugin 'cscope.vim'
 call vundle#end()
 filetype plugin indent on
