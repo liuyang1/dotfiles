@@ -125,8 +125,8 @@ let g:tmuxline_preset = {
       \'win'     : ['#I#F', '#W'],
       \'cwin'    : ['#I#F', '#W'],
       \'x'       : '',
-      \'y'       : '#(tmux-mem-cpu-load)',
-      \'z'       : ['%R', '%m-%d %a'],
+      \'y'       : '#(tmux-mem-cpu-load 1)',
+      \'z'       : ['%R:%S', '%m-%d %a'],
       \'options' : {'status-justify' : 'left'}}
 let g:tmuxline_powerline_separators = 1
 " let g:tmuxline_separators = {

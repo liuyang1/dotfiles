@@ -155,8 +155,8 @@ augroup END
 " diff mode options
 set diffopt+=iwhite
 
-"set tags=./tags;/
 set tags=./tags;/
+map <C-i>     :tjump <c-r><C-w><cr>
 
 set nospell
 

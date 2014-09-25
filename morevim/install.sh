@@ -11,4 +11,4 @@ installFile(){
 
 installFile $PWD/root.vim $PREFIX/.vimrc
 installFile $PWD $PREFIX/.vim
-
+installFile $PWD/ctags      $PREFIX/.ctags
