@@ -31,6 +31,6 @@ endif
 highlight SpecialKey cterm=none ctermfg=gray
 
 " disable Background color erase
-set t_ut=
+"set t_ut=
 
 highlight CursorLine ctermbg=black
