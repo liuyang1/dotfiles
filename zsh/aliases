@@ -18,4 +18,4 @@ alias pslurp='parallel-slurp'
 alias hdrsync='parallel-rsync -av -h ~/.ssh/hd.lst'
 alias emacs='emacs -nw'
 alias cmatrix="cmatrix -a -b -s -C blue -u 4"
-alias ta="tmux attach"
+alias ta="tmux attach || tmux new"
