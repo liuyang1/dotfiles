@@ -54,9 +54,6 @@ Plugin 'Auto-Pairs'
 Plugin 'UltiSnips'
 
 Plugin 'honza/vim-snippets'
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 Plugin 'Syntastic'
 highlight SyntasticErrorLine    ctermbg=black
@@ -70,8 +67,8 @@ let g:syntastic_style_warning_symbol = 's'
 let g:syntastic_enable_highlighting = 0
 let g:syntastic_c_checkers = ['gcc']
 "let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_loc_list_height = 5
 
 let g:syntastic_c_check_header          = 1
 let g:syntastic_c_remove_include_errors = 1
@@ -158,10 +155,40 @@ Plugin 'Python-mode-klen'
 let g:pymode_folding = 0
 
 " Plugin 'The-NERD-Commenter'
+" let NERDShutUp=1
 Plugin 'tomtom/tcomment_vim'
-let NERDShutUp=1
 
-Plugin 'autoload_cscope.vim'
-Plugin 'cscope.vim'
+" Plugin 'autoload_cscope.vim'
+" Plugin 'cscope.vim'
+
+Plugin 'Valloric/YouCompleteMe'
+nnoremap <C-i>      :YcmCompleter GoToDefinitionElseDeclaration<CR>
+set completeopt=longest,menu
+autocmd InsertLeave *   if pumvisible()==0|pclose|endif
+" inoremap <expr> <cr>    pumvisible() ? "\<C-y>":"\<cr>"
+let g:ycm_confirm_extra_conf=0
+let g:ycm_min_num_of_chars_for_completeion=3
+let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_complete_in_comments=1
+let g:ycm_collect_identifiers_from_comments_and_strings=1
+let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+
+Plugin 'ervandew/supertab'
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-j>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" this mapping Enter key to <C-y> to chose the current highlight item
+" and close the selection list, same as other IDEs.
+" CONFLICT with some plugins like tpope/Endwise
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 call vundle#end()
 filetype plugin indent on

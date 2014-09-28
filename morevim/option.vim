@@ -156,7 +156,7 @@ augroup END
 set diffopt+=iwhite
 
 set tags=./tags;/
-map <C-i>     :tjump <c-r><C-w><cr>
+" map <C-i>     :tjump <c-r><C-w><cr>
 
 set nospell
 

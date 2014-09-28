@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-PREFIX=~/
+PREFIX=~
 PWD=`pwd`
 
 installFile(){
@@ -9,6 +9,7 @@ installFile(){
 	ln -s $1 $2
 }
 
-installFile $PWD/root.vim $PREFIX/.vimrc
-installFile $PWD $PREFIX/.vim
-installFile $PWD/ctags      $PREFIX/.ctags
+installFile $PWD/root.vim           $PREFIX/.vimrc
+installFile $PWD                    $PREFIX/.vim
+installFile $PWD/ctags              $PREFIX/.ctags
+installFile $PWD/ycm_extra_conf.py  $PREFIX/.ycm_extra_conf.py
