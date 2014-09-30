@@ -114,6 +114,9 @@ bindkey -v
 bindkey '^R' history-incremental-search-backward
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
+# as page up page down
+bindkey '\e[5~' history-search-backward
+bindkey '\e[6~' history-search-forward
 bindkey "\e[3~" delete-char
 # VT
 bindkey "\e[1~" beginning-of-line
