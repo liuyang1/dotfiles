@@ -165,6 +165,10 @@ if !exists("my_auto_commands_autoloaded")
     let my_auto_commands_autoloaded = 1
     let g:LargeFile = 1024 * 1024 * 1
     augroup LargeFile
-        autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) > g:LargeFile | setlocal bufhidden=unload buftype=nowrite | else | set eventignore-=FileType | endif
+        autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) > g:LargeFile | setlocal bufhidden=unload | else | set eventignore-=FileType | endif
     augroup END
 endif
+
+set completeopt+=preview
+
+set noreadonly

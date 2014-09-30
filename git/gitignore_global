@@ -81,3 +81,4 @@ TAGS
 *.syntastic*
 build_log/*
 .ropeproject
+.ycm_extra_conf.py

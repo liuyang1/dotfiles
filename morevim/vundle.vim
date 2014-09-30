@@ -105,7 +105,7 @@ Plugin 'tpope/vim-fugitive'
 " show git diff mode
 Plugin 'airblade/vim-gitgutter'
 " when stop typing
-let g:gitgutter_realtime = 0
+let g:gitgutter_realtime = 1
 " when switch buffer, tab, focus GUI
 let g:gitgutter_eager = 1
 let g:gitgutter_sign_column_always = 1
@@ -113,6 +113,7 @@ nmap ]a     <Plug>GitGutterStageHunk
 nmap [a     <Plug>GitGutterStageHunk
 nmap ]r     <Plug>GitGutterRevertHunk
 nmap [r     <Plug>GitGutterRevertHunk
+let g:gitgutter_highlight_lines = 1
 
 " Plugin 'bling/vim-bufferline'
 
@@ -174,6 +175,7 @@ let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_complete_in_comments=1
 let g:ycm_collect_identifiers_from_comments_and_strings=1
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+let g:ycm_always_populate_location_list = 1
 
 Plugin 'ervandew/supertab'
 
@@ -211,5 +213,6 @@ let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 0
 
+Plugin 'EasyMotion'
 call vundle#end()
 filetype plugin indent on
