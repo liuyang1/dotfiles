@@ -110,7 +110,9 @@ let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 1
 let g:gitgutter_sign_column_always = 1
 nmap ]a     <Plug>GitGutterStageHunk
-nmap ]u     <Plug>GitGutterRevertHunk
+nmap [a     <Plug>GitGutterStageHunk
+nmap ]r     <Plug>GitGutterRevertHunk
+nmap [r     <Plug>GitGutterRevertHunk
 
 " Plugin 'bling/vim-bufferline'
 
@@ -151,8 +153,8 @@ let g:airline_powerline_fonts   = 1
 " let g:airline_readonly_symbol   = 'Lk'
 " let g:airline_linecolumn_prefix = 'L/n'
 
-Plugin 'Python-mode-klen'
-let g:pymode_folding = 0
+" Plugin 'Python-mode-klen'
+" let g:pymode_folding = 0
 
 " Plugin 'The-NERD-Commenter'
 " let NERDShutUp=1
@@ -203,7 +205,6 @@ let g:ycm_filetype_blacklist = {
       \ 'infolog' : 1,
       \ 'mail' : 1
       \}
-}
 
 let g:ycm_collect_identifiers_from_tags_files = 0
 let g:ycm_add_preview_to_completeopt = 1
