@@ -1,6 +1,6 @@
 filetype plugin on
 
-autocmd FileType python setlocal makeprg=time\ python\ %
+autocmd FileType python setlocal makeprg=time\ python2\ %
 
 autocmd BufNewFile,BufRead Makefrag setf make
 autocmd FileType make   setlocal noexpandtab

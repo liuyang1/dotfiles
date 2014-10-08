@@ -57,6 +57,8 @@ URxvt.italicFont:xft:Ubuntu Mono derivative Powerline:size=12:style=Italic:antia
 URxvt.boldItalicFont:xft:Ubuntu Mono derivative Powerline:size=12:style=BoldItalic:antialias=true,xft:SimHei:pixelsize=22:style=BoldItalic:antialias=true
 URxvt.letterSpace:-1
 
+URxvt*loginShell: false
+
 Xft.antialias:	true
 Xft.rgba:		rgb
 Xft.hinting:	true
