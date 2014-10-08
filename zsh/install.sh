@@ -15,13 +15,15 @@ installFile $PWD/zshenv         $PREFIX/.zshenv
 installFile $PWD/zsh_local      $PREFIX/.zsh_local
 
 ZSH=$PREFIX/.oh-my-zsh
-ZSH_THEME_PATH=$ZSH/theme
+ZSH_THEME_PATH=$ZSH/themes
 ZSH_PLUGIN_PATH=$ZSH/custom/plugins
 if [[ ! -d $ZSH ]];
 then
     echo "oh my zsh theme not in defualt path! setting it yourself"
 else
-    installFile $PWD/myagnoster.zsh-theme       $PREFIX/.oh-my-zsh/themes/myagnoster.zsh-theme
+    installFile $PWD/myagnoster.zsh-theme       $ZSH_THEME_PATH/myagnoster.zsh-theme
+    installFile $PWD/fast-agnoster.zsh-theme    $ZSH_THEME_PATH/fast-agnoster.zsh-theme
+    installFile $PWD/gitstatus.py               $ZSH_THEME_PATH/gitstatus.py
     cd $ZSH_PLUGIN_PATH
     git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 fi
