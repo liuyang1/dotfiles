@@ -22,6 +22,8 @@ def probeBranch(s):
     if s.startswith(initialHead):
         return s[len(initialHead):], None
     br = s.split("...")
+    if len(br) == 1:
+        br.append("")
     return br
 
 
@@ -54,7 +56,7 @@ def probeLines(lines):
         elif X is "U" and Y is "U":
             mlModify += 1
             mrMofidy += 1
-        if X is " ":
+        if X is " " or X is "M":
             if Y is "M":
                 uModify += 1
             elif Y is "D":
@@ -70,7 +72,6 @@ def probeLines(lines):
         elif X is "C":
             Copied += 1
     return Untrack, uModify, uDelete, Modify, Add, Delete, Rename, Copied
-
 
 
 if __name__ == "__main__":

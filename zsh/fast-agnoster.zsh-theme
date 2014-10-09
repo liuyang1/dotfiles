@@ -56,8 +56,11 @@ function chpwd_update_git_vars() {
   update_current_git_vars
 }
 function preexec_update_git_vars() {
-  case "$2"
-    in git*|hub*|gh*|stg*)
+  case "$2" in
+    git*|hub*|gh*|stg*)
+      __EXECUTED_GIT_COMMAND=1
+      ;;
+    rm*|touch*)
       __EXECUTED_GIT_COMMAND=1
       ;;
   esac
@@ -67,9 +70,6 @@ function precmd_update_git_vars() {
     update_current_git_vars
     unset __EXECUTED_GIT_COMMAND
   fi
-}
-function chpwd_update_git_vars() {
-  update_current_git_vars
 }
 
 function update_current_git_vars() {
@@ -100,13 +100,13 @@ add-zsh-hook precmd precmd_update_git_vars
 prompt_fast_git() {
   if [[ -n "$__CURRENT_GIT_STATUS" ]]; then
     STATUS=" $GIT_BRANCH"
-    if [[ "${GIT_Remote}" != "origin/master" ]]; then
+    if [[ "${GIT_Remote}" != "origin/master" && "${GIT_Remote}" != '' ]]; then
       # STATUS="$STATUS<'$GIT_Remote"
-      STATUS="$STATUS☁'$GIT_Remote"
+      STATUS="$STATUS☁$GIT_Remote"
     fi
     if [[ "$GIT_Modify" -ne "0" ]]; then
       # STAGE_STATUS="$STAGE_STATUS%{$fg[black]%}~$GIT_Modify"
-      STAGE_STATUS="$STAGE_STATUS%{$fg[black]%}±$GIT_Modify"
+      STAGE_STATUS="$STAGE_STATUS%{$fg[black]%}*$GIT_Modify"
       _STAGE=1
     fi
     if [[ "$GIT_Add" -ne "0" ]]; then
@@ -115,20 +115,22 @@ prompt_fast_git() {
     fi
     if [[ "$GIT_Delete" -ne "0" ]]; then
       # STAGE_STATUS="$STAGE_STATUS%{$fg[black]%}-$GIT_Delete"
-      STAGE_STATUS="$STAGE_STATUS%{$fg[black]%}✖%$GIT_Delete"
+      STAGE_STATUS="$STAGE_STATUS%{$fg[black]%}X$GIT_Delete"
       _STAGE=1
     fi
     if [[ "$GIT_UModify" -ne "0" ]]; then
       # DIRTY_STATUS="$DIRTY_STATUS%{$fg_bold[gray]%}~$GIT_UModify"
-      DIRTY_STATUS="$DIRTY_STATUS%{$fg_bold[gray]%}±$GIT_UModify"
+      DIRTY_STATUS="$DIRTY_STATUS%{$fg_bold[gray]%}*$GIT_UModify"
       _DIRTY=2
     fi
     if [[ "$GIT_UDelete" -ne "0" ]]; then
-      DIRTY_STATUS="$DIRTY_STATUS%{$fg_bold[gray]%}✖%$GIT_UDelete"
+      DIRTY_STATUS="$DIRTY_STATUS%{$fg_bold[gray]%}X$GIT_UDelete"
       _DIRTY=2
     fi
     if [[ $GIT_Untrack -ne "0" ]]; then
-      DIRTY_STATUS="$DIRTY_STATUS%{$fg_bold[gray]%}?$GIT_Untrack"
+      # DIRTY_STATUS="$DIRTY_STATUS%{$fg_bold[gray]%}?$GIT_Untrack"
+      DIRTY_STATUS="$DIRTY_STATUS%{$fg_bold[gray]%}⋯"
+      # DIRTY_STATUS="$DIRTY_STATUS%{$fg_bold[gray]%}…"
       _DIRTY=2
     fi
     if [[ -n "$_DIRTY" ]]; then
@@ -165,7 +167,7 @@ prompt_virtualenv() {
 prompt_status() {
   local symbols
   symbols=()
-  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘"
+  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}X"
   [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
 

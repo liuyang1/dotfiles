@@ -26,6 +26,7 @@ else
     installFile $PWD/gitstatus.py               $ZSH_THEME_PATH/gitstatus.py
     cd $ZSH_PLUGIN_PATH
     git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+    git clone git://github.com/zsh-users/zsh-history-substring-search.git
 fi
 
 echo "OK"

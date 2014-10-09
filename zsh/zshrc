@@ -47,7 +47,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(python zsh-syntax-highlighting themes pip)
+plugins=(python zsh-syntax-highlighting themes pip zsh-history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct
@@ -135,6 +135,11 @@ bindkey "\e[4~" end-of-line
 bindkey "\eOH" beginning-of-line
 bindkey "\eOF" end-of-line
 
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]"  history-search-backward
+bindkey "$terminfo[kcud1]"  history-search-forward
+bindkey -M vicmd 'k'        history-substring-search-up
+bindkey -M vicmd 'j'        history-substring-search-down
 set completion-ignore-case on
 
 export GREP_OPTIONS='--color=auto'
@@ -169,4 +174,4 @@ settitle() {
     fi
 }
 
-settitle "untitled"
+# settitle "untitled"
