@@ -1,4 +1,5 @@
 #! /usr/ibn/env python2
+# -*- encoding=utf-8 -*-
 from __future__ import print_function
 import sys
 
@@ -17,18 +18,33 @@ def getGitStat():
 
 
 def probeBranch(s):
+    br, rmt, head, behind = "", "", 0, 0
     s = s[3:]
     initialHead = "Initial commit on "
     if s.startswith(initialHead):
-        return s[len(initialHead):], None
-    br = s.split("...")
-    return br
+        br = "Init"
+        return br, rmt, head, behind
+    br, rmt = s.split("...")
+    rmt = rmt.split()[0]
+
+    def getNumber(s, prefix, suffix):
+        head = s.find(prefix)
+        if head is -1:
+            return 0
+        head += len(prefix)
+        tail = s.find(suffix, head)
+        if tail is -1:
+            return 0
+        sub = s[head:tail]
+        return int(sub)
+    head = getNumber(s, "[ahead ", "]")
+    behind = getNumber(s, "[behind ", "]")
+    return br, rmt, head, behind
 
 
 def probeLines(lines):
     Untrack, uModify, uDelete = 0, 0, 0
-    Modify, Add, Delete, Rename, Copied = 0, 0, 0, 0, 0
-    mlDelete, mrDelete, mlAdd, mrAdd, mlModify, mrMofidy = 0, 0, 0, 0, 0, 0
+    Modify, Add, Delete = 0, 0, 0
     for line in lines:
         if line is "":
             continue
@@ -37,23 +53,6 @@ def probeLines(lines):
             Untrack += 1
         elif X is "!":
             continue
-        elif X is "D" and Y is "D":
-            mlDelete += 1
-            mrDelete += 1
-        elif X is "A" and Y is "U":
-            mlAdd += 1
-        elif X is "U" and Y is "D":
-            mrDelete += 1
-        elif X is "U" and Y is "A":
-            mrAdd += 1
-        elif X is "D" and Y is "U":
-            mlDelete += 1
-        elif X is "A" and Y is "A":
-            mlAdd += 1
-            mrAdd += 1
-        elif X is "U" and Y is "U":
-            mlModify += 1
-            mrMofidy += 1
         if X is " ":
             if Y is "M":
                 uModify += 1
@@ -65,20 +64,64 @@ def probeLines(lines):
             Add += 1
         elif X is "D":
             Delete += 1
-        elif X is "R":
-            Rename += 1
-        elif X is "C":
-            Copied += 1
-    return Untrack, uModify, uDelete, Modify, Add, Delete, Rename, Copied
+    return (Modify, Add, Delete), (uModify, uDelete, Untrack)
 
+
+class RepoSt:
+    clean, unsync, stage, dirty = range(4)
+
+
+def NotZero(v, sym=""):
+    return sym + str(v) if v is not 0 else ""
+
+
+def fmtBranch(brRet):
+    br, rmt, head, behind = brRet
+    s = "" + br
+    if rmt != "origin/master" and rmt is not "":
+        s += "☁" + rmt
+    s += NotZero(head, ">")
+    s += NotZero(behind, "<")
+    status = RepoSt.unsync if head is not 0 or behind is not 0 else RepoSt.clean
+    return s, status
+
+
+def fmtStage(num):
+    s = ""
+    Modify, Add, Delete = num
+    symbol = ["*", "+", "X"]
+    status = RepoSt.stage if sum(num) is not 0 else RepoSt.clean
+    for v, sym in zip(num, symbol):
+        s += NotZero(v, sym)
+    return s, status
+
+
+def fmtDirty(num):
+    s = ""
+    uModify, uDelete, Untrack = num
+    symbol = ["*", "x", "."]
+    status = RepoSt.dirty if sum(num) is not 0 else RepoSt.clean
+    for v, sym in zip(num, symbol):
+        s += NotZero(v, sym)
+    return s, status
+
+
+def combSeg(br, stage, dirty):
+    arr = (fmtBranch(br), fmtStage(stage), fmtDirty(dirty))
+    seg, st = zip(*arr)
+    def NotNull(v, sym=""):
+        return sym + str(v) if v != "" else ""
+    s = seg[0]
+    s += NotNull(seg[1], " ")
+    s += NotNull(seg[2], "●")
+    return s, max(st)
 
 
 if __name__ == "__main__":
     stat = getGitStat()
     lines = stat.split('\n')
     br = probeBranch(lines[0])
-    for i in br:
-        print(i)
-    num = probeLines(lines[1:])
-    for i in num:
+    stage, dirty = probeLines(lines[1:])
+    ret = combSeg(br, stage, dirty)
+    for i in ret:
         print(i)
