@@ -18,6 +18,14 @@ def getGitStat():
 
 
 def probeBranch(s):
+    """
+    >>> probeBranch('## 7094...c [ahead 1]')
+    ('7094', 'c', 1, 0)
+    >>> probeBranch('## HEAD (no branch)')
+    ('HEAD (no branch)', '', 0, 0)
+    >>> probeBranch('## 7094...c [ahead 1, behind 1]')
+    ('7094', 'c', 1, 1)
+    """
     br, rmt, head, behind = "", "", 0, 0
     s = s[3:]
     initialHead = "Initial commit on "
@@ -134,7 +142,7 @@ def combSeg(br, stage, dirty):
     return s, max(st)
 
 
-if __name__ == "__main__":
+def main():
     stat = getGitStat()
     lines = stat.split('\n')
     br = probeBranch(lines[0])
@@ -142,3 +150,7 @@ if __name__ == "__main__":
     ret = combSeg(br, stage, dirty)
     for i in ret:
         print(i)
+
+
+if __name__ == "__main__":
+    main()
