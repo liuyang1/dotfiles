@@ -60,7 +60,10 @@ function preexec_update_git_vars() {
     git*|hub*|gh*|stg*)
       __EXECUTED_GIT_COMMAND=1
       ;;
-    rm*|touch*)
+    rm*|touch*|mv*)
+      __EXECUTED_GIT_COMMAND=1
+      ;;
+    vi*|emacs*)
       __EXECUTED_GIT_COMMAND=1
       ;;
   esac
@@ -80,16 +83,8 @@ function update_current_git_vars() {
   echo $gitstatus >> /tmp/t
   echo $_GIT_STATUS >> /tmp/t
   echo $__CURRENT_GIT_STATUS >> /tmp/t
-  GIT_BRANCH=$__CURRENT_GIT_STATUS[1]
-  GIT_Remote=$__CURRENT_GIT_STATUS[2]
-  GIT_Untrack=$__CURRENT_GIT_STATUS[3]
-  GIT_UModify=$__CURRENT_GIT_STATUS[4]
-  GIT_UDelete=$__CURRENT_GIT_STATUS[5]
-  GIT_Modify=$__CURRENT_GIT_STATUS[6]
-  GIT_Add=$__CURRENT_GIT_STATUS[7]
-  GIT_Delete=$__CURRENT_GIT_STATUS[8]
-  GIT_Rename=$__CURRENT_GIT_STATUS[9]
-  GIT_Copied=$__CURRENT_GIT_STATUS[10]
+  GIT_Message=$__CURRENT_GIT_STATUS[1]
+  GIT_Status=$__CURRENT_GIT_STATUS[2]
 }
 autoload -U add-zsh-hook
 
@@ -99,51 +94,14 @@ add-zsh-hook precmd precmd_update_git_vars
 
 prompt_fast_git() {
   if [[ -n "$__CURRENT_GIT_STATUS" ]]; then
-    STATUS=" $GIT_BRANCH"
-    if [[ "${GIT_Remote}" != "origin/master" && "${GIT_Remote}" != '' ]]; then
-      # STATUS="$STATUS<'$GIT_Remote"
-      STATUS="$STATUS☁$GIT_Remote"
-    fi
-    if [[ "$GIT_Modify" -ne "0" ]]; then
-      # STAGE_STATUS="$STAGE_STATUS%{$fg[black]%}~$GIT_Modify"
-      STAGE_STATUS="$STAGE_STATUS%{$fg[black]%}*$GIT_Modify"
-      _STAGE=1
-    fi
-    if [[ "$GIT_Add" -ne "0" ]]; then
-      STAGE_STATUS="$STAGE_STATUS%{$fg[black]%}+$GIT_Add"
-      _STAGE=1
-    fi
-    if [[ "$GIT_Delete" -ne "0" ]]; then
-      # STAGE_STATUS="$STAGE_STATUS%{$fg[black]%}-$GIT_Delete"
-      STAGE_STATUS="$STAGE_STATUS%{$fg[black]%}X$GIT_Delete"
-      _STAGE=1
-    fi
-    if [[ "$GIT_UModify" -ne "0" ]]; then
-      # DIRTY_STATUS="$DIRTY_STATUS%{$fg_bold[gray]%}~$GIT_UModify"
-      DIRTY_STATUS="$DIRTY_STATUS%{$fg_bold[gray]%}*$GIT_UModify"
-      _DIRTY=2
-    fi
-    if [[ "$GIT_UDelete" -ne "0" ]]; then
-      DIRTY_STATUS="$DIRTY_STATUS%{$fg_bold[gray]%}X$GIT_UDelete"
-      _DIRTY=2
-    fi
-    if [[ $GIT_Untrack -ne "0" ]]; then
-      # DIRTY_STATUS="$DIRTY_STATUS%{$fg_bold[gray]%}?$GIT_Untrack"
-      DIRTY_STATUS="$DIRTY_STATUS%{$fg_bold[gray]%}⋯"
-      # DIRTY_STATUS="$DIRTY_STATUS%{$fg_bold[gray]%}…"
-      _DIRTY=2
-    fi
-    if [[ -n "$_DIRTY" ]]; then
+    if [[ $GIT_Status -eq "3" ]]; then
       prompt_segment yellow black
-    elif [[ -n "$_STAGE" ]]; then
+    elif [[ $GIT_Status -eq "2" ]]; then
       prompt_segment magenta black
     else
       prompt_segment green black
     fi
-    if [[ -n "$_DIRTY" || -n "$_STAGE" ]]; then
-      STATUS="$STATUS $STAGE_STATUS ● $DIRTY_STATUS"
-    fi
-    echo -n $STATUS
+    echo -n $GIT_Message
   fi
 }
 
