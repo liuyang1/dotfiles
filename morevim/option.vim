@@ -172,3 +172,7 @@ endif
 set completeopt+=preview
 
 set noreadonly
+
+set undofile
+set undodir=~/.vimundo
+set undolevels=100

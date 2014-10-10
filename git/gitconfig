@@ -3,6 +3,7 @@
 [alias]
 # add
     a = add
+    ap = add -p
     chunkadd = add --patch
 # branch
     b = branch -v

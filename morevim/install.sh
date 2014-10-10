@@ -13,3 +13,6 @@ installFile $PWD/root.vim           $PREFIX/.vimrc
 installFile $PWD                    $PREFIX/.vim
 installFile $PWD/ctags              $PREFIX/.ctags
 installFile $PWD/ycm_extra_conf.py  $PREFIX/.ycm_extra_conf.py
+
+mkdir ~/.vimundo
+./update.sh
