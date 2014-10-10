@@ -1,32 +1,69 @@
 [color]
-	ui = true
+    ui = true
 [alias]
-    st = status -s
-	co = checkout
-	ci = commit -v
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset %Cgreen%cd%Creset - %s %C(yellow)%d%Creset' --abbrev-commit --
+# add
+    a = add
+    chunkadd = add --patch
+# branch
+    b = branch -v
+    br = branch -v
+    r = remote -v
+# commit
+    c = commit -v -m
+    ci = commit -v -m
+    amend = commit --amend
+# checkout
+    co = checkout
+    cb = checkout -b
+# diff
+    d = diff
+    dc = diff --cached
+    dl = diff HEAD^
+    df = difftool -y
+    dp = difftool --prompt
+    stat = diff --stat
+# log
+    l = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset %Cgreen%cd%Creset - %s %C(yellow)%d%Creset' --abbrev-commit --
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset %Cgreen%cd%Creset - %s %C(yellow)%d%Creset' --abbrev-commit --
+    last = log -1 HEAD
     gs = log --color --graph --stat
-	stat = diff --stat
-	df = difftool
-	br = branch
-	last = log -1 HEAD
+# pull or push
+    pl = pull
+    ps = push
+    ld = log -p
+# rebase
+    rc = rebase --continue
+    rs = rebase --skip
+# reset
+    us = reset HEAD
+    uc = reset --soft HEAD^
+# merge
+    mt = mergetool
+# stash
+    ss = stash
+    sl = stash list
+    sa = stash apply
+    sd = stash drop
+# status
+    s = status -s
+    st = status -s
+# tag
+    t = tag -n
 [user]
-	name = liuyang1
-	email = liuyang1@mail.ustc.edu.cn
+    name = liuyang1
+    email = liuyang1@mail.ustc.edu.cn
 [diff]
-	tool = vimdiff
-[difftool]
-	prompt = false
+    tool = vimdiff
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 [core]
-	editor = vim
-	excludesfile = /home/liuy/.gitignore_global
-	quotepath = false
+    editor = vim
+    excludesfile = ~/.gitignore_global
+    quotepath = false
 [i18n]
-	logoutputencoding = utf8
-	commitencoding = utf8
+    logoutputencoding = utf8
+    commitencoding = utf8
 [log]
-	date = local
+    date = local
 [push]
-	default = matching
+    default = matching
