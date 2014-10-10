@@ -107,7 +107,10 @@ prompt_fast_git() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment blue black '%~'
+  # prompt_segment blue black '%~'
+  local cmd=$ZSH/themes/disambiguate-keeplast
+  dir=`zsh ${cmd}`
+  prompt_segment blue black $dir
 }
 
 # Virtualenv: current working virtualenv
