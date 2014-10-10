@@ -37,4 +37,5 @@ addGitPatch() {
 
 addPatch ShowMarks7 0001-showmarks7-my-color.patch
 addPatch vim-snippets 0001-add-args-for-va_list-and-more-tight-code.patch
+addPatch Tagbar 0001-tagbar-to-zt.patch
 echo "all patch"

@@ -1,14 +1,14 @@
-From b0ed6aa13962c0fb2a1074e3a2a547b9568c8097 Mon Sep 17 00:00:00 2001
-From: liuyang1 <liuyang1@mail.ustc.edu.cn>
-Date: Wed, 17 Sep 2014 23:55:02 +0000
-Subject: [PATCH] showmarks7 my color
+From 07b104a8a211633ca2acaad4a6e68b45f9e0b48a Mon Sep 17 00:00:00 2001
+From: liuyang <ly@marvell.com>
+Date: Fri, 10 Oct 2014 18:10:55 +0800
+Subject: [PATCH] showmark7 my color
 
 ---
- plugin/showmarks.vim | 8 ++++----
+ plugin/showmarks.vim |    8 ++++----
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/plugin/showmarks.vim b/plugin/showmarks.vim
-index 625f685..0e285c7 100644
+index 625f685..d0fc8b4 100644
 --- a/plugin/showmarks.vim
 +++ b/plugin/showmarks.vim
 @@ -139,10 +139,10 @@ if g:showmarks_enable == 1
@@ -20,12 +20,12 @@ index 625f685..0e285c7 100644
 -hi default ShowMarksHLo ctermfg=darkblue ctermbg=blue cterm=bold guifg=blue guibg=lightblue gui=bold
 -hi default ShowMarksHLm ctermfg=darkblue ctermbg=blue cterm=bold guifg=blue guibg=lightblue gui=bold
 +hi default ShowMarksHLl ctermfg=darkgreen ctermbg=darkgray cterm=none guifg=blue guibg=lightblue gui=bold
-+hi default ShowMarksHLu ctermfg=red ctermbg=darkgray cterm=none guifg=blue guibg=lightblue gui=bold
++hi default ShowMarksHLu ctermfg=darkblue ctermbg=black cterm=reverse guifg=blue guibg=lightblue gui=bold
 +hi default ShowMarksHLo ctermfg=darkblue ctermbg=darkgray cterm=bold guifg=blue guibg=lightblue gui=bold
 +hi default ShowMarksHLm ctermfg=darkblue ctermbg=darkgray cterm=bold guifg=blue guibg=lightblue gui=bold
  
  " Function: GetMarkLine()
  " Authors: Easwy Yang
 -- 
-2.1.0
+1.7.9.5
 

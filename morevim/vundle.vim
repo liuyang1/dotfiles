@@ -24,6 +24,7 @@ let g:showmarks_include='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 let g:showmarks_enable=1
 let g:showmarks_textlower=')'
 let g:showmarks_textupper='>'
+let g:showmarks_hlline_upper=1
 highlight ShowMarksHlu  ctermbg=red ctermfg=green
 
 Plugin 'Align'

@@ -1,0 +1,24 @@
+From c6d82da771b3ef01ed3a7da6fc918b84e53adcf2 Mon Sep 17 00:00:00 2001
+From: liuyang <ly@marvell.com>
+Date: Fri, 10 Oct 2014 18:31:28 +0800
+Subject: [PATCH] tagbar to zt
+
+---
+ autoload/tagbar.vim |    1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/autoload/tagbar.vim b/autoload/tagbar.vim
+index 54fa0aa..d8bb048 100644
+--- a/autoload/tagbar.vim
++++ b/autoload/tagbar.vim
+@@ -2999,6 +2999,7 @@ function! s:JumpToTag(stay_in_tagbar) abort
+     " Center the tag in the window and jump to the correct column if available
+     normal! z.
+     call cursor(taginfo.fields.line, taginfo.fields.column)
++    normal! zt
+ 
+     normal! zv
+ 
+-- 
+1.7.9.5
+
