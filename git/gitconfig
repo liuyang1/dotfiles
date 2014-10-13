@@ -1,3 +1,6 @@
+[user]
+    name = liuyang1
+    email = liuyang1@mail.ustc.edu.cn
 [color]
     ui = true
 [alias]
@@ -7,12 +10,13 @@
     chunkadd = add --patch
 # branch
     b = branch -v
-    br = branch -v
+    br = branch
+    bd = branch -D
     r = remote -v
 # commit
     c = commit -v -m
     ci = commit -v -m
-    amend = commit --amend
+    amend = commit -v --amend
 # checkout
     co = checkout
     cb = checkout -b
@@ -26,12 +30,12 @@
 # log
     l = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset %Cgreen%cd%Creset - %s %C(yellow)%d%Creset' --abbrev-commit --
     lg = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset %Cgreen%cd%Creset - %s %C(yellow)%d%Creset' --abbrev-commit --
-    last = log -1 HEAD
+    last = log --color --stat -1 HEAD
+    ld = log -p
     gs = log --color --graph --stat
 # pull or push
     pl = pull
     ps = push
-    ld = log -p
 # rebase
     rc = rebase --continue
     rs = rebase --skip
@@ -50,9 +54,6 @@
     st = status -s
 # tag
     t = tag -n
-[user]
-    name = liuyang1
-    email = liuyang1@mail.ustc.edu.cn
 [diff]
     tool = vimdiff
 [merge]

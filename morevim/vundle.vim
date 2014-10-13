@@ -25,6 +25,7 @@ let g:showmarks_enable=1
 let g:showmarks_textlower=')'
 let g:showmarks_textupper='>'
 let g:showmarks_hlline_upper=1
+let g:showmarks_hlline_lower=1
 highlight ShowMarksHlu  ctermbg=red ctermfg=green
 
 Plugin 'Align'
@@ -39,6 +40,7 @@ let g:tagbar_compact          = 1
 let g:tagbar_show_linenumbers = 2
 let g:tagbar_previewwin_pos   = "downright"
 let g:tagbar_autopreview      = 1
+autocmd FileType tagbar setlocal nocursorline nocursorcolumn
 
 let g:tagbar_type_vimwiki = {
             \ 'ctagstype':'vimwiki'
@@ -69,7 +71,7 @@ let g:syntastic_enable_highlighting = 0
 let g:syntastic_c_checkers = ['gcc']
 let g:syntastic_python_python_exec = "/usr/bin/python2"
 "let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_loc_list_height = 5
 
 let g:syntastic_c_check_header          = 1
@@ -215,6 +217,17 @@ let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 0
 
-Plugin 'EasyMotion'
+" Plugin 'EasyMotion'
+Plugin 'Logcat-syntax-highlighter'
+
+Plugin 'colorizer'
+
+Plugin 'rainbow_parentheses.vim'
+let g:rbpt_loadcmd_toggle=1
+let g:rbpt_max=8
+au VimEnter *   RainbowParenthesesToggle
+au Syntax *     RainbowParenthesesLoadRound
+au Syntax *     RainbowParenthesesLoadSquare
+au Syntax *     RainbowParenthesesLoadBraces
 call vundle#end()
 filetype plugin indent on

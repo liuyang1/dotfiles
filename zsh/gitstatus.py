@@ -22,7 +22,7 @@ def probeBranch(s):
     >>> probeBranch('## 7094...c [ahead 1]')
     ('7094', 'c', 1, 0)
     >>> probeBranch('## HEAD (no branch)')
-    ('HEAD (no branch)', '', 0, 0)
+    ('HEAD', '', 0, 0)
     >>> probeBranch('## 7094...c [ahead 1, behind 1]')
     ('7094', 'c', 1, 1)
     """
@@ -34,6 +34,10 @@ def probeBranch(s):
         return br, rmt, head, behind
     arr = s.split("...")
     br = arr[0]
+    # remove () content
+    idx = br.find(" (")
+    if idx != -1:
+        br = br[0:idx]
     try:
         rmt = arr[1]
     except IndexError:

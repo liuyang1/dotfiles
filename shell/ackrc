@@ -4,4 +4,5 @@
 --type-set=wiki=.wiki
 --type-set=makefile=.mak,.mk
 --type=nohtml
+--type-set=diff=.patch
 --type-set=txt=.lst,.json,.info,.rst,.txt,.conf,.list,.log,.idl

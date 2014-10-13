@@ -80,9 +80,6 @@ function update_current_git_vars() {
   local gitstatus="$ZSH/themes/gitstatus.py"
   _GIT_STATUS=`python2 ${gitstatus} 2>/dev/null`
   __CURRENT_GIT_STATUS=("${(@f)_GIT_STATUS}")
-  echo $gitstatus >> /tmp/t
-  echo $_GIT_STATUS >> /tmp/t
-  echo $__CURRENT_GIT_STATUS >> /tmp/t
   GIT_Message=$__CURRENT_GIT_STATUS[1]
   GIT_Status=$__CURRENT_GIT_STATUS[2]
 }

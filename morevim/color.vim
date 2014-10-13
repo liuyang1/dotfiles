@@ -1,8 +1,11 @@
 set t_Co=256
+let g:molokai_original=1
 colorscheme molokai
 "colorscheme desert
-" let g:solarized_contrast=high
-" let g:solarized_visibility=high
+" let g:solarized_contrast="high"
+" let g:solarized_visibility="high"
+" set background=light
+" colorscheme solarized
 
 highlight Function ctermfg=lightblue
 highlight ColorColumn ctermbg=black
@@ -31,6 +34,6 @@ endif
 highlight SpecialKey cterm=none ctermfg=gray
 
 " disable Background color erase
-"set t_ut=
+" set t_ut=
 
 highlight CursorLine ctermbg=black
