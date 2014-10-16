@@ -1,9 +1,10 @@
 #! /usr/bin/env bash
 installFile(){
 	# installFile $1-> $2
-	echo installFile $1 $2
+    PWD=`pwd`
+	echo installFile $PWD/$1 $2
 	rm -rf $2
-	ln -s $1 $2
+	ln -s $PWD/$1 $2
 }
 
 installFile2Dir(){

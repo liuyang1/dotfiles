@@ -127,12 +127,16 @@ set path=..,.,/usr/include,/usr/src/linux/include,/usr/local/include,
 " wrap
 set wrap
 
-set listchars=tab:▸\ ,trail:.,extends:>
+set listchars=tab:▸\ ,trail:‽,extends:>
+"   
 "set listchars=tab:>\ ,trail:.,extends:>
 "set listchars=tab:>\ ,trail:.,extends:>
 "set listchars=tab:>\ ,trail:.,extends:>
 "▶
 "▸
+"☠
+"❤
+"‽
 "▷
 set list!
 
@@ -176,3 +180,18 @@ set noreadonly
 set undofile
 set undodir=~/.vimundo
 set undolevels=100
+
+" automation adjust height of quickfix window
+function AdjustWindowHeight(minh, maxh)
+    let l = 1
+    let n_lines = 0
+    let w_width = winwidth(0)
+    while l <= line('$')
+        let l_len = strlen(getline(l)) + 0.0
+        let line_width = l_len/w_width
+        let n_lines += float2nr(ceil(line_width))
+        let l+=1
+    endw
+    exe max([min([n_lines, a:maxh]), a:minh]) . "wincmd _"
+endfunction
+au FileType qf call AdjustWindowHeight(10, 25)

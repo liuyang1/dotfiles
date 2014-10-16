@@ -3,7 +3,7 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+" Plugin 'gmarik/Vundle.vim'
 
 Plugin 'vimwiki'
 let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,br,hr,div,del,code,img'
@@ -105,6 +105,8 @@ noremap     ,f          :CtrlPMRUFiles<cr>
 
 " airline need this to display branch
 Plugin 'tpope/vim-fugitive'
+nnoremap <Leader>gb         :Gblame<cr>
+nnoremap <Leader>gd         :Gdiff<cr>
 
 " show git diff mode
 Plugin 'airblade/vim-gitgutter'
@@ -121,18 +123,18 @@ let g:gitgutter_highlight_lines = 0
 
 " Plugin 'bling/vim-bufferline'
 
-Plugin 'edkolev/tmuxline.vim'
-let g:tmuxline_preset = {
-      \'a'       : ['#(whoami)', '#h'],
-      \'b'       : 'Ss:#S',
-      \'c'       : '',
-      \'win'     : ['#I#F#P', '#W'],
-      \'cwin'    : ['#I#F#P', '#W'],
-      \'x'       : '',
-      \'y'       : '#(tmux-mem-cpu-load 1)',
-      \'z'       : ['%R:%S', '%m-%d %a'],
-      \'options' : {'status-justify' : 'left'}}
-let g:tmuxline_powerline_separators = 1
+" Plugin 'edkolev/tmuxline.vim'
+" let g:tmuxline_preset = {
+"       \'a'       : ['#(whoami)', '#h'],
+"       \'b'       : 'Ss:#S',
+"       \'c'       : '',
+"       \'win'     : ['#I#F#P', '#W'],
+"       \'cwin'    : ['#I#F#P', '#W'],
+"       \'x'       : '',
+"       \'y'       : '#(tmux-mem-cpu-load 1)',
+"       \'z'       : ['%R:%S', '%m-%d %a'],
+"       \'options' : {'status-justify' : 'left'}}
+" let g:tmuxline_powerline_separators = 1
 " let g:tmuxline_separators = {
 "       \ 'left' : '',
 "       \ 'left_alt': '>',
@@ -176,8 +178,8 @@ autocmd InsertLeave *   if pumvisible()==0|pclose|endif
 let g:ycm_confirm_extra_conf=0
 let g:ycm_min_num_of_chars_for_completeion=3
 let g:ycm_seed_identifiers_with_syntax=1
-let g:ycm_complete_in_comments=1
-let g:ycm_collect_identifiers_from_comments_and_strings=1
+let g:ycm_complete_in_comments=0
+let g:ycm_collect_identifiers_from_comments_and_strings=0
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_always_populate_location_list = 1
 
@@ -220,14 +222,19 @@ let g:ycm_autoclose_preview_window_after_insertion = 0
 " Plugin 'EasyMotion'
 Plugin 'Logcat-syntax-highlighter'
 
-Plugin 'colorizer'
+" will make vim slow
+" Plugin 'colorizer'
 
 Plugin 'rainbow_parentheses.vim'
 let g:rbpt_loadcmd_toggle=1
 let g:rbpt_max=8
-au VimEnter *   RainbowParenthesesToggle
-au Syntax *     RainbowParenthesesLoadRound
+" au VimEnter *     RainbowParenthesesToggle
+nnoremap <Leader>sr :RainbowParenthesesToggle<cr>
+nnoremap <Leader>ss :RainbowParenthesesToggleAll<cr>
+" au VimEnter *     RainbowParenthesesLoadRound
 au Syntax *     RainbowParenthesesLoadSquare
 au Syntax *     RainbowParenthesesLoadBraces
+au Syntax *     RainbowParenthesesLoadChevrons
+
+Plugin 'ack.vim'
 call vundle#end()
-filetype plugin indent on

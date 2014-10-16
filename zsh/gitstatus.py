@@ -2,11 +2,10 @@
 # -*- encoding=utf-8 -*-
 from __future__ import print_function
 import sys
+from subprocess import Popen, PIPE
 
 
 def getGitStat():
-    from subprocess import Popen, PIPE
-
     gitstat = Popen(
         ['git', 'status', '--short', '--branch'], stdout=PIPE, stderr=PIPE)
     stat, error = gitstat.communicate()
@@ -15,6 +14,14 @@ def getGitStat():
     if 'fatal: Not a git repository' in error_string:
         sys.exit(0)
     return stat
+
+
+def getGitHead():
+    githead = Popen(
+        ['git', 'rev-parse', '--short', 'HEAD'], stdout=PIPE, stderr=PIPE)
+    commit = githead.communicate()
+    ret = commit[0].strip()
+    return ret
 
 
 def probeBranch(s):
@@ -38,6 +45,8 @@ def probeBranch(s):
     idx = br.find(" (")
     if idx != -1:
         br = br[0:idx]
+        if br == 'HEAD':
+            br = getGitHead()
     try:
         rmt = arr[1]
     except IndexError:
