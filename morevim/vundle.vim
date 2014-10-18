@@ -119,6 +119,8 @@ nmap ]a     <Plug>GitGutterStageHunk
 nmap [a     <Plug>GitGutterStageHunk
 nmap ]r     <Plug>GitGutterRevertHunk
 nmap [r     <Plug>GitGutterRevertHunk
+nmap ]s     <Plug>GitGutterPreviewHunk
+nmap [s     <Plug>GitGutterPreviewHunk
 let g:gitgutter_highlight_lines = 0
 
 " Plugin 'bling/vim-bufferline'
