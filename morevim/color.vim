@@ -21,19 +21,12 @@ highlight VimwikiLink ctermfg=blue
 highlight cType     ctermfg=yellow cterm=None
 highlight Function   ctermfg=lightblue
 highlight Identifier ctermfg=darkyellow
-if &term == "rxvt-unicode-256color"
-    highlight SpellBad cterm=italic ctermfg=darkred
-    highlight Conditional cterm=italic ctermfg=darkred
-    highlight Statement cterm=italic ctermfg=darkred
-else
-    highlight SpellBad cterm=bold ctermfg=darkred
-    highlight Conditional cterm=bold ctermfg=darkred
-    highlight Statement cterm=bold ctermfg=darkred
-endif
+highlight SpellBad cterm=bold ctermfg=darkred cterm=reverse
+highlight Conditional cterm=bold ctermfg=darkgreen
+highlight Statement ctermfg=150 cterm=None
+highlight CursorLine ctermbg=235
 " for listchars
 highlight SpecialKey cterm=none ctermfg=gray
 
 " disable Background color erase
 " set t_ut=
-
-highlight CursorLine ctermbg=black

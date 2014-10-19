@@ -9,9 +9,9 @@ Plugin 'vimwiki'
 let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,br,hr,div,del,code,img'
 let g:vimwiki_camel_case=0
 let g:vimwiki_list=[{
-    \ 'path': '/home/liuyang/wiki',
-    \ 'path_html': '/home/liuyang/wiki/html',
-    \ 'auto_export': 1,
+    \ 'path': '$HOME/wiki',
+    \ 'path_html': '$HOME/wiki/html',
+    \ 'auto_export': 0,
     \ }]
 let g:vimwiki_hl_cb_checked=1
 let g:vimwiki_menu=''
@@ -77,12 +77,13 @@ let g:syntastic_loc_list_height = 5
 let g:syntastic_c_check_header          = 1
 let g:syntastic_c_remove_include_errors = 1
 
-Plugin 'slimv.vim'
+Plugin 'kovisoft/slimv'
 let g:lisp_rainbow=1
 let g:scheme_builtin_swank=1
 let g:slimv_ballon=1
 " only add one enter to save sapce and decrease line
 let g:paredit_electric_return=0
+let g:paredit_short_maps=0
 
 " if only use autopep8 as formatprg, also works.
 " then below 3 lines could delete
@@ -239,4 +240,6 @@ au Syntax *     RainbowParenthesesLoadBraces
 au Syntax *     RainbowParenthesesLoadChevrons
 
 Plugin 'ack.vim'
+
+Plugin 'guns/xterm-color-table.vim'
 call vundle#end()

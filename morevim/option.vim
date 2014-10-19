@@ -195,3 +195,6 @@ function AdjustWindowHeight(minh, maxh)
     exe max([min([n_lines, a:maxh]), a:minh]) . "wincmd _"
 endfunction
 au FileType qf call AdjustWindowHeight(10, 25)
+
+autocmd FocusLost * silent! wa
+set autowriteall
