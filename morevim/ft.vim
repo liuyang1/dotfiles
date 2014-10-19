@@ -32,3 +32,6 @@ vnoremap <Leader>rr <C-C>:make<cr>
 inoremap <Leader>rr <C-O>:make<cr>
 
 autocmd BufNewFile,BufRead *.test setlocal filetype=tcl
+
+autocmd FileType clojure    setlocal makeprg=clojure\ %
+autocmd FileType lisp       setlocal makeprg=clisp\ %

@@ -20,3 +20,4 @@ alias emacs='emacs -nw'
 alias cmatrix="cmatrix -a -b -s -C blue -u 4"
 alias ta="tmux attach || tmux new"
 alias reposync="repo sync -d -j16"
+unalias o && alias o="d -e ranger"
