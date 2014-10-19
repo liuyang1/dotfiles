@@ -14,25 +14,27 @@
     bd = branch -D
     r = remote -v
 # commit
-    c = commit -v -m
-    ci = commit -v -m
+    c = commit -v
+    cm = commit -v -m
     amend = commit -v --amend
 # checkout
     co = checkout
     cb = checkout -b
 # diff
-    d = diff
+    d = diff .
+    dd = diff
     dc = diff --cached
     dl = diff HEAD^
     df = difftool -y
     dp = difftool --prompt
     stat = diff --stat
 # log
-    l = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset %Cgreen%cd%Creset - %s %C(yellow)%d%Creset' --abbrev-commit --
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset %Cgreen%cd%Creset - %s %C(yellow)%d%Creset' --abbrev-commit --
+    l = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset %Cgreen%cd%Creset - %s %C(yellow)%d%Creset' --abbrev-commit
+    lg = log --color --graph --stat
     last = log --color --stat -1 HEAD
     ld = log -p
     gs = log --color --graph --stat
+    lc = show
 # pull or push
     pl = pull
     ps = push
@@ -50,8 +52,8 @@
     sa = stash apply
     sd = stash drop
 # status
-    s = status -s
-    st = status -s
+    s = status -sb
+    st = status -sb
 # tag
     t = tag -n
 [diff]

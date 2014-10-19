@@ -22,7 +22,7 @@ highlight cType     ctermfg=yellow cterm=None
 highlight Function   ctermfg=lightblue
 highlight Identifier ctermfg=darkyellow
 highlight SpellBad cterm=bold ctermfg=darkred cterm=reverse
-highlight Conditional cterm=bold ctermfg=darkgreen
+highlight Conditional cterm=bold ctermfg=darkred
 highlight Statement ctermfg=150 cterm=None
 highlight CursorLine ctermbg=235
 " for listchars
