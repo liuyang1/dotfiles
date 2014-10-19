@@ -16,7 +16,8 @@ autocmd FileType c      setlocal formatprg=uncrustify\ -c\ ~/.uncrustify.cfg\ --
 autocmd FileType c      setlocal makeprg=gcc\ %\ &&\ ./a.out
 
 autocmd FileType c      map <buffer> <Leader>cc     ggVGgq
-autocmd FileType c      nnoremap <silent> <Leader>ts  :vsp <cr>:exec("tag ".expand("<cword>"))<cr>
+autocmd FileType c,cpp  nnoremap <silent> <Leader>ts  :sp <cr>:exec("tag ".expand("<cword>"))<cr>
+autocmd FileType c,cpp  nnoremap <silent> <Leader>tv  :vsp <cr>:exec("tag ".expand("<cword>"))<cr>
 
 " for cpp
 autocmd FileType cpp    setlocal formatprg=uncrustify\ -c\ ~/.uncrustify.cfg\ --no-backup\ 2>/dev/null

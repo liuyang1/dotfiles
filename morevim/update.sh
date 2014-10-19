@@ -14,10 +14,10 @@ updateVundle
 
 addPatch() {
     tput setaf 1
-    echo add patch $1 $2
+    echo add patch "$1" "$2"
     tput setaf 7
-    cd bundle/$1
-    patch -N -p1 --reject-file=- < ../../patch/$2
+    cd bundle/"$1"
+    patch -N -p1 --reject-file=- < ../../patch/"$2"
     cd -
     echo ok
 }
@@ -27,10 +27,10 @@ addPatch slimv.vim slimv.patch
 
 addGitPatch() {
     tput setaf 1
-    echo add git patch $1 $2
+    echo add patch "$1" "$2"
     tput setaf 7
-    cd bundle $1
-    git am ../../patch/$2
+    cd bundle/"$1"
+    git am ../../patch/"$2"
     cd -
     echo ok
 }

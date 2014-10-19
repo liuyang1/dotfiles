@@ -1,15 +1,9 @@
 #! /usr/bin/env bash
 PREFIX=~
-PWD=`pwd`
 
-installFile(){
-	# installFile $1-> $2
-	echo installFile $1
-	rm $2
-	ln -s $1 $2
-}
+source ../installEnv.sh
 
-installFile $PWD/tmux.conf  $PREFIX/.tmux.conf
-installFile $PWD/tmuxline.conf  $PREFIX/.tmuxline.conf
+installDotFile tmux.conf "$PREFIX"
+installDotFile tmuxline.conf "$PREFIX"
 
 echo "OK"
