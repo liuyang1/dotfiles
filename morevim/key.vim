@@ -17,3 +17,6 @@ cmap w!! w! sudo tee % > /dev/null
 cmap W   w
 " clean highlight search
 nmap <silent> ,c :nohlsearch<cr>
+
+nnoremap <C-l> gt
+nnoremap <C-h> gT

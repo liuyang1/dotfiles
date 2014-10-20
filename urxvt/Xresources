@@ -51,10 +51,12 @@ Xft.dpi:96
 !URxvt.font:xft:PragmataPro:size=13:style=Regular:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=22:style=Regular:antialias=true
 !Monaco
 !Consolas
-URxvt.font:xft:Ubuntu Mono derivative Powerline:size=13:style=Regular:antialias=true:hinting=true,xft:WenQuanYi Bitmap Song:pixelsize=22:style=Regular:antialias=true
-URxvt.boldFont:xft:Ubuntu Mono derivative Powerline:size=13:style=Bold:antialias=true:hinting=true,xft:WenQuanYi Bitmap Song:pixelsize=22:style=Bold:antialias=true
-URxvt.italicFont:xft:Ubuntu Mono derivative Powerline:size=13:style=Italic:antialias=true:hinting=true:hintstyle=hintslight,xft:WenQuanYi Bitmap Song:pixelsize=22:style=Italic:antialias=true
-URxvt.boldItalicFont:xft:Ubuntu Mono derivative Powerline:size=13:style=Bold Italic:antialias=true,xft:WenQuanYi Bitmap Song:pixelsize=22:style=Bold Italic:antialias=true
+
+! must patch other font with Menlo or Monospace font, render all UTF-8 char will OK!!
+URxvt.font:xft:Monaco for Powerline:size=12:style=Regular:antialias=true:hinting=true,xft:Menlo:size=12,xft:Monospace:size=12,xft:WenQuanYi Bitmap Song:pixelsize=22:style=Regular:antialias=true
+URxvt.boldFont:xft:MonacoB:size=12:style=Bold:antialias=true:hinting=true,xft:WenQuanYi Bitmap Song:pixelsize=22:style=Bold:antialias=true
+URxvt.italicFont:xft:Menlo for Powerline:size=12:style=Italic:antialias=true:hinting=true:autohint=true:hintstyle=hintslight,xft:WenQuanYi Bitmap Song:pixelsize=22:style=Italic:antialias=true
+URxvt.boldItalicFont:xft:Menlo for Powerline:size=12:style=Bold Italic:antialias=true,xft:WenQuanYi Bitmap Song:pixelsize=22:style=Bold Italic:antialias=true
 URxvt.letterSpace:-2
 
 URxvt*loginShell: false

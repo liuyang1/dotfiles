@@ -82,6 +82,8 @@ set nottybuiltin    " search termcaps after the external ones.
 
 set autoread
 set autowrite
+autocmd FocusLost * silent! wa
+set autowriteall
 
 " only show current line at active window
 augroup CursorLine
@@ -196,5 +198,3 @@ function AdjustWindowHeight(minh, maxh)
 endfunction
 au FileType qf call AdjustWindowHeight(10, 25)
 
-autocmd FocusLost * silent! wa
-set autowriteall

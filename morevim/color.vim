@@ -32,3 +32,5 @@ highlight cUserLabel cterm=italic ctermfg=229
 
 " disable Background color erase
 set t_ut=
+
+set guifont=Monaco
