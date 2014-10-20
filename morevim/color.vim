@@ -23,10 +23,12 @@ highlight Function   ctermfg=lightblue
 highlight Identifier ctermfg=darkyellow
 highlight SpellBad cterm=bold ctermfg=darkred cterm=reverse
 highlight Conditional cterm=bold ctermfg=darkred
-highlight Statement ctermfg=150 cterm=None
+highlight Statement ctermfg=150 cterm=italic
 highlight CursorLine ctermbg=235
+highlight Comment ctermfg=246
 " for listchars
 highlight SpecialKey cterm=none ctermfg=gray
+highlight cUserLabel cterm=italic ctermfg=229
 
 " disable Background color erase
-" set t_ut=
+set t_ut=

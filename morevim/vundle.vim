@@ -241,5 +241,5 @@ au Syntax *     RainbowParenthesesLoadChevrons
 
 Plugin 'ack.vim'
 
-Plugin 'guns/xterm-color-table.vim'
+" Plugin 'guns/xterm-color-table.vim'
 call vundle#end()
