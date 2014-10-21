@@ -26,3 +26,4 @@ alias -s cl=clisp
 alias -s c=vim
 alias -s wiki=vim
 alias -s vim=vim
+alias j="fasd_cd -d"

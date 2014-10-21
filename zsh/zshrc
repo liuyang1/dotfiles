@@ -69,7 +69,7 @@ PATH=$PATH:$HOME/.local/bin:$HOME/.cabal/bin
 
 [[ -f ~/.aliases ]] && source ~/.aliases
 
-[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
+# [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
 
 # set dircolors colorful completion
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
