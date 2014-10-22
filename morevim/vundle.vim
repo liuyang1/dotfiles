@@ -49,8 +49,8 @@ let g:tagbar_type_vimwiki = {
             \ , 'kind2scope':{'h':'header'}
             \ , 'scope2kind':{'header':'h'}
             \ , 'sort':0
-            \ , 'ctagsbin':'~/.vim/vwtags.py'
-            \ , 'ctagsargs': 'default'
+            \ , 'ctagsbin':'python2'
+            \ , 'ctagsargs': '~/.vim/vwtags.py default'
             \ }
 
 Plugin 'Auto-Pairs'
