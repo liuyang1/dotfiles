@@ -47,6 +47,7 @@ let g:tagbar_type_vimwiki = {
             \ , 'kinds':['h:header']
             \ , 'sro':'&&&'
             \ , 'kind2scope':{'h':'header'}
+            \ , 'scope2kind':{'header':'h'}
             \ , 'sort':0
             \ , 'ctagsbin':'~/.vim/vwtags.py'
             \ , 'ctagsargs': 'default'
@@ -203,6 +204,11 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " CONFLICT with some plugins like tpope/Endwise
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
+let g:ycm_filetype_whitelist= {
+      \ 'c' : 1
+      \ , 'h' : 1
+      \ , 'cpp' : 1
+      \}
 let g:ycm_filetype_blacklist = {
       \ 'log' : 1,
       \ 'tagbar' : 1,

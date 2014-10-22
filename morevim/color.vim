@@ -8,7 +8,7 @@ colorscheme molokai
 " colorscheme solarized
 
 highlight Function ctermfg=lightblue
-highlight ColorColumn ctermbg=black
+highlight ColorColumn ctermbg=232
 autocmd FileType c,cpp  setlocal colorcolumn=81,100
 
 
