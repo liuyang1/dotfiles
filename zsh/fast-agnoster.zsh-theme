@@ -20,7 +20,14 @@
 # A few utility functions to make it easy and re-usable to draw segmented prompts
 
 CURRENT_BG='NONE'
-SEGMENT_SEPARATOR=''
+IsFancy="yes"
+if [[ "$IsFancy" = "yes" ]];then
+  SEGMENT_SEPARATOR=''
+  RETVAL_SYM="✘"
+else
+  SEGMENT_SEPARATOR="|"
+  RETVAL_SYM="X"
+fi
 
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
@@ -35,7 +42,7 @@ prompt_segment() {
     echo -n "%{$bg%}%{$fg%} "
   fi
   CURRENT_BG=$1
-  [[ -n $3 ]] && echo -n $3
+  [[ -n "$3" ]] && echo -n "$3"
 }
 
 # End the prompt, closing any open segments
@@ -78,7 +85,7 @@ function precmd_update_git_vars() {
 function update_current_git_vars() {
   unset __CURRENT_GIT_STATUS
   local gitstatus="$ZSH/themes/gitstatus.py"
-  _GIT_STATUS=`python2 ${gitstatus} 2>/dev/null`
+  _GIT_STATUS=$(python2 ${gitstatus} 2>/dev/null)
   __CURRENT_GIT_STATUS=("${(@f)_GIT_STATUS}")
   GIT_Message=$__CURRENT_GIT_STATUS[1]
   GIT_Status=$__CURRENT_GIT_STATUS[2]
@@ -98,7 +105,7 @@ prompt_fast_git() {
     else
       prompt_segment green black
     fi
-    echo -n $GIT_Message
+    echo -n "$GIT_Message"
   fi
 }
 
@@ -106,8 +113,8 @@ prompt_fast_git() {
 prompt_dir() {
   # prompt_segment blue black '%~'
   local cmd=$ZSH/themes/disambiguate-keeplast
-  dir=`zsh ${cmd}`
-  prompt_segment blue black $dir
+  dir=$(zsh "${cmd}")
+  prompt_segment blue black "$dir"
 }
 
 # Virtualenv: current working virtualenv
@@ -125,7 +132,7 @@ prompt_virtualenv() {
 prompt_status() {
   local symbols
   symbols=()
-  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}X"
+  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}""$RETVAL_SYM"
   [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
 

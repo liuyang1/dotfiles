@@ -1,4 +1,4 @@
-nnoremap ,s     :source ~/.vimrc<cr>
+nnoremap ,S     :source ~/.vimrc<cr>
 nnoremap ,e     :edit ~/.vimrc<cr>
 
 inoremap <A-b>  <C-o>b
@@ -15,8 +15,15 @@ map <Leader>ht :echo "hi<" . synIDattr(synID(line("."),col("."),1), "name") . '>
 " quick to sudo write
 cmap w!! w! sudo tee % > /dev/null
 cmap W   w
-" clean highlight search
-nmap <silent> ,c :nohlsearch<cr>
 
 nnoremap <C-l> gt
 nnoremap <C-h> gT
+
+function! HLtoggle()
+    if (@/ == '')
+        let @/ = expand("<cword>")
+    else
+        let @/ = ''
+    endif
+endfunc
+nnoremap ,s :call HLtoggle()<cr>

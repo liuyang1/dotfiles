@@ -9,7 +9,8 @@ colorscheme molokai
 
 highlight Function ctermfg=lightblue
 highlight ColorColumn ctermbg=232
-autocmd FileType c,cpp  setlocal colorcolumn=81,100
+autocmd FileType c,cpp      setlocal colorcolumn=81,100
+autocmd FileType vimwiki    setlocal colorcolumn=80
 
 
 highlight VimwikiHeader1 ctermfg=red

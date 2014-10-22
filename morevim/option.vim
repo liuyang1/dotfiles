@@ -184,7 +184,7 @@ set undodir=~/.vimundo
 set undolevels=100
 
 " automation adjust height of quickfix window
-function AdjustWindowHeight(minh, maxh)
+function! AdjustWindowHeight(minh, maxh)
     let l = 1
     let n_lines = 0
     let w_width = winwidth(0)
