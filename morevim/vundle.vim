@@ -48,8 +48,8 @@ let g:tagbar_type_vimwiki = {
             \ , 'sro':'&&&'
             \ , 'kind2scope':{'h':'header'}
             \ , 'sort':0
-            \ , 'ctagsbin':'~/.vim/vwtags.py'
-            \ , 'ctagsargs': 'default'
+            \ , 'ctagsbin':'python2'
+            \ , 'ctagsargs': '~/.vim/vwtags.py default'
             \ }
 
 Plugin 'Auto-Pairs'
