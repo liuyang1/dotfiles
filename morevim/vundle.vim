@@ -248,4 +248,12 @@ au Syntax *     RainbowParenthesesLoadChevrons
 Plugin 'ack.vim'
 
 " Plugin 'guns/xterm-color-table.vim'
+Plugin 'jceb/vim-orgmode'
+
+Plugin 'benmills/vimux'
+map <silent> <Leader>vv :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
+map <Leader>vb :VimuxCloseRunner<CR>
+map <Leader>vc :VimuxInterruptRunner<CR>
+let g:VimuxOrientation = "h"
+let g:VimuxHeight = "40"
 call vundle#end()

@@ -1,4 +1,4 @@
-nnoremap ,S     :source ~/.vimrc<cr>
+nnoremap ,s     :source ~/.vimrc<cr>
 nnoremap ,e     :edit ~/.vimrc<cr>
 
 inoremap <A-b>  <C-o>b

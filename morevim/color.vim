@@ -26,7 +26,7 @@ highlight Function   ctermfg=lightblue
 highlight Identifier ctermfg=darkyellow
 highlight SpellBad cterm=bold ctermfg=darkred cterm=reverse
 highlight Conditional cterm=bold ctermfg=darkred
-highlight Statement ctermfg=150 cterm=italic
+highlight Statement ctermfg=208 cterm=italic
 highlight CursorLine ctermbg=235
 highlight Comment ctermfg=246
 " for listchars
