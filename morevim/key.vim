@@ -8,22 +8,26 @@ inoremap <A-j>  <C-o>j
 inoremap <A-k>  <C-o>k
 inoremap <A-l>  <C-o>l
 
+" for test highlight statement
 map <Leader>ht :echo "hi<" . synIDattr(synID(line("."),col("."),1), "name") . '> trans<'
             \ . synIDattr(synID(line("."),col("."),0), "name") . "> lo<"
             \ . synIDattr(synIDtrans(synID(line("."),col("."),1)), "name") . ">"<CR>
 
 " quick to sudo write
 cmap w!! w! sudo tee % > /dev/null
-cmap W   w
 
 nnoremap <C-l> gt
 nnoremap <C-h> gT
 
 function! HLtoggle()
     if (@/ == '')
-        let @/ = expand("<cword>")
+        let @/ = "\\<" . expand("<cword>") . "\\>"
     else
-        let @/ = ''
+        if (@/ == "\\<" . expand("<cword>") . "\\>")
+            let @/ = ''
+        else
+            let @/ = "\\<" . expand("<cword>") . "\\>"
+        endif
     endif
 endfunc
-nnoremap ,s :call HLtoggle()<cr>
+nnoremap <silent> * :call HLtoggle()<cr>

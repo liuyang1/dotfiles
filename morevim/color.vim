@@ -9,6 +9,8 @@ colorscheme molokai
 
 highlight Function ctermfg=lightblue
 highlight ColorColumn ctermbg=232
+highlight SignColumn ctermbg=232
+
 autocmd FileType c,cpp      setlocal colorcolumn=81,100
 autocmd FileType vimwiki    setlocal colorcolumn=80
 
@@ -35,3 +37,6 @@ highlight cUserLabel cterm=italic ctermfg=229
 set t_ut=
 
 set guifont=Monaco
+
+highlight ExtraWhitespace ctermbg=red
+match ExtraWhitespace /\s\+\%#\@<!$/
