@@ -100,7 +100,6 @@ au FileType python setlocal formatprg=autopep8\ -aa\ -
 " nnoremap <Leader>bb     :TMiniBufExplorer<cr>
 " let g:miniBufExplSplitBelow  = 0
 Plugin 'ctrlp.vim'
-nnoremap <Leader>b      :CtrlPMRUFiles<cr>
 let g:ctrlp_cmd               = 'CtrlPBuffer'
 let g:ctrlp_working_path_mode = 'a'
 noremap     ,f          :CtrlPMRUFiles<cr>
@@ -109,6 +108,8 @@ noremap     ,f          :CtrlPMRUFiles<cr>
 Plugin 'tpope/vim-fugitive'
 nnoremap <Leader>gb         :Gblame<cr>
 nnoremap <Leader>gd         :Gdiff<cr>
+" for vim74 compat
+set diffopt+=vertical
 
 " show git diff mode
 Plugin 'airblade/vim-gitgutter'
@@ -155,6 +156,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_section_warning = ''
 let g:airline_powerline_fonts   = 1
+
+Plugin 'mkitt/tabline.vim'
+let g:airline#extensions#tabline#buffer_nr_show = 1
 " vim-powerline symbols
 " let g:airline_left_sep          = '>'
 " let g:airline_left_alt_sep      = '>'
@@ -170,6 +174,7 @@ let g:airline_powerline_fonts   = 1
 " Plugin 'The-NERD-Commenter'
 " let NERDShutUp=1
 Plugin 'tomtom/tcomment_vim'
+let g:tcomment_types={'c': '// %s'}
 
 " Plugin 'autoload_cscope.vim'
 " Plugin 'cscope.vim'
@@ -233,21 +238,23 @@ Plugin 'Logcat-syntax-highlighter'
 
 " will make vim slow
 " Plugin 'colorizer'
+Plugin 'guns/xterm-color-table.vim'
 
-Plugin 'rainbow_parentheses.vim'
-let g:rbpt_loadcmd_toggle=1
-let g:rbpt_max=8
-" au VimEnter *     RainbowParenthesesToggle
-nnoremap <Leader>sr :RainbowParenthesesToggle<cr>
-nnoremap <Leader>ss :RainbowParenthesesToggleAll<cr>
-" au VimEnter *     RainbowParenthesesLoadRound
-au Syntax *     RainbowParenthesesLoadSquare
-au Syntax *     RainbowParenthesesLoadBraces
-au Syntax *     RainbowParenthesesLoadChevrons
+" Plugin 'rainbow_parentheses.vim'
+" let g:rbpt_loadcmd_toggle=1
+" let g:rbpt_max=8
+" " au VimEnter *     RainbowParenthesesToggle
+" nnoremap <Leader>sr :RainbowParenthesesToggle<cr>
+" nnoremap <Leader>ss :RainbowParenthesesToggleAll<cr>
+" " au VimEnter *     RainbowParenthesesLoadRound
+" au Syntax *     RainbowParenthesesLoadSquare
+" au Syntax *     RainbowParenthesesLoadBraces
+" au Syntax *     RainbowParenthesesLoadChevrons
+Plugin 'luochen1990/rainbow'
+
 
 Plugin 'ack.vim'
 
-" Plugin 'guns/xterm-color-table.vim'
 Plugin 'jceb/vim-orgmode'
 
 Plugin 'benmills/vimux'

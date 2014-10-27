@@ -31,3 +31,14 @@ function! HLtoggle()
     endif
 endfunc
 nnoremap <silent> * :call HLtoggle()<cr>
+
+nnoremap <Leader>aa :Ack <cword> %<cr>
+
+nnoremap ]t :tabnext<cr>
+nnoremap [t :tabprevious<cr>
+nnoremap ]b :bn<cr>
+nnoremap [b :bp<cr>
+
+nnoremap <Leader>b :buffers<cr>:buffer<Space>
+
+nnoremap <Leader>q :wqa!<cr>

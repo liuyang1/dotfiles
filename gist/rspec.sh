@@ -14,7 +14,7 @@ rspec() {
             cmd="bash"
             ;;
         scm*)
-            cmd="mit-scheme --load"
+            cmd="guile"
             ;;
         c*|cpp*)
             cmd="gcc"
