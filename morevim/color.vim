@@ -38,5 +38,5 @@ set t_ut=
 
 set guifont=Monaco
 
-highlight ExtraWhitespace ctermbg=red
-match ExtraWhitespace /\s\+\%#\@<!$/
+" highlight ExtraWhitespace ctermbg=yellow
+" match ExtraWhitespace /\s\+\%#\@<!$/

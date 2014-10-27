@@ -3,8 +3,9 @@ alias .2="cd ../.."
 alias .3="cd ../../.."
 alias .4="cd ../../../.."
 alias .5="cd ../../../../.."
-alias vi="vim"
-alias e="vim"
+alias vim="vim -u ~/.vimrc"
+alias vi="vim -u ~/.vimrc"
+alias e="vim -u ~/.vimrc"
 alias less='/bin/less -r'
 alias more='less'
 alias ls='ls -hF --color=tty --show-control-chars --time-style=long-iso'

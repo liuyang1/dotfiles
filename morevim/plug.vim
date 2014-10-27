@@ -1,11 +1,10 @@
 set nocompatible
 
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/bundle')
+" Plug 'gmarik/Vundle.vim'
 
-Plugin 'vimwiki'
+Plug 'vimwiki'
 let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,br,hr,div,del,code,img'
 let g:vimwiki_camel_case=0
 let g:vimwiki_list=[{
@@ -17,9 +16,9 @@ let g:vimwiki_hl_cb_checked=1
 let g:vimwiki_menu=''
 let g:vimwiki_CJK_length=1
 
-Plugin 'a.vim'
+Plug 'a.vim'
 
-Plugin 'ShowMarks7'
+Plug 'ShowMarks7'
 let g:showmarks_include='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 let g:showmarks_enable=1
 let g:showmarks_textlower=')'
@@ -28,10 +27,10 @@ let g:showmarks_hlline_upper=1
 let g:showmarks_hlline_lower=1
 highlight ShowMarksHlu  ctermbg=red ctermfg=green
 
-Plugin 'Align'
-"Plugin 'AutoAlign'
+Plug 'Align'
+"Plug 'AutoAlign'
 
-Plugin 'Tagbar'
+Plug 'Tagbar'
 map <leader>tt :TagbarToggle<CR>
 let g:tagbar_left             = 1
 let g:tagbar_autofocus        = 1
@@ -53,13 +52,12 @@ let g:tagbar_type_vimwiki = {
             \ , 'ctagsargs': '~/.vim/vwtags.py default'
             \ }
 
-Plugin 'Auto-Pairs'
+Plug 'Auto-Pairs'
 
-" comment as slow
-" Plugin 'UltiSnips'
-" Plugin 'honza/vim-snippets'
+" Plug 'UltiSnips'
+" Plug 'honza/vim-snippets'
 
-Plugin 'Syntastic'
+Plug 'Syntastic'
 highlight SyntasticErrorLine    ctermbg=black
 highlight SyntasticErrorSign    ctermbg=darkgray
 let g:syntastic_check_on_open = 1
@@ -78,7 +76,7 @@ let g:syntastic_loc_list_height = 5
 let g:syntastic_c_check_header          = 1
 let g:syntastic_c_remove_include_errors = 1
 
-Plugin 'kovisoft/slimv'
+Plug 'kovisoft/slimv'
 let g:lisp_rainbow=1
 let g:scheme_builtin_swank=1
 let g:slimv_ballon=1
@@ -88,31 +86,31 @@ let g:paredit_short_maps=0
 
 " if only use autopep8 as formatprg, also works.
 " then below 3 lines could delete
-Plugin 'liuyang1/vim-autopep8'
+Plug 'liuyang1/vim-autopep8'
 autocmd FileType python map <buffer> <Leader>cc     :call Autopep8()<cr>
 let g:autopep8_disable_show_diff=1
 au FileType python setlocal formatprg=autopep8\ -aa\ -
 
 " TODO: make more test
-" Plugin 'Chiel92/vim-autoformat'
+" Plug 'Chiel92/vim-autoformat'
 
-" Plugin 'minibufexpl.vim'
+" Plug 'minibufexpl.vim'
 " nnoremap <Leader>bb     :TMiniBufExplorer<cr>
 " let g:miniBufExplSplitBelow  = 0
-Plugin 'ctrlp.vim'
+Plug 'ctrlp.vim'
 let g:ctrlp_cmd               = 'CtrlPBuffer'
 let g:ctrlp_working_path_mode = 'a'
 noremap     ,f          :CtrlPMRUFiles<cr>
 
 " airline need this to display branch
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 nnoremap <Leader>gb         :Gblame<cr>
 nnoremap <Leader>gd         :Gdiff<cr>
 " for vim74 compat
 set diffopt+=vertical
 
 " show git diff mode
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 " when stop typing
 let g:gitgutter_realtime = 1
 " when switch buffer, tab, focus GUI
@@ -126,9 +124,9 @@ nmap ]s     <Plug>GitGutterPreviewHunk
 nmap [s     <Plug>GitGutterPreviewHunk
 let g:gitgutter_highlight_lines = 0
 
-" Plugin 'bling/vim-bufferline'
+" Plug 'bling/vim-bufferline'
 
-" Plugin 'edkolev/tmuxline.vim'
+" Plug 'edkolev/tmuxline.vim'
 " let g:tmuxline_preset = {
 "       \'a'       : ['#(whoami)', '#h'],
 "       \'b'       : 'Ss:#S',
@@ -147,7 +145,7 @@ let g:gitgutter_highlight_lines = 0
 "       \ 'right_alt' : '<',
 "       \ 'space' : ' '}
 
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 let g:airline_theme             = 'powerlineish'
 let g:airline_enable_syntastic  = 1
 let g:airline#extensions#branch#enabled = 1
@@ -157,7 +155,7 @@ let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_section_warning = ''
 let g:airline_powerline_fonts   = 1
 
-Plugin 'mkitt/tabline.vim'
+Plug 'mkitt/tabline.vim'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 " vim-powerline symbols
 " let g:airline_left_sep          = '>'
@@ -168,18 +166,18 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 " let g:airline_readonly_symbol   = 'Lk'
 " let g:airline_linecolumn_prefix = 'L/n'
 
-" Plugin 'Python-mode-klen'
+" Plug 'Python-mode-klen'
 " let g:pymode_folding = 0
 
-" Plugin 'The-NERD-Commenter'
+" Plug 'The-NERD-Commenter'
 " let NERDShutUp=1
-Plugin 'tomtom/tcomment_vim'
+Plug 'tomtom/tcomment_vim'
 let g:tcomment_types={'c': '// %s'}
 
-" Plugin 'autoload_cscope.vim'
-" Plugin 'cscope.vim'
+" Plug 'autoload_cscope.vim'
+" Plug 'cscope.vim'
 
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp']}
 nnoremap <C-i>      :YcmCompleter GoToDefinitionElseDeclaration<CR>
 set completeopt=longest,menu
 autocmd InsertLeave *   if pumvisible()==0|pclose|endif
@@ -192,7 +190,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings=0
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_always_populate_location_list = 1
 
-Plugin 'ervandew/supertab'
+Plug 'ervandew/supertab'
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
@@ -233,14 +231,14 @@ let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 0
 
-" Plugin 'EasyMotion'
-Plugin 'Logcat-syntax-highlighter'
+" Plug 'EasyMotion'
+Plug 'Logcat-syntax-highlighter'
 
 " will make vim slow
-" Plugin 'colorizer'
-Plugin 'guns/xterm-color-table.vim'
+" Plug 'colorizer'
+" Plug 'guns/xterm-color-table.vim'
 
-" Plugin 'rainbow_parentheses.vim'
+" Plug 'rainbow_parentheses.vim'
 " let g:rbpt_loadcmd_toggle=1
 " let g:rbpt_max=8
 " " au VimEnter *     RainbowParenthesesToggle
@@ -250,17 +248,16 @@ Plugin 'guns/xterm-color-table.vim'
 " au Syntax *     RainbowParenthesesLoadSquare
 " au Syntax *     RainbowParenthesesLoadBraces
 " au Syntax *     RainbowParenthesesLoadChevrons
-Plugin 'luochen1990/rainbow'
+Plug 'luochen1990/rainbow'
 
+Plug 'ack.vim'
 
-Plugin 'ack.vim'
+Plug 'jceb/vim-orgmode'
 
-Plugin 'jceb/vim-orgmode'
-
-Plugin 'benmills/vimux'
+Plug 'benmills/vimux'
 map <silent> <Leader>vv :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
 map <Leader>vb :VimuxCloseRunner<CR>
 map <Leader>vc :VimuxInterruptRunner<CR>
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "40"
-call vundle#end()
+call plug#end()

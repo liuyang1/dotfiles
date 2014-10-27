@@ -21,8 +21,8 @@
     co = checkout
     cb = checkout -b
 # diff
-    d = diff .
-    dd = diff
+    d = diff
+    dd = diff .
     dc = diff --cached
     dl = diff HEAD^
     df = difftool -y
@@ -68,6 +68,6 @@
     logoutputencoding = utf8
     commitencoding = utf8
 [log]
-    date = local
+    date = default
 [push]
     default = matching

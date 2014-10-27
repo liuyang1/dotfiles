@@ -16,8 +16,14 @@ map <Leader>ht :echo "hi<" . synIDattr(synID(line("."),col("."),1), "name") . '>
 " quick to sudo write
 cmap w!! w! sudo tee % > /dev/null
 
-nnoremap <C-l> gt
-nnoremap <C-h> gT
+" nnoremap <C-l> gt
+" nnoremap <C-h> gT
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+
 
 function! HLtoggle()
     if (@/ == '')
@@ -42,3 +48,8 @@ nnoremap [b :bp<cr>
 nnoremap <Leader>b :buffers<cr>:buffer<Space>
 
 nnoremap <Leader>q :wqa!<cr>
+
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>

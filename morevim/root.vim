@@ -1,5 +1,6 @@
 let g:mapleader = ";"
-source ~/.vim/vundle.vim
+" source ~/.vim/vundle.vim
+source ~/.vim/plug.vim
 
 source ~/.vim/option.vim
 source ~/.vim/color.vim
