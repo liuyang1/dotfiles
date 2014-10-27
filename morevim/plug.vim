@@ -54,8 +54,8 @@ let g:tagbar_type_vimwiki = {
 
 Plug 'Auto-Pairs'
 
-" Plug 'UltiSnips'
-" Plug 'honza/vim-snippets'
+Plug 'UltiSnips'
+Plug 'honza/vim-snippets'
 
 Plug 'Syntastic'
 highlight SyntasticErrorLine    ctermbg=black
@@ -173,6 +173,8 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 " let NERDShutUp=1
 Plug 'tomtom/tcomment_vim'
 let g:tcomment_types={'c': '// %s'}
+" no reason to switch, not faster
+" Plug 'tpope/vim-commentary'
 
 " Plug 'autoload_cscope.vim'
 " Plug 'cscope.vim'
