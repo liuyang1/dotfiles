@@ -1,12 +1,12 @@
 updateVundle(){
-    echo "update bundle of plugins"
-    cd ~/.vim/bundle
-    if [ ! -d "Vundle.vim" ]; then
-        echo "check Vundle first"
-        git clone https://github.com/gmarik/Vundle.vim.git
-    fi
+    # echo "update bundle of plugins"
+    # cd ~/.vim/bundle
+    # if [ ! -d "Vundle.vim" ]; then
+    #     echo "check Vundle first"
+    #     git clone https://github.com/gmarik/Vundle.vim.git
+    # fi
 
-    vim +PluginInstall +qall
+    vim +PlugInstall +qall
     echo "update all plugin OK"
 }
 

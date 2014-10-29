@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-PREFIX=~
+PREFIX=$HOME
 PWD=`pwd`
 
 installFile(){
@@ -14,5 +14,6 @@ installFile $PWD                    $PREFIX/.vim
 installFile $PWD/ctags              $PREFIX/.ctags
 installFile $PWD/ycm_extra_conf.py  $PREFIX/.ycm_extra_conf.py
 
-mkdir ~/.vimundo
+UNDODIR="$HOME/.vimundo"
+[[ ! -d "$UNDODIR" ]] && mkdir "$UNDODIR"
 ./update.sh
