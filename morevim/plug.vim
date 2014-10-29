@@ -262,4 +262,11 @@ map <Leader>vb :VimuxCloseRunner<CR>
 map <Leader>vc :VimuxInterruptRunner<CR>
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "40"
+
+" Plug 'regedarek/ZoomWin'
+" Plug '907th/vim-auto-save'
+" let g:auto_save=1
+" let g:auto_save_no_updatetime=1
+" let g:auto_save_in_insert_mode=0
+Plug 'w0ng/vim-hybrid'
 call plug#end()

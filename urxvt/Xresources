@@ -160,6 +160,36 @@ MolokaiURxvt*color13:			#C2A1FF
 MolokaiURxvt*color14:			#BBF7EF
 MolokaiURxvt*color15:			#c8c8c0
 
+! Hybrid Terminal Colours. Uses the palette from Tomorrow-Night:
+! https://github.com/chriskempson/tomorrow-theme/blob/master/vim/colors/Tomorrow-Night.vim
+! vim: ft=xdefaults
+
+HybridUrxvt*background: #1D1F21
+HybridUrxvt*foreground: #C5C8C6
+! black
+HybridUrxvt*color0: #282A2E
+HybridUrxvt*color8: #373B41
+! red
+HybridUrxvt*color1: #A54242
+HybridUrxvt*color9: #CC6666
+! green
+HybridUrxvt*color2: #8C9440
+HybridUrxvt*color10: #B5BD68
+! yellow
+HybridUrxvt*color3: #DE935F
+HybridUrxvt*color11: #F0C674
+! blue
+HybridUrxvt*color4: #5F819D
+HybridUrxvt*color12: #81A2BE
+! magenta
+HybridUrxvt*color5: #85678F
+HybridUrxvt*color13: #B294BB
+! cyan
+HybridUrxvt*color6: #5E8D87
+HybridUrxvt*color14: #8ABEB7
+! white
+HybridUrxvt*color7: #707880
+HybridUrxvt*color15: #C5C8C6
 ! Render setting for cairo -> pango -> gtk
 !
 ! Xft.dpi			: 96
