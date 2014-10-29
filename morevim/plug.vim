@@ -147,6 +147,7 @@ let g:gitgutter_highlight_lines = 0
 
 Plug 'bling/vim-airline'
 let g:airline_theme             = 'powerlineish'
+let g:airline_theme             = 'hybrid'
 let g:airline_enable_syntastic  = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = 'No Br'
@@ -269,4 +270,5 @@ let g:VimuxHeight = "40"
 " let g:auto_save_no_updatetime=1
 " let g:auto_save_in_insert_mode=0
 Plug 'w0ng/vim-hybrid'
+Plug 'mhinz/vim-startify'
 call plug#end()

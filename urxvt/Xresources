@@ -19,7 +19,7 @@ URxvt.shading:          30
 !!URL操作
 URxvt.urlLauncher:chromium
 URxvt.matcher.button:1
-Urxvt.perl-ext-common:matcher
+URxvt.perl-ext-common:matcher
 !!滚动条设置
 URxvt.scrollBar:False
 URxvt.scrollBar_right:True
@@ -164,32 +164,32 @@ MolokaiURxvt*color15:			#c8c8c0
 ! https://github.com/chriskempson/tomorrow-theme/blob/master/vim/colors/Tomorrow-Night.vim
 ! vim: ft=xdefaults
 
-HybridUrxvt*background: #1D1F21
-HybridUrxvt*foreground: #C5C8C6
+HybridURxvt*background: #3D1F21
+HybridURxvt*foreground: #C5C8C6
 ! black
-HybridUrxvt*color0: #282A2E
-HybridUrxvt*color8: #373B41
+HybridURxvt*color0: #282A2E
+HybridURxvt*color8: #373B41
 ! red
-HybridUrxvt*color1: #A54242
-HybridUrxvt*color9: #CC6666
+HybridURxvt*color1: #A54242
+HybridURxvt*color9: #CC6666
 ! green
-HybridUrxvt*color2: #8C9440
-HybridUrxvt*color10: #B5BD68
+HybridURxvt*color2: #8C9440
+HybridURxvt*color10: #B5BD68
 ! yellow
-HybridUrxvt*color3: #DE935F
-HybridUrxvt*color11: #F0C674
+HybridURxvt*color3: #DE935F
+HybridURxvt*color11: #F0C674
 ! blue
-HybridUrxvt*color4: #5F819D
-HybridUrxvt*color12: #81A2BE
+HybridURxvt*color4: #5F819D
+HybridURxvt*color12: #81A2BE
 ! magenta
-HybridUrxvt*color5: #85678F
-HybridUrxvt*color13: #B294BB
+HybridURxvt*color5: #85678F
+HybridURxvt*color13: #B294BB
 ! cyan
-HybridUrxvt*color6: #5E8D87
-HybridUrxvt*color14: #8ABEB7
+HybridURxvt*color6: #5E8D87
+HybridURxvt*color14: #8ABEB7
 ! white
-HybridUrxvt*color7: #707880
-HybridUrxvt*color15: #C5C8C6
+HybridURxvt*color7: #707880
+HybridURxvt*color15: #C5C8C6
 ! Render setting for cairo -> pango -> gtk
 !
 ! Xft.dpi			: 96
@@ -217,4 +217,4 @@ HybridUrxvt*color15: #C5C8C6
 URxvt.perl-ext-common:	...,font-size
 URxvt.keysym.C-S-Up:	perl:font-size:incglobal
 URxvt.keysym.C-S-Down:	perl:font-size:decglobal
-URxvt.font-size.step:	1
+URxvt.font-size.step:	3

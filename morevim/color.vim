@@ -1,6 +1,8 @@
 set t_Co=256
-let g:molokai_original=1
-colorscheme molokai
+" let g:molokai_original=1
+" colorscheme molokai
+let g:hybrid_use_Xresources=1
+colorscheme hybrid
 "colorscheme desert
 " let g:solarized_contrast="high"
 " let g:solarized_visibility="high"
