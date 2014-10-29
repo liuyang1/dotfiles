@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 PREFIX=~/.config/ipython/profile_default/
-[ -z $PREFIX ] || ipython profile create
+[ -z $PREFIX ] || ipython2 profile create
 PWD=`pwd`
 
 installFile(){

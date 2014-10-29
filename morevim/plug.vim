@@ -100,7 +100,7 @@ au FileType python setlocal formatprg=autopep8\ -aa\ -
 Plug 'ctrlp.vim'
 let g:ctrlp_cmd               = 'CtrlPBuffer'
 let g:ctrlp_working_path_mode = 'a'
-noremap     ,f          :CtrlPMRUFiles<cr>
+noremap     <Leader>f          :CtrlPMRUFiles<cr>
 
 " airline need this to display branch
 Plug 'tpope/vim-fugitive'

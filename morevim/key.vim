@@ -1,13 +1,6 @@
 nnoremap ,s     :source ~/.vimrc<cr>
 nnoremap ,e     :edit ~/.vimrc<cr>
 
-inoremap <A-b>  <C-o>b
-inoremap <A-w>  <C-o>w
-inoremap <A-h>  <C-o>h
-inoremap <A-j>  <C-o>j
-inoremap <A-k>  <C-o>k
-inoremap <A-l>  <C-o>l
-
 " for test highlight statement
 map <Leader>ht :echo "hi<" . synIDattr(synID(line("."),col("."),1), "name") . '> trans<'
             \ . synIDattr(synID(line("."),col("."),0), "name") . "> lo<"
@@ -38,6 +31,8 @@ function! HLtoggle()
 endfunc
 nnoremap <silent> * :call HLtoggle()<cr>
 
+" fix leak output to terminal
+set shellpipe=&>
 nnoremap <Leader>aa :Ack <cword> %<cr>
 
 nnoremap ]t :tabnext<cr>
@@ -48,6 +43,7 @@ nnoremap [b :bp<cr>
 nnoremap <Leader>b :buffers<cr>:buffer<Space>
 
 nnoremap <Leader>q :wqa!<cr>
+nnoremap ,,        :update<cr>
 
 map <up> <nop>
 map <down> <nop>

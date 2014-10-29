@@ -11,12 +11,12 @@ set number       "how  line   number
 "autocmd InsertLeave * :set relativenumber
 function! SwitchRelative()
     if(&relativenumber == 1)
-        set number
+        set norelativenumber
     else
         set relativenumber
     endif
 endfunc
-nnoremap <Leader>ff      :call SwitchRelative()<cr>
+nnoremap <Leader>l      :call SwitchRelative()<cr>
 
 "set noexpandtab
 set expandtab
@@ -200,3 +200,5 @@ function! AdjustWindowHeight(minh, maxh)
 endfunction
 au FileType qf call AdjustWindowHeight(10, 25)
 
+" fast <Esc> key
+set timeoutlen=1000 ttimeoutlen=0
