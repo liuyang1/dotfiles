@@ -214,7 +214,7 @@ HybridURxvt*color15: #C5C8C6
 ! Rxvt.color12:DodgerBule
 ! Rxvt.menu:/etc/X11/rxvt.menu
 ! 
-URxvt.perl-ext-common:	...,font-size
-URxvt.keysym.C-S-Up:	perl:font-size:incglobal
-URxvt.keysym.C-S-Down:	perl:font-size:decglobal
-URxvt.font-size.step:	3
+! URxvt.perl-ext-common:	...,font-size
+! URxvt.keysym.C-S-Up:	perl:font-size:incglobal
+! URxvt.keysym.C-S-Down:	perl:font-size:decglobal
+! URxvt.font-size.step:	3

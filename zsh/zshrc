@@ -175,3 +175,5 @@ settitle() {
 }
 
 # settitle "untitled"
+
+KEYTIMEOUT=10

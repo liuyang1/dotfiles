@@ -34,6 +34,7 @@ highlight Statement cterm=italic term=italic
 " for listchars
 " highlight SpecialKey cterm=none ctermfg=gray
 highlight cUserLabel cterm=italic ctermfg=229
+highlight CursorLineNr cterm=bold ctermfg=red
 
 " disable Background color erase
 set t_ut=
