@@ -134,10 +134,12 @@ let g:gitgutter_highlight_lines = 0
 "       \'win'     : ['#I#F#P', '#W'],
 "       \'cwin'    : ['#I#F#P', '#W'],
 "       \'x'       : '',
-"       \'y'       : '#(tmux-mem-cpu-load 1)',
-"       \'z'       : ['%R:%S', '%m-%d %a'],
-"       \'options' : {'status-justify' : 'left'}}
+"       \'y'       : '%R:%S',
+"       \'z'       : ['%m-%d', '%a'],
+"       \'options' : {'status-justify' : 'centre'}}
 " let g:tmuxline_powerline_separators = 1
+" status-justify: left, centre, right
+      " \'y'       : '#(tmux-mem-cpu-load 1)',
 " let g:tmuxline_separators = {
 "       \ 'left' : '',
 "       \ 'left_alt': '>',
@@ -147,7 +149,7 @@ let g:gitgutter_highlight_lines = 0
 
 Plug 'bling/vim-airline'
 let g:airline_theme             = 'powerlineish'
-let g:airline_theme             = 'hybrid'
+" let g:airline_theme             = 'hybrid'
 let g:airline_enable_syntastic  = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = 'No Br'
@@ -269,6 +271,8 @@ let g:VimuxHeight = "40"
 " let g:auto_save=1
 " let g:auto_save_no_updatetime=1
 " let g:auto_save_in_insert_mode=0
-Plug 'w0ng/vim-hybrid'
+" Plug 'w0ng/vim-hybrid'
 Plug 'mhinz/vim-startify'
+" Plug 'trapd00r/neverland-vim-theme'
+" Plug 'nanotech/jellybeans.vim'
 call plug#end()

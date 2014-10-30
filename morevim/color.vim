@@ -1,8 +1,7 @@
 set t_Co=256
-" let g:molokai_original=1
-" colorscheme molokai
-let g:hybrid_use_Xresources=1
-colorscheme hybrid
+colorscheme molokai
+" let g:hybrid_use_Xresources=1
+" colorscheme hybrid
 "colorscheme desert
 " let g:solarized_contrast="high"
 " let g:solarized_visibility="high"
@@ -39,7 +38,11 @@ highlight CursorLineNr cterm=bold ctermfg=red
 " disable Background color erase
 set t_ut=
 
-set guifont=Monaco
+set guifont=Monaco\ 12
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
 
 " highlight ExtraWhitespace ctermbg=yellow
 " match ExtraWhitespace /\s\+\%#\@<!$/
