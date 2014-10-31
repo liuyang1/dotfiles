@@ -1,17 +1,17 @@
 set t_Co=256
 " let g:molokai_original=1
 " colorscheme molokai
-let g:hybrid_use_Xresources=1
-colorscheme hybrid
+" let g:hybrid_use_Xresources=1
+" colorscheme hybrid
 "colorscheme desert
-" let g:solarized_contrast="high"
-" let g:solarized_visibility="high"
-" set background=light
-" colorscheme solarized
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+set background=dark
+colorscheme solarized
 
 
-autocmd FileType c,cpp      setlocal colorcolumn=81,100
-autocmd FileType vimwiki    setlocal colorcolumn=80
+set colorcolumn=80
+autocmd FileType c,cpp      setlocal colorcolumn=100
 
 
 highlight VimwikiHeader1 ctermfg=red

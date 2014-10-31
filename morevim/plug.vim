@@ -147,7 +147,7 @@ let g:gitgutter_highlight_lines = 0
 
 Plug 'bling/vim-airline'
 let g:airline_theme             = 'powerlineish'
-let g:airline_theme             = 'hybrid'
+" let g:airline_theme             = 'hybrid'
 let g:airline_enable_syntastic  = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = 'No Br'
@@ -167,8 +167,8 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 " let g:airline_readonly_symbol   = 'Lk'
 " let g:airline_linecolumn_prefix = 'L/n'
 
-" Plug 'Python-mode-klen'
-" let g:pymode_folding = 0
+Plug 'Python-mode-klen', { 'for': ['python'] }
+let g:pymode_folding = 0
 
 " Plug 'The-NERD-Commenter'
 " let NERDShutUp=1

@@ -7,7 +7,7 @@ map <Leader>ht :echo "hi<" . synIDattr(synID(line("."),col("."),1), "name") . '>
             \ . synIDattr(synIDtrans(synID(line("."),col("."),1)), "name") . ">"<CR>
 
 " quick to sudo write
-command W w !sudo tee % > /dev/null
+command! W w !sudo tee % > /dev/null
 
 " nnoremap <C-l> gt
 " nnoremap <C-h> gT

@@ -19,7 +19,7 @@ URxvt.shading:          30
 !!URL操作
 URxvt.urlLauncher:chromium
 URxvt.matcher.button:1
-URxvt.perl-ext-common:matcher
+! URxvt.perl-ext-common:matcher
 !!滚动条设置
 URxvt.scrollBar:False
 URxvt.scrollBar_right:True
