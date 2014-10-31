@@ -6,30 +6,34 @@ filename="${filename%.*}"
 cmd=""
 rspec() {
     ext="$1"
+    filename="$2"
     case "$ext" in
         py*)
-            cmd="python2"
+            cmd="python2 $filename"
             ;;
         sh*)
-            cmd="bash"
+            cmd="bash $filename"
             ;;
         scm*)
-            cmd="guile"
+            cmd="guile $filename"
             ;;
         c*|cpp*)
-            cmd="gcc"
+            cmd="gcc $filename"
             ;;
         clj*)
-            cmd="clojure"
+            cmd="clojure $filename"
             ;;
         cl*)
-            cmd="clisp"
+            cmd="clisp $filename"
             ;;
         Xresouces*)
-            cmd="xrdb"
+            cmd="xrdb $filename"
             ;;
+        dot*)
+            cmd="dot $filename -Tpng -o test.png && feh test.png"
     esac
 }
 
-rspec $extension
-eval "$cmd $fullfile"
+rspec $extension $fullfile
+echo $cmd
+eval "$cmd"
