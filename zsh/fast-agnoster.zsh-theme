@@ -67,7 +67,7 @@ function preexec_update_git_vars() {
     git*|hub*|gh*|stg*)
       __EXECUTED_GIT_COMMAND=1
       ;;
-    rm*|touch*|mv*)
+    rm*|touch*|mv*|cp*)
       __EXECUTED_GIT_COMMAND=1
       ;;
     vi*|emacs*)

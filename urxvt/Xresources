@@ -164,7 +164,7 @@ MolokaiURxvt*color15:			#c8c8c0
 ! https://github.com/chriskempson/tomorrow-theme/blob/master/vim/colors/Tomorrow-Night.vim
 ! vim: ft=xdefaults
 
-HybridURxvt*background: #3D1F21
+HybridURxvt*background: #1D1F21
 HybridURxvt*foreground: #C5C8C6
 ! black
 HybridURxvt*color0: #282A2E
