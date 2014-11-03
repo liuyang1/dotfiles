@@ -38,7 +38,7 @@ let g:tagbar_compact          = 1
 "relative line number
 let g:tagbar_show_linenumbers = 2
 let g:tagbar_previewwin_pos   = "downright"
-let g:tagbar_autopreview      = 1
+" let g:tagbar_autopreview      = 1
 autocmd FileType tagbar setlocal nocursorline nocursorcolumn
 
 let g:tagbar_type_vimwiki = {
@@ -260,7 +260,7 @@ Plug 'ack.vim'
 Plug 'jceb/vim-orgmode'
 
 Plug 'benmills/vimux'
-map <silent> <Leader>vv :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
+map <silent> <Leader><Leader> :update<cr>:call VimuxRunCommand("rspec " . bufname("%"))<CR>
 map <Leader>vb :VimuxCloseRunner<CR>
 map <Leader>vc :VimuxInterruptRunner<CR>
 let g:VimuxOrientation = "h"

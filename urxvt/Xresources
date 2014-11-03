@@ -57,7 +57,7 @@ URxvt.font:xft:Monaco for Powerline:size=12:style=Regular:antialias=true:hinting
 URxvt.boldFont:xft:MonacoB:size=12:style=Bold:antialias=true:hinting=true,xft:Menlo:size=12,xft:Monospace:size=12,xft:WenQuanYi Micro Hei:pixelsize=22:style=Bold:antialias=true
 URxvt.italicFont:xft:Menlo for Powerline:size=12:style=Italic:antialias=true:hinting=true:autohint=true:hintstyle=hintslight,xft:WenQuanYi Micro Hei:pixelsize=22:style=Italic:antialias=true
 URxvt.boldItalicFont:xft:Menlo for Powerline:size=12:style=Bold Italic:antialias=true,xft:WenQuanYi Micro Hei:pixelsize=22:style=Bold Italic:antialias=true
-URxvt.letterSpace:-2
+URxvt.letterSpace:-1
 
 URxvt*loginShell: false
 
