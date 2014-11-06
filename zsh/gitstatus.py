@@ -81,21 +81,15 @@ def probeLines(lines):
         if line is "":
             continue
         X, Y = line[0], line[1]
-        if X is "?":
-            Untrack += 1
-        elif X is "!":
+        if X is '!':
             continue
+        Untrack += X is '?'
         if X is " " or X is "M":
-            if Y is "M":
-                uModify += 1
-            elif Y is "D":
-                uDelete += 1
-        if X is "M":
-            Modify += 1
-        elif X is "A":
-            Add += 1
-        elif X is "D":
-            Delete += 1
+            uModify += Y is 'M'
+            uDelete += Y is 'D'
+        Modify += X is 'M'
+        Add += X is 'A'
+        Delete += X is 'D'
     return (Modify, Add, Delete), (uModify, uDelete, Untrack)
 
 
@@ -148,7 +142,7 @@ def combSeg(br, stage, dirty):
 
     def NotNull(v, sym=""):
         return sym + str(v) if v != "" else ""
-    s = seg[0]
+    s = seg[0] + " "
     if seg[1] != "" or seg[2] != "":
         s += "●" + seg[1]
         s += "●" + seg[2]

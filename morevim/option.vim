@@ -7,6 +7,7 @@ set history=1000
 set cmdheight=1  "cmd  height
 set ruler        "show position of cursor
 set number       "how  line   number
+set relativenumber
 "autocmd InsertEnter * :set number
 "autocmd InsertLeave * :set relativenumber
 function! SwitchRelative()
@@ -202,3 +203,5 @@ au FileType qf call AdjustWindowHeight(10, 25)
 
 " fast <Esc> key
 set timeoutlen=1000 ttimeoutlen=0
+
+set keywordprg=man\ -a

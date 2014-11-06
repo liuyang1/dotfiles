@@ -11,7 +11,7 @@ rspec() {
         py*) cmd="python2 $filename" ;;
         sh*) cmd="bash $filename" ;;
         scm*) cmd="guile $filename" ;;
-        c*|cpp*) cmd="gcc $filename" ;;
+        c*|cpp*) cmd="gcc $filename && ./a.out" ;;
         clj*) cmd="clojure $filename" ;;
         cl*) cmd="clisp $filename" ;;
         Xresouces*) cmd="xrdb $filename" ;;

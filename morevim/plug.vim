@@ -253,7 +253,8 @@ Plug 'Logcat-syntax-highlighter'
 " au Syntax *     RainbowParenthesesLoadSquare
 " au Syntax *     RainbowParenthesesLoadBraces
 " au Syntax *     RainbowParenthesesLoadChevrons
-Plug 'luochen1990/rainbow'
+Plug 'luochen1990/rainbow', { 'for': ['c','cpp', 'h']}
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
 Plug 'ack.vim'
 
@@ -272,7 +273,7 @@ let g:VimuxHeight = "40"
 " let g:auto_save_no_updatetime=1
 " let g:auto_save_in_insert_mode=0
 " Plug 'w0ng/vim-hybrid'
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 " Plug 'trapd00r/neverland-vim-theme'
 " Plug 'nanotech/jellybeans.vim'
 call plug#end()

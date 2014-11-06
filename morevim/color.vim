@@ -10,7 +10,7 @@ colorscheme molokai
 
 
 set colorcolumn=80
-autocmd FileType c,cpp      setlocal colorcolumn=100
+autocmd FileType c,cpp      setlocal colorcolumn=81,100
 
 
 highlight VimwikiHeader1 ctermfg=red
@@ -27,11 +27,11 @@ highlight Identifier ctermfg=darkyellow
 " highlight SpellBad cterm=bold ctermfg=darkred cterm=reverse
 " highlight Conditional cterm=bold ctermfg=darkred
 " highlight Statement ctermfg=208 cterm=italic
-highlight Statement cterm=italic term=italic
-" highlight CursorLine ctermbg=235
+highlight Statement cterm=italic,bold ctermfg=darkred cterm=italic,bold
 " highlight Comment ctermfg=246
 " for listchars
 " highlight SpecialKey cterm=none ctermfg=gray
+highlight CursorLine ctermbg=235
 highlight cUserLabel cterm=italic ctermfg=229
 highlight CursorLineNr cterm=bold ctermfg=red
 highlight LineNr ctermfg=246
