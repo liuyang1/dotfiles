@@ -98,9 +98,28 @@ au FileType python setlocal formatprg=autopep8\ -aa\ -
 " nnoremap <Leader>bb     :TMiniBufExplorer<cr>
 " let g:miniBufExplSplitBelow  = 0
 Plug 'ctrlp.vim'
-let g:ctrlp_cmd               = 'CtrlPBuffer'
-let g:ctrlp_working_path_mode = 'a'
-noremap     <Leader>f          :CtrlPMRUFiles<cr>
+let g:ctrlp_cmd               = 'CtrlPMixed'
+let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_custom_ignore = {
+            \ 'dir': '\v[\/](\.git|\.hg|\.svn|out)$',
+            \ 'file': '\v\.(exe|so|ddl)$',
+            \ 'link': 'some_bad_symbolic_links',
+            \ }
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_max_files = 0
+" noremap     <Leader>f           :CtrlPMRUFiles<cr>
+" noremap     <Leader>ff          :CtrlPMRUFiles<cr>
+noremap     <Leader>f          :CtrlPFunky<cr>
+Plug 'tacahiroy/ctrlp-funky'
+let g:ctrlp_extesions = ['funky']
+let g:ctrlp_funky_matchtype = 'path'
+let g:ctrlp_funky_syntax_highlight = 1
+Plug 'JazzCore/ctrlp-cmatcher'
+let g:ctrlp_match_func={'match' : 'matcher#cmatch'}
+" Plug 'FelikZ/ctrlp-py-matcher'
+" let g:ctrlp_match_func = { 'match' : 'pymatcher#PyMatch' }
+" Plug 'ompugao/ctrlp-z'
+
 
 " airline need this to display branch
 Plug 'tpope/vim-fugitive'
@@ -160,6 +179,7 @@ let g:airline_powerline_fonts   = 1
 
 Plug 'mkitt/tabline.vim'
 let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 " vim-powerline symbols
 " let g:airline_left_sep          = '>'
 " let g:airline_left_alt_sep      = '>'
