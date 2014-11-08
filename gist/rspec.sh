@@ -7,11 +7,21 @@ cmd=""
 rspec() {
     ext="$1"
     filename="$2"
+    if [[ $filename == "Makefile"  ]]; then
+        cmd="make && make run"
+        return
+    fi
     case "$ext" in
         py*) cmd="python2 $filename" ;;
         sh*) cmd="bash $filename" ;;
         scm*) cmd="guile $filename" ;;
-        c*|cpp*) cmd="gcc $filename && ./a.out" ;;
+        c*|cpp*|C*|h*|cxx*|cc*)
+            if [[ -f Makefile ]]; then
+                cmd="make && make run"
+            else
+                cmd="gcc $filename && ./a.out"
+            fi 
+            ;;
         clj*) cmd="clojure $filename" ;;
         cl*) cmd="clisp $filename" ;;
         Xresouces*) cmd="xrdb $filename" ;;

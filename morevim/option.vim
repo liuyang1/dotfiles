@@ -50,6 +50,7 @@ set hidden
 set laststatus=2    " always show status line
 set showtabline=2
 set noshowmode      " as powerline plugin already display this info
+set tabpagemax=50
 
 " modeline
 set showmode    " ???
@@ -132,7 +133,8 @@ set path=..,.,/usr/include,/usr/src/linux/include,/usr/local/include,
 " wrap
 set wrap
 
-set listchars=tab:▸\ ,trail:‽,extends:>
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+" set listchars=tab:▸\ ,trail:‽,extends:>,precedes:<,nbsp:+
 "   
 "set listchars=tab:>\ ,trail:.,extends:>
 "set listchars=tab:>\ ,trail:.,extends:>
@@ -145,7 +147,8 @@ set listchars=tab:▸\ ,trail:‽,extends:>
 "▷
 set list!
 
-"set scrolloff=999
+set scrolloff=1
+set sidescrolloff=5
 
 set viminfo='10,\"100,:20,%,n~/.viminfo
 
@@ -165,6 +168,7 @@ augroup END
 set diffopt+=iwhite
 
 set tags=./tags;/
+" setglobal tags-=./tags tags^=./tags;
 " map <C-i>     :tjump <c-r><C-w><cr>
 
 set nospell
@@ -179,6 +183,7 @@ if !exists("my_auto_commands_autoloaded")
 endif
 
 set completeopt+=preview
+set complete-=i
 
 set noreadonly
 
@@ -202,6 +207,9 @@ endfunction
 au FileType qf call AdjustWindowHeight(10, 25)
 
 " fast <Esc> key
+set ttimeout
 set timeoutlen=1000 ttimeoutlen=0
 
 set keywordprg=man\ -a
+
+set sessionoptions-=options

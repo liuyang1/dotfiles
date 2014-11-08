@@ -99,12 +99,13 @@ au FileType python setlocal formatprg=autopep8\ -aa\ -
 " let g:miniBufExplSplitBelow  = 0
 Plug 'ctrlp.vim'
 let g:ctrlp_cmd               = 'CtrlPMixed'
-let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
             \ 'dir': '\v[\/](\.git|\.hg|\.svn|out)$',
             \ 'file': '\v\.(exe|so|ddl)$',
             \ 'link': 'some_bad_symbolic_links',
             \ }
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_files = 0
 " noremap     <Leader>f           :CtrlPMRUFiles<cr>
@@ -115,7 +116,11 @@ let g:ctrlp_extesions = ['funky']
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 Plug 'JazzCore/ctrlp-cmatcher'
-let g:ctrlp_match_func={'match' : 'matcher#cmatch'}
+if filereadable(expand('~/.vim/bundle/ctrlp-cmatcher/autoload/fuzzycomt.so'))
+  let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
+else
+  echohl WarningMsg | echom 'You need to compile the CtrlP C matching extension.' | echohl None
+endif
 " Plug 'FelikZ/ctrlp-py-matcher'
 " let g:ctrlp_match_func = { 'match' : 'pymatcher#PyMatch' }
 " Plug 'ompugao/ctrlp-z'
@@ -277,13 +282,25 @@ Plug 'luochen1990/rainbow', { 'for': ['c','cpp', 'h']}
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
 Plug 'ack.vim'
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+          \ --ignore .git
+          \ --ignore .svn
+          \ --ignore .hg
+          \ --ignore .DS_Store
+          \ --ignore "**/*.pyc"
+          \ -g ""'
+    let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
 
 Plug 'jceb/vim-orgmode'
 
 Plug 'benmills/vimux'
 map <silent> <Leader><Leader> :update<cr>:call VimuxRunCommand("rspec " . bufname("%"))<CR>
-map <Leader>vb :VimuxCloseRunner<CR>
-map <Leader>vc :VimuxInterruptRunner<CR>
+map <Leader>vc :VimuxCloseRunner<CR>
+map <Leader>vx :VimuxInterruptRunner<CR>
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "40"
 
@@ -296,4 +313,5 @@ let g:VimuxHeight = "40"
 " Plug 'mhinz/vim-startify'
 " Plug 'trapd00r/neverland-vim-theme'
 " Plug 'nanotech/jellybeans.vim'
+Plug 'cypok/vim-sml', { 'for': ['sml'] }
 call plug#end()

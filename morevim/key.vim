@@ -53,3 +53,5 @@ map <right> <nop>
 autocmd FileType c,cpp nmap <Leader>d   <C-w>}
 autocmd FileType c,cpp nmap <Enter>     <C-w>}
 autocmd FileType log,logcat   nmap <Enter>     <Leader>aa<C-w><C-w>
+
+inoremap <C-U>      <C-G>u<C-U>
