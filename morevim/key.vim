@@ -8,6 +8,8 @@ map <Leader>ht :echo "hi<" . synIDattr(synID(line("."),col("."),1), "name") . '>
 
 " quick to sudo write
 command! W w !sudo tee % > /dev/null
+" quickly switch to current directory
+command! Cdc cd %:p:h
 
 " nnoremap <C-l> gt
 " nnoremap <C-h> gT

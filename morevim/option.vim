@@ -213,3 +213,5 @@ set timeoutlen=1000 ttimeoutlen=0
 set keywordprg=man\ -a
 
 set sessionoptions-=options
+
+set autochdir

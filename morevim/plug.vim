@@ -98,7 +98,7 @@ au FileType python setlocal formatprg=autopep8\ -aa\ -
 " nnoremap <Leader>bb     :TMiniBufExplorer<cr>
 " let g:miniBufExplSplitBelow  = 0
 Plug 'ctrlp.vim'
-let g:ctrlp_cmd               = 'CtrlPMixed'
+let g:ctrlp_cmd               = 'CtrlPMRUFiles'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
             \ 'dir': '\v[\/](\.git|\.hg|\.svn|out)$',
