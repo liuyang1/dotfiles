@@ -101,16 +101,28 @@ def NotZero(v, sym=""):
     return sym + str(v) if v is not 0 else ""
 
 
+class Symb():
+    branch = ""
+    remote = "☁"
+    forward = "➤"
+    backward = "<"
+    modify = "±"
+    add = "✔"
+    delt = "✘"
+    untrack = ","
+    delimiter = "·"
+
+
 def fmtBranch(brRet):
     br, rmt, head, behind = brRet
-    s = "" + br
+    s = Symb.branch + br
     if rmt != "origin/master" and rmt is not "":
         idx = rmt.rfind("/")
         if idx != -1:
             rmt = rmt[idx + 1:]
-        s += "☁" + rmt
-    s += NotZero(head, ">")
-    s += NotZero(behind, "<")
+        s += Symb.remote + rmt
+    s += NotZero(head, Symb.forward)
+    s += NotZero(behind, Symb.backward)
     status = RepoSt.unsync if head != 0 or behind != 0 else RepoSt.clean
     return s, status
 
@@ -118,7 +130,7 @@ def fmtBranch(brRet):
 def fmtStage(num):
     s = ""
     Modify, Add, Delete = num
-    symbol = ["*", "+", "X"]
+    symbol = [Symb.modify, Symb.add, Symb.delt]
     status = RepoSt.stage if sum(num) is not 0 else RepoSt.clean
     for v, sym in zip(num, symbol):
         s += NotZero(v, sym)
@@ -128,7 +140,7 @@ def fmtStage(num):
 def fmtDirty(num):
     s = ""
     uModify, uDelete, Untrack = num
-    symbol = ["*", "x", "."]
+    symbol = [Symb.modify, Symb.delt, Symb.untrack]
     # get status skip untrack
     status = RepoSt.dirty if sum(num[0:2]) is not 0 else RepoSt.clean
     for v, sym in zip(num, symbol):
@@ -142,10 +154,10 @@ def combSeg(br, stage, dirty):
 
     def NotNull(v, sym=""):
         return sym + str(v) if v != "" else ""
-    s = seg[0] + " "
+    s = seg[0]
     if seg[1] != "" or seg[2] != "":
-        s += "●" + seg[1]
-        s += "●" + seg[2]
+        s += Symb.delimiter + seg[1]
+        s += Symb.delimiter + seg[2]
     return s, max(st)
 
 

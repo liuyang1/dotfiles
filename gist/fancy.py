@@ -6,7 +6,9 @@ tabsyb = [('')
 lst = [('➙', 'Heavy Rightwards'),
        ('➢', ''),
        ('➣', ''),
-       ('➤', 'Black Rightwards'),
+       ('➤', 'Black Rightwards arrow head'),
+       ('⬅', 'Leftwards black arrow'),
+       ('➡', 'Black Rightwards arrow'),
        ('➳', ''),
        ('➵', ''),
        ('➸', 'Heavy Black Feathered'),
@@ -17,6 +19,8 @@ lst = [('➙', 'Heavy Rightwards'),
        ('☻', 'Black Smiling Face'),
        ('☺', 'White Smiling Face'),
        ('☹', 'Whilte Frowning Face'),
+       ('❖', 'BLACK DIAMOND MINUS WHITE X'),
+       ('✪', '')
        ]
 
 for e in lst:
