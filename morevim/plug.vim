@@ -132,6 +132,10 @@ nnoremap <Leader>gb         :Gblame<cr>
 nnoremap <Leader>gd         :Gdiff<cr>
 " for vim74 compat
 set diffopt+=vertical
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '±'
+let g:gitgutter_sign_removed = '✖'
+let g:gitgutter_sign_modified_removed = '±✖'
 
 " show git diff mode
 Plug 'airblade/vim-gitgutter'
