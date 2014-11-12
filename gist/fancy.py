@@ -1,8 +1,6 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-tabsyb = [('')
-]
 lst = [('➙', 'Heavy Rightwards'),
        ('➢', ''),
        ('➣', ''),
@@ -20,9 +18,20 @@ lst = [('➙', 'Heavy Rightwards'),
        ('☺', 'White Smiling Face'),
        ('☹', 'Whilte Frowning Face'),
        ('❖', 'BLACK DIAMOND MINUS WHITE X'),
-       ('✪', '')
+       ('✪', ''),
+       ('•', 'jia zhong hao'),
+       ('‣', 'san jiao jia zhong hao'),
+       ('‥', 'two dot qian zhao hao'),
+       ('‹›', 'zhi jian yin hao'),
+       ('❮❯'),
+       ('∙', 'dot calcation'),
+       ('⌃⌄', 'up/down arrow head'),
+       ('☑', ''),
+       ('✖✕'),
+       ('✚'),
+       ('∑−∓¯'),
+       ('➕➖')
        ]
-
 for e in lst:
     for i in e:
         print i,

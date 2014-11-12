@@ -75,10 +75,12 @@ function preexec_update_git_vars() {
       ;;
   esac
 }
+# set default value
+__EXECUTED_GIT_COMMAND=1
 function precmd_update_git_vars() {
-  if [ -n "$__EXECUTED_GIT_COMMAND" ]; then
+  if [ "$__EXECUTED_GIT_COMMAND" -eq 1 ]; then
     update_current_git_vars
-    unset __EXECUTED_GIT_COMMAND
+    __EXECUTED_GIT_COMMAND=0
   fi
 }
 

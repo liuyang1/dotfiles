@@ -1,3 +1,4 @@
+#! /usr/bin/env bash
 fullfile=$1
 filename=$(basename "$fullfile")
 extension="${filename##*.}"

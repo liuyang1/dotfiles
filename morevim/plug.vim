@@ -112,7 +112,7 @@ let g:ctrlp_max_files = 0
 " noremap     <Leader>ff          :CtrlPMRUFiles<cr>
 noremap     <Leader>f          :CtrlPFunky<cr>
 Plug 'tacahiroy/ctrlp-funky'
-let g:ctrlp_extesions = ['funky']
+let g:ctrlp_extesions = ['funky', 'tag']
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 Plug 'JazzCore/ctrlp-cmatcher'

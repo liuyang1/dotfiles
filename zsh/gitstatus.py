@@ -104,13 +104,15 @@ def NotZero(v, sym=""):
 class Symb():
     branch = ""
     remote = "☁"
-    forward = "➤"
-    backward = "<"
+    forward = "⌃"
+    backward = "⌄"
     modify = "±"
     add = "✔"
-    delt = "✘"
-    untrack = ","
-    delimiter = "·"
+    delt = "✘",
+    uModify = modify
+    uDelete = "✖"
+    Untrack = "✚"
+    delimiter = "•"
 
 
 def fmtBranch(brRet):
@@ -140,7 +142,7 @@ def fmtStage(num):
 def fmtDirty(num):
     s = ""
     uModify, uDelete, Untrack = num
-    symbol = [Symb.modify, Symb.delt, Symb.untrack]
+    symbol = [Symb.uModify, Symb.uDelete, Symb.Untrack]
     # get status skip untrack
     status = RepoSt.dirty if sum(num[0:2]) is not 0 else RepoSt.clean
     for v, sym in zip(num, symbol):
