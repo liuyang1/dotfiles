@@ -1,0 +1,31 @@
+From 9cc14a3cc6a8e3266122998219a922494a84229a Mon Sep 17 00:00:00 2001
+From: liuyang <liuyang1@mail.ustc.edu.cn>
+Date: Thu, 13 Nov 2014 20:14:10 +0800
+Subject: [PATCH] delete file meesage
+
+---
+ plugin/header.vim |    8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/plugin/header.vim b/plugin/header.vim
+index 7148634..51df39b 100644
+--- a/plugin/header.vim
++++ b/plugin/header.vim
+@@ -90,10 +90,10 @@ function s:insert ()
+ 
+   call append (0, s:type)
+   call append (1, s:author)
+-  call append (2, s:file)
+-  call append (3, s:role)
+-  call append (4, s:created)
+-  call append (5, s:modified)
++  " call append (2, s:file)
++  call append (2, s:role)
++  call append (3, s:created)
++  call append (4, s:modified)
+ 
+   unlet s:comment
+   unlet s:type
+-- 
+1.7.9.5
+

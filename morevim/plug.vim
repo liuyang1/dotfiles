@@ -285,7 +285,7 @@ Plug 'Logcat-syntax-highlighter'
 Plug 'luochen1990/rainbow', { 'for': ['c','cpp', 'h']}
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
-Plug 'ack.vim'
+Plug 'mileszs/ack.vim'
 if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
     " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
@@ -318,4 +318,10 @@ let g:VimuxHeight = "40"
 " Plug 'trapd00r/neverland-vim-theme'
 " Plug 'nanotech/jellybeans.vim'
 Plug 'cypok/vim-sml', { 'for': ['sml'] }
+
+Plug 'Yggdroot/indentLine'
+let g:indentLine_color_term=236
+let g:indentLine_char='│'
+
+Plug 'header.vim'
 call plug#end()
