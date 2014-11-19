@@ -36,3 +36,5 @@ autocmd BufNewFile,BufRead *.test setlocal filetype=tcl
 autocmd FileType clojure    setlocal makeprg=clojure\ %
 autocmd FileType lisp       setlocal makeprg=clisp\ %
 autocmd FileType xdefaults  setlocal makeprg=xrdb\ %
+
+autocmd FileType log,logcat   set norelativenumber

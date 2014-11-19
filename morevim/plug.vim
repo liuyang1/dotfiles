@@ -302,7 +302,7 @@ endif
 Plug 'jceb/vim-orgmode'
 
 Plug 'benmills/vimux'
-map <silent> <Leader><Leader> :update<cr>:call VimuxRunCommand("rspec " . bufname("%"))<CR>
+map <silent> <Leader><Leader> :update<cr>:call VimuxRunCommand("rspec " . expand("%:p"))<CR>
 map <Leader>vc :VimuxCloseRunner<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 let g:VimuxOrientation = "h"
@@ -321,6 +321,7 @@ Plug 'cypok/vim-sml', { 'for': ['sml'] }
 
 Plug 'Yggdroot/indentLine'
 let g:indentLine_color_term=236
+" | ¦ ┆ │
 let g:indentLine_char='│'
 
 Plug 'header.vim'

@@ -35,7 +35,7 @@ nnoremap <silent> * :call HLtoggle()<cr>
 
 " fix leak output to terminal
 set shellpipe=&>
-nnoremap <Leader>aa :Ack <cword> "%:p:h"<cr>
+nnoremap <Leader>aa :Ack <cword> "%:p"<cr>
 
 nnoremap ]t :tabnext<cr>
 nnoremap [t :tabprevious<cr>

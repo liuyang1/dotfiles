@@ -177,3 +177,5 @@ settitle() {
 # settitle "untitled"
 
 KEYTIMEOUT=10
+
+export CLASSPATH=.:$HOME/.local/framework:$CLASSPATH

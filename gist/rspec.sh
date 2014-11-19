@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 fullfile=$1
+dir=$(dirname "$fullfile")
+cd "$dir"
 filename=$(basename "$fullfile")
 extension="${filename##*.}"
 filename="${filename%.*}"
@@ -36,3 +38,4 @@ rspec() {
 
 rspec $extension $fullfile
 eval "$cmd"
+cd -
