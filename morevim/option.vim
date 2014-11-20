@@ -133,8 +133,8 @@ set path=..,.,/usr/include,/usr/src/linux/include,/usr/local/include,
 " wrap
 set wrap
 
-set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-" set listchars=tab:▸\ ,trail:‽,extends:>,precedes:<,nbsp:+
+" set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+set listchars=tab:▸\ ,trail:‽,extends:>,precedes:<,nbsp:+
 "   
 "set listchars=tab:>\ ,trail:.,extends:>
 "set listchars=tab:>\ ,trail:.,extends:>
@@ -150,7 +150,7 @@ set list!
 set scrolloff=1
 set sidescrolloff=5
 
-set viminfo='10,\"100,:20,%,n~/.viminfo
+set viminfo='100,\"200,:200,%,n~/.viminfo
 
 function! ResCur()
 if line("'\"") <= line("$")

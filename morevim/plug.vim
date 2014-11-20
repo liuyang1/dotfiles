@@ -18,14 +18,18 @@ let g:vimwiki_CJK_length=1
 
 Plug 'a.vim'
 
-Plug 'ShowMarks7'
-let g:showmarks_include='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-let g:showmarks_enable=1
-let g:showmarks_textlower=')'
-let g:showmarks_textupper='>'
-let g:showmarks_hlline_upper=1
-let g:showmarks_hlline_lower=1
-highlight ShowMarksHlu  ctermbg=red ctermfg=green
+" Plug 'ShowMarks7'
+" let g:showmarks_include='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+" let g:showmarks_enable=1
+" let g:showmarks_textlower=')'
+" let g:showmarks_textupper='>'
+" let g:showmarks_hlline_upper=1
+" let g:showmarks_hlline_lower=1
+" highlight ShowMarksHlu  ctermbg=red ctermfg=green
+
+Plug 'kshenoy/vim-signature'
+let g:SignatureMarkOrder = "\m▸"
+let g:SignatureMarkLineHL = "'WarningMsg'"
 
 Plug 'Align'
 "Plug 'AutoAlign'
@@ -324,5 +328,11 @@ let g:indentLine_color_term=236
 " | ¦ ┆ │
 let g:indentLine_char='│'
 
-Plug 'header.vim'
+" Plug 'vim-voom/VOoM'
+" autocmd Filetype vimwiki nnoremap <Leader>tt :Voom vimwiki<cr>
+" slow but good enough
+Plug 'Mark--Karkat'
+nmap <Plug>IgnoreMarkSearchNext <Plug>MarkSearchNext
+let g:mwAutoLoadMarks = 1
+let g:mwAutoSaveMarks = 0
 call plug#end()
