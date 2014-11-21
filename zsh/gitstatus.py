@@ -108,7 +108,7 @@ class Symb():
     backward = "⌄"
     modify = "±"
     add = "✔"
-    delt = "✘",
+    delt = "✘"
     uModify = modify
     uDelete = "✖"
     Untrack = "✚"
