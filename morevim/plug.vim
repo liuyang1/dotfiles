@@ -15,6 +15,7 @@ let g:vimwiki_list=[{
 let g:vimwiki_hl_cb_checked=1
 let g:vimwiki_menu=''
 let g:vimwiki_CJK_length=1
+let g:vimwiki_url_maxsave=0
 
 Plug 'a.vim'
 
@@ -300,7 +301,7 @@ if executable('ag')
           \ --ignore .DS_Store
           \ --ignore "**/*.pyc"
           \ -g ""'
-    let g:ackprg = 'ag --nogroup --nocolor --column'
+    " let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 
 Plug 'jceb/vim-orgmode'
@@ -335,4 +336,6 @@ Plug 'Mark--Karkat'
 nmap <Plug>IgnoreMarkSearchNext <Plug>MarkSearchNext
 let g:mwAutoLoadMarks = 1
 let g:mwAutoSaveMarks = 0
+
+Plug 'SyntaxRange'
 call plug#end()

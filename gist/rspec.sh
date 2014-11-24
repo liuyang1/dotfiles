@@ -32,6 +32,7 @@ rspec() {
         # dot) cmd="dot $filename -Tpng -o test.png && eog test.png" ;;
         sml) cmd="sml $filename" ;;
         rkt) cmd="racket hw4test.rkt" ;;
+        mk) cmd="make -f $filename" ;;
         *) cmd="echo unknown filetype" ;;
     esac
 }
