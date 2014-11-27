@@ -3,11 +3,13 @@
 from __future__ import print_function
 import sys
 from subprocess import Popen, PIPE
+import os
 
 
-def getGitStat():
+def getGitStat(d):
     gitstat = Popen(
-        ['git', 'status', '--short', '--branch'], stdout=PIPE, stderr=PIPE)
+        ['git', 'status', '--short', '--branch'],
+        stdout=PIPE, stderr=PIPE, cwd=d)
     stat, error = gitstat.communicate()
 
     error_string = error.decode('utf-8')
@@ -163,15 +165,15 @@ def combSeg(br, stage, dirty):
     return s, max(st)
 
 
-def main():
-    stat = getGitStat()
+def main(d):
+    stat = getGitStat(d)
     lines = stat.split('\n')
     br = probeBranch(lines[0])
     stage, dirty = probeLines(lines[1:])
     ret = combSeg(br, stage, dirty)
-    for i in ret:
-        print(i)
+    return ret[0] + "\n" + str(ret[1])
 
 
 if __name__ == "__main__":
-    main()
+    ret = main(os.getcwd())
+    print(ret)
