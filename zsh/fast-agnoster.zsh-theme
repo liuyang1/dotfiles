@@ -19,6 +19,7 @@
 ### Segment drawing
 # A few utility functions to make it easy and re-usable to draw segmented prompts
 
+# set -x
 CURRENT_BG='NONE'
 IsFancy="yes"
 if [[ "$IsFancy" = "yes" ]];then
@@ -62,11 +63,11 @@ prompt_end() {
 # exec GitStatus directly
 function execGitStatus() {
   local gitstatus="$ZSH/themes/gitstatus.py"
-  _GIT_STATUS=$(python2 ${gitstatus} 2>/dev/null)
+  _GIT_STATUS=$(python2 "${gitstatus}" 2>/dev/null)
   echo "$_GIT_STATUS"
 }
 function getGitDir() {
-  dir=$(git rev-parse --show-toplevel 2>/dev/null)
+  local dir=$(git rev-parse --show-toplevel 2>/dev/null)
   if [[ "$dir" == "" ]]; then
     dir="$PWD"
   fi
@@ -74,24 +75,32 @@ function getGitDir() {
 }
 # exec GitStatus by server
 function rpcGitStatus() {
-  method="$1"
-  dir="$2"
+  local method="$1"
+  local dir="$2"
+  if [[ "$dir" != /home/* ]]; then
+    return
+  fi
   cmd="$method $dir"
   ret=$(echo -n "$cmd" | nc 127.0.0.1 7211)
   echo "$ret"
 }
-cachedir=""
+LASTDIR=""
+echo "init " "$LASTDIR" >> /tmp/testfile
 function getGitStatus() {
   dir=$(getGitDir)
-  if [[ "$dir" == "$cachedir" ]]; then
+  echo "dir  " "$dir" >> /tmp/testfile
+  echo "last " $LASTDIR >> /tmp/testfile
+  if [[ "$dir" == "$LASTDIR" ]]; then
     echo "$_GIT_STATUS"
     return
   fi
-  cachedir="$dir"
   echo $(rpcGitStatus get "$dir")
+  unset LASTDIR
+  LASTDIR="$dir"
+  echo "up   " "$LASTDIR" >> /tmp/testfile
 }
 function upGitStatus() {
-  dir=$(getGitDir)
+  local dir=$(getGitDir)
   echo $(rpcGitStatus up "$dir")
 }
 function chpwd_update_git_vars() {
@@ -161,7 +170,7 @@ prompt_fast_git() {
 prompt_dir() {
   # prompt_segment blue black '%~'
   local cmd=$ZSH/themes/disambiguate-keeplast
-  dir=$(zsh "${cmd}")
+  local dir=$(zsh "${cmd}")
   prompt_segment blue black "$dir"
 }
 
