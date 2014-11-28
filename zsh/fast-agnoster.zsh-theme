@@ -59,7 +59,44 @@ prompt_end() {
 ### Prompt components
 # Each component will draw itself, and hide itself if no information needs to be shown
 
+# exec GitStatus directly
+function execGitStatus() {
+  local gitstatus="$ZSH/themes/gitstatus.py"
+  _GIT_STATUS=$(python2 ${gitstatus} 2>/dev/null)
+  echo "$_GIT_STATUS"
+}
+function getGitDir() {
+  dir=$(git rev-parse --show-toplevel 2>/dev/null)
+  if [[ "$dir" == "" ]]; then
+    dir="$PWD"
+  fi
+  echo "$dir"
+}
+# exec GitStatus by server
+function rpcGitStatus() {
+  method="$1"
+  dir="$2"
+  cmd="$method $dir"
+  ret=$(echo -n "$cmd" | nc 127.0.0.1 7211)
+  echo "$ret"
+}
+cachedir=""
+function getGitStatus() {
+  dir=$(getGitDir)
+  if [[ "$dir" == "$cachedir" ]]; then
+    echo "$_GIT_STATUS"
+    return
+  fi
+  cachedir="$dir"
+  echo $(rpcGitStatus get "$dir")
+}
+function upGitStatus() {
+  dir=$(getGitDir)
+  echo $(rpcGitStatus up "$dir")
+}
 function chpwd_update_git_vars() {
+  # _GIT_STATUS=$(execGitStatus)
+  _GIT_STATUS=$(getGitStatus)
   update_current_git_vars
 }
 function preexec_update_git_vars() {
@@ -76,19 +113,28 @@ function preexec_update_git_vars() {
   esac
 }
 # set default value
-__EXECUTED_GIT_COMMAND=1
+__EXECUTED_GIT_COMMAND=2
 function precmd_update_git_vars() {
-  if [ "$__EXECUTED_GIT_COMMAND" -eq 1 ]; then
-    update_current_git_vars
-    __EXECUTED_GIT_COMMAND=0
+  if [ "$__EXECUTED_GIT_COMMAND" -eq 0 ]; then
+    return
   fi
+  if [ "$__EXECUTED_GIT_COMMAND" -eq 1 ]; then
+    # _GIT_STATUS=$(execGitStatus)
+    _GIT_STATUS=$(upGitStatus)
+  else
+    if [ "$__EXECUTED_GIT_COMMAND" -eq 2 ]; then
+    _GIT_STATUS=$(getGitStatus)
+    fi
+  fi
+  update_current_git_vars
+  __EXECUTED_GIT_COMMAND=0
 }
 
 function update_current_git_vars() {
   unset __CURRENT_GIT_STATUS
-  local gitstatus="$ZSH/themes/gitstatus.py"
-  _GIT_STATUS=$(python2 ${gitstatus} 2>/dev/null)
-  __CURRENT_GIT_STATUS=("${(@f)_GIT_STATUS}")
+  # _GIT_STATUS=$(execGitStatus)
+  # __CURRENT_GIT_STATUS=("${(@f)_GIT_STATUS}")
+  __CURRENT_GIT_STATUS=($(echo "${_GIT_STATUS}"))
   GIT_Message=$__CURRENT_GIT_STATUS[1]
   GIT_Status=$__CURRENT_GIT_STATUS[2]
 }
@@ -144,7 +190,6 @@ prompt_status() {
 ## Main prompt
 build_prompt() {
   RETVAL=$?
-  precmd_update_git_vars
   prompt_dir
   prompt_fast_git
   prompt_status

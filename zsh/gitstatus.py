@@ -1,7 +1,6 @@
 #! /usr/ibn/env python2
 # -*- encoding=utf-8 -*-
 from __future__ import print_function
-import sys
 from subprocess import Popen, PIPE
 import os
 
@@ -14,19 +13,20 @@ def getGitStat(d):
 
     error_string = error.decode('utf-8')
     if 'fatal: Not a git repository' in error_string:
-        sys.exit(0)
+        raise "not a git repo"
     return stat
 
 
-def getGitHead():
+def getGitHead(d):
     githead = Popen(
-        ['git', 'rev-parse', '--short', 'HEAD'], stdout=PIPE, stderr=PIPE)
+        ['git', 'rev-parse', '--short', 'HEAD'],
+        stdout=PIPE, stderr=PIPE, cwd=d)
     commit = githead.communicate()
     ret = commit[0].strip()
     return ret
 
 
-def probeBranch(s):
+def probeBranch(s, d):
     """
     >>> probeBranch('## 7094...c [ahead 1]')
     ('7094', 'c', 1, 0)
@@ -48,7 +48,7 @@ def probeBranch(s):
     if idx != -1:
         br = br[0:idx]
         if br == 'HEAD':
-            br = getGitHead()
+            br = getGitHead(d)
     try:
         rmt = arr[1]
     except IndexError:
@@ -166,9 +166,12 @@ def combSeg(br, stage, dirty):
 
 
 def main(d):
-    stat = getGitStat(d)
+    try:
+        stat = getGitStat(d)
+    except:
+        return ""
     lines = stat.split('\n')
-    br = probeBranch(lines[0])
+    br = probeBranch(lines[0], d)
     stage, dirty = probeLines(lines[1:])
     ret = combSeg(br, stage, dirty)
     return ret[0] + "\n" + str(ret[1])
