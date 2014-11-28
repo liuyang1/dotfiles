@@ -23,14 +23,18 @@ gCache = cache()
 
 def rpc(cmd):
     cmd = cmd.split()
-    method, d = cmd[0], cmd[1]
+    try:
+        method, d = cmd[0], cmd[1]
+    except:
+        print "unknown %s" % (cmd)
+        return ""
     method = method.lower()
     if method == 'get':
         return gCache.get(d)
     elif method == 'up':
         return gCache.update(d)
     else:
-        raise "unkown " + method
+        print "unknown method: " + method
 
 
 class GitStatusHandler(SocketServer.BaseRequestHandler):
