@@ -1,5 +1,8 @@
 import SocketServer
 import gitstatus
+import serverlog
+
+log = serverlog.inst()
 
 
 class cache():
@@ -26,7 +29,7 @@ def rpc(cmd):
     try:
         method, d = cmd[0], cmd[1]
     except:
-        print "unknown %s" % (cmd)
+        log.warn("unknown %s" % (cmd))
         return ""
     method = method.lower()
     if method == 'get':
@@ -34,16 +37,16 @@ def rpc(cmd):
     elif method == 'up':
         return gCache.update(d)
     else:
-        print "unknown method: " + method
+        log.warn("unknown method %s" % (method))
 
 
 class GitStatusHandler(SocketServer.BaseRequestHandler):
 
     def handle(self):
         self.data = self.request.recv(4906).strip()
-        print self.data
+        log.debug("rpc [%s]" % (self.data))
         r = rpc(self.data)
-        print r
+        log.debug("ret [%s]" % (r))
         self.request.sendall(r)
 
 

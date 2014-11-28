@@ -5,6 +5,10 @@ from subprocess import Popen, PIPE
 import os
 
 
+import serverlog
+log = serverlog.inst()
+
+
 def getGitStat(d):
     gitstat = Popen(
         ['git', 'status', '--short', '--branch'],
@@ -13,7 +17,8 @@ def getGitStat(d):
 
     error_string = error.decode('utf-8')
     if 'fatal: Not a git repository' in error_string:
-        raise "not a git repo"
+        log.warn("not a git repo [%s]" % (d))
+        raise Exception("not a git repo")
     return stat
 
 
@@ -106,14 +111,21 @@ def NotZero(v, sym=""):
 class Symb():
     branch = ""
     remote = "☁"
-    forward = "⌃"
-    backward = "⌄"
+    # forward = "⌃"
+    # backward = "⌄"
+# "⌃⌄"
+# '><'
+# "∧∨"
+    forward = '❯'
+    backward = "❮"
     modify = "±"
     add = "✔"
     delt = "✘"
     uModify = modify
     uDelete = "✖"
-    Untrack = "✚"
+    # Untrack = "✚"
+    # Untrack = "."
+    Untrack = "‥"
     delimiter = "•"
 
 
@@ -174,7 +186,7 @@ def main(d):
     br = probeBranch(lines[0], d)
     stage, dirty = probeLines(lines[1:])
     ret = combSeg(br, stage, dirty)
-    return ret[0] + "\n" + str(ret[1])
+    return ret[0] + " " + str(ret[1])
 
 
 if __name__ == "__main__":

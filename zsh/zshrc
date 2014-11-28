@@ -144,8 +144,6 @@ bindkey -M vicmd 'k'        history-substring-search-up
 bindkey -M vicmd 'j'        history-substring-search-down
 set completion-ignore-case on
 
-export GREP_OPTIONS='--color=auto'
-
 export HISTCONTROL=erasedups
 export HISTSIZE=1000
 export HISTIGNORE="cd(| *):(ls|dir)(| *):(rm|mv|cp|ln|scp|rmdir|mkdir) *:(echo|print)(| *):(g|)vim(| *):vi:vi *:e *:cat(| *):man *:(which|whence|type)(| *)|[fb]g(| *):feh *:pwd:exit(| *):date:kill(| *):ping *:ssh *:clear *:sleep *:history:tail *:head *"
