@@ -42,7 +42,8 @@ lst = [('➙', 'Heavy Rightwards'),
        ('✚'),
        ('∑−∓¯'),
        ('➕➖'),
-       ('│')
+       ('│'),
+       ('≠≈')
        ]
 for e in lst:
     for i in e:

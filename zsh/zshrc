@@ -49,7 +49,8 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Add wisely, as too many plugins slow down shell startup.
 # 0.04 sec
 # for now, 0.03 sec
-plugins=(fasd zsh-syntax-highlighting)
+# plugins=(fasd zsh-syntax-highlighting)
+plugins=(fasd zsh-syntax-highlighting zaw)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct
@@ -114,7 +115,10 @@ export LC_ALL="en_US.UTF8"
 export LC_CTYPE="en_US.UTF8"
 
 bindkey -v
-bindkey '^R' history-incremental-search-backward
+# bindkey '^R' history-incremental-search-backward
+bindkey '^R' zaw-history
+# zle -N u
+# bindkey "^F" u
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 # as page up page down
@@ -179,3 +183,7 @@ settitle() {
 KEYTIMEOUT=10
 
 export CLASSPATH=.:$HOME/.local/framework:$CLASSPATH
+
+# on my urxvt it works with <alt>-<left>/-<right>
+bindkey "\e\e[D" backward-word
+bindkey "\e\e[C" forward-word

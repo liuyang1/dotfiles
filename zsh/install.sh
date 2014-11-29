@@ -27,7 +27,7 @@ else
     installFile $PWD/disambiguate-keeplast      $ZSH_THEME_PATH/disambiguate-keeplast
     cd $ZSH_PLUGIN_PATH
     git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
-    git clone git://github.com/zsh-users/zsh-history-substring-search.git
+    git clone git://github.com/zsh-users/zaw.git
 fi
 
 echo "OK"

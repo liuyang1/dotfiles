@@ -132,11 +132,13 @@ class Symb():
 def fmtBranch(brRet):
     br, rmt, head, behind = brRet
     s = Symb.branch + br
+    log.debug("branch %s %s %s %s" % (br, rmt, head, behind))
     if rmt != "origin/master" and rmt is not "":
         idx = rmt.rfind("/")
         if idx != -1:
             rmt = rmt[idx + 1:]
-        s += Symb.remote + rmt
+        if rmt != br:
+            s += Symb.remote + rmt
     s += NotZero(head, Symb.forward)
     s += NotZero(behind, Symb.backward)
     status = RepoSt.unsync if head != 0 or behind != 0 else RepoSt.clean

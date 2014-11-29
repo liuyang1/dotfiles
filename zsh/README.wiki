@@ -39,13 +39,15 @@ function.
 == FAQ ==
 * Which git info supported?
 Till now, this theme support git info list below. All info only display when
-it's not zero or null.
+it's not zero or null. Actualy, this theme try to avoid unuseful info.
     # branch
     # short sha, when branch is "HEAD"
-    # remote branch, but only display when it's not "origin/master"
+    # remote branch, but only display tail branch name after last "/"
+when it's not "origin/master" or not same name with local branch
     # ahead or behind commits number
     # stage (modify, add, delete) file number
     # dirty (modify, delete, untrack) file number
+
 Yet not support listed below.
     # tag name
     # fetch / merge / .. status
@@ -63,8 +65,8 @@ question.
 
 * I meet a bug???
     # check dependency first, please.
-    # check /tmp/fast-agnoster.log, try to find some useful info.
-    # submit it to me.
+    # using dumpStatus.sh which will dump cache info in internal service.
+    # setting log info, then check /tmp/fast-agnoster.log,
 
 * I want to custom it, how to?
 color, check function prompt_fast_git in fast-agnoster.zsh-theme,
@@ -84,6 +86,11 @@ I want to cache git info, but shell not support MAP struct easily.
 However, python interaptor is so slow to startup, if checking with
 "time python -c pass".
 Daemon mode and combined with netcat, it need less than 0.01 seconds.
+
+* error git info?
+as process flow, monitor on special command, will miss repo status when shell
+not under the directory.
+using "u" quickly command, will force update git info.
 
 == dependency ==
 Actualy, if you find / like / need this theme, not need any more dependency.

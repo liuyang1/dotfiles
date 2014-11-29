@@ -96,6 +96,9 @@ function chpwd_update_git_vars() {
   _GIT_STATUS=$(getGitStatus)
   update_current_git_vars
 }
+function u() {
+  __EXECUTED_GIT_COMMAND=1
+}
 function preexec_update_git_vars() {
   case "$2" in
     git*|hub*|gh*|stg*|patch*)
