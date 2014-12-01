@@ -15,7 +15,6 @@ let g:vimwiki_list=[{
 let g:vimwiki_hl_cb_checked=1
 let g:vimwiki_menu=''
 let g:vimwiki_CJK_length=1
-let g:vimwiki_url_maxsave=0
 
 Plug 'a.vim'
 
@@ -29,7 +28,7 @@ Plug 'a.vim'
 " highlight ShowMarksHlu  ctermbg=red ctermfg=green
 
 Plug 'kshenoy/vim-signature'
-let g:SignatureMarkOrder = "\m▸"
+let g:SignatureMarkOrder = "\m»"
 let g:SignatureMarkLineHL = "'WarningMsg'"
 
 Plug 'Align'
@@ -324,10 +323,10 @@ let g:VimuxHeight = "40"
 " Plug 'nanotech/jellybeans.vim'
 Plug 'cypok/vim-sml', { 'for': ['sml'] }
 
-Plug 'Yggdroot/indentLine'
-let g:indentLine_color_term=236
+" Plug 'Yggdroot/indentLine'
+" let g:indentLine_color_term=236
 " | ¦ ┆ │
-let g:indentLine_char='│'
+" let g:indentLine_char='│'
 
 " Plug 'vim-voom/VOoM'
 " autocmd Filetype vimwiki nnoremap <Leader>tt :Voom vimwiki<cr>
@@ -337,5 +336,10 @@ nmap <Plug>IgnoreMarkSearchNext <Plug>MarkSearchNext
 let g:mwAutoLoadMarks = 1
 let g:mwAutoSaveMarks = 0
 
-Plug 'SyntaxRange'
+" Plug 'SyntaxRange'
+Plug 'ehamberg/vim-cute-python', { 'for': ['python'] }
+Plug 'tpope/vim-surround'
+
+Plug 'christoomey/vim-tmux-navigator'
+let g:tmux_navigator_save_on_switch = 1
 call plug#end()

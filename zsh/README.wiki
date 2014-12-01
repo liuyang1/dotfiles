@@ -1,0 +1,108 @@
+= fast-agnoster =
+
+Agnoster theme for zsh is so cool, but default vcs_info is too slow when under
+large git repo.
+
+Using python to rewrite its function(but only for git), and skip all unneccesary
+git command to speed up.
+
+There are so many many zsh-theme, and so many git prompt theme, why I need to
+try this one?
+
+SPEED.
+
+TODO:
+Screenshot.
+
+== process ==
+* when not chpwd, not execute specific command, directly keep git info.
+* when chpwd, if not under home directory, or not under git repo, directly
+return void status.
+* when chpwd, checking git root dir, if not changed, keep git info.
+* when chpwd, changed git root dir, send a "get" request to daemon service.
+daemon server return it by checking cache.
+* when execute specific command, send a "update" request to deamon service.
+daemon server will update with git command, and return it.
+
+When enter a interactive shell, it using "get" request to avoid first lag.
+
+== install ==
+TODO:
+
+== how-to ==
+* using zsh-hook to chpwd, preexec, precmd event, then execute corrsponding
+function.
+* using netcat to exchange data with daemon service.
+* using python socketserver to fork a daemon service.
+* using Popen to execute external git command, then parse it.
+
+== FAQ ==
+* Which git info supported?
+Till now, this theme support git info list below. All info only display when
+it's not zero or null. Actualy, this theme try to avoid unuseful info.
+    # branch
+    # short sha, when branch is "HEAD"
+    # remote branch, but only display tail branch name after last "/"
+when it's not "origin/master" or not same name with local branch
+    # ahead or behind commits number
+    # stage (modify, add, delete) file number
+    # dirty (modify, delete, untrack) file number
+
+Yet not support listed below.
+    # tag name
+    # fetch / merge / .. status
+
+* some strange symbol, or box?
+Error on font, check powerline-patched font, and make sure it support unicode
+charctor.
+
+NOTE:
+you can sperate support it with differenet fonts, but using all fonts under your
+OS or terminal.
+
+If you still meet this problem, try other unicode symbol. check "how to custom"
+question.
+
+* I meet a bug???
+    # check dependency first, please.
+    # using dumpStatus.sh which will dump cache info in internal service.
+    # setting log info, then check /tmp/fast-agnoster.log,
+
+* I want to custom it, how to?
+color, check function prompt_fast_git in fast-agnoster.zsh-theme,
+$GIT_Status, 3 -> dirty, 2 -> stage, 1 -> clean.
+
+symbol, check Symb class in gitstatus.py.
+
+format, check fmt*** and combSeg function in gitstatus.py.
+
+Happy refining it.
+
+* why need so complex, why not directly using vcs_info?
+speed, when you work under a large git repo, you will understand.
+
+* why using python or daemon?
+I want to cache git info, but shell not support MAP struct easily.
+However, python interaptor is so slow to startup, if checking with
+"time python -c pass".
+Daemon mode and combined with netcat, it need less than 0.01 seconds.
+
+* error git info?
+as process flow, monitor on special command, will miss repo status when shell
+not under the directory.
+using "u" quickly command, will force update git info.
+
+== dependency ==
+Actualy, if you find / like / need this theme, not need any more dependency.
+
+| powerline patched-font | why like this theme?               |
+| netcat or nc           | network under shell                |
+| git                    | :)                                 |
+| zsh                    | only for zsh                       |
+| python2                | I am old-fashioned.                |
+| disambiguate-keeplast  | a directory abbr plugin (internal) |
+
+
+== TODO ==
+* monitor file system status to update git info, not by specific command.
+* add persistence of cache, so avoid first git command after boot.

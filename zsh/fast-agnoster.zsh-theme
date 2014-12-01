@@ -1,3 +1,4 @@
+#! /usr/bin/env zsh
 # vim:ft=zsh ts=2 sw=2 sts=2
 #
 # A Powerline-inspired theme for ZSH
@@ -68,45 +69,35 @@ function execGitStatus() {
 }
 function getGitDir() {
   local dir=$(git rev-parse --show-toplevel 2>/dev/null)
-  if [[ "$dir" == "" ]]; then
-    dir="$PWD"
-  fi
   echo "$dir"
 }
 # exec GitStatus by server
 function rpcGitStatus() {
+  if [[ "$PWD" != /home/* ]]; then
+    return
+  fi
   local method="$1"
-  local dir="$2"
-  if [[ "$dir" != /home/* ]]; then
+  local dir=$(getGitDir)
+  if [[ "$dir" == "" ]]; then
     return
   fi
   cmd="$method $dir"
   ret=$(echo -n "$cmd" | nc 127.0.0.1 7211)
   echo "$ret"
 }
-LASTDIR=""
-echo "init " "$LASTDIR" >> /tmp/testfile
 function getGitStatus() {
-  dir=$(getGitDir)
-  echo "dir  " "$dir" >> /tmp/testfile
-  echo "last " $LASTDIR >> /tmp/testfile
-  if [[ "$dir" == "$LASTDIR" ]]; then
-    echo "$_GIT_STATUS"
-    return
-  fi
-  echo $(rpcGitStatus get "$dir")
-  unset LASTDIR
-  LASTDIR="$dir"
-  echo "up   " "$LASTDIR" >> /tmp/testfile
+  rpcGitStatus get
 }
 function upGitStatus() {
-  local dir=$(getGitDir)
-  echo $(rpcGitStatus up "$dir")
+  rpcGitStatus up
 }
 function chpwd_update_git_vars() {
   # _GIT_STATUS=$(execGitStatus)
   _GIT_STATUS=$(getGitStatus)
   update_current_git_vars
+}
+function u() {
+  __EXECUTED_GIT_COMMAND=1
 }
 function preexec_update_git_vars() {
   case "$2" in
@@ -172,14 +163,6 @@ prompt_dir() {
   local cmd=$ZSH/themes/disambiguate-keeplast
   local dir=$(zsh "${cmd}")
   prompt_segment blue black "$dir"
-}
-
-# Virtualenv: current working virtualenv
-prompt_virtualenv() {
-  local virtualenv_path="$VIRTUAL_ENV"
-  if [[ -n $virtualenv_path && -n $VIRTUAL_ENV_DISABLE_PROMPT ]]; then
-    prompt_segment blue black "(`basename $virtualenv_path`)"
-  fi
 }
 
 # Status:

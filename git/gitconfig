@@ -31,7 +31,7 @@
 # log
     l = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset %Cgreen%cd%Creset - %s %C(yellow)%d%Creset' --abbrev-commit
     lg = log --color --graph --stat
-    last = log --color --stat -1 HEAD
+    la = log --color --stat -1 HEAD
     ld = log -p
     gs = log --color --graph --stat
     lc = show
