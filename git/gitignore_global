@@ -86,4 +86,8 @@ build_log/*
 
 .coverage
 htmlcov/*
+
 nohup.out
+
+*.fas
+*.lib

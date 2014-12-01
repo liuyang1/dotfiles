@@ -47,9 +47,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# 0.04 sec
-# for now, 0.03 sec
-plugins=(fasd zsh-syntax-highlighting)
+plugins=(fasd zsh-syntax-highlighting zaw)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct
@@ -114,7 +112,10 @@ export LC_ALL="en_US.UTF8"
 export LC_CTYPE="en_US.UTF8"
 
 bindkey -v
-bindkey '^R' history-incremental-search-backward
+# bindkey '^R' history-incremental-search-backward
+bindkey '^R' zaw-history
+# zle -N u
+# bindkey "^F" u
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 # as page up page down
@@ -140,15 +141,13 @@ bindkey "\eOF" end-of-line
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]"  history-search-backward
 bindkey "$terminfo[kcud1]"  history-search-forward
-bindkey -M vicmd 'k'        history-substring-search-up
-bindkey -M vicmd 'j'        history-substring-search-down
+bindkey -M vicmd 'k'        history-search-backward
+bindkey -M vicmd 'j'        history-search-forward
 set completion-ignore-case on
-
-export GREP_OPTIONS='--color=auto'
 
 export HISTCONTROL=erasedups
 export HISTSIZE=1000
-export HISTIGNORE="cd(| *):(ls|dir)(| *):(rm|mv|cp|ln|scp|rmdir|mkdir) *:(echo|print)(| *):(g|)vim(| *):vi:vi *:e *:cat(| *):man *:(which|whence|type)(| *)|[fb]g(| *):feh *:pwd:exit(| *):date:kill(| *):ping *:ssh *:clear *:sleep *:history:tail *:head *"
+export HISTIGNORE="cd(| *):(ls|dir)(| *):(rm|mv|cp|ln|scp|rmdir|mkdir) *:(echo|print)(| *):(g|)vim(| *):vi:vi *:e *:cat(| *):man *:(which|whence|type)(| *)|[fb]g(| *):feh *:pwd:exit(| *):date:kill(| *):ping *:ssh *:clear *:sleep *:history:tail *:head *:z *"
 export SAVEHIST=1000
 export HISTFILE=~/.zsh_history
 unsetopt INC_APPEND_HISTORY
@@ -181,3 +180,7 @@ settitle() {
 KEYTIMEOUT=10
 
 export CLASSPATH=.:$HOME/.local/framework:$CLASSPATH
+
+# on my urxvt it works with <alt>-<left>/-<right>
+bindkey "\e\e[D" backward-word
+bindkey "\e\e[C" forward-word
