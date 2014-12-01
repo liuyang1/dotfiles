@@ -101,6 +101,12 @@ function u() {
 }
 function preexec_update_git_vars() {
   case "$2" in
+    "git stash"*|"git c"*|"git a"*|"git d"*|"git u"*)
+      __EXECUTED_GIT_COMMAND=1
+      ;;
+    "git l"*|"git s"*|"git b"*|"git")
+      __EXECUTED_GIT_COMMAND=0
+      ;;
     git*|hub*|gh*|stg*|patch*)
       __EXECUTED_GIT_COMMAND=1
       ;;
