@@ -1,15 +1,12 @@
 68c68
-<     pid_t        pgrp, sid;
+< 	pid_t		 pgrp, sid;
 ---
 > 	pid_t		 pgrp;
-77,86d76
+77,83d76
 < 
-< 	if (n == -1) {
-< 	    // Try the session leader as well.
-< 	    if (ioctl(fd, TIOCGSID, &sid) == -1)
-< 	        return (NULL);
-< 	    xasprintf(&path, "/proc/%lld/cwd", (long long) sid);
-< 	    n = readlink(path, target, MAXPATHLEN);
-< 	    free(path);
-< 	}
+<     if (ioctl(fd, TIOCGSID, &sid) != -1) {
+<         xasprintf(&path, "/proc/%lld/cwd", (long long) sid);
+<         n = readlink(path, target, MAXPATHLEN);
+<         free(path);
+<     }
 < 
