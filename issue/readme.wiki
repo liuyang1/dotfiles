@@ -1,0 +1,6 @@
+== firefox create "Desktop" directory. ==
+
+overwrite "XDG_DESKTOP" var to avoid this.
+
+using user-dirs.dirs to ~/.config
+
