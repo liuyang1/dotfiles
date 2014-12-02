@@ -1,16 +1,39 @@
 import SocketServer
+import cPickle as pickle
+import os
+import signal
+
 import gitstatus
 import serverlog
 
 log = serverlog.inst()
+cacheName = os.path.expanduser('~/.fast-agnoster.cache')
 
 
 class cache():
 
-    def __init__(self):
-        self.dct = dict()
+    def __init__(self, cacheFile=cacheName):
         # getCall upCall
         self.stat = [0, 0]
+        self.fn = cacheFile
+        if os.path.exists(self.fn):
+            self.load()
+        else:
+            self.dct = {}
+
+# internal method
+    def load(self):
+        self.dct = pickle.load(open(self.fn, "rb"))
+        log.debug('load data from ' + self.fn)
+        log.debug('%s' % (self.dump()))
+
+    def serial(self):
+        log.debug("serial to " + self.fn)
+        pickle.dump(self.dct, open(self.fn, "wb"))
+
+# external interface
+    def quit(self):
+        self.serial()
 
     def update(self, k):
         self.stat[1] += 1
@@ -34,6 +57,12 @@ class cache():
         return s
 
 gCache = cache()
+
+
+def Stophdl(signal, frame):
+    log.info("signal handler dump data")
+    gCache.dump()
+    gCache.quit()
 
 
 def rpc(cmd):
@@ -65,6 +94,10 @@ class GitStatusHandler(SocketServer.BaseRequestHandler):
 
 
 if __name__ == "__main__":
+    signal.signal(signal.SIGINT, Stophdl)
+    signal.signal(signal.SIGTERM, Stophdl)
+    signal.signal(signal.SIGHUP, Stophdl)
     addr = ("localhost", 7211)
     server = SocketServer.TCPServer(addr, GitStatusHandler)
+    log.info("register signal, start service")
     server.serve_forever()
