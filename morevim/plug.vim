@@ -66,8 +66,10 @@ highlight SyntasticErrorLine    ctermbg=black
 highlight SyntasticErrorSign    ctermbg=darkgray
 let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_errors = 1
-let g:syntastic_error_symbol = 'E'
-let g:syntastic_warning_symbol = 'w'
+let g:syntastic_error_symbol = "✘"
+let g:syntastic_warning_symbol = "⚒"
+" let g:syntastic_error_symbol = 'E'
+" let g:syntastic_warning_symbol = 'w'
 let g:syntastic_style_error_symbol   = 'S'
 let g:syntastic_style_warning_symbol = 's'
 let g:syntastic_enable_highlighting = 0
@@ -338,6 +340,9 @@ let g:mwAutoSaveMarks = 0
 
 " Plug 'SyntaxRange'
 Plug 'ehamberg/vim-cute-python', { 'for': ['python'] }
+Plug 'dbeecham/vim-schemeConceal'
+" , { 'for': ['scheme'] }
+" Plug 'dkinzer/vim-schemer'
 Plug 'tpope/vim-surround'
 
 Plug 'christoomey/vim-tmux-navigator'
