@@ -51,8 +51,9 @@ class cache():
 
     def dump(self):
         s = ""
+        l = max([len(k) for k in self.dct.keys()]) + 1
         for k, v in self.dct.iteritems():
-            s += "%s %s\n" % (k, v)
+            s += "%s %s\n" % (k.ljust(l), v)
         s += "get %d up %d\n" % (self.stat[0], self.stat[1])
         return s
 
