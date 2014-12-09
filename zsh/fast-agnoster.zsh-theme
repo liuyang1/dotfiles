@@ -155,7 +155,7 @@ prompt_fast_git() {
     if [[ $GIT_Status -eq "3" ]]; then
       prompt_segment yellow black
     elif [[ $GIT_Status -eq "2" ]]; then
-      prompt_segment 204 black
+      prompt_segment 9 black
     else
       prompt_segment green black
     fi
