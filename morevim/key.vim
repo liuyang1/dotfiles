@@ -47,10 +47,10 @@ nnoremap <Leader>b :buffers<cr>:buffer<Space>
 nnoremap <Leader>q :wqa!<cr>
 nnoremap ,,        :update<cr>
 
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+" map <up> <nop>
+" map <down> <nop>
+" map <left> <nop>
+" map <right> <nop>
 
 autocmd FileType c,cpp nmap <buffer> <Leader>d   <C-w>}
 autocmd FileType c,cpp nmap <buffer> <Enter>     <C-w>}
