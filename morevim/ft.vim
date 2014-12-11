@@ -38,3 +38,5 @@ autocmd FileType lisp       setlocal makeprg=clisp\ %
 autocmd FileType xdefaults  setlocal makeprg=xrdb\ %
 
 autocmd FileType log,logcat   set norelativenumber
+
+autocmd FileType c,cpp set cino+=(0
