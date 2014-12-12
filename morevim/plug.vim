@@ -346,5 +346,7 @@ Plug 'dbeecham/vim-schemeConceal'
 Plug 'tpope/vim-surround'
 
 Plug 'christoomey/vim-tmux-navigator'
+
+Plug 'maksimr/vim-jsbeautify'
 let g:tmux_navigator_save_on_switch = 1
 call plug#end()

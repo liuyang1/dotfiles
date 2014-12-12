@@ -38,3 +38,9 @@ autocmd FileType lisp       setlocal makeprg=clisp\ %
 autocmd FileType xdefaults  setlocal makeprg=xrdb\ %
 
 autocmd FileType log,logcat   set norelativenumber
+
+autocmd FileType c,cpp set cino+=(0
+
+autocmd FileType javascript noremap <silent> <Leader>cc :call JsBeautify()<cr>
+autocmd FileType html       noremap <silent> <Leader>cc :call HtmlBeautify()<cr>
+autocmd FileType css        noremap <silent> <Leader>cc :call CSSBeautify()<cr>

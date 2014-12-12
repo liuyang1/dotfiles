@@ -101,10 +101,10 @@ function u() {
 }
 function preexec_update_git_vars() {
   case "$2" in
-    "git stash"*|"git c"*|"git a"*|"git d"*|"git u"*)
+    "git stash"*|"git c"*|"git a"*|"git d"*|"git u"*|"git b"*)
       __EXECUTED_GIT_COMMAND=1
       ;;
-    "git l"*|"git s"*|"git b"*|"git")
+    "git l"*|"git s"*|"git")
       __EXECUTED_GIT_COMMAND=0
       ;;
     git*|hub*|gh*|stg*|patch*)
@@ -155,7 +155,7 @@ prompt_fast_git() {
     if [[ $GIT_Status -eq "3" ]]; then
       prompt_segment yellow black
     elif [[ $GIT_Status -eq "2" ]]; then
-      prompt_segment 9 black
+      prompt_segment 205 black
     else
       prompt_segment green black
     fi

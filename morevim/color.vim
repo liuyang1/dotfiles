@@ -13,14 +13,16 @@ set colorcolumn=80
 autocmd FileType c,cpp      setlocal colorcolumn=81,100
 
 
-highlight VimwikiHeader1 ctermfg=red
-highlight VimwikiHeader2 ctermfg=yellow
-highlight VimwikiHeader3 ctermfg=green
+highlight VimwikiHeader1 ctermfg=darkred cterm=bold
+highlight VimwikiHeader2 ctermfg=yellow cterm=bold
+highlight VimwikiHeader3 ctermfg=green cterm=bold
 highlight VimwikiHeader4 ctermfg=red
 highlight VimwikiLink ctermfg=blue
+highlight VimwikiList ctermfg=darkgreen cterm=bold
 
 highlight Function ctermfg=lightblue
-highlight ColorColumn ctermbg=232
+highlight ColorColumn ctermbg=232 guibg=#101010
+highlight Normal guifg=#D8D8D2
 " highlight SignColumn ctermbg=232
 highlight cType     ctermfg=yellow cterm=None
 highlight Identifier ctermfg=darkyellow
@@ -39,7 +41,7 @@ highlight LineNr ctermfg=246
 " disable Background color erase
 set t_ut=
 
-set guifont=Monaco\ 12
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 14
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
