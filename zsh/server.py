@@ -63,7 +63,7 @@ gCache = cache()
 def Stophdl(signal, frame):
     log.info("signal handler dump data")
     gCache.dump()
-    gCache.quit()
+    # gCache.quit()
 
 
 def rpc(cmd):

@@ -8,3 +8,4 @@ installFile2Dir fixMod.sh     $PREFIX
 installFile2Dir test256.pl    $PREFIX
 installFile findFile.sh   $PREFIX/ff
 installFile rspec.sh            $PREFIX/rspec
+installFile hubclone.sh         $PREFIX/hubc

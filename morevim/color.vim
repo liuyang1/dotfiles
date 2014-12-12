@@ -13,11 +13,12 @@ set colorcolumn=80
 autocmd FileType c,cpp      setlocal colorcolumn=81,100
 
 
-highlight VimwikiHeader1 ctermfg=red
-highlight VimwikiHeader2 ctermfg=yellow
-highlight VimwikiHeader3 ctermfg=green
+highlight VimwikiHeader1 ctermfg=darkred cterm=bold
+highlight VimwikiHeader2 ctermfg=yellow cterm=bold
+highlight VimwikiHeader3 ctermfg=green cterm=bold
 highlight VimwikiHeader4 ctermfg=red
 highlight VimwikiLink ctermfg=blue
+highlight VimwikiList ctermfg=darkgreen cterm=bold
 
 highlight Function ctermfg=lightblue
 highlight ColorColumn ctermbg=232 guibg=#101010
