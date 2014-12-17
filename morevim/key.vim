@@ -35,7 +35,10 @@ nnoremap <silent> * :call HLtoggle()<cr>
 
 " fix leak output to terminal
 set shellpipe=&>
+" search only in current file
 nnoremap <Leader>aa :Ack <cword> "%:p"<cr>
+" search in current path
+nnoremap <Leader>ar :Ack <cword> <cr>
 
 nnoremap ]t :tabnext<cr>
 nnoremap [t :tabprevious<cr>

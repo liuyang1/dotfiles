@@ -214,4 +214,4 @@ set keywordprg=man\ -a
 
 set sessionoptions-=options
 
-set autochdir
+" set autochdir
