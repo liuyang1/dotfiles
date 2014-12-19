@@ -28,7 +28,8 @@ Plug 'a.vim'
 " highlight ShowMarksHlu  ctermbg=red ctermfg=green
 
 Plug 'kshenoy/vim-signature'
-let g:SignatureMarkOrder = "\m»"
+" let g:SignatureMarkOrder = "\m»"
+let g:SignatureMarkOrder = "\m)"
 let g:SignatureMarkLineHL = "'WarningMsg'"
 
 Plug 'Align'
@@ -308,7 +309,7 @@ endif
 Plug 'jceb/vim-orgmode'
 
 Plug 'benmills/vimux'
-map <silent> <Leader><Leader> :update<cr>:call VimuxRunCommand("rspec " . expand("%:p"))<CR>
+" map <silent> <Leader><Leader> :update<cr>:call VimuxRunCommand("rspec " . expand("%:p"))<CR>
 map <Leader>vc :VimuxCloseRunner<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 let g:VimuxOrientation = "h"
@@ -346,7 +347,12 @@ Plug 'dbeecham/vim-schemeConceal'
 Plug 'tpope/vim-surround'
 
 Plug 'christoomey/vim-tmux-navigator'
-
-Plug 'maksimr/vim-jsbeautify'
 let g:tmux_navigator_save_on_switch = 1
+
+Plug 'maksimr/vim-jsbeautify', { 'for': ['javascript', 'html'] }
+Plug 'nathanaelkane/vim-indent-guides'
+
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey
+set background=dark
 call plug#end()

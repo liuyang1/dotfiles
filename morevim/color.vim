@@ -21,7 +21,7 @@ highlight VimwikiLink ctermfg=blue
 highlight VimwikiList ctermfg=darkgreen cterm=bold
 highlight VimwikiBold ctermfg=darkred cterm=bold
 highlight VimwikiItalic ctermfg=yellow cterm=italic
-highlight VimwikiCode ctermbg=black ctermfg=green
+highlight VimwikiCode ctermbg=235 ctermfg=darkblue
 highlight VimwikiPre ctermbg=232 ctermfg=darkgreen
 
 highlight Function ctermfg=lightblue

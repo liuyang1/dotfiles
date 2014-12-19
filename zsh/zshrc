@@ -61,19 +61,11 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
-
 PATH=$PATH:$HOME/.local/bin:$HOME/.cabal/bin
 
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 # [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
-
-# set dircolors colorful completion
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-
 
 ulimit -c unlimited
 
