@@ -207,6 +207,7 @@ endfunction
 au FileType qf call AdjustWindowHeight(10, 25)
 
 " fast <Esc> key
+set showcmd
 set ttimeout
 set timeoutlen=1000 ttimeoutlen=0
 
@@ -214,4 +215,4 @@ set keywordprg=man\ -a
 
 set sessionoptions-=options
 
-set autochdir
+" set autochdir
