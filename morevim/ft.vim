@@ -44,3 +44,4 @@ autocmd FileType c,cpp set cino+=(0
 autocmd FileType javascript noremap <silent> <Leader>cc :call JsBeautify()<cr>
 autocmd FileType html       noremap <silent> <Leader>cc :call HtmlBeautify()<cr>
 autocmd FileType css        noremap <silent> <Leader>cc :call CSSBeautify()<cr>
+autocmd FileType vimwiki    set tw=78 ts=2

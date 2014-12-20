@@ -35,7 +35,10 @@ nnoremap <silent> * :call HLtoggle()<cr>
 
 " fix leak output to terminal
 set shellpipe=&>
+" search only in current file
 nnoremap <Leader>aa :Ack <cword> "%:p"<cr>
+" search in current path
+nnoremap <Leader>ar :Ack <cword> <cr>
 
 nnoremap ]t :tabnext<cr>
 nnoremap [t :tabprevious<cr>
@@ -59,3 +62,8 @@ autocmd FileType log,logcat   nmap <buffer> <Enter>     <Leader>aa<C-w><C-w>
 inoremap <C-U>      <C-G>u<C-U>
 
 command! Vrs        :vertical resize 85<cr>
+
+" replace C-A as tmux using it
+nmap <Leader>e      <C-A>
+nnoremap <A-a>      <C-A>
+nnoremap <A-x>      <C-X>
