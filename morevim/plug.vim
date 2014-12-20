@@ -204,7 +204,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " let g:airline_readonly_symbol   = 'Lk'
 " let g:airline_linecolumn_prefix = 'L/n'
 
-Plug 'Python-mode-klen', { 'for': ['python'] }
+" Plug 'Python-mode-klen', { 'for': ['python'] }
 let g:pymode_folding = 0
 
 " Plug 'The-NERD-Commenter'

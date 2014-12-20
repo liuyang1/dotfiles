@@ -53,11 +53,11 @@ Xft.dpi:96
 !Consolas
 
 ! must patch other font with Menlo or Monospace font, render all UTF-8 char will OK!!
-URxvt.font:xft:Ubuntu Mono derivative Powerline:size=14:style=Regular:antialias=true:hinting=true:autohint=true,xft:Menlo:size=14,xft:Monospace:size=14,xft:WenQuanYi Micro Hei:pixelsize=22:style=Regular:antialias=true:hinting=true
+URxvt.font:xft:Ubuntu Mono derivative Powerline:size=14:style=Regular:antialias=true:hinting=true:autohint=true,xft:Menlo:size=14,xft:Monospace:size=14,xft:WenQuanYi Micro Hei:pixelsize=22:style=Regular:antialias=true:hinting=true,xft:Hiragino Sans GB:pixelsize=22:style=Regular
 URxvt.boldFont:xft:Ubuntu Mono derivative Powerline:size=14:style=Bold:antialias=true:hinting=true,xft:Menlo:size=14,xft:Monospace:size=14,xft:WenQuanYi Micro Hei:pixelsize=22:style=Bold:antialias=true
 URxvt.italicFont:xft:Menlo for Powerline:size=14:style=Italic:antialias=true:hinting=true:autohint=true:hintstyle=hintslight,xft:WenQuanYi Micro Hei:pixelsize=22:style=Italic:antialias=true
 URxvt.boldItalicFont:xft:Menlo for Powerline:size=14:style=Bold Italic:antialias=true,xft:WenQuanYi Micro Hei:pixelsize=22:style=Bold Italic:antialias=true
-URxvt.letterSpace:0
+URxvt.letterSpace:-1
 
 URxvt*loginShell: false
 

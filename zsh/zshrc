@@ -155,6 +155,7 @@ unsetopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
+setopt HIST_NO_FUNCTIONS
 setopt HIST_IGNORE_SPACE
 # unset hist_verify to instant get last command by !!
 #setopt hist_verify
