@@ -9,7 +9,9 @@ URxvt.inputMethod:fcitx
 ! cancel transparent setting to avoid flickering
 URxvt.depth:24
 URxvt.geometry:			80x30
-URxvt.iconFile:			/home/liuy/.config/awesome/terminal.png
+URxvt.iconFile:			/home/liuy/.local/share/urxvt/terminal.png
+
+URxvt.meta8:            True
 
 ! disable this, to avoid URxvt flicking in AwesomeWM
 !URxvt.inheritPixmap:	True
@@ -214,7 +216,9 @@ HybridURxvt*color15: #C5C8C6
 ! Rxvt.color12:DodgerBule
 ! Rxvt.menu:/etc/X11/rxvt.menu
 ! 
-! URxvt.perl-ext-common:	...,font-size
-! URxvt.keysym.C-S-Up:	perl:font-size:incglobal
-! URxvt.keysym.C-S-Down:	perl:font-size:decglobal
-! URxvt.font-size.step:	3
+URxvt.perl-ext-common:	...,font-size
+URxvt.keysym.C-Up:      perl:font-size:increase
+URxvt.keysym.C-Down:    perl:font-size:decrease
+URxvt.keysym.C-S-Up:	perl:font-size:incglobal
+URxvt.keysym.C-S-Down:	perl:font-size:decglobal
+URxvt.font-size.step:	2

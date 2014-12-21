@@ -12,3 +12,10 @@ installFile(){
 installFile $PWD/Xresources		$PREFIX/.Xresources
 
 echo "OK"
+
+extdir="$HOME/.urxvt/ext"
+[[ -d  "$extdir" ]] || mkdir -p "$extdir"
+
+cd "$extdir"
+git clone https://github.com/majutsushi/urxvt-font-size
+ln -s urxvt-font-size/font-size font-size

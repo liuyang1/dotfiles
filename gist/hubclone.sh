@@ -3,7 +3,7 @@ defaultuser="liuyang1"
 repo="$1"
 
 if [[ "$repo" == "" ]]; then
-    echo "Usage: $(basename $0) [RepoName]"
+    echo "Usage: $(basename "$0") [RepoName]"
     exit 1
 fi
 if [[ "$repo" != */* ]]; then

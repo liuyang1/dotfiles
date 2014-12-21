@@ -8,6 +8,7 @@
     a = add
     ap = add -p
     chunkadd = add --patch
+    aa = add -u .
 # branch
     b = branch -v
     br = branch

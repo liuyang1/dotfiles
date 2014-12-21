@@ -1,5 +1,5 @@
-nnoremap ,s     :source ~/.vimrc<cr>
-nnoremap ,e     :edit ~/.vimrc<cr>
+nnoremap \s     :source ~/.vimrc<cr>
+nnoremap \e     :edit ~/.vimrc<cr>
 
 " for test highlight statement
 map <Leader>ht :echo "hi<" . synIDattr(synID(line("."),col("."),1), "name") . '> trans<'
@@ -48,7 +48,7 @@ nnoremap [b :bp<cr>
 nnoremap <Leader>b :buffers<cr>:buffer<Space>
 
 nnoremap <Leader>q :wqa!<cr>
-nnoremap ,,        :update<cr>
+nnoremap \\        :update<cr>
 
 " map <up> <nop>
 " map <down> <nop>
@@ -65,5 +65,3 @@ command! Vrs        :vertical resize 85<cr>
 
 " replace C-A as tmux using it
 nmap <Leader>e      <C-A>
-nnoremap <A-a>      <C-A>
-nnoremap <A-x>      <C-X>

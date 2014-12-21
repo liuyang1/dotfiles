@@ -1,5 +1,4 @@
-let g:mapleader = ";"
-nnoremap \ ;
+let g:mapleader = " "
 " source ~/.vim/vundle.vim
 source ~/.vim/plug.vim
 
