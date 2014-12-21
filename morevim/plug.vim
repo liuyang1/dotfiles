@@ -9,8 +9,8 @@ let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,br,hr,div,del,code,img'
 let g:vimwiki_camel_case=0
 let g:vimwiki_list=[{
     \ 'path': '$HOME/wiki',
-    \ 'path_html': '$HOME/wiki/html',
-    \ 'auto_export': 0,
+    \ 'path_html': '$HOME/www',
+    \ 'auto_export': 1,
     \ }]
 let g:vimwiki_hl_cb_checked=1
 let g:vimwiki_menu=''
@@ -28,8 +28,8 @@ Plug 'a.vim'
 " highlight ShowMarksHlu  ctermbg=red ctermfg=green
 
 Plug 'kshenoy/vim-signature'
-" let g:SignatureMarkOrder = "\m»"
-let g:SignatureMarkOrder = "\m)"
+let g:SignatureMarkOrder = "\m»"
+" let g:SignatureMarkOrder = "\m)"
 let g:SignatureMarkLineHL = "'WarningMsg'"
 
 Plug 'Align'
@@ -83,7 +83,8 @@ let g:syntastic_loc_list_height = 5
 let g:syntastic_c_check_header          = 1
 let g:syntastic_c_remove_include_errors = 1
 
-Plug 'kovisoft/slimv'
+Plug 'kovisoft/slimv', { 'for': ['scheme', 'lisp'] }
+" lisp_rainbow not works now under vim74
 let g:lisp_rainbow=1
 let g:scheme_builtin_swank=1
 let g:slimv_ballon=1
@@ -289,7 +290,7 @@ Plug 'Logcat-syntax-highlighter'
 " au Syntax *     RainbowParenthesesLoadSquare
 " au Syntax *     RainbowParenthesesLoadBraces
 " au Syntax *     RainbowParenthesesLoadChevrons
-Plug 'luochen1990/rainbow', { 'for': ['c','cpp', 'h']}
+Plug 'luochen1990/rainbow', { 'for': ['c','cpp', 'h', 'scheme']}
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
 Plug 'mileszs/ack.vim'
@@ -306,10 +307,10 @@ if executable('ag')
     " let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 
-Plug 'jceb/vim-orgmode'
+" Plug 'jceb/vim-orgmode'
 
 Plug 'benmills/vimux'
-" map <silent> <Leader><Leader> :update<cr>:call VimuxRunCommand("rspec " . expand("%:p"))<CR>
+map <silent> <Leader><Leader> :update<cr>:call VimuxRunCommand("rspec " . expand("%:p"))<CR>
 map <Leader>vc :VimuxCloseRunner<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 let g:VimuxOrientation = "h"
@@ -341,8 +342,6 @@ let g:mwAutoSaveMarks = 0
 
 " Plug 'SyntaxRange'
 Plug 'ehamberg/vim-cute-python', { 'for': ['python'] }
-Plug 'dbeecham/vim-schemeConceal'
-" , { 'for': ['scheme'] }
 " Plug 'dkinzer/vim-schemer'
 Plug 'tpope/vim-surround'
 

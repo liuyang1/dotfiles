@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-fullfile=$1
+fullfile="$1"
 dir=$(dirname "$fullfile")
 cd "$dir"
 filename=$(basename "$fullfile")
@@ -17,7 +17,8 @@ rspec() {
     case "$ext" in
         py*) cmd="python2 $filename" ;;
         sh*) cmd="bash $filename" ;;
-        scm*) cmd="guile $filename" ;;
+        # scm*) cmd="guile $filename" ;;
+        scm*) cmd="racket -f $filename" ;;
         c*|cpp*|C*|h*|cxx*|cc*)
             if [[ -f Makefile ]]; then
                 cmd="make && make run"
@@ -37,6 +38,9 @@ rspec() {
     esac
 }
 
-rspec $extension $fullfile
-eval "$cmd"
-cd -
+if [[ -f rspec.sh ]]; then
+    bash rspec.sh
+else
+    rspec "$extension" "$fullfile"
+    eval "$cmd"
+fi

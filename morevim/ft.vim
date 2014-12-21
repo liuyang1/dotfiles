@@ -29,7 +29,7 @@ autocmd FileType make   setlocal makeprg=make\ -f\ %
 " for one key compile
 nnoremap <Leader>rr :make<cr>
 vnoremap <Leader>rr <C-C>:make<cr>
-inoremap <Leader>rr <C-O>:make<cr>
+" inoremap <Leader>rr <C-O>:make<cr>
 
 autocmd BufNewFile,BufRead *.test setlocal filetype=tcl
 
