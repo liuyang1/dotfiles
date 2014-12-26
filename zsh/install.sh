@@ -25,6 +25,7 @@ else
     installFile $PWD/fast-agnoster.zsh-theme    $ZSH_THEME_PATH/fast-agnoster.zsh-theme
     installFile $PWD/gitstatus.py               $ZSH_THEME_PATH/gitstatus.py
     installFile $PWD/disambiguate-keeplast      $ZSH_THEME_PATH/disambiguate-keeplast
+    installFile $PWD/hubclone.sh                $ZSH_PLUGIN_PATH/hub
     cd $ZSH_PLUGIN_PATH
     git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
     git clone git://github.com/zsh-users/zaw.git

@@ -2,10 +2,7 @@ set nocompatible
 set nobackup     "no   backup file
 set noswapfile   "no   swap   file
 
-set history=1000
-
-set cmdheight=1  "cmd  height
-set ruler        "show position of cursor
+" Number
 set number       "how  line   number
 set relativenumber
 "autocmd InsertEnter * :set number
@@ -19,20 +16,18 @@ function! SwitchRelative()
 endfunc
 nnoremap <Leader>l      :call SwitchRelative()<cr>
 
-"set noexpandtab
+" Tab & Indent
 set expandtab
 set smarttab
 set shiftwidth=4  " shift width
 set tabstop=4     " tab 4 space
 set softtabstop=4 " soft tab 4 space
 
-" indent
-"set autoindent  " copy indent from current line when starting a new line
+set autoindent  " copy indent from current line when starting a new line
 set smartindent " c style, after '{' or a line starting with cinwords' or before '}' smart indent
-"set cindent     "more strict
+set cindent     "more strict
 
-" setting before
-" filetype plugin indent on
+filetype plugin indent on
 
 " search
 set incsearch
@@ -44,7 +39,7 @@ set smartcase   " when input upper case char, override ignorecase
 set hidden
 
 " mouse
-"set mouse=a " enable the use of the mouse under all modes
+set mouse=a " enable the use of the mouse under all modes
 
 " status
 set laststatus=2    " always show status line
@@ -52,18 +47,31 @@ set showtabline=2
 set noshowmode      " as powerline plugin already display this info
 set tabpagemax=50
 
+set history=1000
+
+" cmd
+set showcmd " show cmd in the last line of the screen
+set cmdheight=1  "cmd  height
+
+" cursor
+    " only show current line at active window
+augroup CursorLine
+    au!
+    au VimEnter,WinEnter,BufWinEnter    * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup END
+    " set cursorcolumn
+set ruler        "show position of cursor
+
 " modeline
 set showmode    " ???
 set modeline
 set modelines=5
 
-set report=0    " always show if any lines changed
-
 " message
 set shortmess=at " using all of abbr and truncate file meesage at the start
+set report=0    " always show if any lines changed
 
-" cmd
-set showcmd " show cmd in the last line of the screen
 
 " match bracket
 set showmatch
@@ -89,14 +97,6 @@ set autowrite
 autocmd FocusLost * silent! wa
 set autowriteall
 
-" only show current line at active window
-augroup CursorLine
-    au!
-    au VimEnter,WinEnter,BufWinEnter    * setlocal cursorline
-    au WinLeave * setlocal nocursorline
-augroup END
-" set cursorcolumn
-
 " wild
 set wildmenu    " CLI completion operate in anenhanced mode
 set wildchar=<TAB>  " vim default <TAB>
@@ -107,6 +107,7 @@ set backspace=eol,start,indent
 set noerrorbells
 set visualbell
 
+" syntax
 syntax enable
 syntax on
 " fold
@@ -216,3 +217,12 @@ set keywordprg=man\ -a
 set sessionoptions-=options
 
 " set autochdir
+
+if has('cscope')
+    set cscopetag cscopeverbose
+    if has('quickfix')
+        set cscopequickfix=s-,c-,d-,i-,t-,e-
+    endif
+    cnoreabbrev csa cs add
+    cnoreabbrev css cs find
+endif

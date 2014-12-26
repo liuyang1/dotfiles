@@ -16,7 +16,7 @@ let g:vimwiki_hl_cb_checked=1
 let g:vimwiki_menu=''
 let g:vimwiki_CJK_length=1
 
-Plug 'a.vim'
+Plug 'a.vim', { 'for': [ 'c', 'h', 'cpp' ] }
 
 " Plug 'ShowMarks7'
 " let g:showmarks_include='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -44,6 +44,7 @@ let g:tagbar_compact          = 1
 let g:tagbar_show_linenumbers = 2
 let g:tagbar_previewwin_pos   = "downright"
 " let g:tagbar_autopreview      = 1
+let g:tagbar_sort             = 0
 autocmd FileType tagbar setlocal nocursorline nocursorcolumn
 
 let g:tagbar_type_vimwiki = {
@@ -59,7 +60,7 @@ let g:tagbar_type_vimwiki = {
 
 Plug 'Auto-Pairs'
 
-Plug 'UltiSnips'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 Plug 'Syntastic'
@@ -122,7 +123,7 @@ noremap     <Leader>f          :CtrlPFunky<cr>
 Plug 'tacahiroy/ctrlp-funky'
 let g:ctrlp_extesions = ['funky', 'tag']
 let g:ctrlp_funky_matchtype = 'path'
-let g:ctrlp_funky_syntax_highlight = 1
+" let g:ctrlp_funky_syntax_highlight = 1
 Plug 'JazzCore/ctrlp-cmatcher'
 if filereadable(expand('~/.vim/bundle/ctrlp-cmatcher/autoload/fuzzycomt.so'))
   let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
@@ -290,7 +291,7 @@ Plug 'Logcat-syntax-highlighter'
 " au Syntax *     RainbowParenthesesLoadSquare
 " au Syntax *     RainbowParenthesesLoadBraces
 " au Syntax *     RainbowParenthesesLoadChevrons
-Plug 'luochen1990/rainbow', { 'for': ['c','cpp', 'h', 'scheme']}
+Plug 'luochen1990/rainbow', { 'for': ['c','cpp', 'h', 'scheme', 'python']}
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
 Plug 'mileszs/ack.vim'
@@ -349,9 +350,9 @@ Plug 'christoomey/vim-tmux-navigator'
 let g:tmux_navigator_save_on_switch = 1
 
 Plug 'maksimr/vim-jsbeautify', { 'for': ['javascript', 'html'] }
-Plug 'nathanaelkane/vim-indent-guides'
-
-hi IndentGuidesOdd  ctermbg=black
-hi IndentGuidesEven ctermbg=darkgrey
-set background=dark
+" Plug 'nathanaelkane/vim-indent-guides'
+" hi IndentGuidesOdd  ctermbg=black
+" hi IndentGuidesEven ctermbg=darkgrey
+" Plug 'junegunn/goyo.vim'
+" Plug 'ivalkeen/vim-ctrlp-tjump'
 call plug#end()
