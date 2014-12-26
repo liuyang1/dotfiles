@@ -177,3 +177,5 @@ export CLASSPATH=.:$HOME/.local/framework:$CLASSPATH
 # on my urxvt it works with <alt>-<left>/-<right>
 bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
+
+source "$HOME/.oh-my-zsh/custom/plugins/hub"

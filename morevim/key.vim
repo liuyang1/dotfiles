@@ -65,3 +65,5 @@ command! Vrs        :vertical resize 85<cr>
 
 " replace C-A as tmux using it
 nmap <Leader>e      <C-A>
+
+nnoremap Y y$
