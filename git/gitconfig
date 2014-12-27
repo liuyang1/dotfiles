@@ -16,7 +16,7 @@
     r = remote -v
 # commit
     c = commit -v
-#    cm = commit -v -m
+    cm = commit -v -m
     amend = commit -v --amend
 # checkout
     co = checkout

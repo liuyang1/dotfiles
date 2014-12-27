@@ -18,8 +18,6 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
-
-
 function! HLtoggle()
     if (@/ == '')
         let @/ = "\\<" . expand("<cword>") . "\\>"
@@ -45,7 +43,6 @@ nnoremap [t :tabprevious<cr>
 nnoremap ]b :bn<cr>
 nnoremap [b :bp<cr>
 
-nnoremap <Leader>b :buffers<cr>:buffer<Space>
 
 nnoremap <Leader>q :wqa!<cr>
 nnoremap \\        :update<cr>
@@ -67,3 +64,6 @@ command! Vrs        :vertical resize 85<cr>
 nmap <Leader>e      <C-A>
 
 nnoremap Y y$
+
+" vertial split, and scroll next page, then scrollbind
+noremap <silent> <leader>sb :set norelativenumber<CR>:<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
