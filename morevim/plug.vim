@@ -119,7 +119,9 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_files = 0
 " noremap     <Leader>f           :CtrlPMRUFiles<cr>
 " noremap     <Leader>ff          :CtrlPMRUFiles<cr>
-noremap     <Leader>f          :CtrlPFunky<cr>
+nnoremap     <Leader>f          :CtrlPFunky<cr>
+" nnoremap     <Leader>b :buffers<cr>:buffer<Space>
+nnoremap     <Leader>b          :CtrlPBuffer<cr>
 Plug 'tacahiroy/ctrlp-funky'
 let g:ctrlp_extesions = ['funky', 'tag']
 let g:ctrlp_funky_matchtype = 'path'
@@ -220,7 +222,7 @@ let g:tcomment_types={'c': '// %s'}
 " Plug 'autoload_cscope.vim'
 " Plug 'cscope.vim'
 
-Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp']}
+Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'python']},
 nnoremap <C-i>      :YcmCompleter GoToDefinitionElseDeclaration<CR>
 set completeopt=longest,menu
 autocmd InsertLeave *   if pumvisible()==0|pclose|endif
@@ -279,7 +281,7 @@ Plug 'Logcat-syntax-highlighter'
 
 " will make vim slow
 " Plug 'colorizer'
-" Plug 'guns/xterm-color-table.vim'
+Plug 'guns/xterm-color-table.vim'
 
 " Plug 'rainbow_parentheses.vim'
 " let g:rbpt_loadcmd_toggle=1
@@ -350,9 +352,15 @@ Plug 'christoomey/vim-tmux-navigator'
 let g:tmux_navigator_save_on_switch = 1
 
 Plug 'maksimr/vim-jsbeautify', { 'for': ['javascript', 'html'] }
-" Plug 'nathanaelkane/vim-indent-guides'
-" hi IndentGuidesOdd  ctermbg=black
-" hi IndentGuidesEven ctermbg=darkgrey
+Plug 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_start_level = 4
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_default_mapping = 0
+let g:indent_guides_auto_colors = 0
+Plug 'Shougo/vimproc.vim', { 'do': 'make'  }
+nnoremap <Leader>x      :VimProcBang 
+Plug 'Shougo/vimshell.vim'
 " Plug 'junegunn/goyo.vim'
 " Plug 'ivalkeen/vim-ctrlp-tjump'
 call plug#end()

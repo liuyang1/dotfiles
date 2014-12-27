@@ -14,7 +14,7 @@ function! SwitchRelative()
         set relativenumber
     endif
 endfunc
-nnoremap <Leader>l      :call SwitchRelative()<cr>
+nnoremap \l      :call SwitchRelative()<cr>
 
 " Tab & Indent
 set expandtab

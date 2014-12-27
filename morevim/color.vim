@@ -1,5 +1,7 @@
 set t_Co=256
 colorscheme molokai
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey
 " let g:hybrid_use_Xresources=1
 " colorscheme hybrid
 "colorscheme desert
