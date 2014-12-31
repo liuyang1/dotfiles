@@ -72,7 +72,6 @@ set modelines=5
 set shortmess=at " using all of abbr and truncate file meesage at the start
 set report=0    " always show if any lines changed
 
-
 " match bracket
 set showmatch
 set matchtime=1 " default 5
@@ -110,9 +109,12 @@ set visualbell
 " syntax
 syntax enable
 syntax on
+
 " fold
 " set foldenable
-" set foldlevel=0 " close all folds. default: 0
+" set foldlevelstart=4 " close all folds. default: 0
+" set foldnestmax=10
+" set foldmethod=indent
 " set foldmethod=syntax
 
 " encoding
@@ -127,6 +129,7 @@ language message en_US.utf-8
 let $LANG='en_US.utf8'
 
 set display=lastline,uhex " uhex: show unprintable char hex as <xx>
+set lazyredraw
 
 " path
 set path=..,.,/usr/include,/usr/src/linux/include,/usr/local/include,
@@ -225,4 +228,14 @@ if has('cscope')
     endif
     cnoreabbrev csa cs add
     cnoreabbrev css cs find
+endif
+
+" allows change in tmux mode
+" not work
+if exists('$TMUX')
+    let $t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let $t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+    let $t_SI = "\<Esc>50;CursorShape=1\x7"
+    let $t_EI = "\<Esc>50;CursorShape=0\x7"
 endif
