@@ -66,5 +66,8 @@ nmap <Leader>e      <C-A>
 
 nnoremap Y y$
 
+" visual select the block of added last time
+nnoremap gV `[v`]
+
 " vertial split, and scroll next page, then scrollbind
 noremap <silent> <leader>sb :set norelativenumber<CR>:<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
