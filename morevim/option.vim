@@ -77,10 +77,6 @@ set report=0    " always show if any lines changed
 set showmatch
 set matchtime=1 " default 5
 
-" suffiexes file ignore
-set suffixes=,~,.o,.h,.info,.swp,.obj,.gz,.ps,.tar,.aux,.dvi,.bz2,.idx,.pdf
-set wildignore=*.gz,*.bz2,*.tgz,*.tbz,*.zip,*.rar,*.mp3,*.png,*.jpg,*.o,*.obj,*.exe
-
 set startofline " page down / page up &c, to non-blank of the line
 
 " multi-window
@@ -98,8 +94,12 @@ autocmd FocusLost * silent! wa
 set autowriteall
 
 " wild
-set wildmenu    " CLI completion operate in anenhanced mode
+" wildcard completion content in menu
+set wildmenu
 set wildchar=<TAB>  " vim default <TAB>
+" suffiexes file ignore
+set suffixes=,~,.o,.h,.info,.swp,.obj,.gz,.ps,.tar,.aux,.dvi,.bz2,.idx,.pdf
+set wildignore=*.gz,*.bz2,*.tgz,*.tbz,*.zip,*.rar,*.mp3,*.png,*.jpg,*.o,*.obj,*.exe
 
 " backspace
 set backspace=eol,start,indent

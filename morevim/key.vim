@@ -1,6 +1,10 @@
 nnoremap \s     :source ~/.vimrc<cr>
 nnoremap \e     :edit ~/.vimrc<cr>
 
+nnoremap <Leader>q :wqa!<cr>
+nnoremap \\        :update<cr>
+
+nnoremap \i      :PlugInstall<cr>
 " for test highlight statement
 map <Leader>ht :echo "hi<" . synIDattr(synID(line("."),col("."),1), "name") . '> trans<'
             \ . synIDattr(synID(line("."),col("."),0), "name") . "> lo<"
@@ -43,9 +47,6 @@ nnoremap [t :tabprevious<cr>
 nnoremap ]b :bn<cr>
 nnoremap [b :bp<cr>
 
-
-nnoremap <Leader>q :wqa!<cr>
-nnoremap \\        :update<cr>
 
 " map <up> <nop>
 " map <down> <nop>
