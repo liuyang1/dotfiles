@@ -106,7 +106,10 @@ au FileType python setlocal formatprg=autopep8\ -aa\ -
 " Plug 'minibufexpl.vim'
 " nnoremap <Leader>bb     :TMiniBufExplorer<cr>
 " let g:miniBufExplSplitBelow  = 0
-Plug 'ctrlp.vim'
+Plug 'Shougo/unite.vim'
+
+" ctrlp system
+Plug 'kien/ctrlp.vim'
 let g:ctrlp_cmd               = 'CtrlPMRUFiles'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
@@ -363,4 +366,12 @@ nnoremap <Leader>x      :VimProcBang
 Plug 'Shougo/vimshell.vim'
 " Plug 'junegunn/goyo.vim'
 " Plug 'ivalkeen/vim-ctrlp-tjump'
+" Plug 'mrtazz/DoxygenToolkit.vim'
+Plug 'vim-scripts/DoxygenToolkit.vim'
+" let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
+" let g:DoxygenToolkit_paramTag_pre="@Param "
+" let g:DoxygenToolkit_returnTag="@Returns   "
+let g:DoxygenToolkit_authorName="liuyang<ly@marvell.com>"
+" let g:DoxygenToolkit_licenseTag="My own license" <-- !!! Does not end with "\<enter>"
+let g:load_doxygen_syntax=1
 call plug#end()
