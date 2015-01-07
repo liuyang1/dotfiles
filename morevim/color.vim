@@ -45,7 +45,7 @@ highlight CursorLineNr cterm=bold ctermfg=red
 highlight LineNr ctermfg=246
 
 " disable Background color erase
-" set t_ut=
+set t_ut=
 
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 14
 set guioptions-=m  "remove menu bar

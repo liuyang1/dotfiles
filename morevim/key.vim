@@ -53,10 +53,6 @@ nnoremap [b :bp<cr>
 " map <left> <nop>
 " map <right> <nop>
 
-autocmd FileType c,cpp nmap <buffer> <Leader>d   <C-w>}
-autocmd FileType c,cpp nmap <buffer> <Enter>     <C-w>}
-autocmd FileType log,logcat   nmap <buffer> <Enter>     <Leader>aa<C-w><C-w>
-
 inoremap <C-U>      <C-G>u<C-U>
 
 command! Vrs        :vertical resize 85<cr>
