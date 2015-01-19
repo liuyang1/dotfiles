@@ -55,7 +55,7 @@ nnoremap [b :bp<cr>
 
 inoremap <C-U>      <C-G>u<C-U>
 
-command! Vrs        :vertical resize 85<cr>
+command! Vrs        :vertical resize 90<cr>
 
 " replace C-A as tmux using it
 nmap <Leader>e      <C-A>
