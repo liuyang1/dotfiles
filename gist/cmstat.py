@@ -52,7 +52,7 @@ def groupFileExt(numst):
     fn = numst.filename
     ret = os.path.splitext(fn)
     if ret[1] == "":
-        return ret[0]
+        return os.path.split(ret[0])[1]
     else:
         return ret[1]
 
@@ -85,6 +85,7 @@ if __name__ == "__main__":
     else:
         ret = []
         for d in dirs:
+            print(d)
             ret.append(statRepo(d))
         cum = map(sum, zip(* ret))
         for i in cum:
