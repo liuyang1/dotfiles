@@ -53,5 +53,6 @@ set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
-" highlight ExtraWhitespace ctermbg=yellow
-" match ExtraWhitespace /\s\+\%#\@<!$/
+highlight ExtraWhitespace ctermbg=darkyellow
+match ExtraWhitespace /\s\+\%#\@<!$/
+" autocmd BufWritePre * :%s/\s\+$//e

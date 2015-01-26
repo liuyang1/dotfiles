@@ -82,12 +82,15 @@ if __name__ == "__main__":
     dirs = args.dirs
     if len(dirs) == 0:
         statRepo(os.getcwd())
+    if len(dirs) == 1:
+        statRepo(dirs[0])
     else:
         ret = []
         for d in dirs:
             print(d)
             ret.append(statRepo(d))
         cum = map(sum, zip(* ret))
+        print("all", end=" ")
         for i in cum:
             print(i, end=" ")
         print('')
