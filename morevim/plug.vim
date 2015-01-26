@@ -214,6 +214,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 " Plug 'Python-mode-klen', { 'for': ['python'] }
 let g:pymode_folding = 0
+" Plug 'davidhalter/jedi-vim'
 
 " Plug 'The-NERD-Commenter'
 " let NERDShutUp=1
