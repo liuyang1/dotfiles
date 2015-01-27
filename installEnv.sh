@@ -5,8 +5,7 @@ installFile(){
 	# installFile $1-> $2
     PWD=$(pwd)
     echo installFile "$1" "->" "$2"
-	rm -rf "$2"
-	ln -s "$PWD"/"$1" "$2"
+	ln -s -f "$PWD"/"$1" "$2"
 }
 
 # create a soft-link with same name, but to other dir
