@@ -11,7 +11,8 @@ rspec() {
     ext="$1"
     filename="$2"
     if [[ $filename == "Makefile"  ]]; then
-        cmd="make && make run"
+        # cmd="make && make run"
+        cmd="make -f $filename"
         return
     fi
     case "$ext" in
