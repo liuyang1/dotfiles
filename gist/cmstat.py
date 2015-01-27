@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 from __future__ import print_function
 import sh
 from collections import namedtuple
@@ -61,15 +62,20 @@ def statRepo(cwd):
     stlst = getStatLst(cwd)
     a = sum([st.insert for st in stlst])
     b = sum([st.delete for st in stlst])
-    print(a, b, a + b)
-    ret = (a, b, a + b)
     stlst = sorted(stlst, key=groupFileExt)
+    olst = []
     for ext, g in itertools.groupby(stlst, groupFileExt):
         g = list(g)
         aa = sum([st.insert for st in g])
         bb = sum([st.delete for st in g])
-        print(ext, aa, bb, aa + bb)
-    return ret
+        olst.append((ext, aa, bb, aa + bb))
+    olst.append(("", a, b, a + b))
+    l = max([len(i[0]) for i in olst])
+    # print("%s %s %s %s" % ("type".ljust(l), '+'.rjust(4), '-'.rjust(4),
+                           # '+/-'.rjust(4)))
+    for i in olst:
+        print("%s %4d %4d %4d" % (i[0].ljust(l), i[1], i[2], i[3]))
+    return olst[-1][1:]
 
 
 if __name__ == "__main__":
@@ -93,4 +99,4 @@ if __name__ == "__main__":
         print("all", end=" ")
         for i in cum:
             print(i, end=" ")
-        print('')
+        print("")

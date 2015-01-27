@@ -72,3 +72,5 @@
     date = default
 [push]
     default = matching
+[commit]
+	template = ~/.gitcltpl

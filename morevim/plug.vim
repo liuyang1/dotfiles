@@ -363,16 +363,23 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_default_mapping = 0
 let g:indent_guides_auto_colors = 0
 Plug 'Shougo/vimproc.vim', { 'do': 'make'  }
-nnoremap <Leader>x      :VimProcBang 
+nnoremap <Leader>x      :VimProcBang
 Plug 'Shougo/vimshell.vim'
-" Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim'
+let g:goyo_margin_top = 0
+let g:goyo_margin_bottom = 0
+" let g:goyo_linenr = 1
+nnoremap \g         :Goyo<cr>
+Plug 'junegunn/limelight.vim'
+" autocmd User GoyoEnter Limelight
+" autocmd User GoyoLeave Limelight!
 " Plug 'ivalkeen/vim-ctrlp-tjump'
 " Plug 'mrtazz/DoxygenToolkit.vim'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 " let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
 " let g:DoxygenToolkit_paramTag_pre="@Param "
 " let g:DoxygenToolkit_returnTag="@Returns   "
-let g:DoxygenToolkit_authorName="liuyang<ly@marvell.com>"
+let g:DoxygenToolkit_authorName="liuyang1<liuyang1@ustc.edu.cn>"
 " let g:DoxygenToolkit_licenseTag="My own license" <-- !!! Does not end with "\<enter>"
 let g:load_doxygen_syntax=1
 call plug#end()
