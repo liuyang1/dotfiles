@@ -57,6 +57,20 @@ let g:tagbar_type_vimwiki = {
             \ , 'ctagsbin':'python2'
             \ , 'ctagsargs': '~/.vim/vwtags.py default'
             \ }
+let g:tagbar_type_markdown = {
+    \ 'ctagstype': 'markdown',
+    \ 'ctagsbin' :'python2',
+    \ 'ctagsargs' : '~/.vim/markdown2ctags.py -f - --sort=yes',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro' : '|',
+    \ 'kind2scope' : {
+        \ 's' : 'section',
+    \ },
+    \ 'sort': 0,
+\ }
 
 Plug 'Auto-Pairs'
 
@@ -382,4 +396,6 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 let g:DoxygenToolkit_authorName="liuyang1<liuyang1@ustc.edu.cn>"
 " let g:DoxygenToolkit_licenseTag="My own license" <-- !!! Does not end with "\<enter>"
 let g:load_doxygen_syntax=1
+" Plug 'plasticboy/vim-markdown'
+" let g:vim_markdown_folding_disabled=1
 call plug#end()
