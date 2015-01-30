@@ -88,7 +88,7 @@ if __name__ == "__main__":
     dirs = args.dirs
     if len(dirs) == 0:
         statRepo(os.getcwd())
-    if len(dirs) == 1:
+    elif len(dirs) == 1:
         statRepo(dirs[0])
     else:
         ret = []

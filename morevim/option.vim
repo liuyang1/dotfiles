@@ -169,7 +169,7 @@ augroup resCur
 augroup END
 
 " diff mode options
-set diffopt+=iwhite
+" set diffopt+=iwhite
 
 set tags=./tags;/
 " setglobal tags-=./tags tags^=./tags;
