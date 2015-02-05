@@ -69,8 +69,10 @@ def statRepo(cwd):
         aa = sum([st.insert for st in g])
         bb = sum([st.delete for st in g])
         olst.append((ext, aa, bb, aa + bb))
+    olst = sorted(olst, key=lambda x:x[-1], reverse=True)
     olst.append(("", a, b, a + b))
     l = max([len(i[0]) for i in olst])
+    l = max([l, 15])
     # print("%s %s %s %s" % ("type".ljust(l), '+'.rjust(4), '-'.rjust(4),
                            # '+/-'.rjust(4)))
     for i in olst:
@@ -96,7 +98,5 @@ if __name__ == "__main__":
             print(d)
             ret.append(statRepo(d))
         cum = map(sum, zip(* ret))
-        print("all", end=" ")
-        for i in cum:
-            print(i, end=" ")
-        print("")
+        cum = list(cum)
+        print("%s %4d %4d %4d" % ("ALL".ljust(15), cum[0], cum[1], cum[2]))
