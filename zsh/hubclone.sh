@@ -1,6 +1,10 @@
 #! /usr/bin/env bash
 function hub()
 {
+    if [[ "$1" == "" ]]; then
+        echo "usage: hub [author/]reponame"
+        return
+    fi
     local defaultuser="liuyang1"
     local repo="$1"
 

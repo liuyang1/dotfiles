@@ -91,3 +91,4 @@ nohup.out
 
 *.fas
 *.lib
+*.hi
