@@ -33,6 +33,7 @@
     l = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%x09%Creset %Cgreen%cd%Creset - %s %C(yellow)%d%Creset' --abbrev-commit
     lg = log --color --graph --stat
     la = log --color --stat -1 HEAD
+    lp = log -p
     ld = log -p
     gs = log --color --graph --stat
     lc = show

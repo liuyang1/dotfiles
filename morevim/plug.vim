@@ -399,4 +399,7 @@ let g:load_doxygen_syntax=1
 " Plug 'plasticboy/vim-markdown'
 " let g:vim_markdown_folding_disabled=1
 Plug 'Rykka/easydigraph.vim'
+Plug 'gregsexton/gitv'
+Plug 'utl.vim'
+" Plug 'waylan/vim-markdown-extra-preview'
 call plug#end()
