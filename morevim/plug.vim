@@ -328,6 +328,9 @@ if executable('ag')
     " let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 
+Plug 'dyng/ctrlsf.vim'
+nmap \ff    <Plug>CtrlSFCwordExec
+nmap \fw    :CtrlSFOpen<cr>
 " Plug 'jceb/vim-orgmode'
 
 Plug 'benmills/vimux'
