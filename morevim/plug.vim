@@ -240,7 +240,8 @@ let g:tcomment_types={'c': '// %s'}
 " Plug 'autoload_cscope.vim'
 " Plug 'cscope.vim'
 
-Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'python']},
+Plug 'Valloric/YouCompleteMe'
+", { 'for': ['c', 'cpp', 'python']},
 nnoremap <C-i>      :YcmCompleter GoToDefinitionElseDeclaration<CR>
 set completeopt=longest,menu
 autocmd InsertLeave *   if pumvisible()==0|pclose|endif
