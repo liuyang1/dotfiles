@@ -405,4 +405,6 @@ Plug 'Rykka/easydigraph.vim'
 Plug 'gregsexton/gitv'
 Plug 'utl.vim'
 " Plug 'waylan/vim-markdown-extra-preview'
+Plug 'enomsg/vim-haskellConcealPlus', {'for': ['haskell']}
+let hscoptions="T"
 call plug#end()

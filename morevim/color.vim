@@ -27,3 +27,5 @@ set guioptions-=L  "remove left-hand scroll bar
 highlight ExtraWhitespace ctermbg=darkyellow
 match ExtraWhitespace /\s\+\%#\@<!$/
 " autocmd BufWritePre * :%s/\s\+$//e
+
+highlight hsNiceSpecial ctermfg=darkyellow

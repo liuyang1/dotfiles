@@ -216,9 +216,13 @@ HybridURxvt*color15: #C5C8C6
 ! Rxvt.color12:DodgerBule
 ! Rxvt.menu:/etc/X11/rxvt.menu
 ! 
-URxvt.perl-ext-common:	...,font-size
+URxvt.perl-ext-common:	...,font-size,url-select
 URxvt.keysym.C-Up:      perl:font-size:increase
 URxvt.keysym.C-Down:    perl:font-size:decrease
 URxvt.keysym.C-S-Up:	perl:font-size:incglobal
 URxvt.keysym.C-S-Down:	perl:font-size:decglobal
 URxvt.font-size.step:	1
+
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
