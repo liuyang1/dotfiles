@@ -65,7 +65,7 @@
 [merge]
     tool = vimdiff
 [core]
-    editor = /usr/bin/vim
+    editor = vim
     excludesfile = ~/.gitignore_global
     quotepath = false
 [i18n]

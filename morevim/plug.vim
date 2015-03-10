@@ -10,7 +10,7 @@ let g:vimwiki_camel_case=0
 let g:vimwiki_list=[{
     \ 'path': '$HOME/wiki',
     \ 'path_html': '$HOME/www',
-    \ 'auto_export': 1,
+    \ 'auto_export': 0,
     \ }]
 let g:vimwiki_hl_cb_checked=1
 let g:vimwiki_menu=''
