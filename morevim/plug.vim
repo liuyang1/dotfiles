@@ -206,7 +206,7 @@ let g:gitgutter_highlight_lines = 0
 Plug 'bling/vim-airline'
 let g:airline_theme             = 'powerlineish'
 " let g:airline_theme             = 'hybrid'
-let g:airline_enable_syntastic  = 1
+let g:airline#extensions#syntastic#enabled  = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = 'No Br'
 let g:airline#extensions#tabline#enabled = 1
@@ -406,6 +406,11 @@ Plug 'Rykka/easydigraph.vim'
 Plug 'gregsexton/gitv'
 Plug 'utl.vim'
 " Plug 'waylan/vim-markdown-extra-preview'
-Plug 'enomsg/vim-haskellConcealPlus', {'for': ['haskell']}
+" Plug 'enomsg/vim-haskellConcealPlus', {'for': ['haskell']}
 let hscoptions="T"
+Plug 'lukerandall/haskellmode-vim', {'for': ['haskell']}
+au BufEnter *.hs compiler ghc
+let g:haddock_browser="/usr/bin/chromium"
+let g:haddock_browser_nosilent = 1
+Plug 'raichoo/haskell-vim'
 call plug#end()
