@@ -53,3 +53,5 @@ autocmd FileType css        noremap <silent> <Leader>cc :call CSSBeautify()<cr>
 autocmd FileType vimwiki    set tw=78 ts=2
 
 autocmd FileType xdefaults  setlocal makeprg=xrdb\ %
+
+autocmd BufEnter *.hs set formatprg=pointfree
