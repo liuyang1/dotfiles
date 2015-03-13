@@ -24,7 +24,7 @@ autocmd FileType c      map <buffer> <Leader>cc     ggVGgq
 " autocmd FileType c,cpp nmap <buffer> <Leader>d   <C-w>}
 autocmd FileType c,cpp nmap <buffer> <Enter>     <C-w>}
 " autocmd FileType c,cpp  nnoremap <silent> <Leader>ts  :sp <cr>:exec("tag ".expand("<cword>"))<cr>
-autocmd FileType c,cpp  nnoremap <silent> <Leader>d  :vsp <cr>:exec("tag ".expand("<cword>"))<cr>
+autocmd FileType c,cpp  nnoremap <silent> <C-\>  :vsp <cr>:exec("tag ".expand("<cword>"))<cr>
 " add for doxygen style comments
 autocmd FileType c,cpp  setlocal comments^=:///
 autocmd FileType c,cpp set cino+=(0

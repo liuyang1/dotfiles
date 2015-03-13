@@ -26,9 +26,10 @@ else
     installFile $PWD/gitstatus.py               $ZSH_THEME_PATH/gitstatus.py
     installFile $PWD/disambiguate-keeplast      $ZSH_THEME_PATH/disambiguate-keeplast
     installFile $PWD/hubclone.sh                $ZSH_PLUGIN_PATH/hub
+    installFile "$PWD/vimcmd.sh"                "$ZSH_PLUGIN_PATH/vimcmd.sh"
     cd $ZSH_PLUGIN_PATH
-    git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
-    git clone git://github.com/zsh-users/zaw.git
+    [[ -d "zsh-syntax-highlighting" ]] || git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+    [[ -d "zaw" ]] || git clone git://github.com/zsh-users/zaw.git
 fi
 
 echo "OK"
