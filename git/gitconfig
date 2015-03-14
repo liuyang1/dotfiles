@@ -28,7 +28,7 @@
     dl = diff HEAD^
     df = difftool -y
     dp = difftool --prompt
-    stat = diff --stat
+    st = diff --stat
 # log
     l = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%x09%Creset %Cgreen%ci%Creset - %s %C(yellow)%d%Creset' --abbrev-commit
     lg = log --color --graph --stat
@@ -46,6 +46,7 @@
 # reset
     us = reset HEAD
     uc = reset --soft HEAD^
+    uh = reset --hard HEAD
 # merge
     mt = mergetool
 # stash
@@ -55,7 +56,6 @@
     sd = stash drop
 # status
     s = status -sb
-    st = status -sb
 # tag
     t = tag -n
 # cherry-pick
@@ -77,3 +77,5 @@
     default = matching
 [commit]
 	template = ~/.gitcltpl
+[pager]
+    st = cat
