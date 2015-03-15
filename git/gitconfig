@@ -29,6 +29,7 @@
     df = difftool -y
     dp = difftool --prompt
     st = diff --stat
+    stc = diff --stat --cached
 # log
     l = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%x09%Creset %Cgreen%ci%Creset - %s %C(yellow)%d%Creset' --abbrev-commit
     lg = log --color --graph --stat
@@ -79,3 +80,4 @@
 	template = ~/.gitcltpl
 [pager]
     st = cat
+    stc = cat

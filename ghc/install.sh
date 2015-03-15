@@ -9,3 +9,4 @@ cabal install ghc-mode
 cabal install hdevtools
 cabal install hlint
 cabal install pointfree
+cabal install hasktags
