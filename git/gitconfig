@@ -12,7 +12,8 @@
 # branch
     b = branch -v
     br = branch
-    bd = branch -D
+    bd = branch -d
+    bD = branch -D
     r = remote -v
 # commit
     c = commit -v
