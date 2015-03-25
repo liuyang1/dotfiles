@@ -118,7 +118,8 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- {{{ Wibox
 -- Create a textclock widget
-mytextclock = awful.widget.textclock("%Y-%m-%d %H:%M:%S", 1)
+mytextclock = awful.widget.textclock("<span color='#111111' font-weight='bold'>%Y-%m-%d %H:%M:%S</span>", 1)
+-- mytextclock = awful.widget.textclock("%Y-%m-%d %H:%M:%S", 1)
 -- mytextclock = awful.widget.textclock()
 
 -- Create a wibox for each screen and add it
@@ -200,8 +201,8 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    right_layout:add(powerline_widget)
-    -- right_layout:add(mytextclock)
+    -- right_layout:add(powerline_widget)
+    right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
     -- Now bring it all together (with the tasklist in the middle)
@@ -285,7 +286,7 @@ globalkeys = awful.util.table.join(
 
     -- self define
 	awful.key({ modkey,			  }, "j", function () awful.util.spawn(terminal)	end),
-	awful.key({ modkey,			  }, "i", function () awful.util.spawn("/usr/bin/firefox") end)
+	awful.key({ modkey,			  }, "i", function () awful.util.spawn("/usr/bin/chromium") end)
 )
 
 clientkeys = awful.util.table.join(

@@ -54,6 +54,7 @@ nnoremap [b :bp<cr>
 " map <right> <nop>
 
 inoremap <C-U>      <C-G>u<C-U>
+autocmd BufEnter *.c inoremap ;;      <end>;
 
 command! Vrs        :vertical resize 90<cr>
 
