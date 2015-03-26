@@ -279,7 +279,13 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 " Plug 'Python-mode-klen', { 'for': ['python'] }
 let g:pymode_folding = 0
-" Plug 'davidhalter/jedi-vim'
+" need pip install jedi
+autocmd FileType python setlocal completeopt-=preview
+Plug 'davidhalter/jedi-vim'
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#show_call_signatures = "0"
+" TODO: how to disable the preview window
 
 " Plug 'The-NERD-Commenter'
 " let NERDShutUp=1

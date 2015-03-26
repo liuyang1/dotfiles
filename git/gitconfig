@@ -13,12 +13,16 @@
     b = branch -v
     br = branch
     bd = branch -d
-    bD = branch -D
+    bdd = branch -D
+    # move current branch name with prefix Done/
+    dn = "!f() { git rev-parse --abbrev-ref HEAD | xargs -I{} git branch -m {} Done/{}; }; f"
     r = remote -v
 # commit
     c = commit -v
     cm = commit -v -m
     amend = commit -v --amend
+    ca = commit -v --amend
+    caa = commit -a --amend -C HEAD
 # checkout
     co = checkout
     cb = checkout -b
@@ -39,6 +43,7 @@
     ld = log -p
     gs = log --color --graph --stat
     lc = show
+    lt = describe --tags --abbrev=0
 # pull or push
     pl = pull
     ps = push

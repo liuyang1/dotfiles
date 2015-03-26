@@ -58,3 +58,5 @@ autocmd BufEnter *.hs set formatprg=pointfree
 
 " add for cppcheck
 " autocmd BufEnter *.cck setlocal errorformt=[%f:%l]\ ->\ %m,[%f:%l]:%m
+
+autocmd FileType py set textwidth=79

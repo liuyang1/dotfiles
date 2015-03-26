@@ -3,8 +3,8 @@ usage()
 {
     echo "$(basename "$0") [matchName] [path=gitroot/.]"
 }
-d="$(git rev-parse --show-toplevel 2>/dev/null)"
 if [[ "$#" == 1 ]]; then
+    d="$(git rev-parse --show-toplevel 2>/dev/null)"
     if [[ "$?" != 0 ]]; then
         d="."
     else
