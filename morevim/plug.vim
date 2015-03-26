@@ -470,4 +470,6 @@ au BufEnter *.hs compiler ghc
 let g:haddock_browser="/usr/bin/chromium"
 let g:haddock_browser_nosilent = 1
 Plug 'raichoo/haskell-vim'
+
+Plug 'suan/vim-instant-markdown'
 call plug#end()

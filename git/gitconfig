@@ -64,6 +64,7 @@
     ss = stash
     sl = stash list
     sa = stash apply
+    sp = stash pop
     sd = stash drop
 # status
     s = status -sb

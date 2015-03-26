@@ -117,6 +117,8 @@ function preexec_update_git_vars() {
       __EXECUTED_GIT_COMMAND=1
       ;;
   esac
+  unset timer
+  timer=${timer:-$SECONDS}
 }
 # set default value
 __EXECUTED_GIT_COMMAND=2
@@ -171,6 +173,24 @@ prompt_dir() {
   prompt_segment blue black "$dir"
 }
 
+prompt_exec_time() {
+  if [ $timer ]; then
+    timer_show=$(($SECONDS - $timer))
+    # export RPROMPT="%F{cyan}${timer_show}s %{$reset_color%}"
+    if [[ "$timer_show" -lt 5 ]] ; then
+      return
+    fi
+    if [[ "$timer_show" -lt 60 ]] ; then
+      prompt_segment black yellow ${timer_show}
+    elif [[ "$timer_show" -lt 3600 ]] ; then
+      timer_show=$(date -u -d @${timer_show} +"%M:%S")
+      prompt_segment black red ${timer_show}
+    else
+      timer_show=$(date -u -d @${timer_show} +"%T")
+      prompt_segment black red ${timer_show}
+    fi
+  fi
+}
 # Status:
 # - was there an error
 # - am I root
@@ -190,6 +210,7 @@ build_prompt() {
   RETVAL=$?
   prompt_dir
   prompt_fast_git
+  prompt_exec_time
   prompt_status
   prompt_end
 }
