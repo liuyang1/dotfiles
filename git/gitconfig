@@ -4,14 +4,16 @@
 [color]
     ui = true
 [alias]
+# fetch
+    ft = fetch
 # add
     a = add
     ap = add -p
     chunkadd = add --patch
     aa = add -u .
 # branch
-    b = branch -v
-    br = branch
+    b = branch
+    br = branch -v
     bd = branch -d
     bdd = branch -D
     # move current branch name with prefix Done/
@@ -36,7 +38,7 @@
     st = diff --stat
     stc = diff --stat --cached
 # log
-    l = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%x09%Creset %Cgreen%ci%Creset - %s %C(yellow)%d%Creset' --abbrev-commit
+    l = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%x09%Creset %Cgreen%ai%Creset - %s %C(yellow)%d%Creset' --abbrev-commit
     lg = log --color --graph --stat
     la = log --color --stat -1 HEAD
     lp = log -p
@@ -44,9 +46,11 @@
     gs = log --color --graph --stat
     lc = show
     lt = describe --tags --abbrev=0
+    lm = "!f() { git config user.email | xargs -I{} git l --author={}; }; f"
 # pull or push
     pl = pull
     ps = push
+    plr = pull --rebase
 # rebase
     rc = rebase --continue
     rs = rebase --skip

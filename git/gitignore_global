@@ -56,7 +56,7 @@ Thumbs.db
 *.avc
 *.svc
 
-# tags
+tags
 ctags
 TAGS
 
@@ -91,3 +91,5 @@ nohup.out
 *.fas
 *.lib
 *.hi
+
+.gitreview

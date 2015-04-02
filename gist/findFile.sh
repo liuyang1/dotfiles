@@ -6,7 +6,7 @@ usage()
 if [[ "$#" == 1 ]]; then
     d="$(git rev-parse --show-toplevel 2>/dev/null)"
     if [[ "$?" != 0 ]]; then
-        d="."
+        d="$(pwd)"
     else
         echo "git root=$d"
     fi
@@ -16,5 +16,5 @@ else
     usage
     exit 1
 fi
-find "$d" -type f -name "*$1*"
-find "$d" -type d -name "*$1*"
+find "$d" -type d -name "*$1*" | sed "s%$d/%%g"
+find "$d" -type f -name "*$1*" | sed "s%$d/%%g"
