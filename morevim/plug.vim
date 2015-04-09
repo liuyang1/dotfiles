@@ -299,6 +299,7 @@ let g:tcomment_types={'c': '// %s'}
 
 Plug 'Valloric/YouCompleteMe'
 ", { 'for': ['c', 'cpp', 'python']},
+" ./install --clang-compeleter
 nnoremap <C-i>      :YcmCompleter GoToDefinitionElseDeclaration<CR>
 set completeopt=longest,menu
 autocmd InsertLeave *   if pumvisible()==0|pclose|endif
