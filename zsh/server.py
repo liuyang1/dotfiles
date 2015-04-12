@@ -27,11 +27,11 @@ class cache():
         log.debug('load data from ' + self.fn)
         log.debug('%s' % (self.dump()))
 
+# external interface
     def serial(self):
         log.debug("serial to " + self.fn)
         pickle.dump(self.dct, open(self.fn, "wb"))
 
-# external interface
     def quit(self):
         self.serial()
 
@@ -63,7 +63,7 @@ gCache = cache()
 def Stophdl(signal, frame):
     log.info("signal handler dump data")
     gCache.dump()
-    # gCache.quit()
+    gCache.quit()
 
 
 def rpc(cmd):
@@ -72,6 +72,9 @@ def rpc(cmd):
     method = method.lower()
     if method == "dump":
         return gCache.dump()
+    if method == 'save':
+        gCache.serial()
+        return ""
     try:
         d = cmd[1]
     except IndexError:

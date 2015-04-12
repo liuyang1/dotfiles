@@ -99,6 +99,9 @@ function chpwd_update_git_vars() {
 function u() {
   __EXECUTED_GIT_COMMAND=1
 }
+function saveGitStatus() {
+  echo -n "save" | nc 127.0.0.1 7211
+}
 function preexec_update_git_vars() {
   case "$2" in
     "git stash"*|"git c"*|"git a"*|"git d"*|"git u"*|"git b"*)
