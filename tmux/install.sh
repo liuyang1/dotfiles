@@ -14,8 +14,14 @@ while true; do
         * ) echo "Please answer 0 or 1.";;
     esac
 done
-installFile $TMUXConf "$PREFIX/.tmux.version.conf"
-installDotFile tmuxline.conf "$PREFIX"
-installDotFile tmux.conf "$PREFIX"
+
+installFile root.conf "$PREFIX"/.tmux.conf
+installFile "$PWD" "$PREFIX"/.tmux
+installFile $TMUXConf "$PREFIX/.tmux/tmux.version.conf"
+
+[[ -d "plugins" ]] || mkdir plugins
+
+cd plugins
+[[ -d "tpm" ]] || git clone https://github.com/tmux-plugins/tpm
 
 echo "OK"
