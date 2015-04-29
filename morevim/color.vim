@@ -7,8 +7,8 @@ hi IndentGuidesEven ctermbg=darkgrey
 "colorscheme desert
 " let g:solarized_contrast="high"
 " let g:solarized_visibility="high"
-" set background=dark
 " colorscheme solarized
+" set background=light
 
 
 set colorcolumn=80
@@ -29,3 +29,4 @@ match ExtraWhitespace /\s\+\%#\@<!$/
 " autocmd BufWritePre * :%s/\s\+$//e
 
 highlight hsNiceSpecial ctermfg=darkyellow
+highlight Comment ctermfg=246

@@ -19,7 +19,7 @@ while true; do
     esac
 done
 
-installFile $TMUXConf "$PREFIX"/.tmux.conf
+installFile $ROOTConf "$PREFIX"/.tmux.conf
 installFile "$PWD" "$PREFIX"/.tmux
 installFile $TMUXConf "$PREFIX/.tmux/tmux.version.conf"
 

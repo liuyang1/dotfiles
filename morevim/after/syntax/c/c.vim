@@ -5,3 +5,4 @@ syn keyword cType UINT UINT64 UINT32 UINT16 UINT8
 syn keyword cType INT INT64 INT32 INT16 INT8
 syn keyword cType CHAR HRESULT BOOL
 syn keyword cType HANDLE
+syn keyword cType VOID

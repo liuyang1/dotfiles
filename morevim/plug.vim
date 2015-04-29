@@ -215,6 +215,7 @@ let g:gitgutter_sign_modified = '±'
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_modified_removed = '±-'
+nnoremap <Leader>gg         :GitGutter<cr>
 
 " show git diff mode
 Plug 'airblade/vim-gitgutter'
@@ -304,6 +305,7 @@ endif
 ", { 'for': ['c', 'cpp', 'python']},
 " ./install --clang-compeleter
 nnoremap <C-i>      :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <Leader>y  :YcmDiags<cr>
 set completeopt=longest,menu
 autocmd InsertLeave *   if pumvisible()==0|pclose|endif
 " inoremap <expr> <cr>    pumvisible() ? "\<C-y>":"\<cr>"
@@ -464,6 +466,7 @@ let g:load_doxygen_syntax=1
 " Plug 'plasticboy/vim-markdown'
 " let g:vim_markdown_folding_disabled=1
 Plug 'Rykka/easydigraph.vim'
+let g:EasyDigraph_nmap=""
 Plug 'gregsexton/gitv'
 Plug 'utl.vim'
 " Plug 'waylan/vim-markdown-extra-preview'
