@@ -298,7 +298,9 @@ let g:tcomment_types={'c': '// %s'}
 " Plug 'autoload_cscope.vim'
 " Plug 'cscope.vim'
 
-Plug 'Valloric/YouCompleteMe'
+if v:version >= 735
+    Plug 'Valloric/YouCompleteMe'
+endif
 ", { 'for': ['c', 'cpp', 'python']},
 " ./install --clang-compeleter
 nnoremap <C-i>      :YcmCompleter GoToDefinitionElseDeclaration<CR>
