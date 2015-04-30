@@ -24,7 +24,7 @@ autocmd FileType c      map <buffer> <Leader>cc     ggVGgq
 " autocmd FileType c,cpp nmap <buffer> <Leader>d   <C-w>}
 autocmd FileType c,cpp nmap <buffer> <Enter>     <C-w>}
 " autocmd FileType c,cpp  nnoremap <silent> <Leader>ts  :sp <cr>:exec("tag ".expand("<cword>"))<cr>
-autocmd FileType c,cpp  nnoremap <silent> <Leader>d  :vsp <cr>:exec("tag ".expand("<cword>"))<cr>
+autocmd FileType c,cpp  nnoremap <silent> <C-\>  :vsp <cr>:exec("tag ".expand("<cword>"))<cr>
 " add for doxygen style comments
 autocmd FileType c,cpp  setlocal comments^=:///
 autocmd FileType c,cpp set cino+=(0
@@ -53,3 +53,10 @@ autocmd FileType css        noremap <silent> <Leader>cc :call CSSBeautify()<cr>
 autocmd FileType vimwiki    set tw=78 ts=2
 
 autocmd FileType xdefaults  setlocal makeprg=xrdb\ %
+
+autocmd BufEnter *.hs set formatprg=pointfree
+
+" add for cppcheck
+" autocmd BufEnter *.cck setlocal errorformt=[%f:%l]\ ->\ %m,[%f:%l]:%m
+
+autocmd FileType py set textwidth=79

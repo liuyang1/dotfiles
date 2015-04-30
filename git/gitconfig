@@ -4,20 +4,27 @@
 [color]
     ui = true
 [alias]
+# fetch
+    ft = fetch
 # add
     a = add
     ap = add -p
     chunkadd = add --patch
     aa = add -u .
 # branch
-    b = branch -v
-    br = branch
-    bd = branch -D
+    b = branch
+    br = branch -v
+    bd = branch -d
+    bdd = branch -D
+    # move current branch name with prefix Done/
+    dn = "!f() { git rev-parse --abbrev-ref HEAD | xargs -I{} git branch -m {} Done/{}; }; f"
     r = remote -v
 # commit
     c = commit -v
     cm = commit -v -m
     amend = commit -v --amend
+    ca = commit -v --amend
+    caa = commit -a --amend -C HEAD
 # checkout
     co = checkout
     cb = checkout -b
@@ -28,33 +35,39 @@
     dl = diff HEAD^
     df = difftool -y
     dp = difftool --prompt
-    stat = diff --stat
+    st = diff --stat
+    stc = diff --stat --cached
 # log
-    l = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%x09%Creset %Cgreen%cd%Creset - %s %C(yellow)%d%Creset' --abbrev-commit
+    l = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%x09%Creset %Cgreen%ai%Creset - %s %C(yellow)%d%Creset' --abbrev-commit
     lg = log --color --graph --stat
     la = log --color --stat -1 HEAD
+    lp = log -p
     ld = log -p
     gs = log --color --graph --stat
     lc = show
+    lt = describe --tags --abbrev=0
+    lm = "!f() { git config user.email | xargs -I{} git l --author={}; }; f"
 # pull or push
     pl = pull
     ps = push
+    plr = pull --rebase
 # rebase
     rc = rebase --continue
     rs = rebase --skip
 # reset
     us = reset HEAD
     uc = reset --soft HEAD^
+    uh = reset --hard HEAD
 # merge
     mt = mergetool
 # stash
     ss = stash
     sl = stash list
     sa = stash apply
+    sp = stash pop
     sd = stash drop
 # status
     s = status -sb
-    st = status -sb
 # tag
     t = tag -n
 # cherry-pick
@@ -76,3 +89,6 @@
     default = matching
 [commit]
 	template = ~/.gitcltpl
+[pager]
+    st = cat
+    stc = cat

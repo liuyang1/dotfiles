@@ -58,6 +58,7 @@ Thumbs.db
 
 tags
 ctags
+TAGS
 
 .shdeps
 .deps
@@ -75,8 +76,6 @@ gmon.*
 *.expect
 prebuilds/*
 *.taghl
-tags
-TAGS
 *.bin
 
 *.syntastic*
@@ -92,3 +91,7 @@ nohup.out
 *.fas
 *.lib
 *.hi
+
+.gitreview
+
+TODO_NOGIT.wiki

@@ -4,8 +4,13 @@
 installFile(){
 	# installFile $1-> $2
     PWD=$(pwd)
-    echo installFile "$1" "->" "$2"
-	ln -s -f "$PWD"/"$1" "$2"
+    if [[ "$1" != /* ]]; then
+        SRC="$PWD/$1"
+    else
+        SRC="$1"
+    fi
+    echo installFile "$SRC" "->" "$2"
+    ln -s -f "$SRC" "$2"
 }
 
 # create a soft-link with same name, but to other dir

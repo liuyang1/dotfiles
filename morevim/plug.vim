@@ -10,7 +10,7 @@ let g:vimwiki_camel_case=0
 let g:vimwiki_list=[{
     \ 'path': '$HOME/wiki',
     \ 'path_html': '$HOME/www',
-    \ 'auto_export': 1,
+    \ 'auto_export': 0,
     \ }]
 let g:vimwiki_hl_cb_checked=1
 let g:vimwiki_menu=''
@@ -71,6 +71,53 @@ let g:tagbar_type_markdown = {
     \ },
     \ 'sort': 0,
 \ }
+let g:tagbar_type_make = {
+            \ 'kinds':[
+                \ 'm:macros',
+                \ 't:targets'
+            \ ]
+        \ }
+
+let g:tagbar_type_haskell = {
+    \ 'ctagsbin'  : 'hasktags',
+    \ 'ctagsargs' : '-x -c -o-',
+    \ 'kinds'     : [
+        \  'm:modules:0:1',
+        \  'd:data: 0:1',
+        \  'd_gadt: data gadt:0:1',
+        \  't:type names:0:1',
+        \  'nt:new types:0:1',
+        \  'c:classes:0:1',
+        \  'cons:constructors:1:1',
+        \  'c_gadt:constructor gadt:1:1',
+        \  'c_a:constructor accessors:1:1',
+        \  'ft:function types:1:1',
+        \  'fi:function implementations:0:1',
+        \  'o:others:0:1'
+    \ ],
+    \ 'sro'        : '.',
+    \ 'kind2scope' : {
+        \ 'm' : 'module',
+        \ 'c' : 'class',
+        \ 'd' : 'data',
+        \ 't' : 'type'
+    \ },
+    \ 'scope2kind' : {
+        \ 'module' : 'm',
+        \ 'class'  : 'c',
+        \ 'data'   : 'd',
+        \ 'type'   : 't'
+    \ }
+\ }
+
+let g:tagbar_type_markdown = {
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : [
+        \ 'h:Heading_L1',
+        \ 'i:Heading_L2',
+        \ 'k:Heading_L3'
+    \ ]
+\ }
 
 Plug 'Auto-Pairs'
 
@@ -83,7 +130,8 @@ highlight SyntasticErrorSign    ctermbg=darkgray
 let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_error_symbol = "✘"
-let g:syntastic_warning_symbol = "⚒"
+let g:syntastic_warning_symbol = "!"
+" let g:syntastic_warning_symbol = "⚒"
 " let g:syntastic_error_symbol = 'E'
 " let g:syntastic_warning_symbol = 'w'
 let g:syntastic_style_error_symbol   = 'S'
@@ -160,15 +208,18 @@ nnoremap <Leader>gb         :Gblame<cr>
 nnoremap <Leader>gd         :Gdiff<cr>
 " for vim74 compat
 set diffopt+=vertical
-let g:gitgutter_sign_added = '✚'
+" let g:gitgutter_sign_added = '✚'
+" let g:gitgutter_sign_removed = '✖'
 let g:gitgutter_sign_modified = '±'
-let g:gitgutter_sign_removed = '✖'
-let g:gitgutter_sign_modified_removed = '±✖'
+" let g:gitgutter_sign_modified_removed = '±✖'
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_modified_removed = '±-'
 
 " show git diff mode
 Plug 'airblade/vim-gitgutter'
 " when stop typing
-let g:gitgutter_realtime = 1
+let g:gitgutter_realtime = 0
 " when switch buffer, tab, focus GUI
 let g:gitgutter_eager = 1
 let g:gitgutter_sign_column_always = 1
@@ -206,7 +257,7 @@ let g:gitgutter_highlight_lines = 0
 Plug 'bling/vim-airline'
 let g:airline_theme             = 'powerlineish'
 " let g:airline_theme             = 'hybrid'
-let g:airline_enable_syntastic  = 1
+let g:airline#extensions#syntastic#enabled  = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = 'No Br'
 let g:airline#extensions#tabline#enabled = 1
@@ -228,7 +279,13 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 " Plug 'Python-mode-klen', { 'for': ['python'] }
 let g:pymode_folding = 0
+" need pip install jedi
+autocmd FileType python setlocal completeopt-=preview
 " Plug 'davidhalter/jedi-vim'
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#show_call_signatures = "0"
+" TODO: how to disable the preview window
 
 " Plug 'The-NERD-Commenter'
 " let NERDShutUp=1
@@ -240,7 +297,9 @@ let g:tcomment_types={'c': '// %s'}
 " Plug 'autoload_cscope.vim'
 " Plug 'cscope.vim'
 
-Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'python']},
+Plug 'Valloric/YouCompleteMe'
+", { 'for': ['c', 'cpp', 'python']},
+" ./install --clang-compeleter
 nnoremap <C-i>      :YcmCompleter GoToDefinitionElseDeclaration<CR>
 set completeopt=longest,menu
 autocmd InsertLeave *   if pumvisible()==0|pclose|endif
@@ -328,6 +387,9 @@ if executable('ag')
     " let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 
+Plug 'dyng/ctrlsf.vim'
+nmap \ff    <Plug>CtrlSFCwordExec
+nmap \fw    :CtrlSFOpen<cr>
 " Plug 'jceb/vim-orgmode'
 
 Plug 'benmills/vimux'
@@ -399,4 +461,16 @@ let g:load_doxygen_syntax=1
 " Plug 'plasticboy/vim-markdown'
 " let g:vim_markdown_folding_disabled=1
 Plug 'Rykka/easydigraph.vim'
+Plug 'gregsexton/gitv'
+Plug 'utl.vim'
+" Plug 'waylan/vim-markdown-extra-preview'
+" Plug 'enomsg/vim-haskellConcealPlus', {'for': ['haskell']}
+let hscoptions="T"
+Plug 'lukerandall/haskellmode-vim', {'for': ['haskell']}
+au BufEnter *.hs compiler ghc
+let g:haddock_browser="/usr/bin/chromium"
+let g:haddock_browser_nosilent = 1
+Plug 'raichoo/haskell-vim'
+
+Plug 'suan/vim-instant-markdown'
 call plug#end()

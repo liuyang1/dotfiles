@@ -17,5 +17,9 @@ extdir="$HOME/.urxvt/ext"
 [[ -d  "$extdir" ]] || mkdir -p "$extdir"
 
 cd "$extdir"
+
 git clone https://github.com/majutsushi/urxvt-font-size
 ln -s urxvt-font-size/font-size font-size
+
+git clone https://https://github.com/muennich/urxvt-perls
+ln -s urxvt-perls/url-select url-select

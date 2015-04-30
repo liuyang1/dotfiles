@@ -6,9 +6,17 @@ set recolor-darkcolor			"#cccccc"
 set recolor-lightcolor			"#333333"
 
 set font						"Monaco normal 10"
+set page-padding                4
+set window-width                1360
+set window-height               750
 
 # key bindings
-unmap j
-unmap k
-map j scroll half-down
-map k scroll half-up
+# unmap j
+# unmap k
+# map j scroll half-down
+# map k scroll half-up
+
+map <C-+> zoom in
+map <C-=> zoom in
+map <C--> zoom out
+map scroll-step 200

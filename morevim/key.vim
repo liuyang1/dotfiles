@@ -54,11 +54,12 @@ nnoremap [b :bp<cr>
 " map <right> <nop>
 
 inoremap <C-U>      <C-G>u<C-U>
+autocmd BufEnter *.c inoremap ;;      <end>;
 
 command! Vrs        :vertical resize 90<cr>
 
 " replace C-A as tmux using it
-nmap <Leader>e      <C-A>
+nmap \a      <C-A>
 
 nnoremap Y y$
 
@@ -67,3 +68,6 @@ nnoremap gV `[v`]
 
 " vertial split, and scroll next page, then scrollbind
 noremap <silent> <leader>sb :set norelativenumber<CR>:<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
+
+nnoremap \y         "+y
+nnoremap \p         "+p

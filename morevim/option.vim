@@ -65,6 +65,7 @@ set ruler        "show position of cursor
 
 " modeline
 set showmode    " ???
+" modeline need these, and NOT ROOT user.
 set modeline
 set modelines=5
 
