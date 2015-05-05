@@ -23,9 +23,13 @@ class cache():
 
 # internal method
     def load(self):
-        self.dct = pickle.load(open(self.fn, "rb"))
         log.debug('load data from ' + self.fn)
-        log.debug('%s' % (self.dump()))
+        try:
+            self.dct = pickle.load(open(self.fn, "rb"))
+            log.debug('%s' % (self.dump()))
+        except EOFError:
+            log.error("load data error")
+            self.dct = {}
 
 # external interface
     def serial(self):

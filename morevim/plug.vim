@@ -268,6 +268,7 @@ let g:airline_powerline_fonts   = 1
 Plug 'mkitt/tabline.vim'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#tab_nr_type = 2
 " vim-powerline symbols
 " let g:airline_left_sep          = '>'
 " let g:airline_left_alt_sep      = '>'
