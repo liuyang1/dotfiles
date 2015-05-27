@@ -2,6 +2,7 @@
 D="$HOME/.ghc"
 source ../installEnv.sh
 installFile2Dir ghci.conf "$D"
+installDotFile haskeline "$HOME"
 
 cabal install hoogle
 cabal install shellcheck
