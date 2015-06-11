@@ -241,4 +241,6 @@ else
     let $t_EI = "\<Esc>50;CursorShape=0\x7"
 endif
 
-set regexpengine=1
+if v:version >= 735
+    set regexpengine=1
+endif

@@ -1,0 +1,2 @@
+autocmd LocationChange .*                      js modes.passAllKeys = false
+autocmd LocationChange trello\\.com            js modes.passAllKeys = true
