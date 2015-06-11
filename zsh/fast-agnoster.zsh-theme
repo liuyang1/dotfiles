@@ -208,6 +208,24 @@ prompt_status() {
   [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
 }
 
+# DONOT use vi-mode zsh plugin
+VIMODE='insert'
+function zle-line-init zle-keymap-select {
+VIMODE="${${KEYMAP/vicmd/normal}/(main|viins)/insert}"
+zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+prompt_vi() {
+  if [[ "$VIMODE" == "insert" ]]; then
+    # prompt_segment yellow black
+  else
+    prompt_segment red black
+    echo -n '☯'
+  fi
+}
+
 ## Main prompt
 build_prompt() {
   RETVAL=$?
@@ -215,6 +233,7 @@ build_prompt() {
   prompt_fast_git
   prompt_exec_time
   prompt_status
+  prompt_vi
   prompt_end
 }
 

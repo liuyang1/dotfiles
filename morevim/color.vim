@@ -5,10 +5,16 @@ hi IndentGuidesEven ctermbg=darkgrey
 " let g:hybrid_use_Xresources=1
 " colorscheme hybrid
 "colorscheme desert
+
+" " for solarized light
 " let g:solarized_contrast="high"
 " let g:solarized_visibility="high"
 " colorscheme solarized
 " set background=light
+" highlight CursorLine ctermbg=230
+" highlight ColorColumn ctermbg=253
+" highlight SignColumn ctermbg=253
+" highlight LineNr ctermbg=230
 
 
 set colorcolumn=80

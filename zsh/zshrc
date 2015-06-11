@@ -174,7 +174,7 @@ settitle() {
 
 # settitle "untitled"
 
-KEYTIMEOUT=10
+KEYTIMEOUT=1
 
 export CLASSPATH=.:$HOME/.local/framework:$CLASSPATH
 
