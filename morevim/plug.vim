@@ -155,12 +155,29 @@ let g:slimv_ballon=1
 let g:paredit_electric_return=0
 let g:paredit_short_maps=0
 
+" Python
 " if only use autopep8 as formatprg, also works.
 " then below 3 lines could delete
 Plug 'liuyang1/vim-autopep8'
 autocmd FileType python map <buffer> <Leader>cc     :call Autopep8()<cr>
 let g:autopep8_disable_show_diff=1
 au FileType python setlocal formatprg=autopep8\ -aa\ -
+
+" Plug 'Python-mode-klen', { 'for': ['python'] }
+let g:pymode_folding = 0
+" need pip install jedi
+autocmd FileType python setlocal completeopt-=preview
+" Plug 'davidhalter/jedi-vim'
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#show_call_signatures = "0"
+" TODO: how to disable the preview window
+
+Plug 'ehamberg/vim-cute-python', { 'for': ['python'] }
+
+Plug 'hdima/python-syntax'
+let python_highlight_all = 1
+" Python END
 
 " TODO: make more test
 " Plug 'Chiel92/vim-autoformat'
@@ -278,16 +295,6 @@ let g:airline#extensions#tabline#tab_nr_type = 2
 " let g:airline_branch_prefix     = 'Br'
 " let g:airline_readonly_symbol   = 'Lk'
 " let g:airline_linecolumn_prefix = 'L/n'
-
-" Plug 'Python-mode-klen', { 'for': ['python'] }
-let g:pymode_folding = 0
-" need pip install jedi
-autocmd FileType python setlocal completeopt-=preview
-" Plug 'davidhalter/jedi-vim'
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
-let g:jedi#show_call_signatures = "0"
-" TODO: how to disable the preview window
 
 " Plug 'The-NERD-Commenter'
 " let NERDShutUp=1
@@ -429,7 +436,6 @@ let g:mwAutoLoadMarks = 1
 let g:mwAutoSaveMarks = 0
 
 " Plug 'SyntaxRange'
-Plug 'ehamberg/vim-cute-python', { 'for': ['python'] }
 " Plug 'dkinzer/vim-schemer'
 Plug 'tpope/vim-surround'
 
