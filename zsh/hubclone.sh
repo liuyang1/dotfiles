@@ -16,7 +16,7 @@ function hub()
     if [[ "$repo" != */* ]]; then
         repo="$defaultuser/$repo"
     fi
-    local cmd="git clone https://github.com/$repo.git"
+    local cmd="git clone git@github.com:$repo.git"
     echo "$cmd"
     eval "$cmd"
     cd "$(basename "$repo")"

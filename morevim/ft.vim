@@ -23,8 +23,11 @@ autocmd FileType c      map <buffer> <Leader>cc     ggVGgq
 " open tag
 " autocmd FileType c,cpp nmap <buffer> <Leader>d   <C-w>}
 autocmd FileType c,cpp nmap <buffer> <Enter>     <C-w>}
-" autocmd FileType c,cpp  nnoremap <silent> <Leader>ts  :sp <cr>:exec("tag ".expand("<cword>"))<cr>
-autocmd FileType c,cpp  nnoremap <silent> <C-\>  :vsp <cr>:exec("tag ".expand("<cword>"))<cr>
+
+" /\<WORD\> to match WORD in regexp mode, \C for case sensitive
+" this is for :set smartcase mode
+autocmd FileType c,cpp,python  nnoremap <silent> <C-\>  :vsp <cr>:exec("tag /\\<".expand("<cword>")."\\>\\C")<cr>
+
 " add for doxygen style comments
 autocmd FileType c,cpp  setlocal comments^=:///
 autocmd FileType c,cpp set cino+=(0
