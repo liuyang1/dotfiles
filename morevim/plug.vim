@@ -31,6 +31,8 @@ Plug 'kshenoy/vim-signature'
 let g:SignatureMarkOrder = "\m»"
 " let g:SignatureMarkOrder = "\m)"
 let g:SignatureMarkLineHL = "'WarningMsg'"
+let g:SignatureMarkTextHLDynamic = 1
+let g:SignatureMarkerTextHLDynamic = 1
 
 Plug 'Align'
 "Plug 'AutoAlign'
@@ -185,7 +187,7 @@ let python_highlight_all = 1
 " Plug 'minibufexpl.vim'
 " nnoremap <Leader>bb     :TMiniBufExplorer<cr>
 " let g:miniBufExplSplitBelow  = 0
-Plug 'Shougo/unite.vim'
+" Plug 'Shougo/unite.vim'
 
 " ctrlp system
 Plug 'kien/ctrlp.vim'
@@ -232,6 +234,9 @@ let g:gitgutter_sign_modified = '±'
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_modified_removed = '±-'
+let g:gitgutter_sign_removed_first_line = '\'
+let g:gitgutter_diff_args = '-w'
+let g:gitgutter_override_sign_column_highlight = 0
 nnoremap <Leader>gg         :GitGutter<cr>
 
 " show git diff mode
@@ -485,4 +490,10 @@ let g:haddock_browser_nosilent = 1
 Plug 'raichoo/haskell-vim'
 
 Plug 'suan/vim-instant-markdown'
+
+" Plug 'MattesGroeger/vim-bookmarks'
+
+Plug 'scrooloose/nerdtree'
+Plug 'ryanoasis/vim-webdevicons'
+Plug 'terryma/vim-expand-region'
 call plug#end()

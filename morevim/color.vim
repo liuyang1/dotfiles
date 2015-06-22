@@ -13,7 +13,9 @@ hi IndentGuidesEven ctermbg=darkgrey
 " set background=light
 " highlight CursorLine ctermbg=230
 " highlight ColorColumn ctermbg=253
-" highlight SignColumn ctermbg=253
+highlight CursorLineNr cterm=bold ctermfg=red ctermbg=236
+highlight LineNr ctermfg=246 ctermbg=236
+highlight SignColumn ctermbg=235
 " highlight LineNr ctermbg=230
 
 
