@@ -4,6 +4,7 @@ morevim/bundle/*
 morevim/undodir/*
 morevim/local.vim
 morevim/.netrwhist
+morevim/haskellmode.config
 zsh/zsh_local
 tmux/tmux.version.conf
 tmux/plugins

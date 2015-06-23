@@ -5,6 +5,7 @@ call plug#begin('~/.vim/bundle')
 " Plug 'gmarik/Vundle.vim'
 
 Plug 'vimwiki'
+nnoremap \d     :VimwikiToggleListItem<cr>
 let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,br,hr,div,del,code,img'
 let g:vimwiki_camel_case=0
 let g:vimwiki_list=[{
@@ -42,6 +43,7 @@ map <leader>tt :TagbarToggle<CR>
 let g:tagbar_left             = 1
 let g:tagbar_autofocus        = 1
 let g:tagbar_compact          = 1
+let g:tagbar_width            = 30
 "relative line number
 let g:tagbar_show_linenumbers = 2
 let g:tagbar_previewwin_pos   = "downright"
@@ -123,8 +125,8 @@ let g:tagbar_type_markdown = {
 
 Plug 'Auto-Pairs'
 
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
 
 Plug 'Syntastic'
 highlight SyntasticErrorLine    ctermbg=black
@@ -311,10 +313,9 @@ let g:tcomment_types={'c': '// %s'}
 " Plug 'autoload_cscope.vim'
 " Plug 'cscope.vim'
 
-if v:version >= 735
-    Plug 'Valloric/YouCompleteMe'
-endif
-", { 'for': ['c', 'cpp', 'python']},
+" if v:version >= 735
+    Plug 'Valloric/YouCompleteMe' , { 'for': ['c', 'cpp']},
+" endif
 " ./install --clang-compeleter
 nnoremap <C-i>      :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <Leader>y  :YcmDiags<cr>
