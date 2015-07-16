@@ -23,6 +23,10 @@
 # set -x
 CURRENT_BG='NONE'
 IsFancy="yes"
+# default FastAgnosterBlacklist
+if [[ -z "$FastAgnosterBlacklist" ]]; then
+  FastAgnosterBlacklist=()
+fi
 if [[ "$IsFancy" = "yes" ]];then
   SEGMENT_SEPARATOR=''
   RETVAL_SYM="✘"
@@ -76,6 +80,11 @@ function rpcGitStatus() {
   if [[ "$PWD" != /home/* ]]; then
     return
   fi
+  for bdir in "${FastAgnosterBlacklist[@]}"; do
+    if [[ "$PWD" == "$bdir"* ]]; then
+      return
+    fi
+  done
   local method="$1"
   local dir=$(getGitDir)
   if [[ "$dir" == "" ]]; then
