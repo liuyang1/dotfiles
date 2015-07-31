@@ -95,3 +95,6 @@ nohup.out
 .gitreview
 
 TODO_NOGIT.wiki
+
+*.clear.dmp
+*.clear.unstripped

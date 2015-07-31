@@ -244,3 +244,10 @@ endif
 if v:version >= 735
     set regexpengine=1
 endif
+"| ¦ ┆ │
+set fillchars=vert:┆,stlnc:_,fold:-,diff:-
+
+
+" overwrite default
+" default will treate octave number with 0 prefix
+set nrformats=

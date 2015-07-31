@@ -85,10 +85,10 @@ TERM xterm-termite
 
 ## Special files
 
-NORMAL 00;38;5;244 # no color code at all
+NORMAL 00;38;5;247 # no color code at all
 #FILE 00 # regular file: use no color at all
 RESET 0 # reset to "normal" color
-DIR 00;38;5;61 # directory 01;34
+DIR 00;38;5;39 # directory 01;34
 LINK 01;38;5;37 # symbolic link. (If you set this to 'target' instead of a
  # numerical value, the color is as for the file pointed to.)
 MULTIHARDLINK 00 # regular file with more than one link
@@ -200,22 +200,22 @@ EXEC 01;38;5;64
 .py              01;32
 
 # "unimportant" files as logs and backups (base01)
-.log        00;38;5;240
-.bak        00;38;5;240
-.aux        00;38;5;240
-.bbl        00;38;5;240
-.blg        00;38;5;240
-*~          00;38;5;240
-*#          00;38;5;240
-.part       00;38;5;240
-.incomplete 00;38;5;240
-.swp        00;38;5;240
-.tmp        00;38;5;240
-.temp       00;38;5;240
-.o          00;38;5;240
-.pyc        00;38;5;240
-.class      00;38;5;240
-.cache      00;38;5;240
+.log        00;38;5;244
+.bak        00;38;5;244
+.aux        00;38;5;244
+.bbl        00;38;5;244
+.blg        00;38;5;244
+*~          00;38;5;244
+*#          00;38;5;244
+.part       00;38;5;244
+.incomplete 00;38;5;244
+.swp        00;38;5;244
+.tmp        00;38;5;244
+.temp       00;38;5;244
+.o          00;38;5;244
+.pyc        00;38;5;244
+.class      00;38;5;244
+.cache      00;38;5;244
 
 # Audio formats (orange)
 .aac    00;38;5;166

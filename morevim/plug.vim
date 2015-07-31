@@ -407,7 +407,7 @@ endif
 
 Plug 'dyng/ctrlsf.vim'
 nmap \ff    <Plug>CtrlSFCwordExec
-nmap \fw    :CtrlSFOpen<cr>
+nmap \fw    :CtrlSFToggle<cr>
 " Plug 'jceb/vim-orgmode'
 
 Plug 'benmills/vimux'
@@ -449,20 +449,24 @@ Plug 'christoomey/vim-tmux-navigator'
 let g:tmux_navigator_save_on_switch = 1
 
 Plug 'maksimr/vim-jsbeautify', { 'for': ['javascript', 'html'] }
-Plug 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_start_level = 4
-let g:indent_guides_guide_size = 1
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_default_mapping = 0
-let g:indent_guides_auto_colors = 0
+
+" Plug 'nathanaelkane/vim-indent-guides'
+" let g:indent_guides_start_level = 4
+" let g:indent_guides_guide_size = 1
+" let g:indent_guides_enable_on_vim_startup = 1
+" let g:indent_guides_default_mapping = 0
+" let g:indent_guides_auto_colors = 0
+
 Plug 'Shougo/vimproc.vim', { 'do': 'make'  }
 nnoremap <Leader>x      :VimProcBang
+
 Plug 'Shougo/vimshell.vim'
 Plug 'junegunn/goyo.vim'
 let g:goyo_margin_top = 0
 let g:goyo_margin_bottom = 0
-" let g:goyo_linenr = 1
+let g:goyo_linenr = 1
 nnoremap \g         :Goyo<cr>
+
 Plug 'junegunn/limelight.vim'
 " autocmd User GoyoEnter Limelight
 " autocmd User GoyoLeave Limelight!
@@ -494,7 +498,11 @@ Plug 'suan/vim-instant-markdown'
 
 " Plug 'MattesGroeger/vim-bookmarks'
 
-Plug 'scrooloose/nerdtree'
-Plug 'ryanoasis/vim-webdevicons'
+" Plug 'scrooloose/nerdtree'
+" Plug 'ryanoasis/vim-webdevicons'
 Plug 'terryma/vim-expand-region'
+
+Plug 'chrisbra/vim-diff-enhanced'
+
+Plug 'DrawIt'
 call plug#end()
