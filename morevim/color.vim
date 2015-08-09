@@ -1,26 +1,28 @@
 set t_Co=256
-colorscheme molokai
-hi IndentGuidesOdd  ctermbg=black
-hi IndentGuidesEven ctermbg=darkgrey
-" let g:hybrid_use_Xresources=1
-" colorscheme hybrid
-"colorscheme desert
 
-" " for solarized light
-" let g:solarized_contrast="high"
-" let g:solarized_visibility="high"
-" colorscheme solarized
-" set background=light
-" highlight CursorLine ctermbg=230
-" highlight ColorColumn ctermbg=253
-highlight CursorLineNr cterm=bold ctermfg=red ctermbg=236
-highlight LineNr ctermfg=246 ctermbg=236
-highlight SignColumn ctermbg=235
-" highlight LineNr ctermbg=230
+let scm="molokai"
 
+if scm == "molokai"
+    colorscheme molokai
+    highlight CursorLineNr cterm=bold ctermfg=red ctermbg=236
+    highlight LineNr ctermfg=246 ctermbg=236
+    highlight SignColumn ctermbg=235
+    highlight Comment ctermfg=246
+elseif scm == "solarized_light"
+    let g:solarized_contrast="high"
+    let g:solarized_visibility="high"
+    set background=light
+    colorscheme solarized
+    highlight CursorLine ctermbg=255
+    highlight ColorColumn ctermbg=254
+    highlight LineNr ctermfg=250 ctermbg=255
+    highlight SignColumn ctermbg=250
+    highlight Normal ctermfg=14
+    highlight Comment ctermfg=181
+endif
 
 set colorcolumn=80
-autocmd FileType c,cpp      setlocal colorcolumn=81,100
+autocmd FileType c,cpp      setlocal colorcolumn=80,100
 
 
 " disable Background color erase
@@ -37,4 +39,3 @@ match ExtraWhitespace /\s\+\%#\@<!$/
 " autocmd BufWritePre * :%s/\s\+$//e
 
 highlight hsNiceSpecial ctermfg=darkyellow
-highlight Comment ctermfg=246

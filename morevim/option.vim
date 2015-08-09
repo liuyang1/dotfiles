@@ -25,7 +25,7 @@ set softtabstop=4 " soft tab 4 space
 
 set autoindent  " copy indent from current line when starting a new line
 set smartindent " c style, after '{' or a line starting with cinwords' or before '}' smart indent
-set cindent     "more strict
+" set cindent     "more strict
 
 filetype plugin indent on
 

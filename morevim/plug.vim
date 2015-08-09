@@ -29,7 +29,8 @@ Plug 'a.vim', { 'for': [ 'c', 'h', 'cpp' ] }
 " highlight ShowMarksHlu  ctermbg=red ctermfg=green
 
 Plug 'kshenoy/vim-signature'
-let g:SignatureMarkOrder = "\m»"
+let g:SignatureMarkOrder = "⚑\m"
+" let g:SignatureMarkOrder = "\m»"
 " let g:SignatureMarkOrder = "\m)"
 let g:SignatureMarkLineHL = "'WarningMsg'"
 let g:SignatureMarkTextHLDynamic = 1
@@ -482,7 +483,7 @@ let g:load_doxygen_syntax=1
 " Plug 'plasticboy/vim-markdown'
 " let g:vim_markdown_folding_disabled=1
 Plug 'Rykka/easydigraph.vim'
-let g:EasyDigraph_nmap=""
+" let g:EasyDigraph_nmap="\b"
 Plug 'gregsexton/gitv'
 Plug 'utl.vim'
 " Plug 'waylan/vim-markdown-extra-preview'
