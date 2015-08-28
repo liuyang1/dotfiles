@@ -506,4 +506,6 @@ Plug 'terryma/vim-expand-region'
 Plug 'chrisbra/vim-diff-enhanced'
 
 Plug 'DrawIt'
+
+Plug 'gtags.vim'
 call plug#end()
