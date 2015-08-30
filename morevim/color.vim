@@ -5,7 +5,7 @@ let scm="molokai"
 if scm == "molokai"
     let g:rehash256 = 1
     colorscheme molokai
-    highlight CursorLineNr cterm=bold ctermfg=red ctermbg=236
+    " highlight CursorLineNr cterm=bold ctermfg=red ctermbg=236
     highlight LineNr ctermfg=246 ctermbg=236
     highlight SignColumn ctermbg=235
     highlight Comment ctermfg=246

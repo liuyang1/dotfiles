@@ -157,7 +157,7 @@ if &t_Co > 255
    hi Float           ctermfg=135
    hi FoldColumn      ctermfg=67  ctermbg=16
    hi Folded          ctermfg=67  ctermbg=16
-   " hi Function        ctermfg=118
+   hi Function        ctermfg=118
    hi Identifier      ctermfg=208
    hi Ignore          ctermfg=244 ctermbg=232
    hi IncSearch       ctermfg=193 ctermbg=16
@@ -261,7 +261,7 @@ if &t_Co > 255
        hi SpecialKey      ctermfg=239
    endif
 " self-defined
-    highlight Function ctermfg=lightblue
+    " highlight Function ctermfg=lightblue
     " highlight SignColumn ctermbg=232
     highlight cType     ctermfg=yellow cterm=None
     highlight Identifier ctermfg=darkyellow
@@ -274,7 +274,7 @@ if &t_Co > 255
     " for listchars
     " highlight SpecialKey cterm=none ctermfg=gray
     highlight cUserLabel cterm=italic,underline ctermfg=229
-    highlight CursorLineNr ctermfg=208               cterm=bold
+    " highlight CursorLineNr ctermfg=208               cterm=bold
 
     highlight VimwikiHeader1 ctermfg=darkred cterm=bold
     highlight VimwikiHeader2 ctermfg=yellow cterm=bold

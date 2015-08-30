@@ -29,6 +29,7 @@ Plug 'a.vim', { 'for': [ 'c', 'h', 'cpp' ] }
 " highlight ShowMarksHlu  ctermbg=red ctermfg=green
 
 Plug 'kshenoy/vim-signature'
+" Plugin to toggle, display and navigate marks
 let g:SignatureMarkOrder = "⚑\m"
 " let g:SignatureMarkOrder = "\m»"
 " let g:SignatureMarkOrder = "\m)"
@@ -147,10 +148,10 @@ let g:syntastic_python_python_exec = "/usr/bin/python2"
 "let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_loc_list_height = 5
-
 let g:syntastic_c_check_header          = 1
 let g:syntastic_c_remove_include_errors = 1
 
+""" lisp
 Plug 'kovisoft/slimv', { 'for': ['scheme', 'lisp'] }
 " lisp_rainbow not works now under vim74
 let g:lisp_rainbow=1
@@ -160,7 +161,7 @@ let g:slimv_ballon=1
 let g:paredit_electric_return=0
 let g:paredit_short_maps=0
 
-" Python
+""" Python
 " if only use autopep8 as formatprg, also works.
 " then below 3 lines could delete
 Plug 'liuyang1/vim-autopep8'
@@ -182,7 +183,7 @@ Plug 'ehamberg/vim-cute-python', { 'for': ['python'] }
 
 Plug 'hdima/python-syntax'
 let python_highlight_all = 1
-" Python END
+""" Python END
 
 " TODO: make more test
 " Plug 'Chiel92/vim-autoformat'
@@ -409,7 +410,8 @@ endif
 Plug 'dyng/ctrlsf.vim'
 nmap \ff    <Plug>CtrlSFCwordExec
 nmap \fw    :CtrlSFToggle<cr>
-" Plug 'jceb/vim-orgmode'
+Plug 'jceb/vim-orgmode'
+Plug 'speeddating.vim'
 
 Plug 'benmills/vimux'
 map <silent> <Leader><Leader> :update<cr>:call VimuxRunCommand("rspec " . expand("%:p"))<CR>
@@ -436,11 +438,22 @@ Plug 'cypok/vim-sml', { 'for': ['sml'] }
 
 " Plug 'vim-voom/VOoM'
 " autocmd Filetype vimwiki nnoremap <Leader>tt :Voom vimwiki<cr>
-" slow but good enough
+
+" mark 1238 plugin, stop maintain
+" mark 2666, this same with Mark-Karkat
+" Plug 'Yggdroot/vim-mark' " clone Mark-Karkat, and continue, buggy
 Plug 'Mark--Karkat'
+" mark word, like highlight search, but mark word with highlight
+" SLOW but good enough
+" KEYMAP
+" <Leader>m  mark current word
+" COMMAND
+" :Mark
+" :MarkClear
 nmap <Plug>IgnoreMarkSearchNext <Plug>MarkSearchNext
+" this is not work, load and save mark
 let g:mwAutoLoadMarks = 1
-let g:mwAutoSaveMarks = 0
+let g:mwAutoSaveMarks = 1
 
 " Plug 'SyntaxRange'
 " Plug 'dkinzer/vim-schemer'
@@ -480,26 +493,26 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 let g:DoxygenToolkit_authorName="liuyang1<liuyang1@ustc.edu.cn>"
 " let g:DoxygenToolkit_licenseTag="My own license" <-- !!! Does not end with "\<enter>"
 let g:load_doxygen_syntax=1
-" Plug 'plasticboy/vim-markdown'
-" let g:vim_markdown_folding_disabled=1
 Plug 'Rykka/easydigraph.vim'
 " let g:EasyDigraph_nmap="\b"
 Plug 'gregsexton/gitv'
 Plug 'utl.vim'
-" Plug 'waylan/vim-markdown-extra-preview'
+
+""" Haskell
 " Plug 'enomsg/vim-haskellConcealPlus', {'for': ['haskell']}
-let hscoptions="T"
 Plug 'lukerandall/haskellmode-vim', {'for': ['haskell']}
-au BufEnter *.hs compiler ghc
+" au BufEnter *.hs compiler ghc
 let g:haddock_browser="/usr/bin/chromium"
 let g:haddock_browser_nosilent = 1
-Plug 'raichoo/haskell-vim'
+Plug 'raichoo/haskell-vim', {'for': ['haskell']}
+""" Haskell END
 
-Plug 'suan/vim-instant-markdown'
 
 " Plug 'MattesGroeger/vim-bookmarks'
 
 " Plug 'scrooloose/nerdtree'
+" Plug 'ryanoasis/vim-webdevicons'
+Plug 'scrooloose/nerdtree'
 " Plug 'ryanoasis/vim-webdevicons'
 Plug 'terryma/vim-expand-region'
 
@@ -508,4 +521,16 @@ Plug 'chrisbra/vim-diff-enhanced'
 Plug 'DrawIt'
 
 Plug 'gtags.vim'
+
+""" App in vim
+Plug 'itchyny/calendar.vim'
+let g:calendar_frame = 'default'
+let g:calendar_task = 1
+""" App in vim END
+
+""" markdown filetype
+Plug 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
+" Plug 'waylan/vim-markdown-extra-preview'
+Plug 'suan/vim-instant-markdown'
 call plug#end()
