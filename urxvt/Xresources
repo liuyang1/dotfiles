@@ -18,10 +18,6 @@ URxvt.meta8:            True
 URxvt.transparent:		False
 URxvt.shading:          30
 !!中括号内数表示透明度
-!!URL操作
-URxvt.urlLauncher:chromium
-URxvt.matcher.button:1
-! URxvt.perl-ext-common:matcher
 !!滚动条设置
 URxvt.scrollBar:False
 URxvt.scrollBar_right:True
@@ -65,10 +61,12 @@ URxvt.letterSpace:-1
 
 URxvt*loginShell: false
 
-Xft.antialias:	true
-Xft.rgba:		rgb
-Xft.hinting:	true
-Xft.hintstyle:	hintslight
+! fontconfig setting for URxvt
+Xft.antialias:  true
+Xft.autohint:   0
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintfull
 Xft.lcdfilter:  lcddefault
 URxvt.intensityStyles: false
 
@@ -218,12 +216,22 @@ HybridURxvt*color15: #C5C8C6
 ! Rxvt.color12:DodgerBule
 ! Rxvt.menu:/etc/X11/rxvt.menu
 ! 
-URxvt.perl-ext-common:	...,font-size,url-select
+URxvt.perl-ext-common:	default,font-size,matcher,url-select
+
+!!URL操作
+!! URL is clickable in urxvt, and open with chromium
+URxvt.urlLauncher:     chromium
+URxvt.matcher.button:  1
+!! This is only for URL
+URxvt.matcher.rend.0: Uline Bold fg5
+!! This is for address as path
+URxvt.colorUL: #66D9EF
+
 URxvt.keysym.C-Up:      perl:font-size:increase
 URxvt.keysym.C-Down:    perl:font-size:decrease
-URxvt.keysym.C-S-Up:	perl:font-size:incglobal
-URxvt.keysym.C-S-Down:	perl:font-size:decglobal
-URxvt.font-size.step:	1
+URxvt.keysym.C-S-Up:    perl:font-size:incglobal
+URxvt.keysym.C-S-Down:  perl:font-size:decglobal
+URxvt.font-size.step:   1
 
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.url-select.launcher: /usr/bin/xdg-open

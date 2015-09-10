@@ -4,6 +4,7 @@ filetype off
 call plug#begin('~/.vim/bundle')
 " Plug 'gmarik/Vundle.vim'
 
+""" App in vim
 Plug 'vimwiki'
 nnoremap \d     :VimwikiToggleListItem<cr>
 let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,br,hr,div,del,code,img'
@@ -17,8 +18,92 @@ let g:vimwiki_hl_cb_checked=1
 let g:vimwiki_menu=''
 let g:vimwiki_CJK_length=1
 
-Plug 'a.vim', { 'for': [ 'c', 'h', 'cpp' ] }
+Plug 'jceb/vim-orgmode'
 
+""" writing room
+Plug 'junegunn/goyo.vim'
+let g:goyo_margin_top = 0
+let g:goyo_margin_bottom = 0
+let g:goyo_linenr = 1
+nnoremap \g         :Goyo<cr>
+
+Plug 'junegunn/limelight.vim'
+" autocmd User GoyoEnter Limelight
+" autocmd User GoyoLeave Limelight!
+
+Plug 'itchyny/calendar.vim'
+let g:calendar_frame = 'default'
+let g:calendar_task = 1
+""" App in vim END
+
+""" VCS git extension
+" airline need this to display branch
+Plug 'tpope/vim-fugitive'
+nnoremap <Leader>gb         :Gblame<cr>
+nnoremap <Leader>gd         :Gdiff<cr>
+" for vim74 compat
+set diffopt+=vertical
+" let g:gitgutter_sign_added = '✚'
+" let g:gitgutter_sign_removed = '✖'
+let g:gitgutter_sign_modified = '±'
+" let g:gitgutter_sign_modified_removed = '±✖'
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_modified_removed = '±-'
+let g:gitgutter_sign_removed_first_line = '\'
+let g:gitgutter_diff_args = '-w'
+let g:gitgutter_override_sign_column_highlight = 0
+nnoremap <Leader>gg         :GitGutter<cr>
+
+" show git diff mode
+Plug 'airblade/vim-gitgutter'
+" when stop typing
+let g:gitgutter_realtime = 0
+" when switch buffer, tab, focus GUI
+let g:gitgutter_eager = 1
+let g:gitgutter_sign_column_always = 1
+nmap ga     <Plug>GitGutterStageHunk
+nmap gr     <Plug>GitGutterRevertHunk
+nmap gs     <Plug>GitGutterPreviewHunk
+let g:gitgutter_highlight_lines = 1
+
+Plug 'gregsexton/gitv'
+""" VCS extension END
+
+""" tmux extension
+Plug 'christoomey/vim-tmux-navigator'
+let g:tmux_navigator_save_on_switch = 1
+
+" Plug 'edkolev/tmuxline.vim'
+" let g:tmuxline_preset = {
+"       \'a'       : ['#(whoami)', '#h'],
+"       \'b'       : 'Ss:#S',
+"       \'c'       : '',
+"       \'win'     : ['#I#F#P', '#W'],
+"       \'cwin'    : ['#I#F#P', '#W'],
+"       \'x'       : '',
+"       \'y'       : '%R:%S',
+"       \'z'       : ['%m-%d', '%a'],
+"       \'options' : {'status-justify' : 'centre'}}
+" let g:tmuxline_powerline_separators = 1
+" status-justify: left, centre, right
+      " \'y'       : '#(tmux-mem-cpu-load 1)',
+" let g:tmuxline_separators = {
+"       \ 'left' : '',
+"       \ 'left_alt': '>',
+"       \ 'right' : '',
+"       \ 'right_alt' : '<',
+"       \ 'space' : ' '}
+
+Plug 'benmills/vimux'
+map <silent> <Leader><Leader> :update<cr>:call VimuxRunCommand("rspec " . expand("%:p"))<CR>
+map <Leader>vc :VimuxCloseRunner<CR>
+map <Leader>vx :VimuxInterruptRunner<CR>
+let g:VimuxOrientation = "h"
+let g:VimuxHeight = "40"
+""" tmux extension END
+
+""" mark extension plugin
 " Plug 'ShowMarks7'
 " let g:showmarks_include='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 " let g:showmarks_enable=1
@@ -39,8 +124,33 @@ let g:SignatureMarkerLineHL = "'SignLineHL'"
 let g:SignatureMarkTextHLDynamic = 1
 let g:SignatureMarkerTextHLDynamic = 1
 
-Plug 'Align'
-"Plug 'AutoAlign'
+" mark 1238 plugin, stop maintain
+" mark 2666, this same with Mark-Karkat
+" Plug 'Yggdroot/vim-mark' " clone Mark-Karkat, and continue, buggy
+Plug 'Mark--Karkat'
+" mark word, like highlight search, but mark word with highlight
+" SLOW but good enough
+" KEYMAP
+" <Leader>m  mark current word
+" COMMAND
+" :Mark
+" :MarkClear
+nmap <Plug>IgnoreMarkSearchNext <Plug>MarkSearchNext
+" this is not work, load and save mark
+let g:mwAutoLoadMarks = 1
+let g:mwAutoSaveMarks = 1
+
+" Plug 'MattesGroeger/vim-bookmarks'
+""" END
+
+""" Tag related
+""" generate tag for text file
+" Plug 'vim-voom/VOoM'
+" autocmd Filetype vimwiki nnoremap <Leader>tt :Voom vimwiki<cr>
+
+Plug 'gtags.vim'
+" Plug 'autoload_cscope.vim'
+" Plug 'cscope.vim'
 
 Plug 'Tagbar'
 map <leader>tt :TagbarToggle<CR>
@@ -126,164 +236,27 @@ let g:tagbar_type_markdown = {
         \ 'k:Heading_L3'
     \ ]
 \ }
+""" tag related END
 
+""" snippet
 " Plug 'SirVer/ultisnips'
 " Plug 'honza/vim-snippets'
+""" snippet END
 
-Plug 'Syntastic'
-highlight SyntasticErrorLine    ctermbg=black
-highlight SyntasticErrorSign    ctermbg=darkgray
-let g:syntastic_check_on_open = 1
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_error_symbol = "✘"
-let g:syntastic_warning_symbol = "!"
-" let g:syntastic_warning_symbol = "⚒"
-" let g:syntastic_error_symbol = 'E'
-" let g:syntastic_warning_symbol = 'w'
-let g:syntastic_style_error_symbol   = 'S'
-let g:syntastic_style_warning_symbol = 's'
-let g:syntastic_enable_highlighting = 0
-let g:syntastic_c_checkers = []
-let g:syntastic_python_python_exec = "/usr/bin/python2"
-"let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_loc_list_height = 5
-let g:syntastic_c_check_header          = 1
-let g:syntastic_c_remove_include_errors = 1
+""" colorscheme
+" Plug 'chriskempson/base16-vim'
+" colorscheme base16-monokai
+" Plug 'trapd00r/neverland-vim-theme'
+" Plug 'w0ng/vim-hybrid'
+" Plug 'nanotech/jellybeans.vim'
+" Plug 'endel/vim-github-colorscheme'
 
-""" lisp
-Plug 'kovisoft/slimv', { 'for': ['scheme', 'lisp'] }
-" lisp_rainbow not works now under vim74
-let g:lisp_rainbow=1
-let g:scheme_builtin_swank=1
-let g:slimv_ballon=1
-" only add one enter to save sapce and decrease line
-let g:paredit_electric_return=0
-let g:paredit_short_maps=0
+" will make vim slow
+" Plug 'colorizer'
+Plug 'guns/xterm-color-table.vim'
+""" colorscheme END
 
-""" Python
-" if only use autopep8 as formatprg, also works.
-" then below 3 lines could delete
-Plug 'liuyang1/vim-autopep8'
-autocmd FileType python map <buffer> <Leader>cc     :call Autopep8()<cr>
-let g:autopep8_disable_show_diff=1
-au FileType python setlocal formatprg=autopep8\ -aa\ -
-
-Plug 'Python-mode-klen', { 'for': ['python'] }
-" pep8 style indent
-" python lint checking
-let g:pymode_folding = 0
-autocmd FileType python setlocal completeopt-=preview
-
-" need pip install jedi
-" Plug 'davidhalter/jedi-vim'
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
-let g:jedi#show_call_signatures = "0"
-" TODO: how to disable the preview window
-
-Plug 'ehamberg/vim-cute-python', { 'for': ['python'] }
-
-Plug 'hdima/python-syntax'
-let python_highlight_all = 1
-""" Python END
-
-" TODO: make more test
-" Plug 'Chiel92/vim-autoformat'
-
-" Plug 'minibufexpl.vim'
-" nnoremap <Leader>bb     :TMiniBufExplorer<cr>
-" let g:miniBufExplSplitBelow  = 0
-" Plug 'Shougo/unite.vim'
-
-" ctrlp system
-Plug 'kien/ctrlp.vim'
-let g:ctrlp_cmd               = 'CtrlPMRUFiles'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = {
-            \ 'dir': '\v[\/](\.git|\.hg|\.svn|out)$',
-            \ 'file': '\v\.(exe|so|ddl)$',
-            \ 'link': 'some_bad_symbolic_links',
-            \ }
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_max_files = 0
-" noremap     <Leader>f           :CtrlPMRUFiles<cr>
-" noremap     <Leader>ff          :CtrlPMRUFiles<cr>
-nnoremap     <Leader>f          :CtrlPFunky<cr>
-" nnoremap     <Leader>b :buffers<cr>:buffer<Space>
-nnoremap     <Leader>b          :CtrlPBuffer<cr>
-Plug 'tacahiroy/ctrlp-funky'
-let g:ctrlp_extesions = ['funky', 'tag']
-let g:ctrlp_funky_matchtype = 'path'
-" let g:ctrlp_funky_syntax_highlight = 1
-Plug 'JazzCore/ctrlp-cmatcher'
-if filereadable(expand('~/.vim/bundle/ctrlp-cmatcher/autoload/fuzzycomt.so'))
-  let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
-else
-  echohl WarningMsg | echom 'You need to compile the CtrlP C matching extension.' | echohl None
-endif
-" Plug 'FelikZ/ctrlp-py-matcher'
-" let g:ctrlp_match_func = { 'match' : 'pymatcher#PyMatch' }
-" Plug 'ompugao/ctrlp-z'
-
-
-" airline need this to display branch
-Plug 'tpope/vim-fugitive'
-nnoremap <Leader>gb         :Gblame<cr>
-nnoremap <Leader>gd         :Gdiff<cr>
-" for vim74 compat
-set diffopt+=vertical
-" let g:gitgutter_sign_added = '✚'
-" let g:gitgutter_sign_removed = '✖'
-let g:gitgutter_sign_modified = '±'
-" let g:gitgutter_sign_modified_removed = '±✖'
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_modified_removed = '±-'
-let g:gitgutter_sign_removed_first_line = '\'
-let g:gitgutter_diff_args = '-w'
-let g:gitgutter_override_sign_column_highlight = 0
-nnoremap <Leader>gg         :GitGutter<cr>
-
-" show git diff mode
-Plug 'airblade/vim-gitgutter'
-" when stop typing
-let g:gitgutter_realtime = 0
-" when switch buffer, tab, focus GUI
-let g:gitgutter_eager = 1
-let g:gitgutter_sign_column_always = 1
-nmap ]a     <Plug>GitGutterStageHunk
-nmap [a     <Plug>GitGutterStageHunk
-nmap ]r     <Plug>GitGutterRevertHunk
-nmap [r     <Plug>GitGutterRevertHunk
-nmap ]s     <Plug>GitGutterPreviewHunk
-nmap [s     <Plug>GitGutterPreviewHunk
-let g:gitgutter_highlight_lines = 0
-
-" Plug 'bling/vim-bufferline'
-
-" Plug 'edkolev/tmuxline.vim'
-" let g:tmuxline_preset = {
-"       \'a'       : ['#(whoami)', '#h'],
-"       \'b'       : 'Ss:#S',
-"       \'c'       : '',
-"       \'win'     : ['#I#F#P', '#W'],
-"       \'cwin'    : ['#I#F#P', '#W'],
-"       \'x'       : '',
-"       \'y'       : '%R:%S',
-"       \'z'       : ['%m-%d', '%a'],
-"       \'options' : {'status-justify' : 'centre'}}
-" let g:tmuxline_powerline_separators = 1
-" status-justify: left, centre, right
-      " \'y'       : '#(tmux-mem-cpu-load 1)',
-" let g:tmuxline_separators = {
-"       \ 'left' : '',
-"       \ 'left_alt': '>',
-"       \ 'right' : '',
-"       \ 'right_alt' : '<',
-"       \ 'space' : ' '}
-
+""" UI related
 Plug 'bling/vim-airline'
 let g:airline_theme             = 'powerlineish'
 " let g:airline_theme             = 'hybrid'
@@ -308,15 +281,127 @@ let g:airline#extensions#tabline#tab_nr_type = 2
 " let g:airline_readonly_symbol   = 'Lk'
 " let g:airline_linecolumn_prefix = 'L/n'
 
+" Plug 'minibufexpl.vim'
+" nnoremap <Leader>bb     :TMiniBufExplorer<cr>
+" let g:miniBufExplSplitBelow  = 0
+
+" Plug 'bling/vim-bufferline'
+
+""" show indent line with unicode char
+" Plug 'Yggdroot/indentLine'
+" let g:indentLine_color_term=236
+" | ¦ ┆ │
+" let g:indentLine_char='│'
+
+" not good
+" Plug 'nathanaelkane/vim-indent-guides'
+" let g:indent_guides_start_level = 4
+" let g:indent_guides_guide_size = 1
+" let g:indent_guides_enable_on_vim_startup = 1
+" let g:indent_guides_default_mapping = 0
+" let g:indent_guides_auto_colors = 0
+""" UI related END
+
+""" search related
+" ctrlp system
+Plug 'kien/ctrlp.vim'
+let g:ctrlp_cmd               = 'CtrlPMRUFiles'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = {
+            \ 'dir': '\v[\/](\.git|\.hg|\.svn|out)$',
+            \ 'file': '\v\.(exe|so|ddl)$',
+            \ 'link': 'some_bad_symbolic_links',
+            \ }
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_max_files = 0
+" noremap     <Leader>f           :CtrlPMRUFiles<cr>
+" noremap     <Leader>ff          :CtrlPMRUFiles<cr>
+nnoremap     <Leader>f          :CtrlPFunky<cr>
+" nnoremap     <Leader>b :buffers<cr>:buffer<Space>
+nnoremap     <Leader>b          :CtrlPBuffer<cr>
+Plug 'tacahiroy/ctrlp-funky'
+let g:ctrlp_extesions = ['funky', 'tag']
+let g:ctrlp_funky_matchtype = 'path'
+let g:ctrlp_funky_syntax_highlight = 1
+Plug 'JazzCore/ctrlp-cmatcher'
+if filereadable(expand('~/.vim/bundle/ctrlp-cmatcher/autoload/fuzzycomt.so'))
+  let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
+else
+  echohl WarningMsg | echom 'You need to compile the CtrlP C matching extension.' | echohl None
+endif
+" Plug 'FelikZ/ctrlp-py-matcher'
+" let g:ctrlp_match_func = { 'match' : 'pymatcher#PyMatch' }
+" Plug 'ompugao/ctrlp-z'
+" Plug 'ivalkeen/vim-ctrlp-tjump'
+
+" Plug 'Shougo/unite.vim'
+
+Plug 'mileszs/ack.vim'
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+          \ --ignore .git
+          \ --ignore .svn
+          \ --ignore .hg
+          \ --ignore .DS_Store
+          \ --ignore "**/*.pyc"
+          \ -g ""'
+    " let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
+
+Plug 'dyng/ctrlsf.vim'
+nmap \ff    <Plug>CtrlSFCwordExec
+nmap \fw    :CtrlSFToggle<cr>
+
+""" search related END
+
+""" error checking
+" Plug 'Syntastic'
+highlight SyntasticErrorLine    ctermbg=black
+highlight SyntasticErrorSign    ctermbg=darkgray
+let g:syntastic_check_on_open = 1
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_error_symbol = "✘"
+let g:syntastic_warning_symbol = "!"
+" let g:syntastic_warning_symbol = "⚒"
+" let g:syntastic_error_symbol = 'E'
+" let g:syntastic_warning_symbol = 'w'
+let g:syntastic_style_error_symbol   = 'S'
+let g:syntastic_style_warning_symbol = 's'
+let g:syntastic_enable_highlighting = 0
+let g:syntastic_c_checkers = []
+let g:syntastic_python_python_exec = "/usr/bin/python2"
+"let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_loc_list_height = 5
+let g:syntastic_c_check_header          = 1
+let g:syntastic_c_remove_include_errors = 1
+""" error checking END
+
+""" comment related
 " Plug 'The-NERD-Commenter'
 " let NERDShutUp=1
 Plug 'tomtom/tcomment_vim'
 let g:tcomment_types={'c': '// %s'}
 " no reason to switch, not faster
 " Plug 'tpope/vim-commentary'
+""" comment related END
 
-" Plug 'autoload_cscope.vim'
-" Plug 'cscope.vim'
+""" for programming or filetype
+""" Plugin for C
+Plug 'a.vim', { 'for': [ 'c', 'h', 'cpp' ] }
+
+""" C/C++ document Doxygen support
+Plug 'vim-scripts/DoxygenToolkit.vim'
+" let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
+" let g:DoxygenToolkit_paramTag_pre="@Param "
+" let g:DoxygenToolkit_returnTag="@Returns   "
+let g:DoxygenToolkit_authorName="liuyang1<liuyang1@ustc.edu.cn>"
+" let g:DoxygenToolkit_licenseTag="My own license" <-- !!! Does not end with "\<enter>"
+let g:load_doxygen_syntax=1
+" Plug 'mrtazz/DoxygenToolkit.vim'
 
 " if v:version >= 735
     Plug 'Valloric/YouCompleteMe' , { 'for': ['c', 'cpp']},
@@ -376,8 +461,92 @@ let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 0
 
-" Plug 'EasyMotion'
+""" lisp
+Plug 'kovisoft/slimv', { 'for': ['scheme', 'lisp'] }
+" lisp_rainbow not works now under vim74
+let g:lisp_rainbow=1
+let g:scheme_builtin_swank=1
+let g:slimv_ballon=1
+" only add one enter to save sapce and decrease line
+let g:paredit_electric_return=0
+let g:paredit_short_maps=0
+
+" Plug 'dkinzer/vim-schemer'
+
+""" Python
+" if only use autopep8 as formatprg, also works.
+" then below 3 lines could delete
+Plug 'liuyang1/vim-autopep8'
+autocmd FileType python map <buffer> <Leader>cc     :call Autopep8()<cr>
+let g:autopep8_disable_show_diff=1
+au FileType python setlocal formatprg=autopep8\ -aa\ -
+
+Plug 'Python-mode-klen', { 'for': ['python'] }
+" pep8 style indent
+" python lint checking
+let g:pymode_folding = 0
+autocmd FileType python setlocal completeopt-=preview
+
+" need pip install jedi
+" Plug 'davidhalter/jedi-vim'
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#show_call_signatures = "0"
+" TODO: how to disable the preview window
+
+Plug 'ehamberg/vim-cute-python', { 'for': ['python'] }
+
+Plug 'hdima/python-syntax'
+let python_highlight_all = 1
+""" Python END
+
+""" markdown filetype
+Plug 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
+" Plug 'waylan/vim-markdown-extra-preview'
+Plug 'suan/vim-instant-markdown'
+
+""" sml filetype
+Plug 'cypok/vim-sml', { 'for': ['sml'] }
+
+""" Haskell
+" Plug 'enomsg/vim-haskellConcealPlus', {'for': ['haskell']}
+" Plug 'lukerandall/haskellmode-vim', {'for': ['haskell']}
+" au BufEnter *.hs compiler ghc
+let g:haddock_browser="/usr/bin/chromium"
+let g:haddock_browser_nosilent = 1
+
+" - type check
+" - link
+Plug 'eagletmt/ghcmod-vim', {'for': ['haskell']}
+
+" completion
+" neco-ghc
+
+Plug 'raichoo/haskell-vim', {'for': ['haskell']}
+Plug 'dag/vim2hs', {'for': ['haskell']}
+
+" insert comment block
+let s:width = 80
+function! HaskellModuleSection(...)
+    let name = 0 < a:0 ? a:1 : inputdialog("Section name: ")
+
+    return  repeat('-', s:width) . "\n"
+    \       . "-- " . name . "\n"
+    \       . "\n"
+
+endfunction
+autocmd Filetype haskell nnoremap <silent> --s "=HaskellModuleSection()<CR>gp
+
+""" Haskell END
+
+""" Log filetype
 Plug 'Logcat-syntax-highlighter'
+""" javascript
+Plug 'maksimr/vim-jsbeautify', { 'for': ['javascript', 'html'] }
+""" filetype END
+
+" Plug 'EasyMotion'
 
 " will make vim slow
 " Plug 'colorizer'
@@ -396,152 +565,41 @@ Plug 'guns/xterm-color-table.vim'
 Plug 'luochen1990/rainbow', { 'for': ['c','cpp', 'h', 'scheme', 'python']}
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
-Plug 'mileszs/ack.vim'
-if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
-    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-          \ --ignore .git
-          \ --ignore .svn
-          \ --ignore .hg
-          \ --ignore .DS_Store
-          \ --ignore "**/*.pyc"
-          \ -g ""'
-    " let g:ackprg = 'ag --nogroup --nocolor --column'
-endif
-
-Plug 'dyng/ctrlsf.vim'
-nmap \ff    <Plug>CtrlSFCwordExec
-nmap \fw    :CtrlSFToggle<cr>
-Plug 'jceb/vim-orgmode'
 Plug 'speeddating.vim'
-
-Plug 'benmills/vimux'
-map <silent> <Leader><Leader> :update<cr>:call VimuxRunCommand("rspec " . expand("%:p"))<CR>
-map <Leader>vc :VimuxCloseRunner<CR>
-map <Leader>vx :VimuxInterruptRunner<CR>
-let g:VimuxOrientation = "h"
-let g:VimuxHeight = "40"
 
 " Plug 'regedarek/ZoomWin'
 " Plug '907th/vim-auto-save'
 " let g:auto_save=1
 " let g:auto_save_no_updatetime=1
 " let g:auto_save_in_insert_mode=0
-" Plug 'w0ng/vim-hybrid'
 " Plug 'mhinz/vim-startify'
-" Plug 'trapd00r/neverland-vim-theme'
-" Plug 'nanotech/jellybeans.vim'
-Plug 'cypok/vim-sml', { 'for': ['sml'] }
-
-" Plug 'Yggdroot/indentLine'
-" let g:indentLine_color_term=236
-" | ¦ ┆ │
-" let g:indentLine_char='│'
-
-" Plug 'vim-voom/VOoM'
-" autocmd Filetype vimwiki nnoremap <Leader>tt :Voom vimwiki<cr>
-
-" mark 1238 plugin, stop maintain
-" mark 2666, this same with Mark-Karkat
-" Plug 'Yggdroot/vim-mark' " clone Mark-Karkat, and continue, buggy
-Plug 'Mark--Karkat'
-" mark word, like highlight search, but mark word with highlight
-" SLOW but good enough
-" KEYMAP
-" <Leader>m  mark current word
-" COMMAND
-" :Mark
-" :MarkClear
-nmap <Plug>IgnoreMarkSearchNext <Plug>MarkSearchNext
-" this is not work, load and save mark
-let g:mwAutoLoadMarks = 1
-let g:mwAutoSaveMarks = 1
 
 " Plug 'SyntaxRange'
-" Plug 'dkinzer/vim-schemer'
 Plug 'tpope/vim-surround'
-
-Plug 'christoomey/vim-tmux-navigator'
-let g:tmux_navigator_save_on_switch = 1
-
-Plug 'maksimr/vim-jsbeautify', { 'for': ['javascript', 'html'] }
-
-" Plug 'nathanaelkane/vim-indent-guides'
-" let g:indent_guides_start_level = 4
-" let g:indent_guides_guide_size = 1
-" let g:indent_guides_enable_on_vim_startup = 1
-" let g:indent_guides_default_mapping = 0
-" let g:indent_guides_auto_colors = 0
 
 Plug 'Shougo/vimproc.vim', { 'do': 'make'  }
 nnoremap <Leader>x      :VimProcBang
 
 Plug 'Shougo/vimshell.vim'
-Plug 'junegunn/goyo.vim'
-let g:goyo_margin_top = 0
-let g:goyo_margin_bottom = 0
-let g:goyo_linenr = 1
-nnoremap \g         :Goyo<cr>
 
-Plug 'junegunn/limelight.vim'
-" autocmd User GoyoEnter Limelight
-" autocmd User GoyoLeave Limelight!
-" Plug 'ivalkeen/vim-ctrlp-tjump'
-" Plug 'mrtazz/DoxygenToolkit.vim'
-Plug 'vim-scripts/DoxygenToolkit.vim'
-" let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
-" let g:DoxygenToolkit_paramTag_pre="@Param "
-" let g:DoxygenToolkit_returnTag="@Returns   "
-let g:DoxygenToolkit_authorName="liuyang1<liuyang1@ustc.edu.cn>"
-" let g:DoxygenToolkit_licenseTag="My own license" <-- !!! Does not end with "\<enter>"
-let g:load_doxygen_syntax=1
 
+""" help input digraph char.
+" 2S ²
 Plug 'Rykka/easydigraph.vim'
 " default mapkey is <Leader>bb
 " this conflict with our <Leader>b, which show buffer with CtrlP plugin
 " let g:EasyDigraph_nmap="\b"
 
-Plug 'gregsexton/gitv'
 Plug 'utl.vim'
 
-""" Haskell
-" Plug 'enomsg/vim-haskellConcealPlus', {'for': ['haskell']}
-Plug 'lukerandall/haskellmode-vim', {'for': ['haskell']}
-" au BufEnter *.hs compiler ghc
-let g:haddock_browser="/usr/bin/chromium"
-let g:haddock_browser_nosilent = 1
-Plug 'raichoo/haskell-vim', {'for': ['haskell']}
-""" Haskell END
-
-
-" Plug 'MattesGroeger/vim-bookmarks'
-
-" Plug 'scrooloose/nerdtree'
-" Plug 'ryanoasis/vim-webdevicons'
 Plug 'scrooloose/nerdtree'
 " Plug 'ryanoasis/vim-webdevicons'
 Plug 'terryma/vim-expand-region'
 
 Plug 'chrisbra/vim-diff-enhanced'
+Plug 'will133/vim-dirdiff'
 
 Plug 'DrawIt'
-
-Plug 'gtags.vim'
-
-""" App in vim
-Plug 'itchyny/calendar.vim'
-let g:calendar_frame = 'default'
-let g:calendar_task = 1
-""" App in vim END
-
-""" markdown filetype
-Plug 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_disabled=1
-" Plug 'waylan/vim-markdown-extra-preview'
-Plug 'suan/vim-instant-markdown'
-
-Plug 'will133/vim-dirdiff'
 
 " gb gB to swap-parameter
 Plug 'swap-parameters'
@@ -551,5 +609,15 @@ Plug 'swap-parameters'
 Plug 'tpope/vim-dispatch'
 
 Plug 'tpope/vim-unimpaired'
+
+Plug 'Align'
+
+" :Tab /= aligh with =
+" :Tab /:\zs aligh with colon
+Plug 'godlygeek/tabular'
+"Plug 'AutoAlign'
+
+" TODO: make more test
+" Plug 'Chiel92/vim-autoformat'
 
 call plug#end()

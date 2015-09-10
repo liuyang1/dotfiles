@@ -87,11 +87,11 @@ TERM xterm-termite
 
 NORMAL 00;38;5;244 # no color code at all
 #FILE 00 # regular file: use no color at all
-#RESET 0 # reset to "normal" color
+RESET 0 # reset to "normal" color
 DIR 01;38;5;61 # directory 01;34
 LINK 01;38;5;37 # symbolic link. (If you set this to 'target' instead of a
  # numerical value, the color is as for the file pointed to.)
-#MULTIHARDLINK 00 # regular file with more than one link
+MULTIHARDLINK 00 # regular file with more than one link
 FIFO 48;5;230;38;5;136;01 # pipe
 SOCK 48;5;230;38;5;136;01 # socket
 DOOR 48;5;230;38;5;136;01 # door
@@ -100,7 +100,7 @@ CHR 48;5;230;38;5;244;01 # character device driver
 ORPHAN 48;5;235;38;5;160 # symlink to nonexistent file, or non-stat'able file
 SETUID 48;5;160;38;5;230 # file that is setuid (u+s)
 SETGID 48;5;136;38;5;230 # file that is setgid (g+s)
-#CAPABILITY 30;41 # file with capability
+CAPABILITY 30;41 # file with capability
 STICKY_OTHER_WRITABLE 48;5;64;38;5;230 # dir that is sticky and other-writable (+t,o+w)
 OTHER_WRITABLE 48;5;235;38;5;33 # dir that is other-writable (o+w) and not sticky
 STICKY 48;5;33;38;5;230 # dir with the sticky bit set (+t) and not other-writable
@@ -129,17 +129,19 @@ EXEC 01;38;5;64
 .tbz    01;38;5;61
 .tbz2   01;38;5;61
 .tz     01;38;5;61
-.deb    01;38;5;61
-.rpm    01;38;5;61
-.jar    01;38;5;61
-.rar    01;38;5;61
-.ace    01;38;5;61
-.zoo    01;38;5;61
-.cpio   01;38;5;61
+.rar    00;38;5;2
 .7z     01;38;5;61
 .rz     01;38;5;61
-.apk    01;38;5;61
-.gem    01;38;5;61
+
+# software package use orange
+.deb    01;38;5;166
+.rpm    01;38;5;166
+.jar    01;38;5;166
+.ace    01;38;5;166
+.zoo    01;38;5;166
+.cpio   01;38;5;166
+.apk    01;38;5;166
+.gem    01;38;5;166
 
 # Image formats (yellow)
 .jpg    00;38;5;136
@@ -179,7 +181,6 @@ EXEC 01;38;5;64
 .nt              01;38;5;245
 .torrent         01;38;5;245
 .xml             01;38;5;245
-*Makefile        01;38;5;245
 *Rakefile        01;38;5;245
 *build.xml       01;38;5;245
 *rc              01;38;5;245
@@ -194,10 +195,6 @@ EXEC 01;38;5;64
 .yml             01;38;5;245
 .cfg             01;38;5;245
 .conf            01;38;5;245
-.c               01;38;5;245
-.cpp             01;38;5;245
-.cc              01;38;5;245
-.py              01;32
 
 # "unimportant" files as logs and backups (base01)
 .log        00;38;5;240
@@ -212,8 +209,6 @@ EXEC 01;38;5;64
 .swp        00;38;5;240
 .tmp        00;38;5;240
 .temp       00;38;5;240
-.o          00;38;5;240
-.pyc        00;38;5;240
 .class      00;38;5;240
 .cache      00;38;5;240
 
@@ -267,5 +262,52 @@ EXEC 01;38;5;64
 .ogv 01;38;5;166
 .ogx 01;38;5;166
 
-.pdf    ;38;1;266
-.wiki   01;36;1;266
+.pdf    01;38;5;198
+.wiki   00;38;5;31
+
+# programming language
+*Makefile        01;38;5;245
+.mk              01;38;5;245
+.mak             01;38;5;245
+
+# C
+.c               01;38;5;245
+.h               01;38;5;245
+.o               00;38;5;240
+# C++
+.cpp             01;38;5;245
+.cxx             01;38;5;245
+.cc              01;38;5;245
+
+# Python
+.py              00;38;5;45
+.pyc             00;38;5;240
+
+# haskell
+.hs              01;38;5;45
+.hi              00;38;5;240
+
+# ruby
+.rb              07;38;5;198
+
+# lisp / scheme / racket
+.scm             01;38;5;46
+.lisp            01;38;5;46
+
+# HTML
+.js              01;38;5;45
+.css             01;38;5;9
+.html            01;38;5;231
+.tpl             07;38;5;228
+
+# doc
+.xlsx            00;38;5;46
+.xls             00;38;5;46
+.et              00;38;5;46
+
+.docx            00;38;5;45
+.doc            00;38;5;45
+.wps            00;38;5;45
+
+.pptx           00;38;5;220
+.ppt            00;38;5;220

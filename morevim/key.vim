@@ -23,14 +23,10 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
 function! HLtoggle()
-    if (@/ == '')
-        let @/ = "\\<" . expand("<cword>") . "\\>"
+    if (@/ == "\\<" . expand("<cword>") . "\\>")
+        let @/ = ''
     else
-        if (@/ == "\\<" . expand("<cword>") . "\\>")
-            let @/ = ''
-        else
-            let @/ = "\\<" . expand("<cword>") . "\\>"
-        endif
+        let @/ = "\\<" . expand("<cword>") . "\\>"
     endif
 endfunc
 nnoremap <silent> * :call HLtoggle()<cr>

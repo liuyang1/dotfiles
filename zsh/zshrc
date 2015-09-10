@@ -184,3 +184,21 @@ bindkey "\e\e[C" forward-word
 
 source "$HOME/.oh-my-zsh/custom/plugins/hub"
 source "$HOME/.oh-my-zsh/custom/plugins/vimcmd.sh"
+
+### make ctrl-z will return to vim
+# first in vim, ctrl-z will put vim background, so we return to shell
+# then in shell, ctrl-z will find background vim, so we return to vim
+# Issue:
+# This binding make cannot put second process to background
+# Ref: http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z

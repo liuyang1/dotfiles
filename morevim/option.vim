@@ -22,6 +22,7 @@ set smarttab
 set shiftwidth=4  " shift width
 set tabstop=4     " tab 4 space
 set softtabstop=4 " soft tab 4 space
+set shiftround
 
 set autoindent  " copy indent from current line when starting a new line
 set smartindent " c style, after '{' or a line starting with cinwords' or before '}' smart indent
@@ -156,6 +157,8 @@ set scrolloff=1
 set sidescrolloff=5
 
 set viminfo='100,\"200,:200,%,n~/.viminfo
+" for mark for word
+set viminfo+=!
 
 function! ResCur()
 if line("'\"") <= line("$")

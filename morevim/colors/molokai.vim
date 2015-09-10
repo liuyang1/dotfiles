@@ -7,7 +7,8 @@
 " by Hamish Stuart Macpherson
 "
 
-hi clear
+hi clear Normal
+set bg&
 
 if version > 580
     " no guarantees for version 5.8 and below, but this makes it stop
@@ -104,6 +105,7 @@ hi VisualNOS                     guibg=#403D3D
 hi Visual                        guibg=#403D3D
 hi WarningMsg      guifg=#FFFFFF guibg=#333333 gui=bold
 hi WildMenu        guifg=#66D9EF guibg=#000000
+hi ColorColumn     guibg=#303030
 
 if s:molokai_original == 1
    hi Normal          guifg=#F8F8F2 guibg=#272822
@@ -145,10 +147,16 @@ if &t_Co > 255
    hi Define          ctermfg=81
    hi Delimiter       ctermfg=241
 
-   hi DiffAdd                     ctermbg=24
-   hi DiffChange      ctermfg=181 ctermbg=239
-   hi DiffDelete      ctermfg=162 ctermbg=53
-   hi DiffText                    ctermbg=102 cterm=bold
+   " hi DiffAdd                     ctermbg=24
+   " hi DiffChange      ctermfg=181 ctermbg=239
+   " hi DiffDelete      ctermfg=162 ctermbg=53
+   " hi DiffDelete      ctermfg=125 ctermbg=233
+   " hi DiffText                    ctermbg=102 cterm=bold
+   " Normal is 234, cursorline is 236
+   hi DiffAdd    ctermbg=235  cterm=none
+   hi DiffChange ctermbg=233  cterm=none
+   hi DiffText   ctermbg=189  cterm=none
+   hi DiffDelete      ctermbg=233 cterm=none
 
    hi Directory       ctermfg=118               cterm=bold
    hi Error           ctermfg=219 ctermbg=89
@@ -235,8 +243,6 @@ if &t_Co > 255
        hi Conditional     ctermfg=197               cterm=bold
        hi Constant        ctermfg=141               cterm=bold
 
-       hi DiffDelete      ctermfg=125 ctermbg=233
-
        hi Directory       ctermfg=154               cterm=bold
        hi Error           ctermfg=222 ctermbg=233
        hi Exception       ctermfg=154               cterm=bold
@@ -288,6 +294,7 @@ if &t_Co > 255
     highlight VimwikiPre ctermbg=232 ctermfg=darkgreen
 
     highlight Normal guifg=#D8D8D2
+    highlight Conceal ctermfg=1 ctermbg=234 cterm=bold
 end
 
 " Must be at the end, because of ctermbg=234 bug.
