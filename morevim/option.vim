@@ -245,7 +245,7 @@ if v:version >= 735
     set regexpengine=1
 endif
 "| ¦ ┆ │
-set fillchars=vert:┆,stlnc:_,fold:-,diff:-
+set fillchars=vert:┆,stlnc:-,fold:-,diff:-
 
 
 " overwrite default

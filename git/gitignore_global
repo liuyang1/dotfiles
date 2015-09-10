@@ -59,6 +59,9 @@ Thumbs.db
 tags
 ctags
 TAGS
+GPATH
+GRTAGS
+GTAGS
 
 .shdeps
 .deps

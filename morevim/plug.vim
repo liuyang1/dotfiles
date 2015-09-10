@@ -30,10 +30,12 @@ Plug 'a.vim', { 'for': [ 'c', 'h', 'cpp' ] }
 
 Plug 'kshenoy/vim-signature'
 " Plugin to toggle, display and navigate marks
-let g:SignatureMarkOrder = "⚑\m"
+let g:SignatureMarkOrder = "\m⚑"
 " let g:SignatureMarkOrder = "\m»"
 " let g:SignatureMarkOrder = "\m)"
-let g:SignatureMarkLineHL = "'WarningMsg'"
+" let g:SignatureMarkLineHL = "'WarningMsg'"
+let g:SignatureMarkLineHL = "'SignLineHL'"
+let g:SignatureMarkerLineHL = "'SignLineHL'"
 let g:SignatureMarkTextHLDynamic = 1
 let g:SignatureMarkerTextHLDynamic = 1
 
@@ -45,7 +47,7 @@ map <leader>tt :TagbarToggle<CR>
 let g:tagbar_left             = 1
 let g:tagbar_autofocus        = 1
 let g:tagbar_compact          = 1
-let g:tagbar_width            = 30
+let g:tagbar_width            = 40
 "relative line number
 let g:tagbar_show_linenumbers = 2
 let g:tagbar_previewwin_pos   = "downright"
@@ -125,8 +127,6 @@ let g:tagbar_type_markdown = {
     \ ]
 \ }
 
-Plug 'Auto-Pairs'
-
 " Plug 'SirVer/ultisnips'
 " Plug 'honza/vim-snippets'
 
@@ -169,10 +169,13 @@ autocmd FileType python map <buffer> <Leader>cc     :call Autopep8()<cr>
 let g:autopep8_disable_show_diff=1
 au FileType python setlocal formatprg=autopep8\ -aa\ -
 
-" Plug 'Python-mode-klen', { 'for': ['python'] }
+Plug 'Python-mode-klen', { 'for': ['python'] }
+" pep8 style indent
+" python lint checking
 let g:pymode_folding = 0
-" need pip install jedi
 autocmd FileType python setlocal completeopt-=preview
+
+" need pip install jedi
 " Plug 'davidhalter/jedi-vim'
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
@@ -493,8 +496,12 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 let g:DoxygenToolkit_authorName="liuyang1<liuyang1@ustc.edu.cn>"
 " let g:DoxygenToolkit_licenseTag="My own license" <-- !!! Does not end with "\<enter>"
 let g:load_doxygen_syntax=1
+
 Plug 'Rykka/easydigraph.vim'
+" default mapkey is <Leader>bb
+" this conflict with our <Leader>b, which show buffer with CtrlP plugin
 " let g:EasyDigraph_nmap="\b"
+
 Plug 'gregsexton/gitv'
 Plug 'utl.vim'
 
@@ -533,4 +540,16 @@ Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 " Plug 'waylan/vim-markdown-extra-preview'
 Plug 'suan/vim-instant-markdown'
+
+Plug 'will133/vim-dirdiff'
+
+" gb gB to swap-parameter
+Plug 'swap-parameters'
+
+" Plug 'Raimondi/delimitMate'
+
+Plug 'tpope/vim-dispatch'
+
+Plug 'tpope/vim-unimpaired'
+
 call plug#end()

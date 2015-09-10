@@ -46,7 +46,7 @@
     gs = log --color --graph --stat
     lc = show
     lt = describe --tags --abbrev=0
-    lm = "!f() { git config user.email | xargs -I{} git l --author={}; }; f"
+    lm = "!f() { git config user.email | xargs -I{} git l --author={} $@ ;}; f"
 # pull or push
     pl = pull
     ps = push
@@ -93,3 +93,5 @@
 [pager]
     st = cat
     stc = cat
+[diff "a"]
+    textconv = hexdump -v -C

@@ -22,6 +22,10 @@ elseif scm == "solarized_light"
     highlight Comment ctermfg=181
 endif
 
+" for Signature, mark line
+highlight SignLineHL      ctermbg=239
+" highlight SignLineHL      ctermfg=235 ctermbg=107
+
 set colorcolumn=80
 autocmd FileType c,cpp      setlocal colorcolumn=80,100
 

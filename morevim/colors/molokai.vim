@@ -224,7 +224,7 @@ if &t_Co > 255
    hi SpecialKey      ctermfg=59
 
    if exists("g:rehash256") && g:rehash256 == 1
-       hi Normal       ctermfg=252 ctermbg=234
+       hi Normal       ctermfg=252 ctermbg=235
        hi CursorLine               ctermbg=236   cterm=none
        hi CursorLineNr ctermfg=208               cterm=none
 
@@ -261,7 +261,7 @@ if &t_Co > 255
        hi SpecialKey      ctermfg=239
    endif
 " self-defined
-    " highlight Function ctermfg=lightblue
+    highlight Function ctermfg=green
     " highlight SignColumn ctermbg=232
     highlight cType     ctermfg=yellow cterm=None
     highlight Identifier ctermfg=darkyellow

@@ -16,7 +16,8 @@ rspec() {
         return
     fi
     case "$ext" in
-        py*) cmd="python $filename" ;;
+        # py*) cmd="python $filename" ;;
+        py*) cmd="python $filename 2 && feh bar.png" ;;
         sh*) cmd="bash $filename" ;;
         # scm*) cmd="guile $filename" ;;
         scm*) cmd="racket -f $filename" ;;
@@ -30,7 +31,7 @@ rspec() {
         clj*) cmd="clojure $filename" ;;
         cl*) cmd="clisp $filename" ;;
         Xresouces*) cmd="xrdb $filename" ;;
-        dot) cmd="dot $filename -Tpng:cairo:cairo -o test.png && eog test.png" ;;
+        dot) cmd="dot $filename -Tpng:cairo:cairo -o test.png && feh test.png" ;;
         # dot) cmd="dot $filename -Tpng -o test.png && eog test.png" ;;
         sml) cmd="sml $filename" ;;
         rkt) cmd="racket hw4test.rkt" ;;

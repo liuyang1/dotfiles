@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
 function hub()
 {
+    set -o errexit
     if [[ "$1" == "" ]]; then
         echo "usage: hub [author/]reponame"
         echo "       auto git clone from github, and switch to it"
@@ -23,6 +24,7 @@ function hub()
 }
 function buk()
 {
+    set -o errexit
     if [[ "$1" == "" ]]; then
         echo "usage: buk [author/]reponame"
         echo "       auto git clone from bitbucket, and switch to it"

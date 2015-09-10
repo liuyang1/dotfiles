@@ -44,22 +44,24 @@ URxvt.borderLess:		False
 URxvt.internalBorder:	0
 URxvt.externalBorder:	0
 
-URxvt.underlineColor:   gray
+! URxvt.underlineColor:   gray
 !!字体设置
 Xft.dpi:96
-!URxvt.font:xft:文泉驿等宽正黑:size=9:style=Regular:antialias=true,xft:文泉驿等宽正黑:size=8:style=Regular:antialias=true
-!URxvt.boldfont:xft:文泉驿等宽正黑:size=9:style=BOld:antialias=true,xft:文泉驿等宽正黑:size=8:style=Bold:antialias=true
-!URxvt.font:xft:Ubuntu Mono:size=13:style=Regular:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=22:style=Regular:antialias=true
-!URxvt.font:xft:PragmataPro:size=13:style=Regular:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=22:style=Regular:antialias=true
+URxvt.font:     xft:Ubuntu Mono derivative Powerline:size=12:style=Regular,xft:microsoft yahei:pixelsize=16
+! URxvt.font:     xft:Ubuntu Mono derivative Powerline Plus Nerd File Types Mono:size=12:style=Regular,xft:microsoft yahei:pixelsize=16
+! URxvt.font:     xft:dejavu sans mono:size=10:style=Regular,xft:monaco for powerline:size=10,xft:microsoft yahei:pixelsize=16
+! URxvt.boldfont:xft:10x20:size=13:style=Bold:antialias=true
+! URxvt.font:xft:10x20:size=13:style=Regular:antialias=true
+! URxvt.font:xft:10x20:size=13:style=Regular:antialias=true
 !Monaco
 !Consolas
 
 ! must patch other font with Menlo or Monospace font, render all UTF-8 char will OK!!
-URxvt.font:xft:PragmataPro for Powerline:size=12:style=Regular:antialias=true:hinting=true:autohint=true,xft:Menlo:size=12,xft:Monospace:size=12,xft:WenQuanYi Micro Hei:pixelsize=26:style=Regular:antialias=true:hinting=true,xft:Hiragino Sans GB:pixelsize=26:style=Regular
-URxvt.boldFont:xft:PragmataPro for Powerline:size=12:style=Bold:antialias=true:hinting=true,xft:Menlo:size=12,xft:Monospace:size=12,xft:WenQuanYi Micro Hei:pixelsize=26:style=Bold:antialias=true
-URxvt.italicFont:xft:PragmataPro for Powerline:size=12:style=Italic:antialias=true:hinting=true:autohint=true:hintstyle=hintslight,xft:WenQuanYi Micro Hei:pixelsize=26:style=Italic:antialias=true
-URxvt.boldItalicFont:xft:PragmataPro for Powerline:size=12:style=Bold Italic:antialias=true,xft:WenQuanYi Micro Hei:pixelsize=26:style=Bold Italic:antialias=true
-URxvt.letterSpace:0
+! URxvt.font:xft:PragmataPro for Powerline:size=12:style=Regular:antialias=true:hinting=true:autohint=true,xft:Menlo:size=12,xft:Monospace:size=12,xft:WenQuanYi Micro Hei:pixelsize=26:style=Regular:antialias=true:hinting=true,xft:Hiragino Sans GB:pixelsize=26:style=Regular
+! URxvt.boldFont:xft:PragmataPro for Powerline:size=12:style=Bold:antialias=true:hinting=true,xft:Menlo:size=12,xft:Monospace:size=12,xft:WenQuanYi Micro Hei:pixelsize=26:style=Bold:antialias=true
+! URxvt.italicFont:xft:PragmataPro for Powerline:size=12:style=Italic:antialias=true:hinting=true:autohint=true:hintstyle=hintslight,xft:WenQuanYi Micro Hei:pixelsize=26:style=Italic:antialias=true
+! URxvt.boldItalicFont:xft:PragmataPro for Powerline:size=12:style=Bold Italic:antialias=true,xft:WenQuanYi Micro Hei:pixelsize=26:style=Bold Italic:antialias=true
+URxvt.letterSpace:-1
 
 URxvt*loginShell: false
 

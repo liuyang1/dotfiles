@@ -21,6 +21,7 @@
 # A few utility functions to make it easy and re-usable to draw segmented prompts
 
 # set -x
+FastAgnosterBlacklist=("/home/liuyang/rt")
 CURRENT_BG='NONE'
 IsFancy="yes"
 # default FastAgnosterBlacklist

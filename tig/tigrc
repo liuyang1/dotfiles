@@ -6,7 +6,7 @@
 set show-rev-graph = yes	# Show revision graph?
 set line-number-interval = 5	# Interval between line numbers
 set tab-size = 4		# Number of spaces pr tab
-set commit-encoding = UTF-8	# Commit encoding
+# set commit-encoding = UTF-8	# Commit encoding
 
 #
 # Key configuration
@@ -63,7 +63,7 @@ color signoff		yellow	default
 
 # UI colors
 color default		default	default
-color cursor		white	green
+color cursor		black	green
 color status		green	default
 color title-blur	white	blue
 color title-focus	white	blue	bold
