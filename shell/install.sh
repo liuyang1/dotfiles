@@ -11,5 +11,6 @@ installFile(){
 
 installFile $PWD/dircolors $PREFIX/.dircolors
 installFile $PWD/ackrc $PREFIX/.ackrc
+installFile $PWD/mostrc $PREFIX/.mostrc
 
 echo "OK"

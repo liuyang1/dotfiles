@@ -65,6 +65,7 @@ let g:gitgutter_sign_column_always = 1
 nmap ga     <Plug>GitGutterStageHunk
 nmap gr     <Plug>GitGutterRevertHunk
 nmap gs     <Plug>GitGutterPreviewHunk
+nmap ght    :GitGutterLineHighlightsToggle<cr>
 let g:gitgutter_highlight_lines = 1
 
 Plug 'gregsexton/gitv'
@@ -281,6 +282,9 @@ let g:airline#extensions#tabline#tab_nr_type = 2
 " let g:airline_readonly_symbol   = 'Lk'
 " let g:airline_linecolumn_prefix = 'L/n'
 
+" Change cursorlinenr highlight as airline theme and status
+Plug 'ntpeters/vim-airline-colornum'
+
 " Plug 'minibufexpl.vim'
 " nnoremap <Leader>bb     :TMiniBufExplorer<cr>
 " let g:miniBufExplSplitBelow  = 0
@@ -354,11 +358,16 @@ endif
 Plug 'dyng/ctrlsf.vim'
 nmap \ff    <Plug>CtrlSFCwordExec
 nmap \fw    :CtrlSFToggle<cr>
+" In ctrlsf window,
+" p         open and preview
+" O         open and jump to it
+" Enter     open and jump to it, close ctrlsf window
+" Ctrl-J/Ctrl-K next/prvious matched point
 
 """ search related END
 
 """ error checking
-" Plug 'Syntastic'
+Plug 'Syntastic'
 highlight SyntasticErrorLine    ctermbg=black
 highlight SyntasticErrorSign    ctermbg=darkgray
 let g:syntastic_check_on_open = 1
@@ -392,6 +401,9 @@ let g:tcomment_types={'c': '// %s'}
 """ for programming or filetype
 """ Plugin for C
 Plug 'a.vim', { 'for': [ 'c', 'h', 'cpp' ] }
+
+highlight Operator ctermfg=117
+Plug 'NLKNguyen/c-syntax.vim'
 
 """ C/C++ document Doxygen support
 Plug 'vim-scripts/DoxygenToolkit.vim'
@@ -546,6 +558,23 @@ Plug 'Logcat-syntax-highlighter'
 Plug 'maksimr/vim-jsbeautify', { 'for': ['javascript', 'html'] }
 """ filetype END
 
+""" file / directory browser
+Plug 'scrooloose/nerdtree'
+let NERDTreeShowLineNumbers=1
+nnoremap cot :NERDTreeToggle<cr>
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" Nerd tree is better"
+" Plug 'tpope/vim-vinegar'
+""" file / directory browser END
+
+""" vim diff mode
+" add better diff algo
+Plug 'chrisbra/vim-diff-enhanced'
+
+" support diff on directory
+Plug 'will133/vim-dirdiff'
+""" vim diff mode END
+
 " Plug 'EasyMotion'
 
 " will make vim slow
@@ -592,12 +621,8 @@ Plug 'Rykka/easydigraph.vim'
 
 Plug 'utl.vim'
 
-Plug 'scrooloose/nerdtree'
 " Plug 'ryanoasis/vim-webdevicons'
 Plug 'terryma/vim-expand-region'
-
-Plug 'chrisbra/vim-diff-enhanced'
-Plug 'will133/vim-dirdiff'
 
 Plug 'DrawIt'
 
@@ -620,4 +645,6 @@ Plug 'godlygeek/tabular'
 " TODO: make more test
 " Plug 'Chiel92/vim-autoformat'
 
+""" dynamic switch cursor when insert or normal mode
+Plug 'wincent/terminus'
 call plug#end()

@@ -88,7 +88,7 @@ TERM xterm-termite
 NORMAL 00;38;5;244 # no color code at all
 #FILE 00 # regular file: use no color at all
 RESET 0 # reset to "normal" color
-DIR 01;38;5;61 # directory 01;34
+DIR 01;38;5;39 # directory 01;34
 LINK 01;38;5;37 # symbolic link. (If you set this to 'target' instead of a
  # numerical value, the color is as for the file pointed to.)
 MULTIHARDLINK 00 # regular file with more than one link
@@ -102,7 +102,7 @@ SETUID 48;5;160;38;5;230 # file that is setuid (u+s)
 SETGID 48;5;136;38;5;230 # file that is setgid (g+s)
 CAPABILITY 30;41 # file with capability
 STICKY_OTHER_WRITABLE 48;5;64;38;5;230 # dir that is sticky and other-writable (+t,o+w)
-OTHER_WRITABLE 48;5;235;38;5;33 # dir that is other-writable (o+w) and not sticky
+OTHER_WRITABLE 07;48;5;235;38;5;33 # dir that is other-writable (o+w) and not sticky
 STICKY 48;5;33;38;5;230 # dir with the sticky bit set (+t) and not other-writable
 # This is for files with execute permission:
 EXEC 01;38;5;64
@@ -132,6 +132,9 @@ EXEC 01;38;5;64
 .rar    00;38;5;2
 .7z     01;38;5;61
 .rz     01;38;5;61
+
+.img    01;38;5;69
+.subimg 01;38;5;69
 
 # software package use orange
 .deb    01;38;5;166
@@ -165,7 +168,8 @@ EXEC 01;38;5;64
 .dl     00;38;5;136
 .xcf    00;38;5;136
 .xwd    00;38;5;136
-.yuv    00;38;5;136
+.yuv    07;38;5;166
+.es     00;38;5;166
 .cgm    00;38;5;136
 .emf    00;38;5;136
 .eps    00;38;5;136
@@ -181,6 +185,7 @@ EXEC 01;38;5;64
 .nt              01;38;5;245
 .torrent         01;38;5;245
 .xml             01;38;5;245
+.json            01;38;5;245
 *Rakefile        01;38;5;245
 *build.xml       01;38;5;245
 *rc              01;38;5;245
@@ -197,7 +202,7 @@ EXEC 01;38;5;64
 .conf            01;38;5;245
 
 # "unimportant" files as logs and backups (base01)
-.log        00;38;5;240
+.log        00;38;5;242
 .bak        00;38;5;240
 .aux        00;38;5;240
 .bbl        00;38;5;240
@@ -272,7 +277,7 @@ EXEC 01;38;5;64
 
 # C
 .c               01;38;5;245
-.h               01;38;5;245
+.h               01;38;5;244
 .o               00;38;5;240
 # C++
 .cpp             01;38;5;245
@@ -292,22 +297,52 @@ EXEC 01;38;5;64
 
 # lisp / scheme / racket
 .scm             01;38;5;46
+.rkt             01;38;5;46
 .lisp            01;38;5;46
 
 # HTML
 .js              01;38;5;45
 .css             01;38;5;9
-.html            01;38;5;231
+.html            01;38;5;253
 .tpl             07;38;5;228
 
-# doc
-.xlsx            00;38;5;46
-.xls             00;38;5;46
-.et              00;38;5;46
+# shell
+.sh              00;38;5;112
+.bash            00;38;5;76
+.zsh             00;38;5;40
+.bat             00;38;5;34
 
-.docx            00;38;5;45
-.doc            00;38;5;45
-.wps            00;38;5;45
+# logo programming language
+.logo            00;38;5;9
 
-.pptx           00;38;5;220
-.ppt            00;38;5;220
+# office doc
+.xlsx            01;38;5;34
+.xls             01;38;5;34
+.et              01;38;5;34
+
+.docx            01;38;5;45
+.doc            01;38;5;45
+.wps            01;38;5;45
+
+.pptx           01;38;5;220
+.ppt            01;38;5;220
+
+# git
+.patch          00;38;5;202
+.diff           00;38;5;202
+
+.key    07;38;5;198
+.store  07;38;5;198
+*kb.bin 07;38;5;198
+
+# tag file
+*tags           00;38;5;240
+.cscope         00;38;5;240
+*GTAGS          00;38;5;240
+*GPATH          00;38;5;240
+*GRTAGS         00;38;5;240
+
+*core           07;38;5;198
+*tombstone_*    07;38;5;198
+*.dump          07;38;5;198
+

@@ -47,7 +47,12 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(fasd zsh-syntax-highlighting zaw pip cabal autojump)
+
+# fasd      fast switch directory, list recent files
+# vi-mode
+# zsh-syntax-highlighting       highlight command when input it.
+# zaw       fuzzy history search
+plugins=(fasd vi-mode zsh-syntax-highlighting zaw pip cabal autojump)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct
@@ -85,8 +90,10 @@ export LESS_TERMCAP_us=$'\E[01;32m' # begin underline
 export EDITOR='vim'
 # crontab need this.
 export VISUAL='vim'
-
+bindkey -v
 set -o vi
+# enter ESC key, lag 0.1 seconds (default 0.4 seconds)
+export KEYTIMEOUT=1
 
 export XMODIFIERS='@im=fcitx'
 export XIM=fcitx
@@ -106,7 +113,6 @@ export LC_ALL="en_US.UTF8"
 #export LC_ALL="zh_CN.UTF8"
 export LC_CTYPE="en_US.UTF8"
 
-bindkey -v
 # bindkey '^R' history-incremental-search-backward
 bindkey '^R' zaw-history
 zstyle ':filter-select' extended-search yes
@@ -149,13 +155,21 @@ export HISTFILE=~/.zsh_history
 unsetopt INC_APPEND_HISTORY
 #setopt APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
-setopt AUTO_PUSHD
-setopt PUSHD_IGNORE_DUPS
 setopt HIST_NO_FUNCTIONS
 setopt HIST_IGNORE_SPACE
 # unset hist_verify to instant get last command by !!
 #setopt hist_verify
 unsetopt hist_verify
+
+# directory stack
+# dirs -v
+# print directory stack
+#
+# enter number to skip in directory stack
+#
+# cd -TAB, will list directory stack
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
 
 setopt AUTO_LIST
 setopt AUTO_MENU
@@ -173,8 +187,6 @@ settitle() {
 }
 
 # settitle "untitled"
-
-KEYTIMEOUT=1
 
 export CLASSPATH=.:$HOME/.local/framework:$CLASSPATH
 

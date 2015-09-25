@@ -243,7 +243,7 @@ build_prompt() {
   prompt_fast_git
   prompt_exec_time
   prompt_status
-  prompt_vi
+  # prompt_vi
   prompt_end
 }
 

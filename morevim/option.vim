@@ -254,3 +254,6 @@ set fillchars=vert:┆,stlnc:-,fold:-,diff:-
 " overwrite default
 " default will treate octave number with 0 prefix
 set nrformats=
+
+" When encrypting any file, use the much stronger blowfish algorithm
+set cryptmethod=blowfish

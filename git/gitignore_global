@@ -12,6 +12,9 @@ a.out
 erl_crash.dump
 *.pyc
 *.pyo
+*.ta
+*.ta.encrypted
+*.ta.clear
 
 # test file
 *.test

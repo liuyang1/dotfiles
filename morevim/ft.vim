@@ -49,6 +49,7 @@ autocmd BufNewFile,BufRead *.test setlocal filetype=tcl
 autocmd FileType log,logcat   set norelativenumber
 autocmd FileType log,logcat   nmap <buffer> <Enter>     <Leader>aa<C-w><C-w>
 autocmd FileType log,logcat   highlight ExtraWhitespace ctermbg=233
+autocmd FileType log,logcat   set colorcolumn=
 
 autocmd FileType javascript noremap <silent> <Leader>cc :call JsBeautify()<cr>
 autocmd FileType html       noremap <silent> <Leader>cc :call HtmlBeautify()<cr>
