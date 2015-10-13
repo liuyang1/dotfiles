@@ -105,3 +105,6 @@ TODO_NOGIT.wiki
 *.clear.dmp
 *.clear.unstripped
 dist/*
+
+# vim spell file
+en.utf-8.add.spl

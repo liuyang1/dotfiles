@@ -53,7 +53,8 @@ let g:gitgutter_sign_modified_removed = '±-'
 let g:gitgutter_sign_removed_first_line = '\'
 let g:gitgutter_diff_args = '-w'
 let g:gitgutter_override_sign_column_highlight = 0
-nnoremap <Leader>gg         :GitGutter<cr>
+" It auto run background, not need shortcut key defenition.
+" nnoremap <Leader>gg         :GitGutter<cr>
 
 " show git diff mode
 Plug 'airblade/vim-gitgutter'
