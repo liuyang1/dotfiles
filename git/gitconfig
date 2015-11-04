@@ -72,8 +72,11 @@
     t = tag -n
 # cherry-pick
     ck = cherry-pick
+# meld
+    meld = difftool -g -d
 [diff]
     tool = vimdiff
+    guitool = meld
 [merge]
     tool = vimdiff
     conflictstyle = diff3
@@ -94,4 +97,6 @@
     st = cat
     stc = cat
 [diff "a"]
+    textconv = hexdump -v -C
+[diff "ta"]
     textconv = hexdump -v -C
