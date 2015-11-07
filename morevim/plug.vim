@@ -388,6 +388,9 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_loc_list_height = 5
 let g:syntastic_c_check_header          = 1
 let g:syntastic_c_remove_include_errors = 1
+let g:syntastic_haskell_checkers = ['ghc_mod', 'hlint']
+let g:syntastic_haskell_hlint_args = "-i 'Redundant bracket'"
+" remove hdevtools, as it may block vim
 """ error checking END
 
 """ comment related
