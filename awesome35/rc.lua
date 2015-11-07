@@ -7,6 +7,7 @@ require("awful.autofocus")
 local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
+local lain = require("lain")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
@@ -62,8 +63,13 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
+    lain.layout.cascadetile,
     awful.layout.suit.tile.left,
     awful.layout.suit.floating,
+
+    -- lain.layout.centerwork, -- for big screen
+    -- lain.layout.cascade,
+    -- lain.layout.termfair,
     -- awful.layout.suit.tile,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,

@@ -74,7 +74,8 @@ hi PreCondit       guifg=#A6E22E               gui=bold
 hi PreProc         guifg=#A6E22E
 hi Question        guifg=#66D9EF
 hi Repeat          guifg=#F92672               gui=bold
-hi Search          guifg=#FFFFFF guibg=#455354
+" hi Search          guifg=#FFFFFF guibg=#455354
+hi Search          guifg=#000000 guibg=bg
 " marks column
 hi SignColumn      guifg=#A6E22E guibg=#232526
 hi SpecialChar     guifg=#F92672               gui=bold
@@ -94,7 +95,7 @@ hi StorageClass    guifg=#FD971F               gui=italic
 hi Structure       guifg=#66D9EF
 hi Tag             guifg=#F92672               gui=italic
 hi Title           guifg=#ef5939
-hi Todo            guifg=#FFFFFF guibg=bg      gui=bold
+hi Todo            guifg=#707070 guibg=bg      gui=bold
 
 hi Typedef         guifg=#66D9EF
 hi Type            guifg=#66D9EF               gui=none
@@ -282,16 +283,16 @@ if &t_Co > 255
     highlight cUserLabel cterm=italic,underline ctermfg=229
     " highlight CursorLineNr ctermfg=208               cterm=bold
 
-    highlight VimwikiHeader1 ctermfg=darkred cterm=bold
-    highlight VimwikiHeader2 ctermfg=yellow cterm=bold
-    highlight VimwikiHeader3 ctermfg=green cterm=bold
-    highlight VimwikiHeader4 ctermfg=red
-    highlight VimwikiLink ctermfg=blue
-    highlight VimwikiList ctermfg=darkgreen cterm=bold
-    highlight VimwikiBold ctermfg=darkred cterm=bold
-    highlight VimwikiItalic ctermfg=yellow cterm=italic
-    highlight VimwikiCode ctermbg=235 ctermfg=darkblue
-    highlight VimwikiPre ctermbg=232 ctermfg=darkgreen
+    highlight VimwikiHeader1 ctermfg=darkred cterm=bold guifg=#F92672
+    highlight VimwikiHeader2 ctermfg=yellow cterm=bold guifg=#FD971F
+    highlight VimwikiHeader3 ctermfg=green cterm=bold guifg=#A6E22E
+    highlight VimwikiHeader4 ctermfg=red guifg=#F92672
+    highlight VimwikiLink ctermfg=blue guifg=#66D9EF
+    highlight VimwikiList ctermfg=darkgreen cterm=bold guifg=#C1F161
+    highlight VimwikiBold ctermfg=darkred cterm=bold guifg=#FC5C94
+    highlight VimwikiItalic ctermfg=yellow cterm=italic guifg=#FD971F
+    highlight VimwikiCode ctermbg=235 ctermfg=darkblue guifg=#8DE6F7
+    highlight VimwikiPre ctermbg=232 ctermfg=darkgreen guifg=#C1F161
 
     highlight Normal guifg=#D8D8D2
     highlight Conceal ctermfg=1 ctermbg=234 cterm=bold

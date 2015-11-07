@@ -1,4 +1,7 @@
 #! /usr/bin/env bash
+
+### plugin deps
+# - lain-git
 PREFIX=~/.config/awesome
 PWD=`pwd`
 

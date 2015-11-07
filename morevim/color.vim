@@ -1,14 +1,20 @@
 set t_Co=256
 
+if has('termtruecolor')
+    let &t_8f="\e[38;2;%ld;%ld;%ldm"
+    let &t_8b="\e[48;2;%ld;%ld;%ldm"
+    set guicolors
+endif
+
 let scm="molokai"
 
 if scm == "molokai"
     let g:rehash256 = 1
     colorscheme molokai
     " highlight CursorLineNr cterm=bold ctermfg=red ctermbg=236
-    highlight LineNr ctermfg=246 ctermbg=236
-    highlight SignColumn ctermbg=235
-    highlight Comment ctermfg=246
+    highlight LineNr ctermfg=246 ctermbg=236 guifg=#949494 guibg=#303030
+    highlight SignColumn ctermbg=235 guibg=#262626
+    highlight Comment ctermfg=246 guifg=#949494
 elseif scm == "solarized_light"
     let g:solarized_contrast="high"
     let g:solarized_visibility="high"

@@ -1,7 +1,12 @@
-git clone https://github.com/vim/vim.git
+# download newest vim code
+# git clone https://github.com/vim/vim.git
 
-hg clone ssh://hg@bitbucket.org/ZyX_I/vim
-hg bookmark 24-bit-xterm
+# download vim code, and switch to 24-bit-xterm branch
+downSrc() {
+    hg clone ssh://hg@bitbucket.org/ZyX_I/vim
+    pushd vim
+    hg bookmark 24-bit-xterm
+}
 
 ./configure --with-features=huge \
             --enable-multibyte \
@@ -22,3 +27,6 @@ vim --version | grep color
 
 # How to use it.
 # source 24bit.vim to use it.
+
+# Issue
+# make sure clean pre-installed vim, or overwrite it.
