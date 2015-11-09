@@ -2,7 +2,6 @@ set nocompatible
 
 filetype off
 call plug#begin('~/.vim/bundle')
-" Plug 'gmarik/Vundle.vim'
 
 """ App in vim
 Plug 'vimwiki'
@@ -75,6 +74,11 @@ Plug 'gregsexton/gitv'
 """ tmux extension
 Plug 'christoomey/vim-tmux-navigator'
 let g:tmux_navigator_save_on_switch = 1
+nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
+nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
+nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
+nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
+nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
 " Plug 'edkolev/tmuxline.vim'
 " let g:tmuxline_preset = {
