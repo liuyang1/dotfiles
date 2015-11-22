@@ -6,7 +6,7 @@ nnoremap \\        :update<cr>
 
 nnoremap \i      :PlugInstall<cr>
 " for test highlight statement
-map <Leader>ht :echo "hi<" . synIDattr(synID(line("."),col("."),1), "name") . '> trans<'
+map \ht     :echo "hi<" . synIDattr(synID(line("."),col("."),1), "name") . '> trans<'
             \ . synIDattr(synID(line("."),col("."),0), "name") . "> lo<"
             \ . synIDattr(synIDtrans(synID(line("."),col("."),1)), "name") . ">"<CR>
 

@@ -17,7 +17,7 @@ let g:vimwiki_hl_cb_checked=1
 let g:vimwiki_menu=''
 let g:vimwiki_CJK_length=1
 
-Plug 'jceb/vim-orgmode'
+Plug 'jceb/vim-orgmode', { 'for': [ 'org' ] }
 
 """ writing room
 Plug 'junegunn/goyo.vim'
@@ -65,6 +65,9 @@ let g:gitgutter_sign_column_always = 1
 nmap ga     <Plug>GitGutterStageHunk
 nmap gr     <Plug>GitGutterRevertHunk
 nmap gs     <Plug>GitGutterPreviewHunk
+nmap gn     <Plug>GitGutterNextHunk
+nmap gp     <Plug>GitGutterPrevHunk
+
 nmap ght    :GitGutterLineHighlightsToggle<cr>
 let g:gitgutter_highlight_lines = 1
 
@@ -245,8 +248,27 @@ let g:tagbar_type_markdown = {
 """ tag related END
 
 """ snippet
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
+" Load on nothing
+Plug 'SirVer/ultisnips', { 'on': [] }
+Plug 'honza/vim-snippets' ", { 'on': [] }
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsSnippetsDir = '~/.vim/plugged/vim-snippets/UltiSnips'
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+" let g:UltiSnipsListSnippets="<C-i>"
+
+function! USload()
+    let l:curpos = getcurpos()
+    execute plug#load('ultisnips')
+    " load ultisnips make cursor return to header
+    " this return previous cusor
+    call cursor(l:curpos[1], l:curpos[2])
+endfunction
+
+command! USload call USload()
+nnoremap cus    :USload<cr>
 """ snippet END
 
 """ colorscheme
@@ -427,7 +449,8 @@ let g:load_doxygen_syntax=1
     Plug 'Valloric/YouCompleteMe' , { 'for': ['c', 'cpp']},
 " endif
 " ./install --clang-compeleter
-nnoremap <C-i>      :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" conflict
+" nnoremap <C-i>      :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <Leader>y  :YcmDiags<cr>
 set completeopt=longest,menu
 autocmd InsertLeave *   if pumvisible()==0|pclose|endif
@@ -446,11 +469,6 @@ Plug 'ervandew/supertab'
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-j>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " this mapping Enter key to <C-y> to chose the current highlight item
 " and close the selection list, same as other IDEs.
@@ -521,10 +539,10 @@ let python_highlight_all = 1
 """ Python END
 
 """ markdown filetype
-Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown', { 'for': ['md']}
 let g:vim_markdown_folding_disabled=1
 " Plug 'waylan/vim-markdown-extra-preview'
-Plug 'suan/vim-instant-markdown'
+Plug 'suan/vim-instant-markdown', { 'for': ['md']}
 
 """ sml filetype
 Plug 'cypok/vim-sml', { 'for': ['sml'] }
@@ -567,10 +585,11 @@ Plug 'maksimr/vim-jsbeautify', { 'for': ['javascript', 'html'] }
 """ filetype END
 
 """ file / directory browser
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 let NERDTreeShowLineNumbers=1
+let NERDTreeWinPos="right"
 nnoremap cot :NERDTreeToggle<cr>
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 " Nerd tree is better"
 " Plug 'tpope/vim-vinegar'
 """ file / directory browser END
@@ -635,7 +654,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'DrawIt'
 
 " gb gB to swap-parameter
-Plug 'swap-parameters'
+" Plug 'swap-parameters'
 
 " Plug 'Raimondi/delimitMate'
 
@@ -654,5 +673,9 @@ Plug 'godlygeek/tabular'
 " Plug 'Chiel92/vim-autoformat'
 
 """ dynamic switch cursor when insert or normal mode
-Plug 'wincent/terminus'
+" Plug 'wincent/terminus'
+" change cursor color when insert or normal mode
+Plug 'dmedvinsky/uritality.vim'
+
+" Plug 'itchyny/thumbnail.vim'
 call plug#end()

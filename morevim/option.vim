@@ -25,6 +25,7 @@ set softtabstop=4 " soft tab 4 space
 set shiftround
 
 set autoindent  " copy indent from current line when starting a new line
+set copyindent  " copy previous indentaion on autoindenting
 set smartindent " c style, after '{' or a line starting with cinwords' or before '}' smart indent
 " set cindent     "more strict
 
@@ -257,3 +258,5 @@ set nrformats=
 
 " When encrypting any file, use the much stronger blowfish algorithm
 set cryptmethod=blowfish
+
+set title       " change terminal's title

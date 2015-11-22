@@ -75,3 +75,4 @@ autocmd FileType py set textwidth=79
 " zg    mark this word is correct
 " zw    makr this word is incorrent
 autocmd Filetype gitcommit setlocal spell textwidth=72
+autocmd FileType gitcommit set colorcolumn=72

@@ -69,7 +69,12 @@ GTAGS
 .shdeps
 .deps
 
+# core dump file
 core
+core.*
+
+# vim swap file
+*.swp
 
 *.lib
 *.exp
@@ -108,3 +113,16 @@ dist/*
 
 # vim spell file
 en.utf-8.add.spl
+
+# avoid suspicious files
+id_rsa
+id_rsa.pub
+pkcs12
+pfx
+p12
+secret_token.rb
+.htpasswd
+
+# python setting files
+settings.py
+conf.py
