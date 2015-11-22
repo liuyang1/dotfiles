@@ -401,7 +401,7 @@ let g:syntastic_haskell_hlint_args = "-i 'Redundant bracket'"
 " Plug 'The-NERD-Commenter'
 " let NERDShutUp=1
 Plug 'tomtom/tcomment_vim'
-let g:tcomment_types={'c': '// %s'}
+let g:tcomment_types={'c': '// %s', 'asm': '# %s'}
 " no reason to switch, not faster
 " Plug 'tpope/vim-commentary'
 """ comment related END

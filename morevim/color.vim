@@ -45,8 +45,8 @@ set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
-highlight ExtraWhitespace ctermbg=darkyellow
-match ExtraWhitespace /\s\+\%#\@<!$/
+" highlight ExtraWhitespace guibg=black
+" match ExtraWhitespace /\s\+\%#\@<!$/
 " autocmd BufWritePre * :%s/\s\+$//e
 
 highlight hsNiceSpecial ctermfg=darkyellow
@@ -67,7 +67,7 @@ function! HLNext(blinktime)
         call matchdelete(red)
         redraw
         if n != blinks
-        exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+            exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
         endif
     endfor
 endfunction

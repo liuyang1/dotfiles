@@ -37,10 +37,15 @@ hi Cursor          guifg=#000000 guibg=#F8F8F0
 hi Debug           guifg=#BCA3A3               gui=bold
 hi Define          guifg=#66D9EF
 hi Delimiter       guifg=#8F8F8F
-hi DiffAdd                       guibg=#13354A
-hi DiffChange      guifg=#89807D guibg=#4C4745
-hi DiffDelete      guifg=#960050 guibg=#1E0010
+" setting fg color for diff, it's annoy.
+hi DiffAdd         guibg=#162A1E
+hi DiffChange      guibg=#2C2725
+hi clear DiffDelete
+hi DiffDelete      guibg=#301020
 hi DiffText                      guibg=#4C4745 gui=italic,bold
+hi GitGutterAdd    guifg=#afd700
+hi GitGutterChange guifg=#ffaf00
+hi GitGutterDelete guifg=#F92672
 
 hi Directory       guifg=#A6E22E               gui=bold
 hi Error           guifg=#960050 guibg=#1E0010
@@ -57,7 +62,6 @@ hi IncSearch       guifg=#C4BE89 guibg=#000000
 hi Keyword         guifg=#F92672               gui=bold
 hi Label           guifg=#E6DB74               gui=none
 hi Macro           guifg=#C4BE89               gui=italic
-hi SpecialKey      guifg=#66D9EF               gui=italic
 
 hi MatchParen      guifg=#000000 guibg=#FD971F gui=bold
 hi ModeMsg         guifg=#E6DB74
@@ -81,7 +85,8 @@ hi SignColumn      guifg=#A6E22E guibg=#232526
 hi SpecialChar     guifg=#F92672               gui=bold
 hi SpecialComment  guifg=#465457               gui=bold
 hi Special         guifg=#66D9EF guibg=bg      gui=italic
-hi SpecialKey      guifg=#888A85               gui=italic
+" listchars
+hi SpecialKey      guifg=#585A55
 if has("spell")
     hi SpellBad    guisp=#FF0000 gui=undercurl
     hi SpellCap    guisp=#7070F0 gui=undercurl
@@ -115,6 +120,7 @@ if s:molokai_original == 1
    hi CursorColumn                  guibg=#3E3D32
    hi LineNr          guifg=#BCBCBC guibg=#3B3A32
    hi NonText         guifg=#BCBCBC guibg=#3B3A32
+   hi Conceal         guifg=#F92672 guibg=#272822
 else
    hi Normal          guifg=#F8F8F2 guibg=#1B1D1E
    hi Comment         guifg=#465457
@@ -122,6 +128,7 @@ else
    hi CursorColumn                  guibg=#293739
    hi LineNr          guifg=#BCBCBC guibg=#232526
    hi NonText         guifg=#BCBCBC guibg=#232526
+   hi Conceal         guifg=#F92672 guibg=#1B1D1E
 end
 
 "
@@ -278,8 +285,6 @@ if &t_Co > 255
     " highlight Statement cterm=italic ctermfg=darkred
     highlight Statement cterm=italic ctermfg=197
     " highlight Comment ctermfg=246
-    " for listchars
-    " highlight SpecialKey cterm=none ctermfg=gray
     highlight cUserLabel cterm=italic,underline ctermfg=229
     " highlight CursorLineNr ctermfg=208               cterm=bold
 
