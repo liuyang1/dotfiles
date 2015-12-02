@@ -20,7 +20,7 @@ function hub()
     echo "$cmd"
     eval "$cmd"
     if [[ $? != "0" ]]; then
-        cmd="git clone https://github.com:$repo.git"
+        cmd="git clone https://github.com/$repo.git"
         echo "$cmd"
         eval "$cmd"
     fi
