@@ -677,5 +677,7 @@ Plug 'godlygeek/tabular'
 " change cursor color when insert or normal mode
 Plug 'dmedvinsky/uritality.vim'
 
+Plug 'aklt/plantuml-syntax', { 'for': [ 'uml' ] }
+
 " Plug 'itchyny/thumbnail.vim'
 call plug#end()

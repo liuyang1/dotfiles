@@ -36,6 +36,7 @@ rspec() {
         sml) cmd="sml $filename" ;;
         rkt) cmd="racket hw4test.rkt" ;;
         mk) cmd="make -f $filename" ;;
+        uml) cmd="java -jar $HOME/.local/bin/plantuml.jar -pipe < $filename > test.png && feh test.png" ;;
         *) cmd="echo unknown filetype" ;;
     esac
 }
