@@ -39,7 +39,11 @@ def parseNumStat(cm):
 
 def getStatLst(cwd):
     git = sh.git.bake(_cwd=cwd)
-    cmlst = git('rev-list', 'HEAD', '--after=2014-12-31', '--author=liuyang')
+    try:
+        cmlst = git('rev-list', 'HEAD',
+                    '--after=2014-12-31', '--author=liuyang')
+    except:
+        return []
     shalst = cmlst.split()
     stlst = []
     for sha in shalst:
@@ -69,12 +73,12 @@ def statRepo(cwd):
         aa = sum([st.insert for st in g])
         bb = sum([st.delete for st in g])
         olst.append((ext, aa, bb, aa + bb))
-    olst = sorted(olst, key=lambda x:x[-1], reverse=True)
+    olst = sorted(olst, key=lambda x: x[-1], reverse=True)
     olst.append(("", a, b, a + b))
     l = max([len(i[0]) for i in olst])
     l = max([l, 15])
     # print("%s %s %s %s" % ("type".ljust(l), '+'.rjust(4), '-'.rjust(4),
-                           # '+/-'.rjust(4)))
+    # '+/-'.rjust(4)))
     for i in olst:
         print("%s %4d %4d %4d" % (i[0].ljust(l), i[1], i[2], i[3]))
     return olst[-1][1:]
