@@ -641,6 +641,7 @@ Plug 'Shougo/vimshell.vim'
 
 """ help input digraph char.
 " 2S ²
+" <Leader>bbaw
 Plug 'Rykka/easydigraph.vim'
 " default mapkey is <Leader>bb
 " this conflict with our <Leader>b, which show buffer with CtrlP plugin
@@ -677,7 +678,7 @@ Plug 'godlygeek/tabular'
 " change cursor color when insert or normal mode
 Plug 'dmedvinsky/uritality.vim'
 
-Plug 'aklt/plantuml-syntax', { 'for': [ 'uml' ] }
+Plug 'aklt/plantuml-syntax', { 'for': [ 'plantuml' ] }
 
 " Plug 'itchyny/thumbnail.vim'
 call plug#end()

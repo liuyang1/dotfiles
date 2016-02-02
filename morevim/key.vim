@@ -67,3 +67,5 @@ noremap <silent> <leader>sb :set norelativenumber<CR>:<C-u>let @z=&so<CR>:set so
 
 nnoremap \y         "+y
 nnoremap \p         "+p
+
+nnoremap \ds        :!dos2unix %<cr>

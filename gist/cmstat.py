@@ -41,7 +41,7 @@ def getStatLst(cwd):
     git = sh.git.bake(_cwd=cwd)
     try:
         cmlst = git('rev-list', 'HEAD',
-                    '--after=2014-12-31', '--author=liuyang')
+                    '--after=2015-12-31', '--author=liuyang')
     except:
         return []
     shalst = cmlst.split()
