@@ -310,6 +310,8 @@ let g:airline#extensions#tabline#tab_nr_type = 2
 " let g:airline_linecolumn_prefix = 'L/n'
 
 " Change cursorlinenr highlight as airline theme and status
+" BUGGY: visual mode, cannot move to head
+" wait patch
 Plug 'ntpeters/vim-airline-colornum'
 
 " Plug 'minibufexpl.vim'
@@ -423,7 +425,7 @@ let g:syntastic_haskell_hlint_args = "-i 'Redundant bracket'"
 " Plug 'The-NERD-Commenter'
 " let NERDShutUp=1
 Plug 'tomtom/tcomment_vim'
-let g:tcomment_types={'c': '// %s', 'asm': '# %s'}
+let g:tcomment_types={'c': '// %s', 'asm': '# %s', 'gdb': '# %s'}
 " no reason to switch, not faster
 " Plug 'tpope/vim-commentary'
 """ comment related END
@@ -603,10 +605,6 @@ Plug 'will133/vim-dirdiff'
 """ vim diff mode END
 
 " Plug 'EasyMotion'
-
-" will make vim slow
-" Plug 'colorizer'
-Plug 'guns/xterm-color-table.vim'
 
 " Plug 'rainbow_parentheses.vim'
 " let g:rbpt_loadcmd_toggle=1

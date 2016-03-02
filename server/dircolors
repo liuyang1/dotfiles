@@ -106,6 +106,17 @@ OTHER_WRITABLE 07;48;5;235;38;5;33 # dir that is other-writable (o+w) and not st
 STICKY 48;5;33;38;5;230 # dir with the sticky bit set (+t) and not other-writable
 # This is for files with execute permission:
 EXEC 01;38;5;64
+# dir which mod is 777
+OWR 01;38;5;200
+# static const char *const slack_codes[] =
+# {
+#   "NORMAL", "NORM", "FILE", "RESET", "DIR", "LNK", "LINK",
+#   "SYMLINK", "ORPHAN", "MISSING", "FIFO", "PIPE", "SOCK", "BLK", "BLOCK",
+#   "CHR", "CHAR", "DOOR", "EXEC", "LEFT", "LEFTCODE", "RIGHT", "RIGHTCODE",
+#   "END", "ENDCODE", "SUID", "SETUID", "SGID", "SETGID", "STICKY",
+#   "OTHER_WRITABLE", "OWR", "STICKY_OTHER_WRITABLE", "OWT", "CAPABILITY",
+#   "MULTIHARDLINK", "CLRTOEOL", NULL
+# };
 
 ## Archives or compressed (violet + bold for compression)
 .tar    01;38;5;61
@@ -129,7 +140,7 @@ EXEC 01;38;5;64
 .tbz    01;38;5;61
 .tbz2   01;38;5;61
 .tz     01;38;5;61
-.rar    00;38;5;2
+.rar    01;38;5;2
 .7z     01;38;5;61
 .rz     01;38;5;61
 
@@ -272,9 +283,9 @@ EXEC 01;38;5;64
 .wiki   00;38;5;31
 
 # programming language
-*Makefile        01;38;5;245
-.mk              01;38;5;245
-.mak             01;38;5;245
+*Makefile        00;38;5;173
+.mk              00;38;5;173
+.mak             00;38;5;173
 
 # C
 .c               01;38;5;245

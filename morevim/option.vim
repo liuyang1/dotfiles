@@ -27,7 +27,7 @@ set shiftround
 set autoindent  " copy indent from current line when starting a new line
 set copyindent  " copy previous indentaion on autoindenting
 set smartindent " c style, after '{' or a line starting with cinwords' or before '}' smart indent
-" set cindent     "more strict
+set cindent     "more strict
 
 filetype plugin indent on
 
@@ -107,7 +107,9 @@ set wildignore=*.gz,*.bz2,*.tgz,*.tbz,*.zip,*.rar,*.mp3,*.png,*.jpg,*.o,*.obj,*.
 set backspace=eol,start,indent
 
 set noerrorbells
-set visualbell
+" forbidden visual blink
+set novisualbell
+set t_vb=
 
 " syntax
 syntax enable
@@ -142,10 +144,8 @@ set wrap
 
 " set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set listchars=tab:▸\ ,trail:‽,extends:>,precedes:<,nbsp:+
-"   
-"set listchars=tab:>\ ,trail:.,extends:>
-"set listchars=tab:>\ ,trail:.,extends:>
-"set listchars=tab:>\ ,trail:.,extends:>
+set listchars=tab:»\ ,trail:·,extends:>,precedes:<,nbsp:+
+" eol:¶
 "▶
 "▸
 "☠
@@ -250,7 +250,6 @@ if v:version >= 735
 endif
 "| ¦ ┆ │
 set fillchars=vert:┆,stlnc:-,fold:-,diff:-
-
 
 " overwrite default
 " default will treate octave number with 0 prefix

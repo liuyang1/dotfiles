@@ -74,3 +74,6 @@ endfunction
 
 nnoremap <silent> n     n:call HLNext(0.1)<cr>
 nnoremap <silent> N     N:call HLNext(0.1)<cr>
+
+highlight SyntasticErrorSign    guifg=darkred
+highlight SyntasticWarningSign  guifg=darkgreen

@@ -42,7 +42,7 @@ hi DiffAdd         guibg=#162A1E
 hi DiffChange      guibg=#2C2725
 hi clear DiffDelete
 hi DiffDelete      guibg=#301020
-hi DiffText                      guibg=#4C4745 gui=italic,bold
+hi DiffText        guibg=#4C4745 gui=italic,bold
 hi GitGutterAdd    guifg=#afd700
 hi GitGutterChange guifg=#ffaf00
 hi GitGutterDelete guifg=#F92672
