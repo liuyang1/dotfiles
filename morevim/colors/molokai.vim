@@ -43,9 +43,11 @@ hi DiffChange      guibg=#2C2725
 hi clear DiffDelete
 hi DiffDelete      guibg=#301020
 hi DiffText        guibg=#4C4745 gui=italic,bold
-hi GitGutterAdd    guifg=#afd700
-hi GitGutterChange guifg=#ffaf00
-hi GitGutterDelete guifg=#F92672
+" gigutter plugin highlight
+" keep same background with SignColumn
+hi GitGutterAdd    guifg=#afd700 guibg=#262626
+hi GitGutterChange guifg=#ffaf00 guibg=#262626
+hi GitGutterDelete guifg=#F92672 guibg=#262626
 
 hi Directory       guifg=#A6E22E               gui=bold
 hi Error           guifg=#960050 guibg=#1E0010
@@ -81,7 +83,8 @@ hi Repeat          guifg=#F92672               gui=bold
 " hi Search          guifg=#FFFFFF guibg=#455354
 hi Search          guifg=#000000 guibg=bg
 " marks column
-hi SignColumn      guifg=#A6E22E guibg=#232526
+" hi SignColumn      guifg=#A6E22E guibg=#232526
+hi SignColumn      ctermbg=235   guibg=#262626
 hi SpecialChar     guifg=#F92672               gui=bold
 hi SpecialComment  guifg=#465457               gui=bold
 hi Special         guifg=#66D9EF guibg=bg      gui=italic
@@ -144,6 +147,7 @@ if &t_Co > 255
       hi CursorLine               ctermbg=234   cterm=none
       hi CursorLineNr ctermfg=208               cterm=none
    endif
+   hi LineNr ctermfg=246 ctermbg=236 guifg=#747474 guibg=#303030
    hi Boolean         ctermfg=135
    hi Character       ctermfg=144
    hi Number          ctermfg=135
@@ -242,7 +246,7 @@ if &t_Co > 255
    if exists("g:rehash256") && g:rehash256 == 1
        hi Normal       ctermfg=252 ctermbg=235
        hi CursorLine               ctermbg=236   cterm=none
-       hi CursorLineNr ctermfg=208               cterm=none
+       hi CursorLineNr ctermfg=208               cterm=bold
 
        hi Boolean         ctermfg=141
        hi Character       ctermfg=222
@@ -277,16 +281,17 @@ if &t_Co > 255
 " self-defined
     highlight Function ctermfg=green
     " highlight SignColumn ctermbg=232
-    highlight cType     ctermfg=yellow cterm=None
+    highlight cType     ctermfg=yellow cterm=None guifg=#ffaf00
     highlight Identifier ctermfg=darkyellow
     " highlight SpellBad cterm=bold ctermfg=darkred cterm=reverse
     " highlight Conditional cterm=bold ctermfg=darkred
     " highlight Statement ctermfg=208 cterm=italic
     " highlight Statement cterm=italic ctermfg=darkred
     highlight Statement cterm=italic ctermfg=197
-    " highlight Comment ctermfg=246
+    highlight Comment ctermfg=246 guifg=#566467
     highlight cUserLabel cterm=italic,underline ctermfg=229
     " highlight CursorLineNr ctermfg=208               cterm=bold
+    " highlight CursorLineNr cterm=bold ctermfg=red ctermbg=236
 
     highlight VimwikiHeader1 ctermfg=darkred cterm=bold guifg=#F92672
     highlight VimwikiHeader2 ctermfg=yellow cterm=bold guifg=#FD971F

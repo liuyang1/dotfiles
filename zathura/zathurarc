@@ -10,8 +10,6 @@ set page-padding                4
 set window-width                1360
 set window-height               750
 
-set offset                      30
-
 # key bindings
 # unmap j
 # unmap k
@@ -21,8 +19,10 @@ set offset                      30
 map <C-+> zoom in
 map <C-=> zoom in
 map <C--> zoom out
-map scroll-step 200
-unmap <PageUp>
-unmap <PageDown>
-map <PageUp> full-up
-map <PageDown> full-down
+# compatible in zathur 0.3.3 version
+# set offset                      30
+# map scroll-step 200
+# unmap <PageUp>
+# unmap <PageDown>
+# map <PageUp> full-up
+# map <PageDown> full-down

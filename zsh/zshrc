@@ -95,12 +95,12 @@ set -o vi
 # enter ESC key, lag 0.1 seconds (default 0.4 seconds)
 export KEYTIMEOUT=1
 
+# GTK_IM_MODULE=xim, XMODIFIERS=fcitx to suport fcitx @ chrome
 export XMODIFIERS='@im=fcitx'
 export XIM=fcitx
 export XIM_PROGRAM=fcitx
 export QT_IM_MODULE="fcitx"
-export GTK_IM_MODULE="fcitx"
-
+export GTK_IM_MODULE=xim
 
 alias -s wiki=vim
 alias -s py=python
@@ -148,7 +148,7 @@ bindkey -M vicmd 'j'        history-search-forward
 set completion-ignore-case on
 
 export HISTCONTROL=erasedups
-export HISTSIZE=1000
+export HISTSIZE=10000
 export HISTIGNORE="cd(| *):(ls|dir)(| *):(rm|mv|cp|ln|scp|rmdir|mkdir) *:(echo|print)(| *):(g|)vim(| *):vi:vi *:e *:cat(| *):man *:(which|whence|type)(| *)|[fb]g(| *):feh *:pwd:exit(| *):date:kill(| *):ping *:ssh *:clear *:sleep *:history:tail *:head *:z *"
 export SAVEHIST=1000
 export HISTFILE=~/.zsh_history

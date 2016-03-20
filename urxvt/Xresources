@@ -149,15 +149,22 @@ MolokaiURxvt*color2:			#A6E22E
 MolokaiURxvt*color3:			#FD971F
 ! blue
 MolokaiURxvt*color4:			#66D9EF
+! purple
 MolokaiURxvt*color5:			#AE81FF
+! cyan
 MolokaiURxvt*color6:			#A1EFE4
 MolokaiURxvt*color7:			#c8c8c2
 
 MolokaiURxvt*color8:			#75715E
+! dark red
 MolokaiURxvt*color9:			#FC5C94
+! dark green
 MolokaiURxvt*color10:			#C1F161
+! dark yellow
 MolokaiURxvt*color11:			#FEB257
+! dark blue
 MolokaiURxvt*color12:			#8DE6F7
+! dark purple
 MolokaiURxvt*color13:			#C2A1FF
 MolokaiURxvt*color14:			#BBF7EF
 MolokaiURxvt*color15:			#c8c8c0

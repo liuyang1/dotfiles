@@ -119,7 +119,7 @@ class Symb():
     forward = '❯'
     backward = "❮"
     modify = "±"
-    add = "✔"
+    add = "✚"
     delt = "✘"
     uModify = modify
     uDelete = "✖"

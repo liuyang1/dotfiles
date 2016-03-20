@@ -10,8 +10,6 @@ a.out
 *.a
 *.beam
 erl_crash.dump
-*.pyc
-*.pyo
 *.ta
 *.ta.encrypted
 *.ta.clear
@@ -124,5 +122,11 @@ secret_token.rb
 .htpasswd
 
 # python setting files
+*.pyc
+*.pyo
+__pycahce__/*
 settings.py
 conf.py
+
+# astyle formated files
+*.orig

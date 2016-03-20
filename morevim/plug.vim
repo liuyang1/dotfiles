@@ -42,15 +42,25 @@ nnoremap <Leader>gb         :Gblame<cr>
 nnoremap <Leader>gd         :Gdiff<cr>
 " for vim74 compat
 set diffopt+=vertical
-" let g:gitgutter_sign_added = '✚'
-" let g:gitgutter_sign_removed = '✖'
-let g:gitgutter_sign_modified = '±'
-" let g:gitgutter_sign_modified_removed = '±✖'
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_modified_removed = '±-'
+let gitgutter_style="colorful"
+if gitgutter_style == "colorful"
+    let g:gitgutter_sign_added = '∙'
+    let g:gitgutter_sign_removed = '∙'
+    let g:gitgutter_sign_modified = '∙'
+    let g:gitgutter_sign_modified_removed = '∙∙'
+elseif gitgutter_style == "fancy"
+    let g:gitgutter_sign_added = '✚'
+    let g:gitgutter_sign_removed = '✖'
+    let g:gitgutter_sign_modified = '±'
+    let g:gitgutter_sign_modified_removed = '±✖'
+elseif gitgutter_style == "simple"
+    let g:gitgutter_sign_added = '+'
+    let g:gitgutter_sign_removed = '-'
+    let g:gitgutter_sign_modified_removed = '±-'
+endif
 let g:gitgutter_sign_removed_first_line = '\'
-let g:gitgutter_diff_args = '-w'
+" ignore whitespace
+" let g:gitgutter_diff_args = '-w'
 let g:gitgutter_override_sign_column_highlight = 0
 " It auto run background, not need shortcut key defenition.
 " nnoremap <Leader>gg         :GitGutter<cr>
@@ -281,20 +291,27 @@ nnoremap cus    :USload<cr>
 
 " will make vim slow
 " Plug 'colorizer'
-Plug 'guns/xterm-color-table.vim'
+" Plug 'guns/xterm-color-table.vim'
+
+" This one is better than colorizer?
+" It works well with GUI, but fail under terminal, even set guicolors
+" Plug 'gorodinskiy/vim-coloresque'
+
 """ colorscheme END
 
 """ UI related
 Plug 'bling/vim-airline'
 let g:airline_theme             = 'powerlineish'
 " let g:airline_theme             = 'hybrid'
-let g:airline#extensions#syntastic#enabled  = 1
+let g:airline#extensions#syntastic#enabled  = 0
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = 'No Br'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_section_warning = ''
 let g:airline_powerline_fonts   = 1
+
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'mkitt/tabline.vim'
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -401,13 +418,17 @@ highlight SyntasticErrorLine    ctermbg=black
 highlight SyntasticErrorSign    ctermbg=darkgray
 let g:syntastic_check_on_open = 1
 let g:syntastic_aggregate_errors = 1
-let g:syntastic_error_symbol = "✘"
-let g:syntastic_warning_symbol = "!"
-" let g:syntastic_warning_symbol = "⚒"
-" let g:syntastic_error_symbol = 'E'
-" let g:syntastic_warning_symbol = 'w'
-let g:syntastic_style_error_symbol   = 'S'
-let g:syntastic_style_warning_symbol = 's'
+let syntastic_style="fancy"
+if syntastic_style == "fancy"
+    let g:syntastic_error_symbol = "✖"
+    let g:syntastic_warning_symbol = "!"
+    " let g:syntastic_warning_symbol = "⚒"
+elseif syntastic_style == "simple"
+    let g:syntastic_error_symbol = 'E'
+    let g:syntastic_warning_symbol = 'w'
+endif
+let g:syntastic_style_error_symbol   = 'X'
+let g:syntastic_style_warning_symbol = '✕'
 let g:syntastic_enable_highlighting = 0
 let g:syntastic_c_checkers = []
 let g:syntastic_python_python_exec = "/usr/bin/python2"
@@ -419,6 +440,7 @@ let g:syntastic_c_remove_include_errors = 1
 let g:syntastic_haskell_checkers = ['ghc_mod', 'hlint']
 let g:syntastic_haskell_hlint_args = "-i 'Redundant bracket'"
 " remove hdevtools, as it may block vim
+let g:syntastic_java_checkers = ['javac']
 """ error checking END
 
 """ comment related
@@ -544,7 +566,9 @@ let python_highlight_all = 1
 Plug 'plasticboy/vim-markdown', { 'for': ['md']}
 let g:vim_markdown_folding_disabled=1
 " Plug 'waylan/vim-markdown-extra-preview'
-Plug 'suan/vim-instant-markdown', { 'for': ['md']}
+" Must to default enable to preview markdown with browser
+Plug 'suan/vim-instant-markdown' 
+", { 'for': ['md']}
 
 """ sml filetype
 Plug 'cypok/vim-sml', { 'for': ['sml'] }
@@ -679,4 +703,7 @@ Plug 'dmedvinsky/uritality.vim'
 Plug 'aklt/plantuml-syntax', { 'for': [ 'plantuml' ] }
 
 " Plug 'itchyny/thumbnail.vim'
+
+Plug 'AD7six/vim-activity-log'
+let g:activity_log_location="$HOME/.activity/%Y/%m/%d.log"
 call plug#end()

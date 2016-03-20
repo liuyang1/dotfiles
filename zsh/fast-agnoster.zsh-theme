@@ -30,7 +30,7 @@ if [[ -z "$FastAgnosterBlacklist" ]]; then
 fi
 if [[ "$IsFancy" = "yes" ]];then
   SEGMENT_SEPARATOR=''
-  RETVAL_SYM="✘"
+  RETVAL_SYM="✖"
 else
   SEGMENT_SEPARATOR="|"
   RETVAL_SYM="X"
