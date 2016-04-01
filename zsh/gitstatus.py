@@ -110,6 +110,7 @@ def NotZero(v, sym=""):
 
 class Symb():
     branch = ""
+    remove = "∆"
     remote = "☁"
     # forward = "⌃"
     # backward = "⌄"

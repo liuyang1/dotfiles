@@ -130,3 +130,6 @@ conf.py
 
 # astyle formated files
 *.orig
+
+# rust dependency file
+Cargo.lock

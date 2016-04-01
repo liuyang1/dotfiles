@@ -16,4 +16,7 @@ installFile $PWD/ycm_extra_conf.py  $PREFIX/.ycm_extra_conf.py
 
 UNDODIR="$HOME/.vimundo"
 [[ ! -d "$UNDODIR" ]] && mkdir "$UNDODIR"
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ./update.sh

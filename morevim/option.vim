@@ -102,6 +102,8 @@ set wildchar=<TAB>  " vim default <TAB>
 " suffiexes file ignore
 set suffixes=,~,.o,.h,.info,.swp,.obj,.gz,.ps,.tar,.aux,.dvi,.bz2,.idx,.pdf
 set wildignore=*.gz,*.bz2,*.tgz,*.tbz,*.zip,*.rar,*.mp3,*.png,*.jpg,*.o,*.obj,*.exe
+set wildignore+=\\tmp\\
+set wildmode=list:longest,list:full
 
 " backspace
 set backspace=eol,start,indent
