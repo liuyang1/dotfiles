@@ -7,6 +7,7 @@ import itertools
 
 
 NumStat = namedtuple('NumStat', ['insert', 'delete', 'filename'])
+RetFmt = "%s %5d %5d %5d"
 
 
 def getCommit(cwd, commit):
@@ -80,7 +81,7 @@ def statRepo(cwd):
     # print("%s %s %s %s" % ("type".ljust(l), '+'.rjust(4), '-'.rjust(4),
     # '+/-'.rjust(4)))
     for i in olst:
-        print("%s %4d %4d %4d" % (i[0].ljust(l), i[1], i[2], i[3]))
+        print(RetFmt % (i[0].ljust(l), i[1], i[2], i[3]))
     return olst[-1][1:]
 
 
@@ -103,4 +104,4 @@ if __name__ == "__main__":
             ret.append(statRepo(d))
         cum = map(sum, zip(* ret))
         cum = list(cum)
-        print("%s %4d %4d %4d" % ("ALL".ljust(15), cum[0], cum[1], cum[2]))
+        print(RetFmt % ("ALL".ljust(15), cum[0], cum[1], cum[2]))

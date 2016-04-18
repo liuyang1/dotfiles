@@ -6,7 +6,7 @@ log_level = logging.DEBUG
 logger = logging.getLogger("logging.NormalLogger")
 
 handler = logging.FileHandler(log_file)
-fmt = "[%(asctime)s] [%(filename)s:%(lienno)s] [%(levelname)s] %(message)s"
+fmt = "[%(asctime)s] [%(filename)s:%(lineno)s] [%(levelname)s] %(message)s"
 formatter = logging.Formatter(fmt)
 handler.setFormatter(formatter)
 logger.addHandler(handler)
