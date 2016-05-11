@@ -533,6 +533,13 @@ let g:slimv_ballon=1
 let g:paredit_electric_return=0
 let g:paredit_short_maps=0
 
+Plug 'liuyang1/vim-niji'
+let g:niji_matching_filetypes = ['lisp', 'scheme', 'racket']
+
+" for quick move ()
+" fail to detect file type
+Plug 'paredit.vim'  " , { 'for': ['lisp', 'scheme', 'racket'] }
+
 " Plug 'dkinzer/vim-schemer'
 
 """ Python
@@ -683,7 +690,8 @@ Plug 'DrawIt'
 
 Plug 'tpope/vim-dispatch'
 
-Plug 'tpope/vim-unimpaired'
+" temp forbin as >p kind of key-mapping
+" Plug 'tpope/vim-unimpaired'
 
 Plug 'Align'
 
