@@ -8,22 +8,24 @@ downSrc() {
     hg bookmark 24-bit-xterm
 }
 
-./configure --with-features=huge \
-            --enable-multibyte \
-            --enable-rubyinterp \
-            --enable-pythoninterp \
-            --enable-python3interp \
-            --enable-perlinterp \
-            --enable-luainterp \
-            --enable-termtruecolor \
-            --with-python-config-dir=/usr/lib/python2.7/config \
-            --enable-gui=gtk2 --enable-cscope --prefix=/usr
-make VIMRUNTIMEDIR=/usr/share/vim/vim74
-make
+build() {
+    ./configure --with-features=huge \
+        --enable-multibyte \
+        --enable-rubyinterp \
+        --enable-pythoninterp \
+        --enable-python3interp \
+        --enable-perlinterp \
+        --enable-luainterp \
+        --enable-termtruecolor \
+        --with-python-config-dir=/usr/lib/python2.7/config \
+        --enable-gui=gtk2 --enable-cscope --prefix=/usr
+    make VIMRUNTIMEDIR=/usr/share/vim/vim74
+    make
 
-sudo make install
+    sudo make install
 
-vim --version | grep color
+    vim --version | grep color
+}
 
 # How to use it.
 # source 24bit.vim to use it.

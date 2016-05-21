@@ -111,7 +111,7 @@ def NotZero(v, sym=""):
 class Symb():
     branch = ""
     remove = "∆"
-    remote = "☁"
+    remote = "⌃"
     # forward = "⌃"
     # backward = "⌄"
 # "⌃⌄"
@@ -121,12 +121,12 @@ class Symb():
     backward = "❮"
     modify = "±"
     add = "✚"
-    delt = "✘"
+    delt = "✖"
     uModify = modify
     uDelete = "✖"
     # Untrack = "✚"
     # Untrack = "."
-    Untrack = "‥"
+    Untrack = "?"
     delimiter = "•"
 
 

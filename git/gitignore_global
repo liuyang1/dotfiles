@@ -131,5 +131,17 @@ conf.py
 # astyle formated files
 *.orig
 
+makeTA.sh
+
 # rust dependency file
 Cargo.lock
+
+# media file
+*.ivf
+*.webm
+*.yuv
+
+# cccc temp dir
+.cccc
+
+*.dmp

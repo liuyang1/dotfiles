@@ -39,7 +39,8 @@
     st = diff --stat
     stc = diff --stat --cached
 # log
-    l = log --color --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%x09%Creset %Cgreen%ai%Creset - %s %C(yellow)%d%Creset' --abbrev-commit
+    l = log --color --graph --pretty=format:'%Cred%h%Creset %G? %C(bold green)%an%x09%Creset %C(cyan)%ai%Creset - %s %C(yellow)%d%Creset' --abbrev-commit
+    ltxt = log --pretty=format:'- %s' --abbrev-commit
     lg = log --color --graph --stat
     la = log --color --stat -1 HEAD
     lp = log -p

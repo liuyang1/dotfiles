@@ -110,6 +110,7 @@
 # Backup files
 --ignore-file=ext:bak
 --ignore-file=match:/~$/
+--ignore-file=ext:dmp
 
 # Emacs swap files
 --ignore-file=match:/^#.+#$/

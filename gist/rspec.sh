@@ -21,7 +21,7 @@ rspec() {
         sh*) cmd="bash $filename" ;;
         # scm*) cmd="guile $filename" ;;
         scm*) cmd="racket -f $filename" ;;
-        c*|cpp*|C*|h*|cxx*|cc*)
+        c|cpp*|C*|h*|cxx*|cc*)
             if [[ -f Makefile ]]; then
                 cmd="make && make run"
             else
