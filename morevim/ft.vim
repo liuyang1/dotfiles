@@ -87,3 +87,7 @@ let java_ignore_javadoc=1
 let java_highlight_java_lang_ids=1
 let java_highlight_functions="style"
 let java_minlines = 150
+
+""" ledger
+autocmd Filetype ledger setlocal formatprg=ldgfmt.py\ %
+autocmd FileType ledger    nnoremap <Leader>cc     ggVGgq

@@ -9,3 +9,5 @@ installFile2Dir test256.pl    $PREFIX
 installFile2Dir cfgscr.sh $PREFIX
 installFile findFile.sh   $PREFIX/ff
 installFile rspec.sh            $PREFIX/rspec
+installFile2Dir ldgfmt.py $PREFIX
+chmod +x $PREFIX/ldgfmt.py
