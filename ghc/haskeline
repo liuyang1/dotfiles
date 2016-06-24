@@ -4,4 +4,7 @@ bind ^S em-inc-search-next
 bind ^[[5~ ed-search-prev-history
 bind ^[[6~ ed-search-next-history
 
+keyseq: rxvt-unicode-256color "\ESC[1~" home
+keyseq: rxvt-unicode-256color "\ESC[4~" end
+
 editMode: Vi

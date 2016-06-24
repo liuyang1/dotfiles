@@ -58,9 +58,9 @@ set cmdheight=1  "cmd  height
 " cursor
     " only show current line at active window
 augroup CursorLine
-    au!
-    au VimEnter,WinEnter,BufWinEnter    * setlocal cursorline
-    au WinLeave * setlocal nocursorline
+    autocmd!
+    autocmd VimEnter,WinEnter,BufWinEnter    * setlocal cursorline
+    autocmd WinLeave * setlocal nocursorline
 augroup END
     " set cursorcolumn
 set ruler        "show position of cursor
@@ -189,6 +189,7 @@ if !exists("my_auto_commands_autoloaded")
     let my_auto_commands_autoloaded = 1
     let g:LargeFile = 1024 * 1024 * 1
     augroup LargeFile
+        autocmd!
         autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) > g:LargeFile | setlocal bufhidden=unload | else | set eventignore-=FileType | endif
     augroup END
 endif

@@ -39,7 +39,7 @@ hi Define          guifg=#66D9EF
 hi Delimiter       guifg=#8F8F8F
 " setting fg color for diff, it's annoy.
 hi DiffAdd         guibg=#162A1E
-hi DiffChange      guibg=#2C2725
+hi DiffChange      guibg=#162A1E
 hi clear DiffDelete
 hi DiffDelete      guibg=#301020
 hi DiffText        guibg=#4C4745 gui=italic,bold
@@ -165,9 +165,12 @@ if &t_Co > 255
    " hi DiffDelete      ctermfg=125 ctermbg=233
    " hi DiffText                    ctermbg=102 cterm=bold
    " Normal is 234, cursorline is 236
-   hi DiffAdd    ctermbg=235  cterm=none
-   hi DiffChange ctermbg=233  cterm=none
-   hi DiffText   ctermbg=189  cterm=none
+   " hi DiffAdd    ctermbg=235  cterm=none
+   " hi DiffChange ctermbg=233  cterm=none
+   " Normal is 235, cursorline is 236
+   hi DiffAdd ctermbg=234 cterm=none
+   hi DiffChange ctermbg=233 cterm=none
+   hi DiffText   ctermbg=30  cterm=none
    hi DiffDelete      ctermbg=233 cterm=none
 
    hi Directory       ctermfg=118               cterm=bold
@@ -264,6 +267,7 @@ if &t_Co > 255
 
        hi Keyword         ctermfg=197               cterm=bold
        hi Operator        ctermfg=197
+       " hi Operator        ctermfg=209
        hi PreCondit       ctermfg=154               cterm=bold
        hi PreProc         ctermfg=154
        hi Repeat          ctermfg=197               cterm=bold
@@ -281,7 +285,8 @@ if &t_Co > 255
 " self-defined
     highlight Function ctermfg=green
     " highlight SignColumn ctermbg=232
-    highlight cType     ctermfg=yellow cterm=None guifg=#ffaf00
+    " highlight cType     ctermfg=yellow cterm=None guifg=#ffaf00
+    highlight cType     ctermfg=yellow cterm=None guifg=#FEB257
     highlight Identifier ctermfg=darkyellow
     " highlight SpellBad cterm=bold ctermfg=darkred cterm=reverse
     " highlight Conditional cterm=bold ctermfg=darkred

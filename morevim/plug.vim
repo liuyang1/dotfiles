@@ -168,6 +168,7 @@ let g:mwAutoSaveMarks = 1
 " autocmd Filetype vimwiki nnoremap <Leader>tt :Voom vimwiki<cr>
 
 Plug 'gtags.vim'
+map <C-\> :GtagsCursor<CR>
 " Plug 'autoload_cscope.vim'
 " Plug 'cscope.vim'
 
@@ -431,7 +432,8 @@ let g:syntastic_style_error_symbol   = 'X'
 let g:syntastic_style_warning_symbol = '✕'
 let g:syntastic_enable_highlighting = 0
 let g:syntastic_c_checkers = []
-let g:syntastic_python_python_exec = "/usr/bin/python2"
+" This enable init python3 when init, make vim slow at "open buffer"
+" let g:syntastic_python_python_exec = "/usr/bin/python3"
 "let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_loc_list_height = 5
@@ -581,8 +583,9 @@ Plug 'suan/vim-instant-markdown'
 Plug 'cypok/vim-sml', { 'for': ['sml'] }
 
 """ Haskell
-" Plug 'enomsg/vim-haskellConcealPlus', {'for': ['haskell']}
-" Plug 'lukerandall/haskellmode-vim', {'for': ['haskell']}
+Plug 'enomsg/vim-haskellConcealPlus', {'for': ['haskell']}
+let hscoptions="𝐌⇒⇔tT*Efh"
+Plug 'lukerandall/haskellmode-vim', {'for': ['haskell']}
 " au BufEnter *.hs compiler ghc
 let g:haddock_browser="/usr/bin/chromium"
 let g:haddock_browser_nosilent = 1
@@ -615,6 +618,9 @@ autocmd Filetype haskell nnoremap <silent> --s "=HaskellModuleSection()<CR>gp
 Plug 'Logcat-syntax-highlighter'
 """ javascript
 Plug 'maksimr/vim-jsbeautify', { 'for': ['javascript', 'html'] }
+
+""" rust-lang
+Plug 'rust-lang/rust.vim'
 """ filetype END
 
 """ file / directory browser
