@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 #-*- encoding:utf-8 -*-
-gWidth = 20
+gWidth = 18
 
 
 def log(*args, **kwargs):
@@ -41,6 +41,8 @@ def fmtText(line):
     '    汉语:长chang度测试  $1.00'
     >>> fmtText("    abc:def    abc def ghi")
     '    abc:def             abc def ghi'
+    >>> fmtText("    汉语：长chang度测试chang   ￥1.00")
+    '    汉语:长chang度测试chang  $1.00'
     """
     origin = line
     line = line.replace("：", ":")
@@ -53,7 +55,7 @@ def fmtText(line):
             lst[1] = ' '.join(lst[1:])
         offset = sum([0 if isascii(i) else 1 for i in origin])
         width = gWidth - offset
-        fmt = "    %%-%ds%%s" % (width)
+        fmt = "    %%-%ds  %%s" % (width)
         ret = fmt % (lst[0], lst[1])
     else:
         log("todo: not handle when text=%s" % (origin))
@@ -69,9 +71,11 @@ def fmtTitle(line):
     'a/b/c  abc def'
     """
     lst = line.split()
-    if len(lst) > 2:
+    if len(lst) >= 2:
         lst[1] = ' '.join(lst[1:])
-    ret = "%s  %s" % (lst[0], lst[1])
+        ret = "%s  %s" % (lst[0], lst[1])
+    else:
+        ret = lst[0]
     return ret
 
 actMap = [(isComment, Nothing), (isBlank, Nothing), (isText, fmtText), (isTitle, fmtTitle)
@@ -99,4 +103,5 @@ def main(fn):
 
 
 if __name__ == "__main__":
-    main('log.ldg')
+    import sys
+    main(sys.argv[1])
