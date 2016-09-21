@@ -36,6 +36,4 @@ alias dir='dir -N --color'
 alias sync='rsync -v -P -e ssh -C '
 alias emacsnw="emacs -nw"
 
-export GREP_OPTIONS='--color=auto'
-
 export TERM=xterm-256color

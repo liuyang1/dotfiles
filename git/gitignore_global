@@ -5,6 +5,8 @@
 *.dll
 *.exe
 *.o
+# dependency file
+*.d
 a.out
 *.so
 *.a
@@ -148,3 +150,15 @@ Cargo.lock
 .cccc
 
 *.dmp
+
+# Source Insight files
+*.IAB
+*.IAD
+*.IMB
+*.IMD
+*.PFI
+*.PO
+*.PR
+*.PRI
+*.PS
+*.WK3

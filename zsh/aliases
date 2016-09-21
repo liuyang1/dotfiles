@@ -48,3 +48,4 @@ alias af="sag"
 # alias j="fasd_cd -d"
 alias dd="dirs -v"
 alias clip="xclip -sel clip < "
+alias groot='cd $(git rev-parse --show-cdup)'

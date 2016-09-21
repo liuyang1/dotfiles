@@ -132,6 +132,7 @@ let g:VimuxHeight = "40"
 " let g:showmarks_hlline_lower=1
 " highlight ShowMarksHlu  ctermbg=red ctermfg=green
 
+" BUGGY: had block vim startup, but now this problem is gone
 Plug 'kshenoy/vim-signature'
 " Plugin to toggle, display and navigate marks
 let g:SignatureMarkOrder = "\m⚑"
@@ -455,7 +456,7 @@ let g:tcomment_types={'c': '// %s', 'asm': '# %s', 'gdb': '# %s'}
 """ comment related END
 
 """ for programming or filetype
-""" Plugin for C
+""" Plugin for C lang
 Plug 'a.vim', { 'for': [ 'c', 'h', 'cpp' ] }
 
 highlight Operator ctermfg=117
@@ -692,7 +693,9 @@ Plug 'DrawIt'
 " gb gB to swap-parameter
 " Plug 'swap-parameters'
 
+""" This plugin affect indent behaviour in C language
 " Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 
 Plug 'tpope/vim-dispatch'
 
