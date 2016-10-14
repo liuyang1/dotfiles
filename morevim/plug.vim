@@ -572,7 +572,7 @@ let python_highlight_all = 1
 """ Python END
 
 """ markdown filetype
-Plug 'plasticboy/vim-markdown', { 'for': ['md']}
+Plug 'plasticboy/vim-markdown', { 'for': ['markdown']}
 let g:vim_markdown_folding_disabled=1
 " Plug 'waylan/vim-markdown-extra-preview'
 " Must to default enable to preview markdown with browser
@@ -699,7 +699,7 @@ Plug 'tpope/vim-dispatch'
 " temp forbin as >p kind of key-mapping
 " Plug 'tpope/vim-unimpaired'
 
-Plug 'Align'
+" Plug 'Align'
 
 " :Tab /= aligh with =
 " :Tab /:\zs aligh with colon

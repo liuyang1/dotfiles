@@ -51,6 +51,9 @@ Thumbs.db
 
 # video/audio file
 *.ts
+*.265
+*.264
+*.261
 *.mpg
 *.mp4
 *.h264
