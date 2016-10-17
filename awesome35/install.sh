@@ -14,4 +14,8 @@ installFile(){
 
 installFile $PWD/rc.lua $PREFIX/rc.lua
 
+pushd $HOME/.config/awesome
+git clone https://github.com/guotsuan/eminent.git
+git clone https://github.com/copycat-killer/lain.git
+
 echo "OK"

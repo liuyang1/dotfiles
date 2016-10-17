@@ -223,7 +223,9 @@ set showcmd
 set ttimeout
 set timeoutlen=1000 ttimeoutlen=0
 
-set keywordprg=man\ -a
+" set keywordprg=man\ -a
+" check manual from page3(library calls), page2(system calls), page1(program)
+set keywordprg=man\ -S\ 3:2:1
 
 set sessionoptions-=options
 
