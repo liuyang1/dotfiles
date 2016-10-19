@@ -457,7 +457,9 @@ let g:tcomment_types={'c': '// %s', 'asm': '# %s', 'gdb': '# %s'}
 
 """ for programming or filetype
 """ Plugin for C lang
-Plug 'a.vim', { 'for': [ 'c', 'h', 'cpp' ] }
+""" replace stdrand a.vim.
+""" old a.vim have imap shortcut. It affect input speed.
+Plug 'nacitar/a.vim', { 'for': [ 'c', 'h', 'cpp' ] }
 
 highlight Operator ctermfg=117
 Plug 'NLKNguyen/c-syntax.vim'
