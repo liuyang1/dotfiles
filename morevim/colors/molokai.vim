@@ -45,9 +45,9 @@ hi DiffDelete      guibg=#301020
 hi DiffText        guibg=#4C4745 gui=italic,bold
 " gigutter plugin highlight
 " keep same background with SignColumn
-hi GitGutterAdd    guifg=#afd700 guibg=#262626
-hi GitGutterChange guifg=#ffaf00 guibg=#262626
-hi GitGutterDelete guifg=#F92672 guibg=#262626
+hi GitGutterAdd    guifg=#afd700 guibg=#262626 ctermfg=green
+hi GitGutterChange guifg=#ffaf00 guibg=#262626 ctermfg=yellow
+hi GitGutterDelete guifg=#F92672 guibg=#262626 ctermfg=red
 
 hi Directory       guifg=#A6E22E               gui=bold
 hi Error           guifg=#960050 guibg=#1E0010
@@ -80,8 +80,9 @@ hi PreCondit       guifg=#A6E22E               gui=bold
 hi PreProc         guifg=#A6E22E
 hi Question        guifg=#66D9EF
 hi Repeat          guifg=#F92672               gui=bold
-" hi Search          guifg=#FFFFFF guibg=#455354
-hi Search          guifg=#000000 guibg=bg
+hi Search          guibg=#AD1457
+
+" hi Search          guifg=#000000 guibg=bg
 " marks column
 " hi SignColumn      guifg=#A6E22E guibg=#232526
 hi SignColumn      ctermbg=235   guibg=#262626
@@ -205,7 +206,7 @@ if &t_Co > 255
    hi PreProc         ctermfg=118
    hi Question        ctermfg=81
    hi Repeat          ctermfg=161               cterm=bold
-   hi Search          ctermfg=0   ctermbg=222   cterm=NONE
+   hi Search          ctermfg=253   ctermbg=166   cterm=NONE
 
    " marks column
    hi SignColumn      ctermfg=118 ctermbg=235
@@ -292,7 +293,7 @@ if &t_Co > 255
     " highlight Conditional cterm=bold ctermfg=darkred
     " highlight Statement ctermfg=208 cterm=italic
     " highlight Statement cterm=italic ctermfg=darkred
-    highlight Statement cterm=italic ctermfg=197
+    highlight Statement cterm=italic ctermfg=197 term=italic
     highlight Comment ctermfg=246 guifg=#566467
     highlight cUserLabel cterm=italic,underline ctermfg=229
     " highlight CursorLineNr ctermfg=208               cterm=bold

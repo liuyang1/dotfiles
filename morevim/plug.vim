@@ -169,7 +169,7 @@ let g:mwAutoSaveMarks = 1
 " autocmd Filetype vimwiki nnoremap <Leader>tt :Voom vimwiki<cr>
 
 Plug 'gtags.vim'
-map <C-\> :GtagsCursor<CR>
+map <C-]> :GtagsCursor<CR>
 " Plug 'autoload_cscope.vim'
 " Plug 'cscope.vim'
 
@@ -462,7 +462,7 @@ let g:tcomment_types={'c': '// %s', 'asm': '# %s', 'gdb': '# %s'}
 Plug 'nacitar/a.vim', { 'for': [ 'c', 'h', 'cpp' ] }
 
 highlight Operator ctermfg=117
-Plug 'NLKNguyen/c-syntax.vim'
+" Plug 'NLKNguyen/c-syntax.vim'
 
 """ C/C++ document Doxygen support
 Plug 'vim-scripts/DoxygenToolkit.vim'

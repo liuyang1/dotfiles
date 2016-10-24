@@ -1,9 +1,13 @@
 set t_Co=256
 
-if has('termtruecolor')
+if has('termguicolors')
     let &t_8f="\e[38;2;%ld;%ld;%ldm"
     let &t_8b="\e[48;2;%ld;%ld;%ldm"
-    set guicolors
+    " let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+    " let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+    " set t_8f="[38:2:%lu:%lu:%lum"
+    " set t_8b="[48:2:%lu:%lu:%lum"
+    set termguicolors
 endif
 
 let scm="molokai"
@@ -35,7 +39,7 @@ autocmd FileType c,cpp      setlocal colorcolumn=80,100
 " disable Background color erase
 set t_ut=
 
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 14
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
