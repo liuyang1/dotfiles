@@ -15,6 +15,7 @@ rspec() {
         cmd="make -f $filename"
         return
     fi
+    echo "$ext"
     case "$ext" in
         # py*) cmd="python $filename" ;;
         py*) cmd="python $filename 2 && feh bar.png" ;;
@@ -33,6 +34,7 @@ rspec() {
         Xresouces*) cmd="xrdb $filename" ;;
         dot) cmd="dot $filename -Tpng:cairo:cairo -o test.png && feh test.png" ;;
         # dot) cmd="dot $filename -Tpng -o test.png && eog test.png" ;;
+        # circo.dot) cmd="circo $filename -Tpng:cairo:cairo -o test.png && feh test.png" ;;
         sml) cmd="sml $filename" ;;
         mk) cmd="make -f $filename" ;;
         uml) cmd="java -jar $HOME/.local/bin/plantuml.jar -pipe < $filename > test.png && feh test.png" ;;

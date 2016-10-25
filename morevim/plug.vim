@@ -290,6 +290,8 @@ nnoremap cus    :USload<cr>
 " Plug 'w0ng/vim-hybrid'
 " Plug 'nanotech/jellybeans.vim'
 " Plug 'endel/vim-github-colorscheme'
+" Plug 'jacoborus/tender'
+" Plug 'lifepillar/vim-solarized8'
 
 " will make vim slow
 " Plug 'colorizer'
@@ -555,7 +557,8 @@ autocmd FileType python map <buffer> <Leader>cc     :call Autopep8()<cr>
 let g:autopep8_disable_show_diff=1
 au FileType python setlocal formatprg=autopep8\ -aa\ -
 
-Plug 'Python-mode-klen', { 'for': ['python'] }
+" It's too slow
+" Plug 'Python-mode-klen', { 'for': ['python'] }
 " pep8 style indent
 " python lint checking
 let g:pymode_folding = 0
@@ -577,9 +580,12 @@ let python_highlight_all = 1
 """ markdown filetype
 Plug 'plasticboy/vim-markdown', { 'for': ['markdown']}
 let g:vim_markdown_folding_disabled=1
+" we don't need conceal in vim, it's ugly as break indent rules.
+" set conceallevel=2
 " Plug 'waylan/vim-markdown-extra-preview'
 " Must to default enable to preview markdown with browser
-Plug 'suan/vim-instant-markdown' 
+" Plug 'suan/vim-instant-markdown'
+" Plug 'gabrielelana/vim-markdown' , { 'for': ['markdown']}
 ", { 'for': ['md']}
 
 """ sml filetype
@@ -589,6 +595,7 @@ Plug 'cypok/vim-sml', { 'for': ['sml'] }
 Plug 'enomsg/vim-haskellConcealPlus', {'for': ['haskell']}
 let hscoptions="𝐌⇒⇔tT*Efh"
 Plug 'lukerandall/haskellmode-vim', {'for': ['haskell']}
+let g:hs_highlight_delimiters = 1
 " au BufEnter *.hs compiler ghc
 let g:haddock_browser="/usr/bin/chromium"
 let g:haddock_browser_nosilent = 1
@@ -720,6 +727,10 @@ Plug 'godlygeek/tabular'
 Plug 'dmedvinsky/uritality.vim'
 
 Plug 'aklt/plantuml-syntax', { 'for': [ 'plantuml' ] }
+
+" add path completion of zsh style
+" we don't need it, as already have ctrlp
+" Plug 'fweep/vim-zsh-path-completion'
 
 " Plug 'itchyny/thumbnail.vim'
 

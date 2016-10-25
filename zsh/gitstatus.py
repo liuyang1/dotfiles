@@ -184,6 +184,7 @@ def main(d):
     try:
         stat = getGitStat(d)
     except:
+        log.warn("getGitStat on d=[%s] fail" % (d))
         return ""
     lines = stat.split('\n')
     br = probeBranch(lines[0], d)

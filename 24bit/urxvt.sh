@@ -1,5 +1,7 @@
 # download code
-git clone git://github.com/spudowiar/rxvt-unicode.git
+download() {
+    git clone git://github.com/spudowiar/rxvt-unicode.git
+}
 
 patch() {
   # patch list

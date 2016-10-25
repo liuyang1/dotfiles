@@ -115,6 +115,9 @@ export LC_CTYPE="en_US.UTF8"
 
 # bindkey '^R' history-incremental-search-backward
 bindkey '^R' zaw-history
+# default bind key for zaw
+# ^N         down-line-or-history
+# ^P         up-line-or-history
 zstyle ':filter-select' extended-search yes
 # zle -N u
 # bindkey "^F" u

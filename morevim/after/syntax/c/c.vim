@@ -6,3 +6,8 @@ syn keyword cType INT INT64 INT32 INT16 INT8
 syn keyword cType CHAR HRESULT BOOL UCHAR
 syn keyword cType HANDLE
 syn keyword cType VOID
+syn keyword cType uint
+syn keyword cConstant FALSE TRUE SUCCESS SUCC S_OK
+
+highlight cVar ctermfg=4 guifg=#66D9EF
+"cterm=bold

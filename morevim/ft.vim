@@ -26,12 +26,16 @@ autocmd FileType c,cpp nmap <buffer> <Enter>     <C-w>}
 
 " /\<WORD\> to match WORD in regexp mode, \C for case sensitive
 " this is for :set smartcase mode
-autocmd FileType c,cpp,python  nnoremap <silent> <C-\>  :vsp <cr>:exec("tag /\\<".expand("<cword>")."\\>\\C")<cr>
+" use gtags instead of naive tag
+" autocmd FileType c,cpp,python  nnoremap <silent> <C-]>  :vsp <cr>:exec("tag /\\<".expand("<cword>")."\\>\\C")<cr>
 
 " add for doxygen style comments
 autocmd FileType c,cpp  setlocal comments^=:///
 autocmd FileType c,cpp set cino+=(0
-
+" autowrap
+autocmd FileType c,cpp set textwidth=100
+" wrapping text using text width require "t" in formatoptions
+autocmd FileType c,cpp set formatoptions+=t
 
 " for cpp
 autocmd FileType cpp    setlocal formatprg=uncrustify\ -c\ ~/.uncrustify.cfg\ --no-backup\ 2>/dev/null

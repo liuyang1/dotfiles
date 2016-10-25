@@ -16,5 +16,5 @@ else
     usage
     exit 1
 fi
-find "$d" -type d -name "*$1*" | sed "s%$d/%%g"
-find "$d" -type f -name "*$1*" | sed "s%$d/%%g"
+find "$d" -path .git -prune -type d -name "*$1*" | sed "s%$d/%%g"
+find "$d" -path .git -prune -type f -name "*$1*" | sed "s%$d/%%g"
