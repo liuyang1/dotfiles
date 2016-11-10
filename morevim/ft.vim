@@ -93,5 +93,7 @@ let java_highlight_functions="style"
 let java_minlines = 150
 
 """ ledger
+autocmd BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
 autocmd Filetype ledger setlocal formatprg=ldgfmt.py\ %
 autocmd FileType ledger    nnoremap <Leader>cc     ggVGgq
+autocmd Filetype ledger setlocal nofoldenable

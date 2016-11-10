@@ -736,4 +736,11 @@ Plug 'aklt/plantuml-syntax', { 'for': [ 'plantuml' ] }
 
 Plug 'AD7six/vim-activity-log'
 let g:activity_log_location="$HOME/.activity/%Y/%m/%d.log"
+
+""" for ledger format
+Plug 'ledger/vim-ledger', { 'for': ['ledger'] }
+let g:ledger_maxwidth=50
+let g:ledger_align_at=50
+let g:ledger_winpos='r'
+
 call plug#end()

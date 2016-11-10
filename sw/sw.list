@@ -32,3 +32,5 @@ openssh-server
 expect
 tftp-server
 npm
+most
+python-matplotlib

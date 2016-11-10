@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 #-*- encoding:utf-8 -*-
 gWidth = 18
 
@@ -43,6 +43,8 @@ def fmtText(line):
     '    abc:def             abc def ghi'
     >>> fmtText("    汉语：长chang度测试chang   ￥1.00")
     '    汉语:长chang度测试chang  $1.00'
+    >>> fmtText("    abc:def whitespace     $1.00")
+    '    abc:def whitespace       $1.00'
     """
     origin = line
     line = line.replace("：", ":")
@@ -51,6 +53,8 @@ def fmtText(line):
     if len(lst) == 1:
         ret = "    %s" % (lst[0])
     elif len(lst) >= 2:
+        lst[0] = lst[0].strip()
+        lst[1] = "$" + lst[1]
         if len(lst) > 2:
             lst[1] = ' '.join(lst[1:])
         offset = sum([0 if isascii(i) else 1 for i in origin])
