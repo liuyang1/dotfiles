@@ -17,8 +17,7 @@ rspec() {
     fi
     echo "$ext"
     case "$ext" in
-        # py*) cmd="python $filename" ;;
-        py*) cmd="python $filename 2 && feh bar.png" ;;
+        py*) cmd="python $filename" ;;
         sh*) cmd="bash $filename" ;;
         # scm*) cmd="guile $filename" ;;
         scm*|rkt) cmd="racket $filename" ;;

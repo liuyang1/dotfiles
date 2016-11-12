@@ -19,7 +19,7 @@ erl_crash.dump
 # test file
 *.test
 
-# Packetages
+# Packages
 *.7z
 *.dmg
 *.gz
@@ -135,6 +135,9 @@ conf.py
 
 # astyle formated files
 *.orig
+
+# patch origin & reject file
+*.rej
 
 makeTA.sh
 

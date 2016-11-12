@@ -5,7 +5,9 @@ PWD=`pwd`
 installFile(){
 	# installFile $1-> $2
 	echo installFile $1
-	rm $2
+	rm -f $2
+	dst=`dirname "$2"`
+	[[ -d "$dst" ]] || mkdir -p "$dst"
 	ln -s $1 $2
 }
 
