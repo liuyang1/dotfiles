@@ -37,10 +37,21 @@ with open("git_shortlog.list") as fp:
     pl.style.use('ggplot')
     fig = pl.figure()
     ax = fig.add_subplot(111)
-    ax.plot(nums)
+    rank = range(1, len(nums) + 1)
+    ax.plot(rank, nums, marker='.')
+    pl.xlabel('ranking')
+    pl.ylabel('number of commits')
+    # ax.set_yscale('log')
+    ax.set_xscale('log')
     for i in range(len(names)):
         n = names[i]
-        if 'ly@' in n:
-            xy = (i, nums[i])
-            ax.annotate("ly %d, %d" % (xy[0], xy[1]), xy)
+        idx = n.index('@')
+        name = n[1:idx]
+        xy = (rank[i], nums[i])
+        if i % 2 != 0 and name != 'ly':
+            continue
+        ax.annotate("%s %d, %d" % (name, xy[0], xy[1]), xy)
+        if "ly" == name:
+            break
+
     pylab.savefig('1.png')
