@@ -73,7 +73,7 @@ let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 1
 let g:gitgutter_sign_column_always = 1
 nmap ga     <Plug>GitGutterStageHunk
-nmap gr     <Plug>GitGutterRevertHunk
+nmap gr     <Plug>GitGutterUndoHunk
 nmap gs     <Plug>GitGutterPreviewHunk
 nmap gn     <Plug>GitGutterNextHunk
 nmap gp     <Plug>GitGutterPrevHunk
