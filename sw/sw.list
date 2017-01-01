@@ -35,3 +35,7 @@ npm
 most
 python-matplotlib
 compton
+strace
+hexedit
+hexdiff
+btsync

@@ -117,13 +117,13 @@ class Symb():
 # "⌃⌄"
 # '><'
 # "∧∨"
-    forward = '❯'
-    backward = "❮"
+    forward = '>'
+    backward = "<"
     modify = "±"
     add = "✚"
     delt = "✖"
     uModify = modify
-    uDelete = "✖"
+    uDelete = "x"
     # Untrack = "✚"
     # Untrack = "."
     Untrack = "?"

@@ -466,6 +466,8 @@ Plug 'nacitar/a.vim', { 'for': [ 'c', 'h', 'cpp' ] }
 highlight Operator ctermfg=117
 " Plug 'NLKNguyen/c-syntax.vim'
 
+Plug 'bbchung/clighter'
+
 """ C/C++ document Doxygen support
 Plug 'vim-scripts/DoxygenToolkit.vim'
 " let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
@@ -558,6 +560,7 @@ let g:autopep8_disable_show_diff=1
 au FileType python setlocal formatprg=autopep8\ -aa\ -
 
 " It's too slow
+" Low performance, high CPU loading
 " Plug 'Python-mode-klen', { 'for': ['python'] }
 " pep8 style indent
 " python lint checking
@@ -582,11 +585,14 @@ Plug 'plasticboy/vim-markdown', { 'for': ['markdown']}
 let g:vim_markdown_folding_disabled=1
 " we don't need conceal in vim, it's ugly as break indent rules.
 " set conceallevel=2
+" depend on tabular
 " Plug 'waylan/vim-markdown-extra-preview'
+
 " Must to default enable to preview markdown with browser
 " Plug 'suan/vim-instant-markdown'
 " Plug 'gabrielelana/vim-markdown' , { 'for': ['markdown']}
 ", { 'for': ['md']}
+""" markdown END
 
 """ sml filetype
 Plug 'cypok/vim-sml', { 'for': ['sml'] }
@@ -637,8 +643,30 @@ Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 let NERDTreeShowLineNumbers=1
 let NERDTreeWinPos="right"
-nnoremap cot :NERDTreeToggle<cr>
+nnoremap ct :NERDTreeToggle<cr>
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "c",
+    \ "Staged"    : "s",
+    \ "Untracked" : "u",
+    \ "Renamed"   : "r",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "X",
+    \ "Dirty"     : "d",
+    \ "Clean"     : "c",
+    \ "Unknown"   : "?"
+    \ }
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+    exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+    exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+" call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+" call NERDTreeHighlightFile('wiki', 'blue', 'none', '#3366FF', '#151515')
+" call NERDTreeHighlightFile('h', 'yellow', 'none', 'yellow', '#151515')
+" call NERDTreeHighlightFile('java', 'Red', 'none', '#ffa500', '#151515')
+" call NERDTreeHighlightFile('c', 'Red', 'none', '#ffa500', '#151515')
 " Nerd tree is better"
 " Plug 'tpope/vim-vinegar'
 """ file / directory browser END
