@@ -24,8 +24,9 @@
     cs = commit -v -S
     cm = commit -v -m
     amend = commit -v --amend
-    ca = commit -v --amend
-    caa = commit -a --amend -C HEAD
+    # caa = commit -a --amend -C HEAD
+    # squash change to last commit message, but not edit message
+    cc = commit --amend --no-edit
 # checkout
     co = checkout
     cb = checkout -b
@@ -41,11 +42,11 @@
     stc = diff --stat --cached
 # log
     l = log --color --graph --pretty=format:'%Cred%h%Creset %G? %C(bold green)%<(15,trunc)%an%Creset %C(cyan)%ai %Creset - %s %C(yellow)%d%Creset' --abbrev-commit
+    ll = log --color --graph --pretty=format:'%Cred%h%Creset %G? %C(bold green)%<(15,trunc)%an%Creset %C(cyan)%ai mrg %ci %Creset - %s %C(yellow)%d%Creset' --abbrev-commit
     ltxt = log --pretty=format:'- %s' --abbrev-commit
     lg = log --color --graph --stat
     la = log --color --stat -1 HEAD
     lp = log -p
-    ld = log -p
     gs = log --color --graph --stat
     lc = show
     lt = describe --tags --abbrev=0
