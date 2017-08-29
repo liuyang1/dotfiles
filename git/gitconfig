@@ -42,7 +42,7 @@
     stc = diff --stat --cached
 # log
     l = log --color --graph --pretty=format:'%Cred%h%Creset %G? %C(bold green)%<(15,trunc)%an%Creset %C(cyan)%ai %Creset - %s %C(yellow)%d%Creset' --abbrev-commit
-    ll = log --color --graph --pretty=format:'%Cred%h%Creset %G? %C(bold green)%<(15,trunc)%an%Creset %C(cyan)%ai mrg %ci %Creset - %s %C(yellow)%d%Creset' --abbrev-commit
+    ll = log --color --graph --pretty=format:'%Cred%h%Creset %G? %C(bold green)%<(15,trunc)%an%Creset %C(cyan)%ai mrg %C(magenta)%ci %Creset - %s %C(yellow)%d%Creset' --abbrev-commit
     ltxt = log --pretty=format:'- %s' --abbrev-commit
     lg = log --color --graph --stat
     la = log --color --stat -1 HEAD
@@ -66,6 +66,7 @@
     mt = mergetool
 # stash
     ss = stash
+    su = stash --include-untracked
     sl = stash list
     sa = stash apply
     sp = stash pop
