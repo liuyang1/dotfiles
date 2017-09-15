@@ -17,7 +17,7 @@ endfunc
 nnoremap \l      :call SwitchRelative()<cr>
 
 " Tab & Indent
-set expandtab
+set expandtab     " expand tab to whitesapce
 set smarttab
 set shiftwidth=4  " shift width
 set tabstop=4     " tab 4 space
@@ -27,8 +27,9 @@ set shiftround
 set autoindent  " copy indent from current line when starting a new line
 set copyindent  " copy previous indentaion on autoindenting
 set smartindent " c style, after '{' or a line starting with cinwords' or before '}' smart indent
-set cindent     "more strict
+set cindent     " more strict
 
+" indent as file type
 filetype plugin indent on
 
 " search
@@ -87,7 +88,7 @@ set splitbelow
 
 " tty
 set ttyfast
-set ttyscroll=0 " endless of lines to scroll the screen
+set ttyscroll=1 " endless of lines to scroll the screen
 set nottybuiltin    " search termcaps after the external ones.
 
 set autoread
