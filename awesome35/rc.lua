@@ -47,7 +47,7 @@ end
 beautiful.init("/home/liuy/.config/awesome/themes/myfoo/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "gnome-terminal"
+-- terminal = "gnome-terminal"
 -- terminal = "urxvt"
 -- terminal = "urxvt -name LURxvt"
 terminal = "urxvt -name MolokaiURxvt"
@@ -414,7 +414,8 @@ globalkeys = awful.util.table.join(
     -- self define
 	awful.key({ modkey,			  }, "j", function () awful.util.spawn(terminal)	end),
 	awful.key({ modkey,			  }, "k", function () awful.util.spawn("konsole")	end),
-	awful.key({ modkey,			  }, "i", function () awful.util.spawn("/usr/bin/chromium") end)
+	awful.key({ modkey,			  }, "i", function () awful.util.spawn("/opt/google/chrome/chrome") end),
+	awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("gnome-screensaver-commnd --lock") end)
 )
 
 clientkeys = awful.util.table.join(
