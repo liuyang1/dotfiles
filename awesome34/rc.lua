@@ -47,7 +47,7 @@ beautiful.init("/home/liuyang/.config/awesome/themes/myfoo/theme.lua")
 -- terminal = "urxvt"
 -- terminal = "urxvt -name LURxvt"
 terminal = "urxvt -name MolokaiURxvt"
-terminal = "urxvt -name HybridURxvt"
+-- terminal = "urxvt -name HybridURxvt"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 

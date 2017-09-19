@@ -415,7 +415,7 @@ globalkeys = awful.util.table.join(
 	awful.key({ modkey,			  }, "j", function () awful.util.spawn(terminal)	end),
 	awful.key({ modkey,			  }, "k", function () awful.util.spawn("konsole")	end),
 	awful.key({ modkey,			  }, "i", function () awful.util.spawn("/opt/google/chrome/chrome") end),
-	awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("gnome-screensaver-commnd --lock") end)
+	awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("gnome-screensaver-command --lock") end)
 )
 
 clientkeys = awful.util.table.join(
