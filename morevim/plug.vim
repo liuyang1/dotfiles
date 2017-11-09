@@ -762,7 +762,7 @@ Plug 'aklt/plantuml-syntax', { 'for': [ 'plantuml' ] }
 
 " Plug 'itchyny/thumbnail.vim'
 
-Plug 'AD7six/vim-activity-log'
+" Plug 'AD7six/vim-activity-log'
 let g:activity_log_location="$HOME/.activity/%Y/%m/%d.log"
 
 """ for ledger format
