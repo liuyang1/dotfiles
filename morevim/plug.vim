@@ -4,7 +4,7 @@ filetype off
 call plug#begin('~/.vim/bundle')
 
 """ App in vim
-Plug 'vimwiki'
+Plug 'vim-scripts/vimwiki'
 nnoremap \d     :VimwikiToggleListItem<cr>
 let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,br,hr,div,del,code,img'
 let g:vimwiki_camel_case=0
@@ -147,7 +147,7 @@ let g:SignatureMarkerTextHLDynamic = 1
 " mark 1238 plugin, stop maintain
 " mark 2666, this same with Mark-Karkat
 " Plug 'Yggdroot/vim-mark' " clone Mark-Karkat, and continue, buggy
-Plug 'Mark--Karkat'
+Plug 'vim-scripts/Mark--Karkat'
 " mark word, like highlight search, but mark word with highlight
 " SLOW but good enough
 " KEYMAP
@@ -168,12 +168,12 @@ let g:mwAutoSaveMarks = 1
 " Plug 'vim-voom/VOoM'
 " autocmd Filetype vimwiki nnoremap <Leader>tt :Voom vimwiki<cr>
 
-Plug 'gtags.vim'
+Plug 'vim-scripts/gtags.vim'
 map <C-]> :GtagsCursor<CR>
 " Plug 'autoload_cscope.vim'
 " Plug 'cscope.vim'
 
-Plug 'Tagbar'
+Plug 'vim-scripts/Tagbar'
 map <leader>tt :TagbarToggle<CR>
 let g:tagbar_left             = 1
 let g:tagbar_autofocus        = 1
@@ -417,7 +417,7 @@ nmap \fw    :CtrlSFToggle<cr>
 """ search related END
 
 """ error checking
-Plug 'Syntastic'
+Plug 'vim-scripts/Syntastic'
 highlight SyntasticErrorLine    ctermbg=black
 highlight SyntasticErrorSign    ctermbg=darkgray
 let g:syntastic_check_on_open = 1
@@ -466,7 +466,7 @@ Plug 'nacitar/a.vim', { 'for': [ 'c', 'h', 'cpp' ] }
 highlight Operator ctermfg=117
 " Plug 'NLKNguyen/c-syntax.vim'
 
-Plug 'bbchung/clighter'
+" Plug 'bbchung/clighter'
 
 """ C/C++ document Doxygen support
 Plug 'vim-scripts/DoxygenToolkit.vim'
@@ -547,7 +547,7 @@ let g:niji_matching_filetypes = ['lisp', 'scheme', 'racket']
 
 " for quick move ()
 " fail to detect file type
-Plug 'paredit.vim'  " , { 'for': ['lisp', 'scheme', 'racket'] }
+Plug 'vim-scripts/paredit.vim'  " , { 'for': ['lisp', 'scheme', 'racket'] }
 
 " Plug 'dkinzer/vim-schemer'
 
@@ -631,7 +631,7 @@ autocmd Filetype haskell nnoremap <silent> --s "=HaskellModuleSection()<CR>gp
 """ Haskell END
 
 """ Log filetype
-Plug 'Logcat-syntax-highlighter'
+Plug 'vim-scripts/Logcat-syntax-highlighter'
 """ javascript
 Plug 'maksimr/vim-jsbeautify', { 'for': ['javascript', 'html'] }
 
@@ -694,7 +694,7 @@ Plug 'will133/vim-dirdiff'
 Plug 'luochen1990/rainbow', { 'for': ['c','cpp', 'h', 'scheme', 'python']}
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
-Plug 'speeddating.vim'
+Plug 'vim-scripts/speeddating.vim'
 
 " Plug 'regedarek/ZoomWin'
 " Plug '907th/vim-auto-save'
@@ -720,12 +720,12 @@ Plug 'Rykka/easydigraph.vim'
 " this conflict with our <Leader>b, which show buffer with CtrlP plugin
 " let g:EasyDigraph_nmap="\b"
 
-Plug 'utl.vim'
+Plug 'vim-scripts/utl.vim'
 
 " Plug 'ryanoasis/vim-webdevicons'
 Plug 'terryma/vim-expand-region'
 
-Plug 'DrawIt'
+Plug 'vim-scripts/DrawIt'
 
 " gb gB to swap-parameter
 " Plug 'swap-parameters'
