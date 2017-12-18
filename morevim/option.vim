@@ -88,7 +88,7 @@ set splitbelow
 
 " tty
 set ttyfast
-set ttyscroll=1 " endless of lines to scroll the screen
+set ttyscroll=1 " endless of lines to scroll the screen, it blink when set to 0
 set nottybuiltin    " search termcaps after the external ones.
 
 set autoread

@@ -71,7 +71,8 @@ Plug 'airblade/vim-gitgutter'
 let g:gitgutter_realtime = 0
 " when switch buffer, tab, focus GUI
 let g:gitgutter_eager = 1
-let g:gitgutter_sign_column_always = 1
+" let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 nmap ga     <Plug>GitGutterStageHunk
 nmap gr     <Plug>GitGutterUndoHunk
 nmap gs     <Plug>GitGutterPreviewHunk
@@ -643,7 +644,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 let NERDTreeShowLineNumbers=1
 let NERDTreeWinPos="right"
-nnoremap ct :NERDTreeToggle<cr>
+nnoremap cot :NERDTreeToggle<cr>
+nnoremap cor :NERDTreeFind<cr>
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "c",
