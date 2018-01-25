@@ -27,3 +27,5 @@ ffmpeg -i [input.file] -ss 0 -t 10 -c copy [output.file]
 # format supported
 - h264          raw H.264 video
 - hevc          raw HEVC video
+- -vn, -vcodec no       remove video
+- -an, -acodec no       remove audio

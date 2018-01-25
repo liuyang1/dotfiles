@@ -1,6 +1,6 @@
 ffprobe -show_frames -print_format compact -select_streams v [file]
 
 # How to generate index file based on ES?
-ffprobe -show_entries frame=pkt_pos,pkt_size -print_format compact -select_streams v [input stream] | sort -t '=' -k 2 -g > [output.index]
+ffprobe -show_entries frame=pkt_pos,pkt_size,pkt_pts -print_format compact -select_streams v [input stream] | sort -t '=' -k 3 -g > [output.index]
 
 ## ffprobe's result is PTS order, use `sort` to recover back to DTS oder.

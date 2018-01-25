@@ -1,0 +1,5 @@
+# Python's SimpleHTTPServer
+python -m SimpleHTTPServer
+
+# indicate port to 8001
+python -m SimpleHTTPServer 8001

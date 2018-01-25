@@ -1,0 +1,5 @@
+--gtest_color=[yes|no]
+--gtest_repeat=[NUM]            -1, to repeat forever
+--gtest_shuffle                 randoms sequence
+--gtest_break_on_failure        stop when find failure
+--gtest_filter=[case format]
