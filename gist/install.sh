@@ -11,6 +11,8 @@ installFile findFile.sh   $PREFIX/ff
 installFile rspec.sh            $PREFIX/rspec
 installFile2Dir ldgfmt.py $PREFIX
 installFile2Dir alter.sh    $PREFIX
+installFile2Dir clip.sh $PREFIX
+installFile2Dir clipTime.sh $PREFIX
 
 installFile2Dir OK_xm.mp3 $PREFIX/../share/
 chmod +x $PREFIX/ldgfmt.py
