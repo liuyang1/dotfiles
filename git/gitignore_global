@@ -15,6 +15,11 @@ erl_crash.dump
 *.ta
 *.ta.encrypted
 *.ta.clear
+*.lo
+*.pc
+*.la
+*.dirstamp
+config.status
 
 # test file
 *.test
@@ -68,6 +73,10 @@ TAGS
 GPATH
 GRTAGS
 GTAGS
+
+cscope.in.out
+cscope.out
+cscope.po.out
 
 .shdeps
 .deps

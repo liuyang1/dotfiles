@@ -1,0 +1,2 @@
+# How to generate manifest?
+repo manifest -o snapshot.xml -r

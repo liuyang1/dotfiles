@@ -1,0 +1,2 @@
+# delete user, mail spool of user, home directroy of user
+userdel -r [USER]

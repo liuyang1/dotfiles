@@ -1,0 +1,8 @@
+# list quota userself
+quota -s
+
+# list all owner's space
+sudo repquota -as
+
+# edit quota
+sudo edquota -u [USER]
