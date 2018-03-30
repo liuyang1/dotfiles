@@ -1,0 +1,9 @@
+- -s, --symobls, --syms         list symbol table section of the file
+
+- -D, --use-dyanmic             use symbol hash table (instead of others)
+    .gnu.hash instead of .dynsym .symtab
+
+- -W, --wide                    don't break output line to 80 columns
+
+# How to show all functions
+readelf -sDW [file.so]

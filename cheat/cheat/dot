@@ -1,0 +1,2 @@
+# How to generate png file from dot file with graphviz
+dot -Tpng [file.dot] > [1.png]

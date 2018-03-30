@@ -156,3 +156,9 @@ git cherry-pick <commit SHA1>
 
 # How to stat on owner
 git shortlog -nse
+
+# How to push (and create if not exist) to remote branch
+git push -u origin [REMOTE BRANCH NAME]
+
+# check commit belong to which branch
+git branch --contains [commit]
