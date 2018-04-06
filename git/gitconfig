@@ -27,6 +27,7 @@
     # caa = commit -a --amend -C HEAD
     # squash change to last commit message, but not edit message
     cc = commit --amend --no-edit
+    cca = commit --amend --no-edit --reset-author
 # checkout
     co = checkout
     cb = checkout -b
