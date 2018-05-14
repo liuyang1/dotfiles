@@ -1,0 +1,14 @@
+# simpleperf is tool sponsored by Google, Android.
+
+# !! enable kernel symbol before test
+echo 0 >/proc/sys/kernel/kptr_restrict
+
+# record perf status in system
+simpleperf record -a
+# get analysed result
+simplepref report
+
+# record perf status on [PID] process
+simpleperf record -p [PID] -g --symfs . --duration [TIME]
+# get GRAPHIC analysed result
+simpleperf report -g --symfs .

@@ -47,7 +47,8 @@
     ltxt = log --pretty=format:'- %s' --abbrev-commit
     lg = log --color --graph --stat
     la = log --color --stat -1 HEAD
-    lp = log -p
+    lp = log -p -1
+    lpp = log -p
     gs = log --color --graph --stat
     lc = show
     lt = describe --tags --abbrev=0
@@ -102,6 +103,10 @@
 [pager]
     st = cat
     stc = cat
+    lp = less
+    dc = less
+    d = less
+    l = less
 [diff "a"]
     textconv = hexdump -v -C
 [diff "ta"]
