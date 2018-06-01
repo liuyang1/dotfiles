@@ -1,0 +1,5 @@
+setenv serverip 127.0.0.1
+env print serverip
+saveenv
+
+tftp2emmc -i sdX

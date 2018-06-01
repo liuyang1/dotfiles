@@ -10,5 +10,5 @@ simplepref report
 
 # record perf status on [PID] process
 simpleperf record -p [PID] -g --symfs . --duration [TIME]
-# get GRAPHIC analysed result
+# get GRAPHIC analyzed result
 simpleperf report -g --symfs .

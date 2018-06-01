@@ -24,6 +24,9 @@ ffmpeg -ss 00:34:24.85 -t 10 -i path/to/file.mp4 -f mp3 pipe:play | ffplay -i pi
 # capture clip of stream, keep encoding
 ffmpeg -i [input.file] -ss 0 -t 10 -c copy [output.file]
 
+# only capture video ES
+ffmpeg -i [input.file] -t 00:00:30 -vcodec copy -an -f rawvideo [output.es]
+
 # format supported
 - h264          raw H.264 video
 - hevc          raw HEVC video
