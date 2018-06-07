@@ -2,7 +2,7 @@
     name = liuyang1
     email = liuyang1@mail.ustc.edu.cn
 [color]
-    ui = true
+    ui = auto
 [alias]
 # fetch
     ft = fetch
@@ -42,14 +42,14 @@
     st = diff --stat
     stc = diff --stat --cached
 # log
-    l = log --color --graph --pretty=format:'%Cred%h%Creset %G? %C(bold green)%<(15,trunc)%an%Creset %C(cyan)%ai %Creset - %s %C(yellow)%d%Creset' --abbrev-commit
-    ll = log --color --graph --pretty=format:'%Cred%h%Creset %G? %C(bold green)%<(15,trunc)%an%Creset %C(cyan)%ai mrg %C(magenta)%ci %Creset - %s %C(yellow)%d%Creset' --abbrev-commit
+    l =  log          --graph --pretty=format:'%Cred%h%Creset %G? %C(bold green)%<(15,trunc)%an%Creset %C(cyan)%ai %Creset - %s %C(yellow)%d%Creset' --abbrev-commit
+    ll = log          --graph --pretty=format:'%Cred%h%Creset %G? %C(bold green)%<(15,trunc)%an%Creset %C(cyan)%ai mrg %C(magenta)%ci %Creset - %s %C(yellow)%d%Creset' --abbrev-commit
     ltxt = log --pretty=format:'- %s' --abbrev-commit
-    lg = log --color --graph --stat
-    la = log --color --stat -1 HEAD
+    lg = log --graph --stat
+    la = log --stat -1 HEAD
     lp = log -p -1
     lpp = log -p
-    gs = log --color --graph --stat
+    gs = log --graph --stat
     lc = show
     lt = describe --tags --abbrev=0
     lm = "!f() { git config user.email | xargs -I{} git l --author={} $@ ;}; f"
