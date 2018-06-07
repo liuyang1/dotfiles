@@ -222,4 +222,13 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
+# vim readline binding C-j to newline. I don't like it.
+# It break vim-tmux-navigator binding
+bindkey -r '^j'
+function select_down_pane() {
+    tmux select-pane -D
+}
+zle -N select_down_pane
+bindkey ^j 'select_down_pane'
+
 export CHEATCOLORS=true
