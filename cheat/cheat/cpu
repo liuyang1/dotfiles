@@ -1,0 +1,5 @@
+# How to check CPU frequency?
+cat /sys/devices/system/cpu/cpu*/cpufreq/cpuinfo_cur_freq
+
+# How to check CPU info/name?
+cat /proc/cpuinfo

@@ -22,3 +22,6 @@ sed ':a;N;$!ba;s/\n//g'  file.txt
 # find out the content after KEY=
 echo "KEY=abc" | sed -e 's/^KEY=\(.*\)/\1/g'
 # show abc
+
+# delete trailing whitespace
+sed -i 's/[ \t]*$//' file.txt
