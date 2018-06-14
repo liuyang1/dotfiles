@@ -12,6 +12,6 @@ installFile(){
 installFile $PWD/gitconfig			$PREFIX/.gitconfig
 installFile $PWD/gitignore_global	$PREFIX/.gitignore_global
 installFile $PWD/rmGitFile.sh       ~/.local/bin/rmGitFile.sh
-installFile $PWD/userGit.sh         ~/.locla/bin/userGit.sh
+installFile $PWD/userGit.sh         ~/.local/bin/userGit.sh
 
 echo "OK"

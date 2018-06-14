@@ -3,7 +3,17 @@ PREFIX=~
 
 source ../installEnv.sh
 
-sudo pip install cheat
+installPublic() {
+    sudo pip install cheat
+}
+
+installPrivate() {
+    git clone https://github.com/liuyang1/cheat.git
+    pushd cheat
+    sudo python setup.py install
+}
+
+installPrivate
 
 installDotFile cheat "$HOME"
 

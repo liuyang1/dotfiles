@@ -1,0 +1,5 @@
+# check disassemble
+objdump -d
+
+# check symobl
+odjbump -t
