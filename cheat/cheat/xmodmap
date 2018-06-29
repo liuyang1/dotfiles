@@ -1,0 +1,9 @@
+# load keyboard map
+Xmodmap ~/.Xmodmap
+
+# list current key map status
+Xmodmap -pke
+
+ref:
+- https://wiki.archlinux.org/index.php/xmodmap
+- http://xahlee.info/linux/linux_xmodmap_tutorial.html

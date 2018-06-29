@@ -1,0 +1,6 @@
+- get terminal window size
+tput cols       # get colmun
+tput lines      # get row
+
+- set color
+tput setaf 0

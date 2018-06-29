@@ -32,3 +32,6 @@ ffmpeg -i [input.file] -t 00:00:30 -vcodec copy -an -f rawvideo [output.es]
 - hevc          raw HEVC video
 - -vn, -vcodec no       remove video
 - -an, -acodec no       remove audio
+
+ffmpeg -i input.mp4 -vcodec copy -vbsf h264_mp4toannexb out.264
+ffmpeg -i output.mp4 -vcodec copy -bsf hevc_mp4toannexb out.265

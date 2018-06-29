@@ -1,0 +1,2 @@
+* -r        find reference of symbol
+* -x        find defineition of symbol
