@@ -43,8 +43,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init("/usr/share/awesome/themes/default/theme.lua")
--- beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
-beautiful.init("/home/liuy/.config/awesome/themes/myfoo/theme.lua")
+beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 -- terminal = "gnome-terminal"
@@ -525,6 +524,7 @@ awful.rules.rules = {
                      focus = awful.client.focus.filter,
                      raise = true,
                      keys = clientkeys,
+                     screen = awful.screen.focused,
                      buttons = clientbuttons } },
 	{ rule = { class = "Zathura" },
 	  properties = { floating = true } },
