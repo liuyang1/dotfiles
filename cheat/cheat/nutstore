@@ -1,0 +1,12 @@
+## Cannot sync the file of git
+
+git's object file is default to 0x444 type. However, Nutstore need write it to change access time. (I guess)
+
+Solution:
+
+    chmod 644 git/object/*/*
+    find .git/objects -type f -not -writable -exec chmod 644 {} \;
+
+### Why have this issue?
+
+git consider the object file is persistent. This means the object file is never changed. so permissions of these files are read only (0x444).

@@ -48,3 +48,8 @@ Host [abbr of login]
     Hostname [IP / domain name]
     User     [user name]
     IdentityFile [key file name if have]
+
+# How to debug
+ssh -vvv [abbr of login]
+# check log at server side
+/var/log/auth.log

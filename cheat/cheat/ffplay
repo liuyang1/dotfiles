@@ -1,0 +1,2 @@
+ffplay depend on libsdl2, so need install it first
+    sudo apt-get install libsdl2-dev

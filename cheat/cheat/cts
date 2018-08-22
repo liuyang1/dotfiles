@@ -1,0 +1,6 @@
+## list
+list results
+
+## run
+run cts --skip-device-info --skip-preconditions -m CtsMediaTestCases
+run cts --skip-device-info --skip-preconditions -m CtsMediaTestCases --retry [SessionID]

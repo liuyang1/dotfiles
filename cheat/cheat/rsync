@@ -10,7 +10,8 @@ rsync -avc /source/ /dest/
 # This command will create /dest/foo if it does not already exist
 rsync -auv /src/foo /dest
 
-# Explicitly copy /src/foo to /dest/foo
+### Explicitly copy /src/foo to /dest/foo ###
+### Don't missing slash '/' after first foo
 rsync -auv /src/foo/ /dest/foo
 
 # merge folder
