@@ -81,16 +81,23 @@
     ck = cherry-pick
 # meld
     meld = difftool -g -d
+    ic = difftool --extcmd icdiff
+# format
+    fp = format-patch -1
 [diff]
     tool = vimdiff
+    # tool = icdiff
     guitool = meld
 [merge]
     tool = vimdiff
     conflictstyle = diff3
+[icdiff]
+    options = --highlight --line-numbers
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
     quotepath = false
+    # compression = 0
 [i18n]
     logoutputencoding = utf8
     commitencoding = utf8
@@ -99,7 +106,7 @@
 [push]
     default = matching
 [commit]
-	template = ~/.gitcltpl
+    template = ~/.gitcltpl
 [pager]
     st = cat
     stc = cat
@@ -107,6 +114,7 @@
     dc = less
     d = less
     l = less
+    log = less
 [diff "a"]
     textconv = hexdump -v -C
 [diff "ta"]
