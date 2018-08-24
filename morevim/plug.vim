@@ -67,20 +67,23 @@ let g:gitgutter_override_sign_column_highlight = 0
 
 " show git diff mode
 Plug 'airblade/vim-gitgutter'
-" when stop typing
-let g:gitgutter_realtime = 0
-" when switch buffer, tab, focus GUI
-let g:gitgutter_eager = 1
-" let g:gitgutter_sign_column_always = 1
 set signcolumn=yes
 nmap ga     <Plug>GitGutterStageHunk
 nmap gr     <Plug>GitGutterUndoHunk
 nmap gs     <Plug>GitGutterPreviewHunk
 nmap gn     <Plug>GitGutterNextHunk
 nmap gp     <Plug>GitGutterPrevHunk
+set updatetime=100
 
-nmap ght    :GitGutterLineHighlightsToggle<cr>
-let g:gitgutter_highlight_lines = 1
+" signify missing one key feature:
+" stage/undo hunk, so we cannot use it.
+" Plug 'mhinz/vim-signify'
+" let g:signify_vcs_list = [ 'git' ]
+" let g:signify_realtime = 1
+" let g:signify_sign_delete            = '-'
+" let g:signify_sign_change            = '±'
+" nmap gn <plug>(signify-next-hunk)
+" nmap gp <plug>(signify-prev-hunk)
 
 Plug 'gregsexton/gitv'
 """ VCS extension END
