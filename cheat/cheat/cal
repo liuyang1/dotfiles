@@ -1,0 +1,4 @@
+# I prefer this command:
+# - start monday
+# - show week number
+ncal -Mw

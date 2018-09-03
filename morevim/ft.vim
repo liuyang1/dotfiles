@@ -97,3 +97,6 @@ autocmd BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
 autocmd Filetype ledger setlocal formatprg=ldgfmt.py\ %
 autocmd FileType ledger    nnoremap <Leader>cc     ggVGgq
 autocmd Filetype ledger setlocal nofoldenable
+
+""" Android.bp file
+autocmd BufNewFile,BufRead Android.bp :setl ft=go sw=4 sts=4 et

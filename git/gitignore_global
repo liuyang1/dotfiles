@@ -45,11 +45,9 @@ log
 *.sqlite
 
 # OS generated file
-*.core
 .DS_Store
 .DS_Store?
 ._*
-core.*
 .Spotlight-V100
 .Trashes
 Icon?
@@ -84,6 +82,8 @@ cscope.po.out
 # core dump file
 core
 core.*
+*.core
+vgcore.*
 
 # vim swap file
 *.swp

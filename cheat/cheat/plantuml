@@ -1,0 +1,1 @@
+java -jar [/path/to/plantuml.jar] [file.uml]

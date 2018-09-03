@@ -1,0 +1,7 @@
+# sample script
+inotifywait -r -m -e close_write . | while read d ev fn ; do
+    date
+    scp "$fn" pc:~/q/
+    echo "sync $fn"
+done
+
