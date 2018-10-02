@@ -1,0 +1,2 @@
+# compile it
+ghc -c

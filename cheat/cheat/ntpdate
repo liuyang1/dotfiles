@@ -1,0 +1,2 @@
+# sync time from ntp server
+sudo ntpdate 0.cn.pool.ntp.org

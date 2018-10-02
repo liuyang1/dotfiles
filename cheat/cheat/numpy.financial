@@ -1,0 +1,34 @@
+# NPV: net present value
+# rate is 5.9%, cash flow series is $467.12 every year in future 31 years.
+# NPV is 6578.22
+>>> npv(0.059, [0] + [467.12] * 31)
+    6578.22
+
+>>> npv(0.029, [0] + [559] * 31)
+    11330.07
+
+# PMT: Payment against loan principla plus interest
+# PPMT: payoment - interest
+# IPMT: interest in payment
+# rate is 8.4%, 3 years, per month return, $50000
+>>> pmt(0.084 / 12, 3 * 12, -50000)
+    1576.06
+>>> ppmt(0.084 / 12, range(3 * 12), 3 * 12, -50000)
+    array([ 1217.54, 1226, ...
+            ..., ..., 1554.23])
+>>> sum(_)
+    49652.43
+>>> ipmt(0.084 / 12, range(3 * 12), 3 * 12, -50000)
+    array([ 358.52, 350, ...
+            ..., ..., 21.84])
+>>> sum(_)
+    7085
+
+# Internal Rate
+# save 9000, return 60 every month for 15 years
+>>> irr([-9000] + [60 * 12] * 15)
+    2.37%
+>>> irr([-9000] + [60 * 12] * 20)
+    4.96%
+>>> irr([-9000] + [60 * 12] * 25)
+    6.23%
