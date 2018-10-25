@@ -1,0 +1,2 @@
+# set stack size to unlimited
+ulimit -s unlimited

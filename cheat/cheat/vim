@@ -68,3 +68,6 @@ d{motion}       delete text that {motion} moves over
 
 :g/[PATTERN]/d      delete lines which match <PATTERN>
 :g!/[PATTERN]/d     delete lines which doesn't match <PATTERN>
+
+# How to load vim without any config?
+vim -u NONE -U NONE -N -i NONE

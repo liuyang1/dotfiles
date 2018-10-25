@@ -24,7 +24,7 @@
 >>> sum(_)
     7085
 
-# Internal Rate
+# Internal Rate of Return
 # save 9000, return 60 every month for 15 years
 >>> irr([-9000] + [60 * 12] * 15)
     2.37%
@@ -32,3 +32,16 @@
     4.96%
 >>> irr([-9000] + [60 * 12] * 25)
     6.23%
+
+# Modified IRR
+# Consider, finanace_rate & reinvest_rate
+
+# Rate
+# If you invest every period, and get final return. How about your rate?
+# save 1000 every year, and get final 22000, the annualized ratio is 10.47%
+>>> rate(12, 1000, 0, -22000)
+    0.104715
+>>> sum([1000 * (1 + 0.104715) ** i for i in range(12)])
+    21997.90
+>>> irr([-[1000] * 11 + [21000]])
+    0.104715

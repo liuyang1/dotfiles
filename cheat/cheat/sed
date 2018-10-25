@@ -25,3 +25,13 @@ echo "KEY=abc" | sed -e 's/^KEY=\(.*\)/\1/g'
 
 # delete trailing whitespace
 sed -i 's/[ \t]*$//' file.txt
+
+# append "line1\nline2" AFTER pattern
+sed -i '/pattern/a \
+line1 \
+line2' inputfile
+
+# prepend BEFORE pattern
+sed -i '/pattern/i \
+line1 \
+line2' inputfile

@@ -7,3 +7,6 @@
 
 # How to show all functions
 readelf -sDW [file.so]
+
+# How to check depenencies of library?
+readelf --dynamic [file.so] | grep -i needed

@@ -28,6 +28,9 @@ find . -type f -size +200000000c -exec ls -lh {} \; | awk '{ print $9 ": " $5 }'
 # To find files modified more than 7 days ago and list file information
 find . -type f -mtime +7d -ls
 
+# remove the files which updated in 1 hour
+find . -cmin -60 | xargs rm
+
 # To find symlinks owned by a user and list file information
 find . -type l --user=username -ls
 
