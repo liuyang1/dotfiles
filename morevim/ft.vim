@@ -67,6 +67,8 @@ autocmd FileType xdefaults  setlocal makeprg=xrdb\ %
 
 " autocmd BufEnter *.hs set formatprg=pointfree
 autocmd FileType haskell setlocal ts=2
+autocmd FileType haskell setlocal formatprg=stylish-haskell
+autocmd FileType haskell map <buffer> <Leader>cc     ggVGgq
 
 " add for cppcheck
 " autocmd BufEnter *.cck setlocal errorformt=[%f:%l]\ ->\ %m,[%f:%l]:%m
