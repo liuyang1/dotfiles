@@ -1,0 +1,4 @@
+# auto enable network interface
+# add below content in /etc/network/interfaces
+auto [eth name]
+iface [eth name] inet dhcp

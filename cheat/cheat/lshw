@@ -1,0 +1,8 @@
+# list memory/DDR
+sudo lshw -C memory
+
+# list network card
+sudo lshw -C network
+
+# list memory/DDR with short
+sudo lshw -sort -C memory

@@ -1,0 +1,4 @@
+# run ssh-agent service, and load some config to current shell's ENV
+eval `ssh-agent -s`
+# it will try to load every key
+ssh-add

@@ -13,7 +13,7 @@ installPrivate() {
     sudo python setup.py install
 }
 
-installPrivate
+# installPrivate
 
 installDotFile cheat "$HOME"
 
