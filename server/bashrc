@@ -205,7 +205,6 @@ alias mr='$MAKE_CMD run'
 alias me='$MAKE_CMD edit'
 alias mt='$MAKE_CMD test'
 alias mtr='mtr --curses'
-alias python3='/home/liuy/code/open/Python-3.3.0/python'
 alias grep='grep --color'
 
 #export LC_ALL=zh_CN.GB2312
