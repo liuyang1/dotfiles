@@ -35,3 +35,6 @@ apt remove package(s)
 # How to clean big package?
 listed it by this command
 dpkg-query --show --showformat='${Package;-50}\t${Installed-Size}\n' | sort -k 2 -n | grep -v deinstall | awk '{printf "%.3f MB \t %s\n", $2/(1024), $1}'
+
+# get source code of package from Ubuntu/Debian's source repo
+apt-get source <package>

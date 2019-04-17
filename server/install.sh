@@ -13,5 +13,6 @@ installFile $PWD/dircolors $PREFIX/.dircolors
 installFile $PWD/bashrc $PREFIX/.bashrc
 installFile $PWD/bash_profile $PREFIX/.bash_profile
 installFile $PWD/inputrc $PREFIX/.inputrc
+installFile $PWD/aliases $PREFIX/.aliases
 
 echo "OK"

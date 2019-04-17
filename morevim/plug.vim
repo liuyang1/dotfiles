@@ -4,7 +4,7 @@ filetype off
 call plug#begin('~/.vim/bundle')
 
 """ App in vim
-Plug 'vim-scripts/vimwiki'
+Plug 'vim-scripts/vimwiki', { 'for': ['wiki'] }
 nnoremap \d     :VimwikiToggleListItem<cr>
 let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,br,hr,div,del,code,img'
 let g:vimwiki_camel_case=0
@@ -20,11 +20,11 @@ let g:vimwiki_CJK_length=1
 Plug 'jceb/vim-orgmode', { 'for': [ 'org' ] }
 
 """ writing room
-Plug 'junegunn/goyo.vim'
-let g:goyo_margin_top = 0
-let g:goyo_margin_bottom = 0
-let g:goyo_linenr = 1
-nnoremap \g         :Goyo<cr>
+" Plug 'junegunn/goyo.vim'
+" let g:goyo_margin_top = 0
+" let g:goyo_margin_bottom = 0
+" let g:goyo_linenr = 1
+" nnoremap \g         :Goyo<cr>
 
 Plug 'junegunn/limelight.vim'
 " autocmd User GoyoEnter Limelight

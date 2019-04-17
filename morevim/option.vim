@@ -147,7 +147,7 @@ set wrap
 
 " set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set listchars=tab:▸\ ,trail:‽,extends:>,precedes:<,nbsp:+
-set listchars=tab:»\ ,trail:·,extends:>,precedes:<,nbsp:+
+set listchars=tab:»\ ,trail:$,extends:>,precedes:<,nbsp:+
 " eol:¶
 "▶
 "▸

@@ -20,14 +20,17 @@
     dn = "!f() { git rev-parse --abbrev-ref HEAD | xargs -I{} git branch -m {} Done/{}; }; f"
     r = remote -v
 # commit
-    c = commit -v
-    cs = commit -v -S
-    cm = commit -v -m
-    amend = commit -v --amend
+    c = commit -v -s
+    cs = commit -v -s -S
+    cm = commit -v -s -m
+    amend = commit -v -s --amend
     # caa = commit -a --amend -C HEAD
     # squash change to last commit message, but not edit message
-    cc = commit --amend --no-edit
-    cca = commit --amend --no-edit --reset-author
+    cc = commit --amend -s --no-edit
+    # like 'cc', and reset author to me
+    cca = commit --amend -s --no-edit --reset-author
+    # commit and keep it private, don't sign-off
+    cp = commit -v
 # checkout
     co = checkout
     cb = checkout -b
@@ -110,9 +113,9 @@
 [pager]
     st = cat
     stc = cat
-    lp = less
-    dc = less
-    d = less
+    lp = less -x4
+    dc = less -x4
+    d = less -x1,5
     l = less
     log = less
 [diff "a"]

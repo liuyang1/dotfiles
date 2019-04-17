@@ -41,8 +41,40 @@
 "\eOH": beginning-of-line
 "\eOF": end-of-line
 
-"\e[A": history-search-backward
-"\e[B": history-search-forward
+"\e[P": history-search-backward
+"\e[N": history-search-forward
+
+set colored-stats on
+set visible-stats on
+
+# Filename completion/expansion
+set completion-ignore-case on
+set show-all-if-ambiguous on
+TAB:menu-complete
+# set completion-prefix-display-length 3
+
+# Append "/" to all dirnames
+set mark-directories on
+set mark-symlinked-directories on
+
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+# Expand homedir name
+#set expand-tilde on
+
+# Match all files
+# completion with hidden files unless explicity begins with a dot
+set match-hidden-files off
+
+# when completions is more than one page, show it with pager
+set page-completions on
+
+# when more candidates, as to show them all or not
+set completion-query-items 100
+
+set skip-completed-text on
+
 # Allow 8-bit input/output
 # make meta key work as in shell
 set meta-flag on
@@ -57,22 +89,18 @@ $if Bash
   # or, don't beep at me - show me
 #  set bell-style visible
 
-  # Filename completion/expansion
-  set completion-ignore-case on
-  set show-all-if-ambiguous on
-
-  # Expand homedir name
-  #set expand-tilde on
-
-  # Append "/" to all dirnames
-  set mark-directories on
-  set mark-symlinked-directories on
-
-  # Match all files
-  set match-hidden-files on
-
   # 'Magic Space'
   # Insert a space character then performs
   # a history expansion in the line
   #Space: magic-space
+$endif
+
+# default C-k key binding only work at vi-normal mode
+# enable C-l key binding under vi-normal mode and vi-insert mode
+$if mode=vi
+    set keymap vi-command
+    Control-l: clear-screen
+
+    set keymap vi-insert
+    Control-l: clear-screen
 $endif

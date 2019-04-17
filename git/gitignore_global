@@ -179,3 +179,9 @@ Cargo.lock
 # py notebook
 .ipynb_checkpoints
 Untitled.ipynb
+
+# ignore self defined script for accelarator
+*.acc.sh
+*.html
+
+git_msg_check_log
