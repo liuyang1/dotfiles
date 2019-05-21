@@ -40,6 +40,9 @@ git commit --date="`date --date='2 day ago'`"
 git commit --date="Jun 13 18:30:25 IST 2015"
 # more recent versions of Git also support --date="2 days ago" directly
 
+# git commit with Sign-Off-By line
+git commit -s
+
 # To change the date of an existing commit
 git filter-branch --env-filter \
     'if [ $GIT_COMMIT = 119f9ecf58069b265ab22f1f97d2b648faf932e0 ]
@@ -65,6 +68,10 @@ git push origin master
 
 # To push to a specified repository:
 git push git@github.com:username/project.git
+
+# push full git package
+# It fix "error missing tree" issue
+git push --no-thin ...
 
 # To delete the branch "branch_name"
 git branch -D branch_name

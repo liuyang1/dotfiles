@@ -1,0 +1,3 @@
+--color # to support colorful escape string
+-d      # highlight the difference
+-n      # interval

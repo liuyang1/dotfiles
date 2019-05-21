@@ -1,0 +1,6 @@
+# list all i2c bus
+i2cdetect -l
+# list valid address(device) in bus 2
+i2cdetect -y -r 2
+# dump register in bus 2's 0x36 device
+i2cdump -f -y 2 0x36

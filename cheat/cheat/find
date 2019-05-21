@@ -25,6 +25,8 @@ find . -size +5M -type f -print0 | xargs -0 ls -Ssh | sort -z
 # To find files bigger than 2 Megabyte and list them:
 find . -type f -size +200000000c -exec ls -lh {} \; | awk '{ print $9 ": " $5 }'
 
+find . name [pattern].c -exec basename {} \; | sort | uniq
+
 # To find files modified more than 7 days ago and list file information
 find . -type f -mtime +7d -ls
 
