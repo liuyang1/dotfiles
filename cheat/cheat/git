@@ -172,3 +172,9 @@ git branch --contains [commit]
 
 # renew author and timestamp
 git commit --amend --reset-author
+
+# submodule
+git clone --recursive [URL]
+git submodule status
+git submodule update --init
+git submodule update --init --recursive

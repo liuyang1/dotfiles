@@ -23,3 +23,6 @@ echo "1. /usr/bin\n2. /bin" |tr -cs " /[:alpha:]\n" "+"
 
 # remove newline
 tr -d '\n'
+
+# Captilize
+tr '[a-z]' '[A-Z]'

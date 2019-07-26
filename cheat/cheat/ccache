@@ -1,0 +1,2 @@
+# reset ccache status
+ccache -z -c -C

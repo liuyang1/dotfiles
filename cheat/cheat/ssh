@@ -23,6 +23,8 @@ ssh -X -t user@example.com 'chromium-browser'
 # To create a SOCKS proxy on localhost and port 9999
 ssh -D 9999 user@example.com
 
+# proxy related, -L, -D, -R
+
 # -X use an xsession, -C compress data, "-c blowfish" use the encryption blowfish
 ssh user@example.com -C -c blowfish -X
 

@@ -1,5 +1,6 @@
 # sum integers from a file or stdin, one integer per line:
 printf '1\n2\n3\n' | awk '{ sum += $1} END {print sum}'
+ls -lrt | awk '{ s += $5 } END {print s}'
 
 # using specific character as separator to sum integers from a file or stdin
 printf '1:2:3' | awk -F ":" '{print $1+$2+$3}'
