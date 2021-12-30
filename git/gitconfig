@@ -46,16 +46,18 @@
     stc = diff --stat --cached
 # log
     l =  log          --graph --pretty=format:'%Cred%h%Creset %G? %C(bold green)%<(15,trunc)%an%Creset %C(cyan)%ai %Creset - %s %C(yellow)%d%Creset' --abbrev-commit
-    ll = log          --graph --pretty=format:'%Cred%h%Creset %G? %C(bold green)%<(15,trunc)%an%Creset %C(cyan)%ai mrg %C(magenta)%ci %Creset - %s %C(yellow)%d%Creset' --abbrev-commit
-    ltxt = log --pretty=format:'- %s' --abbrev-commit
+    ll = log          --graph --pretty=format:'%Cred%h%Creset %G? %C(bold green)%<(15,trunc)%an%Creset %C(cyan)%ai merge %C(magenta)%ci %Creset - %s %C(yellow)%d%Creset' --abbrev-commit
+    ltxt = log --pretty=format:'- %an - %s' --abbrev-commit
     lg = log --graph --stat
     la = log --stat -1 HEAD
-    lp = log -p -1
+    lp = log -p
     lpp = log -p
     gs = log --graph --stat
     lc = show
     lt = describe --tags --abbrev=0
     lm = "!f() { git config user.email | xargs -I{} git l --author={} $@ ;}; f"
+# compare commit btw two branchs
+    dbr = show-branch
 # pull or push
     pl = pull
     ps = push
@@ -87,6 +89,11 @@
     ic = difftool --extcmd icdiff
 # format
     fp = format-patch -1
+    root = !pwd
+# quick edit
+    e = !$EDITOR $(git status --short | awk '$1 ~ /^M|A|U/ {print $2}')
+# apply patch
+    amj = am --reject
 [diff]
     tool = vimdiff
     # tool = icdiff

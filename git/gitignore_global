@@ -182,6 +182,35 @@ Untitled.ipynb
 
 # ignore self defined script for accelarator
 *.acc.sh
+*.acc.bash
+*.acc.md
 *.html
 
 git_msg_check_log
+
+# force it to local
+*.local
+out/
+
+board_config.h
+audio_board_config.h
+ldscripts/
+
+system_map_sym.c
+
+.config
+.config.cmd
+.config.old
+.defconfig
+
+callgrind.out.*
+
+map_af_hostless.txt
+
+enwik*
+
+*.paq8l
+
+1.asm
+
+mpu_table.c
