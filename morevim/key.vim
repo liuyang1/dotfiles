@@ -69,3 +69,13 @@ nnoremap \y         "+y
 nnoremap \p         "+p
 
 nnoremap \ds        :!dos2unix %<cr><cr><cr>
+
+"Copy file path
+"nnoremap <silent> \cp :let @*=expand("%:p")<cr>:echo '-= File path copied=-'<cr>
+"Copy file name
+"nnoremap <silent> \cf :let @*=expand("%:t")<cr>:echo '-= File name copied=-'<cr>
+"Copy bookmark position reference
+nnoremap <silent> \c  :let @*=expand("%:p").':'.line(".").':'.col(".")<cr>:echo '-= Cursor bookmark copied=-'<cr>
+
+" vertically split window, and goto file path under cursor
+nnoremap <silent> gf  :vsplit<CR>gF

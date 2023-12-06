@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-PREFIX=~
+PREFIX=$HOME/R/bin
 PWD=`pwd`
 
 installFile(){

@@ -95,7 +95,7 @@
 # apply patch
     amj = am --reject
 [diff]
-    tool = vimdiff
+    # tool = vimdiff
     # tool = icdiff
     guitool = meld
 [merge]
@@ -104,9 +104,11 @@
 [icdiff]
     options = --highlight --line-numbers
 [core]
+    # ignore file permissions
+    # fileMode = false
     editor = vim
     excludesfile = ~/.gitignore_global
-    quotepath = false
+	quotepath = false
     # compression = 0
 [i18n]
     logoutputencoding = utf8
@@ -116,7 +118,7 @@
 [push]
     default = matching
 [commit]
-    template = ~/.gitcltpl
+    template = ~/.aml.git.tpl
 [pager]
     st = cat
     stc = cat

@@ -1,5 +1,9 @@
+# zmodload zsh/zprof
+
 # Path to your oh-my-zsh installation.
+echo $PATH | grep -i 'R/bin'
 ZSH=$HOME/.oh-my-zsh
+echo $PATH | grep -i 'R/bin'
 
 ZSH_THEME=myagnoster
 ZSH_THEME=fast-agnoster
@@ -35,6 +39,7 @@ COMPLETION_WAITING_DOTS="true"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+echo $PATH | grep -i 'R/bin'
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
@@ -48,13 +53,19 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
+# [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
+_ZL_CMD=j
+_ZL_ECHO=1
+_ZL_MATCH_MODE=1
+[[ -f ~/git/pub/z.lua/z.lua ]] && eval "$(lua53 ~/git/pub/z.lua/z.lua --init zsh once)"
+
 # fasd      fast switch directory, list recent files
 # vi-mode
 # zsh-syntax-highlighting       highlight command when input it.
 # zaw       fuzzy history search
-plugins=(fasd vi-mode zsh-syntax-highlighting zaw pip cabal autojump)
+plugins=(fasd vi-mode fast-syntax-highlighting zaw pip cabal)
 
-source $ZSH/oh-my-zsh.sh
+[[ -f $ZSH/oh-my-zsh.sh ]] && source $ZSH/oh-my-zsh.sh
 unsetopt correct
 unsetopt correct_all
 
@@ -66,16 +77,28 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-PATH=$PATH:$HOME/.local/bin:$HOME/.cabal/bin
-PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin
+#PATH=/mnt/fileroot2/yang.liu/hifi4/RI-2019.2-linux/XtensaTools/bin::$PATH
+#PATH=/opt/xtensa/XtDevTools/install/tools/RI-2019.2-linux/XtensaTools/bin/:$PATH
+#XTENSA_CORE=AmlHifi4_v3
+#XTENSA_SYSTEM=/mnt/fileroot2/yang.liu/hifi4/RI-2019.2-linux/AmlHifi4_v3/config/
+#XTENSA_CORE=Amlogic_v3
+#XTENSA_SYSTEM=/opt/xtensa/XtDevTools/install/builds/RI-2019.2-linux/Amlogic_v3/config/
+#XTENSA_SYSTEM=/mnt/fileroot2/yang.liu/hifi4/RI-2019.2-linux/Amlogic_v3/config/
+
+PATH=/opt/gcc-linaro-7.3.1-2018.05-x86_64_armv8l-linux-gnueabihf/bin:/opt/gcc-linaro-aarch64-none-elf-4.9-2014.09_linux/bin:$PATH
+XTENSA_CORE=
+XTENSA_SYSTEM=
+#PATH=$PATH:$HOME/.local/bin:$HOME/.cabal/bin
+#PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin
+
+#LM_LICENSE_FILE=/home/yang.liu/tmp.lic #:$LM_LICENSE_FILE
+#LM_LICENSE_FILE=/home/yang.liu/T/license.droid11.lic #:$LM_LICENSE_FILE
 
 [[ -f ~/.aliases ]] && source ~/.aliases
 
-# [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
-
 ulimit -c unlimited
 
-export CCACHE_DIR=$HOME/.ccache
+# export CCACHE_DIR=$HOME/.ccache
 export XDG_CACHE_HOME=/tmp/xdgcache
 
 # make colorful MAN output

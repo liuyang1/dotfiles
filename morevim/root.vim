@@ -7,7 +7,8 @@
 "   a.vim have some shortcut starts with Leader, cancel it all.
 let g:mapleader = " "
 " source ~/.vim/vundle.vim
-source ~/.vim/plug.vim
+" source ~/.vim/plug.vim
+source ~/.vim/newplug.vim
 " source ~/.vim/t.vim
 
 source ~/.vim/option.vim
@@ -18,7 +19,9 @@ source ~/.vim/key.vim
 
 " source ~/.vim/term.vim
 
-let localcfg = expand("~/.vim/local.vim")
-if filereadable(localcfg)
-    execute "source ".localcfg
-endif
+" let localcfg = expand("~/.fvim/local.vim")
+" if filereadable(localcfg)
+"     execute "source ".localcfg
+" endif
+
+" colorscheme desert

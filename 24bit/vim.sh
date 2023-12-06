@@ -19,9 +19,10 @@ build() {
         --enable-termtruecolor \
         --enable-autoservername \
         --with-python-config-dir=/usr/lib/python2.7/config \
-        --enable-gui=gtk2 --enable-cscope --prefix=/usr
-    # make VIMRUNTIMEDIR=/usr/share/vim/vim74
-    make
+        --enable-gui=gtk2 --enable-cscope \
+        --prefix=/home/yang.liu/R/
+    make -j 10 VIMRUNTIMEDIR=/mnt/fileroot2/yang.liu/pub/vim90/runtime
+    # make -j10
 
     # sudo make install
 

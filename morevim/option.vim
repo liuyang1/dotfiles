@@ -17,17 +17,27 @@ endfunc
 nnoremap \l      :call SwitchRelative()<cr>
 
 " Tab & Indent
-set expandtab     " expand tab to whitesapce
-set smarttab
-set shiftwidth=4  " shift width
-set tabstop=4     " tab 4 space
-set softtabstop=4 " soft tab 4 space
+if 0
+	" TEMP for linux
+	set noexpandtab
+	set shiftwidth=8  " shift width
+	set tabstop=8     " tab 4 space
+	set softtabstop=8 " soft tab 4 space
+else
+	set expandtab     " expand tab to whitesapce
+	set shiftwidth=4  " shift width
+	set tabstop=4     " tab 4 space
+	set softtabstop=4 " soft tab 4 space
+endif
+
 set shiftround
+set smarttab
 
 set autoindent  " copy indent from current line when starting a new line
 set copyindent  " copy previous indentaion on autoindenting
 set smartindent " c style, after '{' or a line starting with cinwords' or before '}' smart indent
 set cindent     " more strict
+set cinoptions+=:0 " same indent with switch and case in C (linux style)
 
 " indent as file type
 filetype plugin indent on
@@ -58,11 +68,12 @@ set cmdheight=1  "cmd  height
 
 " cursor
     " only show current line at active window
-augroup CursorLine
-    autocmd!
-    autocmd VimEnter,WinEnter,BufWinEnter    * setlocal cursorline
-    autocmd WinLeave * setlocal nocursorline
-augroup END
+" Prefer itmer2's cursor line
+" augroup CursorLine
+"     autocmd!
+"     autocmd VimEnter,WinEnter,BufWinEnter    * setlocal cursorline
+"     autocmd WinLeave * setlocal nocursorline
+" augroup END
     " set cursorcolumn
 set ruler        "show position of cursor
 
@@ -119,11 +130,15 @@ syntax enable
 syntax on
 
 " fold
-" set foldenable
+set foldenable
 " set foldlevelstart=4 " close all folds. default: 0
 " set foldnestmax=10
 " set foldmethod=indent
 " set foldmethod=syntax
+" save & load view for fold
+" view files save at `viewdir`, may need clean up wrong one
+" autocmd BufWinLeave *.* mkview
+" autocmd BufWinEnter *.* silent loadview
 
 " encoding
 set encoding=utf-8
@@ -160,9 +175,9 @@ set list!
 set scrolloff=1
 set sidescrolloff=5
 
-set viminfo='100,\"200,:200,%,n~/.viminfo
+" set viminfo='100,\"200,:200,%,n~/.viminfo
 " for mark for word
-set viminfo+=!
+" set viminfo+=!
 
 function! ResCur()
 if line("'\"") <= line("$")
@@ -265,3 +280,4 @@ set nrformats=
 set cryptmethod=blowfish
 
 set title       " change terminal's title
+" set title titlestring=%t\ -\ Vim

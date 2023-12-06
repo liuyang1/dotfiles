@@ -78,9 +78,9 @@ function getGitDir() {
 }
 # exec GitStatus by server
 function rpcGitStatus() {
-  if [[ "$PWD" != /home/* ]]; then
-    return
-  fi
+  # if [[ "$PWD" != /home/* ]]; then
+  #   return
+  # fi
   for bdir in "${FastAgnosterBlacklist[@]}"; do
     if [[ "$PWD" == "$bdir"* ]]; then
       return

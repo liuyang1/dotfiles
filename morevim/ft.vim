@@ -3,6 +3,7 @@ filetype plugin on
 autocmd FileType python setlocal makeprg=time\ python2\ %
 
 autocmd BufNewFile,BufRead Makefrag setf make
+autocmd BufNewFile,BufRead makedefs setf make
 autocmd FileType make   setlocal noexpandtab
 autocmd FileType make   setlocal makeprg=make\ -f\ %
 
@@ -33,7 +34,7 @@ autocmd FileType c,cpp nmap <buffer> <Enter>     <C-w>}
 autocmd FileType c,cpp  setlocal comments^=:///
 autocmd FileType c,cpp set cino+=(0
 " autowrap
-autocmd FileType c,cpp set textwidth=100
+autocmd FileType c,cpp set textwidth=1000
 " wrapping text using text width require "t" in formatoptions
 autocmd FileType c,cpp set formatoptions+=t
 
@@ -59,9 +60,9 @@ autocmd FileType javascript noremap <silent> <Leader>cc :call JsBeautify()<cr>
 autocmd FileType html       noremap <silent> <Leader>cc :call HtmlBeautify()<cr>
 autocmd FileType css        noremap <silent> <Leader>cc :call CSSBeautify()<cr>
 
-autocmd FileType vimwiki    set tw=78 ts=2
+autocmd FileType vimwiki    set ts=2
 autocmd Filetype vimwiki setlocal spell
-autocmd Filetype markdown setlocal spell
+" autocmd Filetype markdown setlocal spell
 
 autocmd FileType xdefaults  setlocal makeprg=xrdb\ %
 

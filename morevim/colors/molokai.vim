@@ -238,7 +238,8 @@ if &t_Co > 255
    hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
    hi WildMenu        ctermfg=81  ctermbg=16
 
-   hi Comment         ctermfg=59  cterm=italic
+   " hi Comment         ctermfg=59  cterm=italic
+   hi Comment         ctermfg=59
    hi CursorColumn                ctermbg=236
    hi ColorColumn                 ctermbg=236
    " hi LineNr          ctermfg=250 ctermbg=234
@@ -293,9 +294,11 @@ if &t_Co > 255
     " highlight Conditional cterm=bold ctermfg=darkred
     " highlight Statement ctermfg=208 cterm=italic
     " highlight Statement cterm=italic ctermfg=darkred
-    highlight Statement cterm=italic ctermfg=197 term=italic
+    " highlight Statement cterm=italic ctermfg=197 term=italic
+    highlight Statement ctermfg=197
     highlight Comment ctermfg=246 guifg=#566467
-    highlight cUserLabel cterm=italic,underline ctermfg=229
+    " highlight cUserLabel cterm=italic,underline ctermfg=229
+    highlight cUserLabel ctermfg=229
     " highlight CursorLineNr ctermfg=208               cterm=bold
     " highlight CursorLineNr cterm=bold ctermfg=red ctermbg=236
 
@@ -306,7 +309,8 @@ if &t_Co > 255
     highlight VimwikiLink ctermfg=blue guifg=#66D9EF
     highlight VimwikiList ctermfg=darkgreen cterm=bold guifg=#C1F161
     highlight VimwikiBold ctermfg=darkred cterm=bold guifg=#FC5C94
-    highlight VimwikiItalic ctermfg=yellow cterm=italic guifg=#FD971F
+    " highlight VimwikiItalic ctermfg=yellow cterm=italic guifg=#FD971F
+    highlight VimwikiItalic ctermfg=yellow guifg=#FD971F
     highlight VimwikiCode ctermbg=235 ctermfg=darkblue guifg=#8DE6F7
     highlight VimwikiPre ctermbg=232 ctermfg=darkgreen guifg=#C1F161
 

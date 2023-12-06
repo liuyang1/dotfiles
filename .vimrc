@@ -46,6 +46,9 @@ source ~/.vim/abbr.vim
 source ~/.vim/filetype.vim
 source ~/.vim/powerline.vim
 source ~/.vim/gui.vim
+
+source ~/.vim/local/local.vim
+
 au BufReadPost * if line("'\"")>0 | if line("'\"")<=line("$")|exe("norm '\" ")|else|exe "norm $" |endif |endif
 Bundle 'clarity.vim'
 

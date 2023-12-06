@@ -210,11 +210,12 @@ prompt_cmd2(){
     history -a
 }
 PROMPT_COMMAND=prompt_cmd2
-FAKE_HOST=tobedefined
+FAKE_HOST=droid11
 if [ -f ~/.fakehost ]; then
     . ~/.fakehost
 fi
-PS1="$REGULAR$BLUE┌[$RED$FAKE_HOST$REGULAR:$PINK\w$BLUE]\n$BLUE└$GREEN\u$BLUE-$WHITE☯$BLUE->$REGULAR"
+# PS1="$REGULAR$BLUE┌[$RED$FAKE_HOST$REGULAR:$PINK\w$BLUE]\n$BLUE└$GREEN\u$BLUE-$WHITE☯$BLUE->$REGULAR"
+PS1="$REGULAR$BLUE┌[$RED$FAKE_HOST$REGULAR:$PINK\w$BLUE]\n$BLUE└$GREEN\u$WHITE> $REGULAR"
 #PS1="\n$REGULAR$BLUE┌[$RED\H$REGULAR:$PINK\w$BLUE]-$ORANGE\${lastval}$BLUE\${fillval}$RED[\D{%Y-%m-%d %H:%M:%S}$RED]$BLUE┐\n$BLUE└$GREEN\u$BLUE-$WHITE☯$BLUE->$REGULAR"
 PS2="\[\e[31;1m\]  >> \[\e[m\]"
 PS3="\[\e[31;1m\]??>> \[\e[m\]"
@@ -283,14 +284,13 @@ set -o vi
 # modify for zsh
 #bind -m vi-insert "\C-l":clear-screen
 
-#eval `dircolors -b`
-
-
-export EDITOR='/usr/bin/vim'
+export EDITOR="$HOME/R/bin/vim"
 
 export XMODIFIERS='@im=fcitx'
 
-export PATH=~/.local/bin:$PATH
+# export PATH=/home/yang.liu/R/bin:~/R/usr/bin:/opt/gcc-linaro-7.3.1-2018.05-x86_64_armv8l-linux-gnueabihf/bin:/opt/gcc-linaro-aarch64-none-elf-4.9-2014.09_linux/bin:$PATH
+export PATH=/home/yang.liu/R/bin:~/R/usr/bin:$PATH
+export LD_LIBRARY_PATH=/home/yang.liu/R/lib
 txtblk='\e[0;30m' # Black - Regular
 txtred='\e[0;31m' # Red
 txtgrn='\e[0;32m' # Green
@@ -354,6 +354,22 @@ export HISTIGNORE="pwd:ls:ll:histroy:exit:"
 # zsh not suported shopt
 #shopt -s histappend
 
-eval `dircolors ~/.dircolors`
+# eval `dircolors -b`
+
+
+eval `dircolors $HOME/.dircolors`
 
 export JAVA_HOME=/usr/lib/jvm/java-6-openjdk/
+
+# [[ -s /home/yang.liu/.autojump/etc/profile.d/autojump.sh ]] && source /home/yang.liu/.autojump/etc/profile.d/autojump.sh
+_Z_CMD=j
+[[ -s /home/yang.liu/.bash/z.sh ]] && source /home/yang.liu/.bash/z.sh
+
+# disable flow control key forever
+stty -ixon
+
+# source $HOME/.bash_local
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export LANG="en_US.UTF8"
+export LC_ALL="en_US.UTF8"

@@ -169,7 +169,7 @@ prompt_status() {
 ## Main prompt
 build_prompt() {
   RETVAL=$?
-  # prompt_virtualenv
+  prompt_virtualenv
   prompt_context
   prompt_dir
   prompt_git

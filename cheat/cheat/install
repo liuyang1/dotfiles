@@ -1,0 +1,5 @@
+# create dir (like mkdir -p, and specifiy mode, owner)
+install -m 644 -d [dir]
+
+# install src to dest (-D create dest dir)
+install -m 644 -D lib.so -t $(TARGET_DIR)/usr/lib

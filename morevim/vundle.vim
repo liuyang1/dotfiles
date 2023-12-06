@@ -173,8 +173,8 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Plugin 'The-NERD-Commenter'
 " let NERDShutUp=1
-Plugin 'tomtom/tcomment_vim'
-let g:tcomment_types={'c': '// %s'}
+" Plugin 'tomtom/tcomment_vim'
+" let g:tcomment_types={'c': '// %s'}
 
 " Plugin 'autoload_cscope.vim'
 " Plugin 'cscope.vim'

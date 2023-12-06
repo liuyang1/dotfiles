@@ -1,0 +1,2 @@
+make XXX-dirclean
+make XXX-rebuild

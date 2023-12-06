@@ -8,8 +8,8 @@
 # dependency file
 *.d
 a.out
-*.so
-*.a
+# *.so
+# *.a
 *.beam
 erl_crash.dump
 *.ta
@@ -80,8 +80,8 @@ cscope.po.out
 .deps
 
 # core dump file
-core
-core.*
+# core # This is too easy to conflict with some framework's core, like sound/core
+# core.*
 *.core
 vgcore.*
 
@@ -97,7 +97,7 @@ gmon.*
 *.flow
 *.fasl
 *.expect
-prebuilds/*
+# prebuilds/*
 *.taghl
 *.bin
 
@@ -191,17 +191,18 @@ git_msg_check_log
 # force it to local
 *.local
 out/
+output/
 
-board_config.h
-audio_board_config.h
+# board_config.h
+# audio_board_config.h
 ldscripts/
 
 system_map_sym.c
 
-.config
+# .config
 .config.cmd
 .config.old
-.defconfig
+# .defconfig
 
 callgrind.out.*
 
@@ -214,3 +215,14 @@ enwik*
 1.asm
 
 mpu_table.c
+
+output/*
+# *.ninja
+
+xtmemory.kcg.*
+*.sym.txt
+test_inp
+test_ref
+tflite_demo
+
+# boot

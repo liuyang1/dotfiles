@@ -26,6 +26,8 @@ elseif scm == "solarized_light"
     highlight SignColumn ctermbg=250
     highlight Normal ctermfg=14
     highlight Comment ctermfg=181
+elseif scm == "srcery"
+    colorscheme srcery
 endif
 
 " for Signature, mark line
@@ -77,3 +79,5 @@ nnoremap <silent> N     N:call HLNext(0.1)<cr>
 
 highlight SyntasticErrorSign    guifg=darkred
 highlight SyntasticWarningSign  guifg=darkgreen
+
+highlight VimwikiTodo term=reverse cterm=bold ctermfg=233 ctermbg=208

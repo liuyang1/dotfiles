@@ -12,10 +12,14 @@ alias vimdiff="/usr/bin/vim -d"
 alias vim="vim -u ~/.vimrc"
 alias vi="vim -u ~/.vimrc"
 alias e="vim -u ~/.vimrc"
+alias em="emacs -nw"
 alias less='/bin/less -r'
 alias more='less'
-alias ls='ls -hF --color=tty --show-control-chars --time-style=long-iso'
-alias ll="ls -l"
+# ls --color=auto this will stat each directory entry
+alias lls='\ls -hF --color=tty --show-control-chars --time-style=long-iso'
+alias lll='\ls -l'
+alias ls='exa -F'
+alias ll='ls -lF'
 alias mtr='mtr --curses'
 alias cp='cp -i'
 alias df='df -h'
@@ -27,28 +31,59 @@ alias emacs='emacs -nw'
 alias cmatrix="cmatrix -a -b -s -C blue -u 4"
 alias ta="tmux attach || tmux new"
 alias reposync="repo sync -d -j16"
-unalias o && alias o="d -e ranger"
-alias -s clj=clojure
-alias -s cl=clisp
-alias -s c=vim
-alias -s wiki=vim
-alias -s vim=vim
-alias -s rar="unrar e"
-alias -s tgz="tar zxvf"
-alias -s tar.bz2="tar jxvf"
-alias -s tar.gz="tar zxvf"
-alias -s gz="gunzip"
-alias -s tar="tar xvf"
-alias -s html="w3m"
-alias -s zip="7z x"
-alias -s xz="unxz"
-alias -s pdf="zathura"
-alias -s 7z="7z x"
+# unalias o && alias o="d -e ranger"
 alias wl="watch -d -n 1 ls -l"
 alias af="sag"
 # alias j="fasd_cd -d"
-alias dd="dirs -v"
+alias jc="j -c"
+# alias dd="dirs -v"
 alias clip="xclip -sel clip < "
-alias groot='cd $(git rev-parse --show-cdup)'
+# cdup, relative path, only when it's non-empty, switch to it
+alias gr='d=$(git rev-parse --show-cdup 2>/dev/null); echo "=> $d"; [[ $d != "" ]] && cd $d'
+alias gu='global -u'
+# TODO
+function find_repo() {
+    local d=$(pwd -P 2>/dev/null || command pwd)
+    while [ ! -e "$d"/.repo ]; do
+        d=$d/..
+        rd=$(realpath $d)
+        if [ $rd = "/" ]; then
+            d='' # keep current directory
+            break;
+        fi
+    done
+    d=$(realpath $d)
+    echo $d # use echo to return value
+}
+alias rr='d=$(find_repo); echo "=> $d"; [[ $d != "" ]] && cd $d'
 alias qemu="qemu-i386"
 alias netcfg="ifconfig"
+
+# aliases for filetype in Zsh
+if [[ "$ZSH_NAME" != "" ]]; then
+    alias -s clj=clojure
+    alias -s cl=clisp
+    alias -s c=vim
+    alias -s wiki=vim
+    alias -s vim=vim
+    alias -s rar="unrar e"
+    alias -s tgz="tar zxvf"
+    alias -s tar.bz2="tar jxvf"
+    alias -s tar.gz="tar zxvf"
+    alias -s gz="gunzip"
+    alias -s tar="tar xvf"
+    alias -s html="w3m"
+    alias -s zip="7z x"
+    alias -s xz="unxz"
+    alias -s pdf="zathura"
+    alias -s 7z="7z x"
+fi
+
+alias getpass="openssl rand -base64 6"
+alias www='python2 -m SimpleHTTPServer 8000'
+alias ipe='curl ipinfo.io/ip'
+# vim open all modified files under git
+alias vg="vim -p `git status --porcelain | sed -ne 's/^ M //p'`"
+alias nonevi="vi -u NONE -U NONE -N -i NONE"
+
+alias ipy="PYTHONPATH=/mnt/fileroot2/yang.liu/pub/ipython-1.2.1 python -m IPython"
