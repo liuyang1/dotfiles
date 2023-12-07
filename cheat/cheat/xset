@@ -1,0 +1,8 @@
+# disable auto turn-off screen when long time
+xset s off
+xset -dpms
+
+xset s noblank dpms force on
+
+gsettings get org.gnome.settings-daemon.plugins.power ambient-enabled
+gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false

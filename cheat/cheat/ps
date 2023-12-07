@@ -1,0 +1,24 @@
+# To list every process on the system:
+ps aux
+
+# To list a process tree
+ps axjf
+
+# To list every process owned by foouser:
+ps -aufoouser
+
+# To list every process with a user-defined format:
+ps -eo pid,user,command
+
+# Exclude grep from your grepped output of ps.
+# Add [] to the first letter. Ex: sshd -> [s]shd
+ps aux | grep '[h]ttpd'
+
+# check audioserver process's elapsed time
+ps -A -o etime -o name | grep audio
+
+# check audioserver thread's PSR(Processor last executed on)
+ps -A -o psr -o name | grep audio
+
+# count task run on which core
+ps -A -o psr | sort | uniq -c

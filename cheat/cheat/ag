@@ -1,0 +1,8 @@
+print context
+
+-A --after [LINES=2]		print lines After match
+-B --before [LINES=2]		print lines Before match
+
+list filename
+
+ag -l

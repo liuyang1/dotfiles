@@ -1,0 +1,7 @@
+# How to get android version
+getprop | grep -i version.release
+
+- 10: Q
+- 11: R
+- 12: S
+- 13: T

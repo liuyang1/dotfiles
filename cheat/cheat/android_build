@@ -1,0 +1,9 @@
+
+- croot			change to root of repo
+- m			make from top of tree
+- mm			make all modules in the current dir
+- mmm			make all modules in the supplied dir
+			build IMAGE?
+- mma
+- mmma
+- godir			go to dir containing a file

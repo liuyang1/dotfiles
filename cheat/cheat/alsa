@@ -1,0 +1,6 @@
+aplay -t raw -c 2 -r 48000 -f S32_LE 1.pcm
+aplay -D hw:0,1 -r 48000 /data/1.wav
+arecord -D hw:0,4 -c 4 -r 48000 -f S16_LE 1.wav
+
+amixer cset numid=3 220
+amixer cget numid=3

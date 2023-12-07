@@ -8,8 +8,8 @@
 # dependency file
 *.d
 a.out
-# *.so
-# *.a
+*.so
+*.a
 *.beam
 erl_crash.dump
 *.ta
@@ -181,9 +181,9 @@ Cargo.lock
 Untitled.ipynb
 
 # ignore self defined script for accelarator
-*.acc.sh
-*.acc.bash
-*.acc.md
+#*.acc.sh
+#*.acc.bash
+#*.acc.md
 *.html
 
 git_msg_check_log

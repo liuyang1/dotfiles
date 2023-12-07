@@ -9,6 +9,7 @@ find . -type f
 
 # To find files by octal permission:
 find . -type f -perm 777
+find . -perm 777
 
 # To find files with setuid bit set:
 find . -xdev \( -perm -4000 \) -type f -print0 | xargs -0 ls -l
@@ -21,6 +22,14 @@ find ./path/ -name '*.txt' | xargs grep 'string'
 
 # To find files with size bigger than 5 Mebibyte and sort them by size:
 find . -size +5M -type f -print0 | xargs -0 ls -Ssh | sort -z
+# suffix for size
+#   b(block, default)
+#   c/byte
+#   w/double bytes, word
+#   k/kilo, 1024
+#   M/mega, 1024*1024
+#   G/giga, 1024*1024*1024
+# +/-, bigger/smaller
 
 # To find files bigger than 2 Megabyte and list them:
 find . -type f -size +200000000c -exec ls -lh {} \; | awk '{ print $9 ": " $5 }'
@@ -38,6 +47,8 @@ find . -type l --user=username -ls
 
 # To search for and delete empty directories
 find . -type d -empty -exec rmdir {} \;
+find . -type d -empty -print
+find . -type d -empty -delete
 
 # To search for directories named build at a max depth of 2 directories
 find . -maxdepth 2 -name build -type d
@@ -50,3 +61,6 @@ find . -type f -samefile MY_FILE_HERE 2>/dev/null
 
 # To find all files in the current directory and modify their permissions
 find . -type f -exec chmod 644 {} \;
+
+# chmod all file from 755 to 644
+find . -type f -perm 755 | xargs chmod -x

@@ -1,0 +1,13 @@
+equation
+
+- $..$, inline equation
+- $$..$$, equation
+- plus,minus symbol \pm
+- minus,plus symbol \mp
+- sqrt			\sqrt
+- frac			\frac{}{}
+- x^2
+
+- [x] \qedsymbol with `amsthm` package
+
+

@@ -1,3 +1,4 @@
+from numpy import *
 # NPV: net present value
 # rate is 5.9%, cash flow series is $467.12 every year in future 31 years.
 # NPV is 6578.22

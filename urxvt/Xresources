@@ -8,7 +8,8 @@ URxvt.inputMethod:fcitx
 !!颜色设置
 ! cancel transparent setting to avoid flickering
 URxvt.depth:24
-URxvt.geometry:			80x30
+! default setting as VT100
+URxvt.geometry:			80x24
 URxvt.iconFile:			/home/liuy/.local/share/urxvt/terminal.png
 
 URxvt.meta8:            True
@@ -16,7 +17,7 @@ URxvt.meta8:            True
 ! disable this, to avoid URxvt flicking in AwesomeWM
 !URxvt.inheritPixmap:	True
 URxvt.transparent:		False
-URxvt.shading:          30
+URxvt.shading:          40
 !!中括号内数表示透明度
 !!滚动条设置
 URxvt.scrollBar:False
@@ -43,7 +44,19 @@ URxvt.externalBorder:	0
 ! URxvt.underlineColor:   gray
 !!字体设置
 Xft.dpi:96
-URxvt.font:     xft:Ubuntu Mono derivative Powerline:size=12:style=Regular,xft:microsoft yahei:pixelsize=16
+! URxvt.font:             xft:JetBrains Mono:size=12:style=Regular,Ubuntu Mono derivative Powerline:size=12:style=Regular,xft:microsoft yahei:pixelsize=16
+! URxvt.boldFont:         xft:JetBrains Mono:size=12:style=Regular,Ubuntu Mono derivative Powerline:size=12:style=Regular,Ubuntu Mono derivative Powerline:size=12:style=Bold,xft:microsoft yahei:pixelsize=16
+! URxvt.italicFont:       xft:JetBrains Mono:size=12:style=Italic,xft:microsoft yahei:pixelsize=16
+! URxvt.boldItalicFont:   xft:JetBrains Mono:size=12:style=Bold Italic,xft:microsoft yahei:pixelsize=16
+
+URxvt.font:             xft:Ubuntu Mono derivative Powerline:size=12:style=Regular,Ubuntu Mono derivative Powerline:size=12:style=Regular,xft:microsoft yahei:pixelsize=16
+URxvt.boldFont:         xft:Ubuntu Mono derivative Powerline:size=12:style=Regular,Ubuntu Mono derivative Powerline:size=12:style=Regular,Ubuntu Mono derivative Powerline:size=12:style=Bold,xft:microsoft yahei:pixelsize=16
+URxvt.italicFont:       xft:Ubuntu Mono derivative Powerline:size=12:style=Italic,xft:microsoft yahei:pixelsize=16
+URxvt.boldItalicFont:   xft:Ubuntu Mono derivative Powerline:size=12:style=Bold Italic,xft:microsoft yahei:pixelsize=16
+! URxvt.font:             xft:Ubuntu Mono derivative Powerline:size=12:style=Regular,xft:microsoft yahei:pixelsize=16
+! URxvt.boldFont:         xft:Ubuntu Mono derivative Powerline:size=12:style=Bold,xft:microsoft yahei:pixelsize=16
+! URxvt.italicFont:       xft:Ubuntu Mono derivative Powerline:size=12:style=Italic,xft:microsoft yahei:pixelsize=16
+! URxvt.boldItalicFont:   xft:Ubuntu Mono derivative Powerline:size=12:style=Bold Italic,xft:microsoft yahei:pixelsize=16
 ! URxvt.font:     xft:Ubuntu Mono derivative Powerline Plus Nerd File Types Mono:size=12:style=Regular,xft:microsoft yahei:pixelsize=16
 ! URxvt.font:     xft:dejavu sans mono:size=10:style=Regular,xft:monaco for powerline:size=10,xft:microsoft yahei:pixelsize=16
 ! URxvt.boldfont:xft:10x20:size=13:style=Bold:antialias=true
@@ -63,7 +76,7 @@ URxvt*loginShell: false
 
 ! fontconfig setting for URxvt
 Xft.antialias:  true
-Xft.autohint:   0
+Xft.autohint:   
 Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintfull

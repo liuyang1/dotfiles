@@ -39,6 +39,7 @@ git commit --amend
 git commit --date="`date --date='2 day ago'`"
 git commit --date="Jun 13 18:30:25 IST 2015"
 # more recent versions of Git also support --date="2 days ago" directly
+git commit --amend --date=now
 
 # git commit with Sign-Off-By line
 git commit -s
@@ -178,3 +179,6 @@ git clone --recursive [URL]
 git submodule status
 git submodule update --init
 git submodule update --init --recursive
+
+# show root directory
+git rev-parse --show-toplevel

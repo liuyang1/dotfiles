@@ -18,7 +18,7 @@ build() {
   #   patch -p0 -i ../$p || return 1
   # done
   ./configure \
-    --prefix=/usr \
+    --prefix=$HOME/R \
     --with-terminfo=/usr/share/terminfo \
     --enable-256-color \
     --enable-24-bit-color \

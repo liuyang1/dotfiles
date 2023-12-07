@@ -11,7 +11,7 @@ tmux list-sessions
 tmux attach
 tmux attach -t [Session ID]
 
-# Detach an already attached session (great if you are moving devices with different screen resolutions)
+# *** Detach an already attached session (great if you are moving devices with different screen resolutions)
 tmux attach -d
 
 # Display session:
@@ -55,3 +55,18 @@ Ctrl-b %
 
 # Split windows vertically:
 Ctrl-b "
+
+tmux list-panes -a
+tmux send-keys -t 10:2.1 "./run.acc.sh" Enter
+
+# How to set tmux's default shell
+# The option doesn't work
+SHELL=/$PATH/$TO/zsh tmux
+
+tmux pane status flag (%f?)
+- * current window
+- - last window (previously selected)
+- # THe window is monitored and activity has been detected
+- ! a bell has occurred in the window
+- + the window is monitored for content, and it has appeared
+- ~ the window has been silent for the monitor-silence interval

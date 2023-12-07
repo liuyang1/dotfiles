@@ -30,3 +30,6 @@ ps aux | grep -E --color 'bash|$'
 
 # limit matched line number
 grep -m 1 "abc" [FILE]
+
+# pkill
+kill $(ps -a | grep arecord | grep -v grep | awk '{print $1}')

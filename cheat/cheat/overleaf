@@ -1,0 +1,3 @@
+\usepackage[fontset=ubuntu]{ctex}
+
+xelatex compiler

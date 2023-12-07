@@ -25,8 +25,13 @@ docker cp foo.txt mycontainer:/foo.txt
 # list currently running containers
 docker ps
 
-# list all containers
+# list all containers (running)
 docker ps -a
 
 # list all images
 docker images
+
+# run hello-world image (for test)
+docker run hello-world
+
+docker -it -v local_path:container_path image_name

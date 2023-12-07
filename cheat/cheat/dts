@@ -1,0 +1,17 @@
+# run these command under u-boot
+# show all dts
+fdt print
+
+# show /mbd_audio node in dts
+fdt print /mbd_audio
+
+# enlarge fdt size (add 4k by default)
+fdt resize
+
+# set node '/mbd_audio' property 'acodec_lr_swap' to 1
+fdt set /mbd_audio acodec_lr_swap <1>
+
+# save change in dts
+store dtb write 1000000  	# for uboot-2015
+emmc dtb_write 1000000 0x40000 	# for uboot-2019
+reset

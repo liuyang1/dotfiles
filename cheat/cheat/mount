@@ -15,3 +15,6 @@ mount -o loop disk1.iso /mnt/disk
 
 # mount nfs in Android board
 busybox mount -t nfs -o nolock,ro $REMOTE_URI $LOCAL_DIRECTORY
+
+# create ramdisk
+mount -o size=100M -t tmpfs none /mnt/tmpfs

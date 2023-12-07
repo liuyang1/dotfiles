@@ -1,0 +1,2 @@
+# mount external USB stick
+sudo mount -t drvfs E: /mnt/e

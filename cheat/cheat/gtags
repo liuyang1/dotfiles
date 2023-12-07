@@ -1,2 +1,5 @@
 * -r        find reference of symbol
 * -x        find defineition of symbol
+
+
+gtags -q --skip-unreadable --skip-symlink -f gtags_files

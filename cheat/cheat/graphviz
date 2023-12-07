@@ -1,0 +1,7 @@
+digraph sample {
+    subgraph cluster_clst {
+        label="cluster sample"
+    }
+    A -> B -> {C, D}
+    D [label="ddd"]
+}

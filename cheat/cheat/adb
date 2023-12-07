@@ -1,0 +1,13 @@
+# How to fix udev rules issue for adb?
+
+1. lsusb
+
+	Bus 003 Device 006: ID 18d1:4ee7 Google Inc. USB2.0 Hub
+
+lsusb to check idVendor & idProduct
+
+2. add udev rule to /etc/udev/rules.d/51-android.rules
+
+	SUBSYSTEM=="usb",ATTR{idVendor}=="18d1",ATTR{idProduct}=="4ee7",MODE="0666",GROUP="plugdev"
+
+3. sudo udevadm control --reload-rules

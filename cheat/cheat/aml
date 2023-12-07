@@ -1,0 +1,3 @@
+# check dolby lib (efuse+encrypted lib) is OK or not
+dumpsys media.audio_flinger | grep dolby
+> [AML_HAL] dolby_lib: 2

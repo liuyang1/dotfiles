@@ -1,0 +1,4 @@
+from datetime import *
+date(2019,11,04) - date(2019,11,10)
+
+date(2019,11,04) + timedelta(days=100-16)

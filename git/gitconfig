@@ -23,7 +23,7 @@
     c = commit -v -s
     cs = commit -v -s -S
     cm = commit -v -s -m
-    amend = commit -v -s --amend
+    amend = commit -s --amend
     # caa = commit -a --amend -C HEAD
     # squash change to last commit message, but not edit message
     cc = commit --amend -s --no-edit

@@ -210,7 +210,7 @@ prompt_cmd2(){
     history -a
 }
 PROMPT_COMMAND=prompt_cmd2
-FAKE_HOST=droid11
+FAKE_HOST=tobedefined
 if [ -f ~/.fakehost ]; then
     . ~/.fakehost
 fi
@@ -288,9 +288,15 @@ export EDITOR="$HOME/R/bin/vim"
 
 export XMODIFIERS='@im=fcitx'
 
+<<<<<<< Updated upstream
 # export PATH=/home/yang.liu/R/bin:~/R/usr/bin:/opt/gcc-linaro-7.3.1-2018.05-x86_64_armv8l-linux-gnueabihf/bin:/opt/gcc-linaro-aarch64-none-elf-4.9-2014.09_linux/bin:$PATH
 export PATH=/home/yang.liu/R/bin:~/R/usr/bin:$PATH
 export LD_LIBRARY_PATH=/home/yang.liu/R/lib
+||||||| constructed merge base
+export PATH=~/.local/bin:$PATH
+=======
+export PATH=~/aml/acc:~/R/bin:~/.cargo/bin:$PATH
+>>>>>>> Stashed changes
 txtblk='\e[0;30m' # Black - Regular
 txtred='\e[0;31m' # Red
 txtgrn='\e[0;32m' # Green
@@ -359,6 +365,7 @@ export HISTIGNORE="pwd:ls:ll:histroy:exit:"
 
 eval `dircolors $HOME/.dircolors`
 
+<<<<<<< Updated upstream
 export JAVA_HOME=/usr/lib/jvm/java-6-openjdk/
 
 # [[ -s /home/yang.liu/.autojump/etc/profile.d/autojump.sh ]] && source /home/yang.liu/.autojump/etc/profile.d/autojump.sh
@@ -373,3 +380,22 @@ stty -ixon
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export LANG="en_US.UTF8"
 export LC_ALL="en_US.UTF8"
+||||||| constructed merge base
+export JAVA_HOME=/usr/lib/jvm/java-6-openjdk/
+=======
+# export JAVA_HOME=/usr/lib/jvm/java-6-openjdk/
+
+# GTK_IM_MODULE=xim, XMODIFIERS=fcitx to suport fcitx @ chrome
+export XMODIFIERS='@im=fcitx'
+export XIM=fcitx
+export XIM_PROGRAM=fcitx
+export QT_IM_MODULE="fcitx"
+export GTK_IM_MODULE=xim
+
+source ~/.bash_local
+
+_Z_CMD=j
+[[ -s $HOME/.bash/z.sh ]] && source $HOME/.bash/z.sh
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+>>>>>>> Stashed changes

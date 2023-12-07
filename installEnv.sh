@@ -2,7 +2,7 @@
 
 # create a soft-link between $1 and $2
 installFile(){
-	# installFile $1-> $2
+    # installFile $1-> $2
     PWD=$(pwd)
     if [[ "$1" != /* ]]; then
         SRC="$PWD/$1"

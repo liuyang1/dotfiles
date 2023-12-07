@@ -21,7 +21,15 @@ ssh -f -L 8080:remote.example.com:5000 user@personal.server.com -N
 ssh -X -t user@example.com 'chromium-browser'
 
 # To create a SOCKS proxy on localhost and port 9999
+设置一个SOCKS proxy
+比如在Server上可以访问特殊的网络，ssh -D [proxy_port] Server
++-------------+       +-----------+
+| client:9999 |--ssh->| server:22 | --80->  +-----+
+| SOCKS proxy |       |           |         | web |
+| Web browser |       |           |         +-----+
++-------------+       +-----------+
 ssh -D 9999 user@example.com
+然后在本地配置浏览器到socks代理即可
 
 # proxy related, -L, -D, -R
 

@@ -16,3 +16,7 @@ rsync -auv /src/foo/ /dest/foo
 
 # merge folder
 rsync -avh -P source/ dest/
+
+# quick remove directory with rsync
+mkdir empty_dir
+rsync -a --delete empty_dir/ YourDirectory/

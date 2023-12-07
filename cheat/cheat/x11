@@ -1,0 +1,4 @@
+# xset
+
+xset q              # query xset status
+xset s 6000 6000    # set screen saver [TIMEOUT] [CYCLE]

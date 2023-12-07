@@ -1,0 +1,1 @@
+vimdiff <(xmllint 1.xml) <(xmllint 2.xml)

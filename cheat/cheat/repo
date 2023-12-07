@@ -1,2 +1,12 @@
 # How to generate manifest?
 repo manifest -o snapshot.xml -r
+
+# discard all local changes
+repo forall -vc "git reset --hard; git clean -dxf"
+
+repo sync -j1 --fail-fast -c
+
+# -c, only fetch current branch
+
+# show all git, and first commit
+repo for all -c "git rev-paser --show-toplevel; git l -n 1"

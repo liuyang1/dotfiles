@@ -45,3 +45,22 @@ ffmpeg -i input.mp4 -vcodec copy -an 1.m2v # MEPG2 TS to ES, use "m2v" to indica
 
 # downscale
 ffmpeg -i [input.file] -vf scale=720:480 [output.file]
+
+ffmpeg -i [input.file] -acodec pcm_s16le [output.file]
+ffmpeg -i [input.file] -acodec pcm_s32le [output.file]
+
+ffmpeg -i [input.file] -ar 96000 [output.file]
+
+ffmpeg -i 1.mp3 -t 00:00:10 10s.mp3
+ffmpeg -i 1.mp3 -t 00:00:10 -ss 00:01:00 1min.10s.mp3
+
+# remove mp3's picture and metadata
+ffmpeg -i 1.mp3 -vn -acodec copy -map_metadata -1 nometa.mp3
+
+ffmpeg -i 1.m4a -acodec copy -f adts 1.adts
+# convert to adts, adif, latm format
+
+# map_channel, fileIdx.StrmIdx.ChannelIdx
+ffmpeg -i 1.m4a -map_channel 0.0.0 -c:v copy left.mp4
+ffmpeg -i left.mp4 -ar 16000 -acodec pcm_s16le left.wav
+wavData left.wav

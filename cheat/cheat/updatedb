@@ -1,0 +1,4 @@
+# make db for current directory, write db file as DB with normal user
+updatedb -o db -l 0 -U .
+
+locate -d db PATTERN

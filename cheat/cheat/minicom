@@ -1,0 +1,1 @@
+sudo minicom -s -D /dev/ttyUSB0 -C session.log

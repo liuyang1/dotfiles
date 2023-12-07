@@ -1,0 +1,4 @@
+
+tinycap /data/1.wav -d 0 -r 48000 -c 2 -b 16
+tinycap [FILE] -d [device] -r [sample_rate] -c [channels] -b [bits]
+注意：录制文件需要放到第一个参数

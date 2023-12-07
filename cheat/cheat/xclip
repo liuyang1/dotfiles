@@ -1,1 +1,7 @@
 xclip -sel clip < [FILE]
+
+xclip -selection c [FILE]
+
+xclip -o > [FILE]
+
+xclip -selction c -o [FILE]

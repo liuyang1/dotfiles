@@ -1,0 +1,3 @@
+sox in.wav -r 96000 out.wav
+sox in.wav -r 96000 -b 16 out.wav
+sox in.wav -r 96000 -b 24 out.wav
