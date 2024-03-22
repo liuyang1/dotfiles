@@ -1,3 +1,7 @@
+# rm large file
+git rm -rf --cached --ignore-unmatch FILE
+
+#####
 # To set your identity:
 git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com

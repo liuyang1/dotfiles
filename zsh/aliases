@@ -13,7 +13,7 @@ alias vim="vim -u ~/.vimrc"
 alias vi="vim -u ~/.vimrc"
 alias e="vim -u ~/.vimrc"
 alias em="emacs -nw"
-alias less='/bin/less -r'
+alias less='less -r'
 alias more='less'
 # ls --color=auto this will stat each directory entry
 alias lls='\ls -hF --color=tty --show-control-chars --time-style=long-iso'
@@ -82,8 +82,8 @@ fi
 alias getpass="openssl rand -base64 6"
 alias www='python2 -m SimpleHTTPServer 8000'
 alias ipe='curl ipinfo.io/ip'
-# vim open all modified files under git
-alias vg="vim -p `git status --porcelain | sed -ne 's/^ M //p'`"
 alias nonevi="vi -u NONE -U NONE -N -i NONE"
 
-alias ipy="PYTHONPATH=/mnt/fileroot2/yang.liu/pub/ipython-1.2.1 python -m IPython"
+### internal use
+# check midway, and ssh to dev to access workspace
+alias ws="( ( mwinit -l | grep cookie >/dev/null ) && ssh dev ) || ( mwinit && ssh dev )"

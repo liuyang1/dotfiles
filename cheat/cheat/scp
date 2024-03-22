@@ -10,3 +10,5 @@ scp -o "ProxyCommand nc -x 127.0.0.1:9999 -X 4 %h %p" file.txt username@example2
 # copy multiple files in one cmd
 # remind the slash to let the filename extend at server side
 scp name@server:/path/\{fa,fb,fc\} .
+
+-C # with compression

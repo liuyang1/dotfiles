@@ -5,8 +5,9 @@ repo manifest -o snapshot.xml -r
 repo forall -vc "git reset --hard; git clean -dxf"
 
 repo sync -j1 --fail-fast -c
-
 # -c, only fetch current branch
+
+# -d, *Detach*, not use this option
 
 # show all git, and first commit
 repo for all -c "git rev-paser --show-toplevel; git l -n 1"
