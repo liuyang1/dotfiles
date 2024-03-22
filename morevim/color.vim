@@ -80,4 +80,6 @@ nnoremap <silent> N     N:call HLNext(0.1)<cr>
 highlight SyntasticErrorSign    guifg=darkred
 highlight SyntasticWarningSign  guifg=darkgreen
 
-highlight VimwikiTodo term=reverse cterm=bold ctermfg=233 ctermbg=208
+" update vimwiki to lightblue color
+" highlight VimwikiTodo term=reverse cterm=bold ctermfg=32
+highlight VimwikiTodo guifg=#6195B4 cterm=bold

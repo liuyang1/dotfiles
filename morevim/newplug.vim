@@ -161,7 +161,9 @@ Plug 'tpope/vim-surround'
 
 " Plug 'justinmk/vim-sneak'
 
-Plug 'kshenoy/vim-signature'
+" TEMP: disable due to error: detected while processing BufEnter signature
+" sign refreshing...
+" Plug 'kshenoy/vim-signature'
 " Plugin to toggle, display and navigate marks
 let g:SignatureMarkOrder = "\m⚑"
 " let g:SignatureMarkOrder = "\m»"
@@ -187,4 +189,19 @@ Plug 'fedorenchik/VimCalc3'
 " Plug 'prabirshrestha/vim-lsp'
 " Plug 'mattn/vim-lsp-settings'
 
+Plug 'tibabit/vim-templates'
+let g:tmpl_search_paths = ['~/.vim/templates']
+
+Plug 'nathangrigg/vim-beancount', { 'for': ['bean'] }
+
+" https://github.com/Exafunction/codeium.vim
+Plug 'Exafunction/codeium.vim'
+let g:codeium_enabled = v:false " disable codeium by default due to policy
+let g:codeium_disable_bindings = 1
+let g:codeium_idle_delay = 200 " default 500, min 75
+imap <script><silent><nowait><expr> <C-g> codeium#Accept()
+imap <C-;>   <Cmd>call codeium#CycleCompletions(1)<CR>
+imap <C-,>   <Cmd>call codeium#CycleCompletions(-1)<CR>
+imap <C-x>   <Cmd>call codeium#Clear()<CR>
+nnoremap <Leader>ce  :Codeium EnableBuffer<CR>:Codeium Enable<CR>
 call plug#end()

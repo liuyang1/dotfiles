@@ -145,7 +145,7 @@ set encoding=utf-8
 set termencoding=utf-8
 set encoding=utf-8
 set fileencoding=utf-8
-set fileencodings=gb2312,gbk,chinese,cp936,gb18030,big5
+set fileencodings=utf-8,gb2312,gbk,chinese,cp936,gb18030,big5
 
 set langmenu="en_US.utf-8"
 language message en_US.utf-8

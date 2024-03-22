@@ -66,7 +66,6 @@ nnoremap gV `[v`]
 noremap <silent> <leader>sb :set norelativenumber<CR>:<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 
 nnoremap \y         "+y
-nnoremap \p         "+p
 
 nnoremap \ds        :!dos2unix %<cr><cr><cr>
 
@@ -74,8 +73,12 @@ nnoremap \ds        :!dos2unix %<cr><cr><cr>
 "nnoremap <silent> \cp :let @*=expand("%:p")<cr>:echo '-= File path copied=-'<cr>
 "Copy file name
 "nnoremap <silent> \cf :let @*=expand("%:t")<cr>:echo '-= File name copied=-'<cr>
-"Copy bookmark position reference
+" 1. Copy bookmark position reference
 nnoremap <silent> \c  :let @*=expand("%:p").':'.line(".").':'.col(".")<cr>:echo '-= Cursor bookmark copied=-'<cr>
+" 2. Paste bookmark position reference
+nnoremap <silenet> \p "*p
+" 3. Jump to bookmark position
+" gf
 
 " vertically split window, and goto file path under cursor
 nnoremap <silent> gf  :vsplit<CR>gF

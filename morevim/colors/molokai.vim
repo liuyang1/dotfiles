@@ -102,7 +102,9 @@ hi StatusLine      guifg=#455354 guibg=fg
 hi StatusLineNC    guifg=#808080 guibg=#080808
 hi StorageClass    guifg=#FD971F               gui=italic
 hi Structure       guifg=#66D9EF
-hi Tag             guifg=#F92672               gui=italic
+" hi Tag             guifg=#F92672               gui=italic
+" 换一种浅红色
+hi Tag             guifg=#E46D6C               gui=bold
 hi Title           guifg=#ef5939
 hi Todo            guifg=#707070 guibg=bg      gui=bold
 
