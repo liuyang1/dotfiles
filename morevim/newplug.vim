@@ -33,6 +33,9 @@ nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
 nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
 nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
+Plug 'slarwise/vim-tmux-send'
+nnoremap <LEADER>ss :SendLine<CR>
+
 Plug 'vim-scripts/gtags.vim'
 map <C-]> :GtagsCursor<CR>
 
@@ -202,6 +205,6 @@ let g:codeium_idle_delay = 200 " default 500, min 75
 imap <script><silent><nowait><expr> <C-g> codeium#Accept()
 imap <C-;>   <Cmd>call codeium#CycleCompletions(1)<CR>
 imap <C-,>   <Cmd>call codeium#CycleCompletions(-1)<CR>
-imap <C-x>   <Cmd>call codeium#Clear()<CR>
+" imap <C-x>   <Cmd>call codeium#Clear()<CR>
 nnoremap <Leader>ce  :Codeium EnableBuffer<CR>:Codeium Enable<CR>
 call plug#end()

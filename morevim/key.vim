@@ -74,9 +74,9 @@ nnoremap \ds        :!dos2unix %<cr><cr><cr>
 "Copy file name
 "nnoremap <silent> \cf :let @*=expand("%:t")<cr>:echo '-= File name copied=-'<cr>
 " 1. Copy bookmark position reference
-nnoremap <silent> \c  :let @*=expand("%:p").':'.line(".").':'.col(".")<cr>:echo '-= Cursor bookmark copied=-'<cr>
+nnoremap <silent> \c  :let @0=expand("%:p").':'.line(".").':'.col(".")<cr>:echo '-= Cursor bookmark copied=-'<cr>
 " 2. Paste bookmark position reference
-nnoremap <silenet> \p "*p
+nnoremap <silenet> \p "0p
 " 3. Jump to bookmark position
 " gf
 

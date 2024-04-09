@@ -28,6 +28,8 @@ elseif scm == "solarized_light"
     highlight Comment ctermfg=181
 elseif scm == "srcery"
     colorscheme srcery
+else " make default to desert
+    colorscheme desert
 endif
 
 " for Signature, mark line
