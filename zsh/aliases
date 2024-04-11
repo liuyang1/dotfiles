@@ -18,7 +18,7 @@ alias more='less'
 # ls --color=auto this will stat each directory entry
 alias lls='\ls -hF --color=tty --show-control-chars --time-style=long-iso'
 alias lll='\ls -l'
-alias ls='exa -F'
+# [[ which exa ]] && alias ls='exa -F'
 alias ll='ls -lF'
 alias mtr='mtr --curses'
 alias cp='cp -i'
@@ -63,9 +63,17 @@ alias netcfg="ifconfig"
 if [[ "$ZSH_NAME" != "" ]]; then
     alias -s clj=clojure
     alias -s cl=clisp
+    alias -s cpp=vim
+    alias -s h=vim
     alias -s c=vim
     alias -s wiki=vim
     alias -s vim=vim
+    alias -s java=vim
+    alias -s md=vim
+    alias -s mk=vim
+    alias -s bp=vim
+    alias -s py=vim
+    alias -s sh=bash
     alias -s rar="unrar e"
     alias -s tgz="tar zxvf"
     alias -s tar.bz2="tar jxvf"
@@ -87,3 +95,5 @@ alias nonevi="vi -u NONE -U NONE -N -i NONE"
 ### internal use
 # check midway, and ssh to dev to access workspace
 alias ws="( ( mwinit -l | grep cookie >/dev/null ) && ssh dev ) || ( mwinit && ssh dev )"
+
+alias vv='vi $(fzf)'

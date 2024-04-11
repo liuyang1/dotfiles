@@ -1,0 +1,20 @@
+7.5/100     with compinit
+6.4/100     without compinit
+2.9/100     without rtx completion
+
+a) profile login shell time
+b) check with xtrace
+
+    setopt xtrace arompt_subst
+
+c) check with zprof
+Zsh has a builtin profiler to profile startup time usage. It is called zprof and can be enabled by adding zmodload zsh/zprof to the top and zprof to the bottom of your ~/.zshrc.
+
+zmodload zsh/zprof
+zprof
+
+
+= Suspicious point =
+- compinit or completion
+    - compinit -C
+    - or REMOTE compinit/completion related config

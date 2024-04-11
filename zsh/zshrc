@@ -125,10 +125,6 @@ export XIM_PROGRAM=fcitx
 export QT_IM_MODULE="fcitx"
 export GTK_IM_MODULE=xim
 
-alias -s wiki=vim
-alias -s py=python
-alias -s sh=bash
-
 export LANGUAGE=
 export LANG="en_US.UTF8"
 export LC_ALL="en_US.UTF8"
