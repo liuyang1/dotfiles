@@ -5,3 +5,6 @@ getprop | grep -i version.release
 - 11: R
 - 12: S
 - 13: T
+
+# list usage (CPU/mem) on specific pid
+top -p [PID]

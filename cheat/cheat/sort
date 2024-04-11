@@ -19,3 +19,8 @@ sort -t '=' -k 2 -g
 
 ## sort options
 - -g, --general-numeric-sort
+
+## count frequence and sort with descending order
+# -n        numeric sort
+# -r        reverse order
+[cmd] | sort | uniq -c | sort -nr

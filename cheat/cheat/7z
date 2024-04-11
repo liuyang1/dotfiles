@@ -1,6 +1,8 @@
 7z
 A file archiver with highest compression ratio
 
+support RAR files
+
 Args:
 a       add
 d       delete

@@ -166,3 +166,5 @@ add
 - zfi{		fold inside of '{}'
 
 <C-x><C-f>	auto-completing file name and file paths
+
+!!bc<cr>    calculate current line with `bc` command, and replace it

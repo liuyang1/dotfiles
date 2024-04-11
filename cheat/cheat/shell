@@ -6,3 +6,6 @@ locate -0 [pattern] | xargs -0 ls -al
 find / -print0 -type d | xargs -0 ls -al
 
 IFS=$'\n' to replace the internal delimter of `for` (default is whitespace)
+
+# test colorscheme
+msgcat --color=test
