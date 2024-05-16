@@ -102,9 +102,6 @@ let g:rainbow_conf = {
 
 Plug 'nacitar/a.vim', { 'for': [ 'c', 'h', 'cpp' ] }
 
-Plug 'tpope/vim-fugitive'
-nnoremap <Leader>gb         :Git blame<cr>
-nnoremap <Leader>gd         :Git diff<cr>
 """ use d[N]o, d[N]p to obtain/put change
 """ N means the buffer id, in general, the HEAD is 2th buffer
 " for vim74 compat

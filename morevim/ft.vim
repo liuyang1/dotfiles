@@ -62,6 +62,7 @@ autocmd FileType css        noremap <silent> <Leader>cc :call CSSBeautify()<cr>
 
 autocmd FileType vimwiki    set ts=2
 autocmd Filetype vimwiki setlocal spell
+autocmd Filetype vimwiki setlocal spelllang+=cjk
 " autocmd Filetype markdown setlocal spell
 
 autocmd FileType xdefaults  setlocal makeprg=xrdb\ %
