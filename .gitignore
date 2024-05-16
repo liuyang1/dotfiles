@@ -6,6 +6,7 @@ morevim/local.vim
 morevim/.netrwhist
 morevim/haskellmode.config
 morevim/autoload/plug.vim*
+morevim/spell/en.utf-8.add
 zsh/zsh_local
 tmux/tmux.version.conf
 tmux/plugins

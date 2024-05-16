@@ -22,3 +22,8 @@ awk '{sum += $1} END{print sum}' [cpu log]
 - OFS: output field separator (default to space)
 - ORS: output record separator (default to newline)
 - FILENAME: current filename
+
+# get last field, seperated by :
+awk -F: '{print $NF}'
+
+# In makefile, may be you need replace $ with $$

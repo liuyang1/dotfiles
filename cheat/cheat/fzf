@@ -1,0 +1,11 @@
+# Tips
+key binding
+Ctrl-R
+Ctrl-T
+Alt-C
+
+vim **<Tab>
+
+support Alt-C in iterm2
+
+https://github.com/junegunn/fzf/issues/164
