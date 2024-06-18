@@ -85,3 +85,5 @@ highlight SyntasticWarningSign  guifg=darkgreen
 " update vimwiki to lightblue color
 " highlight VimwikiTodo term=reverse cterm=bold ctermfg=32
 highlight VimwikiTodo guifg=#6195B4 cterm=bold
+
+highlight Tag ctermfg=165 cterm=bold guifg=#AF1642

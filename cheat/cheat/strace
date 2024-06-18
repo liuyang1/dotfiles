@@ -26,3 +26,6 @@ strace -p <pid>
 # -tt 	time printed, including micro-seconds
 # -T 	show the time spent in sysstem calls
 strace -tt -T <command>
+
+# collect log to /data/1.log, attach to ADB process, and follow forks
+strace -f -p [ADB process] > /data/1.log 2>&1

@@ -1,0 +1,3 @@
+osascript -e 'display notification "Command is done" with title "iTerm"'
+osascript -e 'beep 3'
+

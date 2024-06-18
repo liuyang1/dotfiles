@@ -24,6 +24,8 @@ let g:ctrlp_extesions = ['funky', 'tag']
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
 """ tmux extension
 Plug 'christoomey/vim-tmux-navigator'
 let g:tmux_navigator_save_on_switch = 1
@@ -204,4 +206,13 @@ imap <C-;>   <Cmd>call codeium#CycleCompletions(1)<CR>
 imap <C-,>   <Cmd>call codeium#CycleCompletions(-1)<CR>
 " imap <C-x>   <Cmd>call codeium#Clear()<CR>
 nnoremap <Leader>ce  :Codeium EnableBuffer<CR>:Codeium Enable<CR>
+
+Plug 'skywind3000/vim-terminal-help'
+let g:terminal_edit='drop'
+let g:terminal_kill='term' " auto kill term session when exiting vim
+let g:terminal_close=1 " close window if process finished
+" Option+=, toggle terminal
+" Option+shift+h/j: move to the window below/above
+" drop abc.txt, tell vim to open abc.txt
+""
 call plug#end()
