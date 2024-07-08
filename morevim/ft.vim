@@ -61,8 +61,11 @@ autocmd FileType html       noremap <silent> <Leader>cc :call HtmlBeautify()<cr>
 autocmd FileType css        noremap <silent> <Leader>cc :call CSSBeautify()<cr>
 
 autocmd FileType vimwiki    set ts=2
-autocmd Filetype vimwiki setlocal spell
-autocmd Filetype vimwiki setlocal spelllang+=cjk
+autocmd Filetype vimwiki    setlocal spell
+" langauge support CJK, and disabled capitalization check
+autocmd Filetype vimwiki    setlocal spelllang+=cjk spellcapcheck=
+" shortcut to delete trailing whitelspace
+autocmd Filetype vimwiki    noremap <silent> <Leader>tt :%s/ \+$//g<cr>
 " autocmd Filetype markdown setlocal spell
 
 autocmd FileType xdefaults  setlocal makeprg=xrdb\ %

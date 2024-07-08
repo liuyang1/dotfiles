@@ -3,11 +3,13 @@
 " License       : MIT
 " Description   : 
 
-syn keyword Tag TODO XXX NOTES NOTE >>> AFK BAK YYY FAIL Pomo BAD ERROR WARN BLOCK WHY RED
+syn keyword Tag TODO XXX NOTES NOTE NOTE: >>> AFK BAK YYY FAIL Pomo BAD ERROR WARN BLOCK WHY RED <<< HOWTO WHERE WHO
 
 syn match Todo /#\w\+/
 "syn match Todo /@\w\+/
 syn match VimwikiTodo /@\w\+\(\.\w\+\)\?/
 syn keyword VimwikiTodo     BLUE
 
-syn keyword VimwikiListTodo Pending GOOD PASS DONE CLOSED QED SUCC ACK Q A TODAY CONCLUSION GREEN
+syn keyword VimwikiListTodo Doing Pending GOOD PASS DONE CLOSED QED SUCC ACK Q: A: TODAY CONCLUSION GREEN WORK YES
+
+syn keyword MatchParen YELLOW

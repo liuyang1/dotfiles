@@ -99,8 +99,11 @@ set splitbelow
 
 " tty
 set ttyfast
+if has('nvim')
+else
 set ttyscroll=1 " endless of lines to scroll the screen, it blink when set to 0
 set nottybuiltin    " search termcaps after the external ones.
+endif
 
 set autoread
 set autowrite
@@ -277,7 +280,10 @@ set fillchars=vert:┆,stlnc:-,fold:-,diff:-
 set nrformats=
 
 " When encrypting any file, use the much stronger blowfish algorithm
+if has('nvim')
+else
 set cryptmethod=blowfish
+endif
 
 set title       " change terminal's title
 " set title titlestring=%t\ -\ Vim

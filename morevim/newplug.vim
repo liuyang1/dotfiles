@@ -60,12 +60,14 @@ Plug 'bling/vim-airline'
 let g:airline_theme             = 'powerlineish'
 " let g:airline_theme             = 'hybrid'
 let g:airline#extensions#syntastic#enabled  = 0
-let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#enabled = 0
 let g:airline#extensions#branch#empty_message = 'No Br'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tmuxline#enabled = 0
+let g:airline#extensions#tmuxline#enabled = 1
 let g:airline_section_warning = ''
 let g:airline_powerline_fonts   = 1
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+let g:airline#extensions#wordcount#enabled=0
 
 Plug 'vim-airline/vim-airline-themes'
 
@@ -143,7 +145,10 @@ set updatetime=100
 
 " Plug 'easymotion/vim-easymotion'
 
-Plug 'vim-scripts/vimwiki' " { 'for': ['wiki'] }
+" Plug 'vim-scripts/vimwiki' " { 'for': ['wiki'] }
+" let g:vimwiki_folding='list:quick'
+" let g:vimwiki_folding='indent:quick'
+Plug 'vimwiki/vimwiki' " { 'for': ['wiki'] }
 let g:vimwiki_hl_headers=1
 let g:vimwiki_hl_cb_checked=1
 let g:vimwiki_conceallevel=0 " disable concel
