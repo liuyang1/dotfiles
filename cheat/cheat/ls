@@ -15,3 +15,22 @@ ls -d */
 
 # Display directories only, include hidden
 ls -d .*/ */
+
+exfxcxdxbxegedabagacad
+Where,
+
+    ls Attribute    Foreground color    Background color
+    directory   e   x
+    symbolic    f   x
+    socket  c   x
+    pipe    d   x
+    executable  b   x
+    block   e   g
+    character   e   d
+    executable  a   b
+    executable  a   g
+    directory   a   c
+    directory   a   d
+
+# List all files (even under sub-directories), and sort them with size
+ls -lSr `find . -type f`

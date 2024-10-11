@@ -1,0 +1,23 @@
+timew start 'doc_writing'
+timew stop
+timew continue
+
+timew summary
+timew summary yesterday
+
+timew summary :ids
+
+timew delete @2
+
+dim severity: critical, core, normal, simple
+
+P0/critical:   key_coding,   key doc_writing
+P1/core:       coding,       general doc_writing, hosted_meeting
+P2/normal:     code_reading  focus doc_reading,   qa_meeting need QA
+P3/simple:                   general doc_reading, listen_meeting only need listen
+
+task tag
+- hdmi
+- sepolicy
+- avts
+- perf

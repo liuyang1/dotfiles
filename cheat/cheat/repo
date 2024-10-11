@@ -1,8 +1,19 @@
+# use depth 1 to shallow clone, This will save storage
+repo init --depth 1 ...
+# only sync current branch with nproc threads (default only 1 thread)
+repo sync -c -j$(nproc)
+
+# a shallowed git, it show "grafted" commit
+# unshallow a shallowed git with this cmd
+git fetch --unshallow
+
 # How to generate manifest?
 repo manifest -o snapshot.xml -r
 
 # discard all local changes
 repo forall -vc "git reset --hard; git clean -dxf"
+# overwrite an existing git dir
+repo sync --force-sync
 
 repo sync -j1 --fail-fast -c
 # -c, only fetch current branch
@@ -11,3 +22,6 @@ repo sync -j1 --fail-fast -c
 
 # show all git, and first commit
 repo for all -c "git rev-paser --show-toplevel; git l -n 1"
+
+# list status per git
+repo status -b

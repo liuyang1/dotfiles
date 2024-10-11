@@ -64,3 +64,5 @@ find . -type f -exec chmod 644 {} \;
 
 # chmod all file from 755 to 644
 find . -type f -perm 755 | xargs chmod -x
+
+find . -type f -perm 755 -maxdepth 1 -exec mv {} temp_dir \;

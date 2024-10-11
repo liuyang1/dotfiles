@@ -27,3 +27,6 @@ awk '{sum += $1} END{print sum}' [cpu log]
 awk -F: '{print $NF}'
 
 # In makefile, may be you need replace $ with $$
+
+awk 'NR>=start_line && NR<=end_line' file.txt
+awk 'NR==5' file.txt
