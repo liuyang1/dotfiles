@@ -68,6 +68,7 @@ highlight SignLineHL      ctermbg=239
 
 set colorcolumn=80
 autocmd FileType c,cpp      setlocal colorcolumn=80,100
+autocmd FileType java       setlocal colorcolumn=100
 
 
 " disable Background color erase

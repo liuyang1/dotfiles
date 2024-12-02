@@ -1,8 +1,37 @@
 [user]
-    name = liuyang1
-    email = liuyang1@mail.ustc.edu.cn
+	email = lyz@amazon.com
+	name = Yang Liu
+
 [color]
-    ui = auto
+	ui = auto
+[core]
+	pager = less -FMRiX
+[push]
+	default = simple
+[alias]
+	dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+[ssh]
+	variant = ssh
+
+[url "ssh://lyz@usw2-acos2014-gerrit-mirror.labcollab.net:9418/"]
+    insteadOf = git://gerrit6.labcollab.net/
+    insteadOf = https://gerrit6.labcollab.net/gerrit/
+    insteadOf = http://gerrit6.labcollab.net/gerrit/
+    insteadOf = ssh://gerrit6.labcollab.net:9418/
+    insteadOf = ssh://gerrit6.labcollab.net/
+    insteadOf = ssh://lyz@gerrit6.labcollab.net:9418/
+
+[url "ssh://lyz@gerrit6.labcollab.net:9418/"]
+    pushInsteadOf = git://usw2-acos2014-gerrit-mirror.labcollab.net/
+    pushInsteadOf = ssh://usw2-acos2014-gerrit-mirror.labcollab.net:9418/
+    pushInsteadOf = ssh://lyz@usw2-acos2014-gerrit-mirror.labcollab.net:9418/
+    pushInsteadOf = git://gerrit6.labcollab.net/
+    pushInsteadOf = http://gerrit6.labcollab.net/gerrit/
+    pushInsteadOf = https://gerrit6.labcollab.net/gerrit/
+    pushInsteadOf = ssh://gerrit6.labcollab.net:9418/
+    pushInsteadOf = ssh://gerrit6.labcollab.net/
+    pushInsteadOf = ssh://lyz@gerrit6.labcollab.net:9418/
+
 [alias]
 # fetch
     ft = fetch
@@ -118,7 +147,7 @@
 [push]
     default = matching
 [commit]
-    template = ~/.aml.git.tpl
+    template = ~/.amz.git.tpl
 [pager]
     st = cat
     stc = cat
@@ -131,3 +160,5 @@
     textconv = hexdump -v -C
 [diff "ta"]
     textconv = hexdump -v -C
+[receive]
+	denyCurrentBranch = updateInstead

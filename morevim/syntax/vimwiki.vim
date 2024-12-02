@@ -10,6 +10,6 @@ syn match Todo /#\w\+/
 syn match VimwikiTodo /@\w\+\(\.\w\+\)\?/
 syn keyword VimwikiTodo     BLUE
 
-syn keyword VimwikiListTodo Doing Pending GOOD PASS DONE CLOSED QED SUCC ACK Q: A: TODAY CONCLUSION GREEN WORK YES
+syn keyword VimwikiListTodo Doing Pending GOOD PASS DONE CLOSED QED SUCC ACK Q: A: TODAY CONCLUSION GREEN WORK YES SLN
 
 syn keyword MatchParen YELLOW

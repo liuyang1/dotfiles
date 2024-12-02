@@ -16,6 +16,7 @@ alias em="emacs -nw"
 alias less='less -r'
 alias more='less'
 # ls --color=auto this will stat each directory entry
+alias ls='ls --color=auto'
 alias lls='\ls -hF --color=tty --show-control-chars --time-style=long-iso'
 alias lll='\ls -l'
 # [[ which exa ]] && alias ls='exa -F'
@@ -35,7 +36,7 @@ alias reposync="repo sync -d -j16"
 alias wl="watch -d -n 1 ls -l"
 alias af="sag"
 # alias j="fasd_cd -d"
-alias jc="j -c"
+# alias jc="j -c"
 # alias dd="dirs -v"
 alias clip="xclip -sel clip < "
 # cdup, relative path, only when it's non-empty, switch to it
@@ -72,7 +73,7 @@ if [[ "$ZSH_NAME" != "" ]]; then
     alias -s md=vim
     alias -s mk=vim
     alias -s bp=vim
-    alias -s py=vim
+# alias -s py=vim
     alias -s sh=bash
     alias -s rar="unrar e"
     alias -s tgz="tar zxvf"
@@ -90,10 +91,20 @@ fi
 alias getpass="openssl rand -base64 6"
 alias www='python2 -m SimpleHTTPServer 8000'
 alias ipe='curl ipinfo.io/ip'
+# vim open all modified files under git
+# alias vg="vim -p `git status --porcelain | sed -ne 's/^ M //p'`"
 alias nonevi="vi -u NONE -U NONE -N -i NONE"
 
 ### internal use
 # check midway, and ssh to dev to access workspace
 alias ws="( ( mwinit -l | grep cookie >/dev/null ) && ssh dev ) || ( mwinit && ssh dev )"
 
-alias vv='vi $(fzf)'
+alias vv="fzf --bind 'enter:become(vim {})'"
+
+function pick() {
+    X=$1;
+    Y=$2;
+    fn=$3;
+    tail -n +"$X" $fn | head -n "$((Y - X))"
+}
+alias pick=pick

@@ -37,6 +37,7 @@ nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
 Plug 'slarwise/vim-tmux-send'
 nnoremap <LEADER>ss :SendLine<CR>
+nnoremap <LEADER>sp :SendLineP<CR>
 
 Plug 'vim-scripts/gtags.vim'
 map <C-]> :GtagsCursor<CR>
@@ -87,7 +88,9 @@ Plug 'tpope/vim-fugitive'
 nnoremap <Leader>gb         :Git blame<cr>
 nnoremap <Leader>gd         :Git diff<cr>
 
-Plug 'luochen1990/rainbow', { 'for': ['c','cpp', 'h', 'scheme', 'python']}
+" Plug 'amdt/vim-niji'
+" Plug 'luochen1990/rainbow', { 'for': ['c','cpp', 'h', 'scheme', 'python', 'java']}
+Plug 'frazrepo/vim-rainbow', { 'for': ['c','cpp', 'h', 'scheme', 'python', 'java']}
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 let g:rainbow_conf = {
 \	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
@@ -205,6 +208,8 @@ Plug 'fedorenchik/VimCalc3'
 
 Plug 'tibabit/vim-templates'
 let g:tmpl_search_paths = ['~/.vim/templates']
+let g:tmpl_author_email = 'liuyang1@ustc.edu.cn'
+let g:tmpl_author_name = 'liuyang1'
 
 Plug 'nathangrigg/vim-beancount', { 'for': ['bean'] }
 

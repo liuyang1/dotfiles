@@ -1,7 +1,7 @@
 # compiled source
 *.com
-*.class
-*.dex
+# *.class
+# *.dex
 *.dll
 *.exe
 *.o
@@ -29,7 +29,7 @@ config.status
 *.dmg
 *.gz
 *.iso
-*.jar
+# *.jar
 *.rar
 *.tar
 *.gz
@@ -226,3 +226,6 @@ test_ref
 tflite_demo
 
 # boot
+
+# prebuilts/*
+testdata/*

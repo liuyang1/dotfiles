@@ -17,7 +17,7 @@ autocmd FileType clojure    setlocal makeprg=clojure\ %
 autocmd FileType lisp       setlocal makeprg=clisp\ %
 
 " for c
-autocmd FileType c      setlocal formatprg=uncrustify\ -c\ ~/.uncrustify.linux.cfg\ --no-backup\ 2>/dev/null
+autocmd FileType c      setlocal formatprg=uncrustify\ -c\ ~/.uncrustify.cfg\ --no-backup\ 2>/dev/null
 autocmd FileType c      setlocal makeprg=gcc\ %\ &&\ ./a.out
 autocmd FileType c      map <buffer> <Leader>cc     ggVGgq
 
@@ -32,14 +32,15 @@ autocmd FileType c,cpp nmap <buffer> <Enter>     <C-w>}
 
 " add for doxygen style comments
 autocmd FileType c,cpp  setlocal comments^=:///
-autocmd FileType c,cpp set cino+=(0
+" support lambda function
+autocmd FileTYpe c,cpp set cino+=j1,(0,ws,Ws
 " autowrap
 autocmd FileType c,cpp set textwidth=1000
 " wrapping text using text width require "t" in formatoptions
 autocmd FileType c,cpp set formatoptions+=t
 
 " for cpp
-autocmd FileType cpp    setlocal formatprg=uncrustify\ -c\ ~/.uncrustify.linux.cfg\ --no-backup\ 2>/dev/null
+autocmd FileType cpp    setlocal formatprg=uncrustify\ -c\ ~/.uncrustify.cfg\ --no-backup\ 2>/dev/null
 autocmd FileType cpp    setlocal makeprg=g++\ %\ &&\ ./a.out
 autocmd FileType cpp    nnoremap <Leader>cc     ggVGgq
 
