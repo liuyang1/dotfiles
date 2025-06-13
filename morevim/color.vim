@@ -10,7 +10,17 @@ if has('termguicolors')
     set termguicolors
 endif
 
-let scm="molokai"
+let ytheme = $YTHEME
+if ytheme == "dark"
+    " let scm="molokai"
+    " let scm="borland"
+    let scm="dracula"
+elseif ytheme == "light"
+    let scm="paper"
+else
+    " by default
+    let scm="molokai"
+endif
 
 if scm == "molokai"
     let g:rehash256 = 1
@@ -28,6 +38,26 @@ elseif scm == "solarized_light"
     highlight Comment ctermfg=181
 elseif scm == "srcery"
     colorscheme srcery
+elseif scm == "paper"
+    set background=light
+    colorscheme PaperColor
+elseif scm == "borland"
+    let g:BorlandStyle="morden"
+    let g:BorlandParen=1
+    colorscheme borland
+
+    " 改进拼写错误的背景颜色，默认为9，淡粉色，对比度太低了
+    highlight SpellBad  term=reverse ctermbg=88 gui=undercurl guisp=Red
+
+    " 设置行号区域背景色
+    highlight LineNr ctermbg=63 guibg=#303030
+    highlight SignColumn ctermbg=63 guibg=#404040
+
+    " 设置正文区域背景色
+    " highlight Normal ctermbg=234 guibg=#1c1c1c
+elseif scm == "dracula"
+    colorscheme dracula
+    " TODO
 else " make default to desert
     colorscheme desert
 endif

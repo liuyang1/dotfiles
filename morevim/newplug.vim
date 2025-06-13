@@ -56,8 +56,17 @@ autocmd FileType tagbar setlocal nocursorline nocursorcolumn
 
 " Plug 'liuchengxu/vista.vim'
 
+Plug 'vim-airline/vim-airline-themes'
+
 Plug 'bling/vim-airline'
-let g:airline_theme             = 'powerlineish'
+
+if $YTHEME == "dark"
+    " let g:airline_theme             = 'powerlineish'
+    let g:airline_theme             = 'dracula'
+elseif $YTHEME == "light"
+    let g:airline_theme             = 'zenburn'
+else
+endif
 " let g:airline_theme             = 'hybrid'
 let g:airline#extensions#syntastic#enabled  = 0
 let g:airline#extensions#branch#enabled = 0
@@ -68,8 +77,6 @@ let g:airline_section_warning = ''
 let g:airline_powerline_fonts   = 1
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 let g:airline#extensions#wordcount#enabled=0
-
-Plug 'vim-airline/vim-airline-themes'
 
 Plug 'mkitt/tabline.vim'
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -219,5 +226,20 @@ let g:terminal_close=1 " close window if process finished
 " Option+=, toggle terminal
 " Option+shift+h/j: move to the window below/above
 " drop abc.txt, tell vim to open abc.txt
+
+" Plug 'NLKNguyen/papercolor-theme'
+
+" Plug 'letorbi/vim-colors-modern-borland'
+
+Plug 'dracula/vim', { 'as': 'dracula' }
+
+" syntax highlight accelator for Typescript (otherwise, it's too slow when
+" open ts file
+Plug 'HerringtonDarkholme/yats.vim'
+" yats.vim 相关配置
+let g:typescript_ignore_browserwords = 1
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
+
 ""
 call plug#end()
