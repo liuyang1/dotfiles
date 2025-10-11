@@ -3,10 +3,10 @@
 Version:: tmux 1.9a
 
 Bug::
-open a new pane as last pane directory need "current_pane_path" for direcoty
+open a new pane as last pane directory need "current_pane_path" for directory
 switch.
 
-but when run such as man / pacman command, which cwd of these processes is 
+but when run such as man / pacman command, which cwd of these processes is
 "/usr/share/man" or "/"
 
 so open a new pane, will switch to those directories.
@@ -17,7 +17,7 @@ osdep-linux.c.patch
 Note::
 refer to a patch on sourceforge.[[http://sourceforge.net/p/tmux/mailman/message/32035774/]]
 
-detect the cwd of Process Group, if exist, switch to that direcotry, not cwd of
+detect the cwd of Process Group, if exist, switch to that directory, not cwd of
 foreground process.
 
 Known issues::
