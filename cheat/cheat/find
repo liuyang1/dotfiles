@@ -66,3 +66,6 @@ find . -type f -exec chmod 644 {} \;
 find . -type f -perm 755 | xargs chmod -x
 
 find . -type f -perm 755 -maxdepth 1 -exec mv {} temp_dir \;
+
+# delete old log file
+find . -type f -name "*.log" -not -newermt "2025-06-19 17:00:00"  -delete

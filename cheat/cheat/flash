@@ -1,0 +1,2 @@
+python flashimage.py --toolsdir /opt/homebrew/bin/ --force
+python flashimage.py --toolsdir /opt/homebrew/bin/

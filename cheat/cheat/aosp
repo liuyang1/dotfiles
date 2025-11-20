@@ -1,0 +1,2 @@
+# Block system to auto-sleep
+svc power stayon true

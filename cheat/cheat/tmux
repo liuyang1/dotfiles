@@ -70,3 +70,5 @@ tmux pane status flag (%f?)
 - ! a bell has occurred in the window
 - + the window is monitored for content, and it has appeared
 - ~ the window has been silent for the monitor-silence interval
+
+tmux rename-window 'new-name'

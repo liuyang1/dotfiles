@@ -1,3 +1,6 @@
+Force search all files (ignore .gitignore files)        <<< This is quite useful
+ag -u [pattern]
+
 print context
 
 -A --after [LINES=2]		print lines After match

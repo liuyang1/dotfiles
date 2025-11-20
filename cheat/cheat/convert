@@ -1,0 +1,2 @@
+# convert input.jpg to specific resolution(800x600)
+convert input.jpg -resize 800x600 output.jpg

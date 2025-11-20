@@ -1,0 +1,5 @@
+# block idle
+caffinate -i
+
+# block Display, Idle, Disk(m), Sleeping
+caffinate -dims

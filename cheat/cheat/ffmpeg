@@ -64,3 +64,10 @@ ffmpeg -i 1.m4a -acodec copy -f adts 1.adts
 ffmpeg -i 1.m4a -map_channel 0.0.0 -c:v copy left.mp4
 ffmpeg -i left.mp4 -ar 16000 -acodec pcm_s16le left.wav
 wavData left.wav
+
+
+# convert video to picture per frame
+ffmpeg -i video_20250221_145657.mp4 -vf "select='not(mod(n,1))',setpts='N/(30*TB)'" -vsync vfr   -t 00:00:10 output_%04d.png
+
+# downscale the picture to 720x? (lock ratio)
+ffmpeg -i 1.png -vf scale=720:-1 2.png

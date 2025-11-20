@@ -24,3 +24,6 @@ sort -t '=' -k 2 -g
 # -n        numeric sort
 # -r        reverse order
 [cmd] | sort | uniq -c | sort -nr
+
+# sort of grep result
+grep -irn camused * | sort -t: -k1,1

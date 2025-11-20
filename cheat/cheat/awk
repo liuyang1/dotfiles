@@ -30,3 +30,5 @@ awk -F: '{print $NF}'
 
 awk 'NR>=start_line && NR<=end_line' file.txt
 awk 'NR==5' file.txt
+
+awk '/START/{flag=1}/STOP/{print;flag=0}flag' your_file.txt

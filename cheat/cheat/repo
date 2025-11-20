@@ -15,7 +15,7 @@ repo forall -vc "git reset --hard; git clean -dxf"
 # overwrite an existing git dir
 repo sync --force-sync
 
-repo sync -j1 --fail-fast -c
+repo sync -j1 --fail-fast -c --force-sync
 # -c, only fetch current branch
 
 # -d, *Detach*, not use this option
@@ -25,3 +25,5 @@ repo for all -c "git rev-paser --show-toplevel; git l -n 1"
 
 # list status per git
 repo status -b
+
+python2.7 .repo/repo/repo sync -d -j8 -c

@@ -168,3 +168,6 @@ add
 <C-x><C-f>	auto-completing file name and file paths
 
 !!bc<cr>    calculate current line with `bc` command, and replace it
+
+# df.abc -> df["abc"]
+:%s/df\.\(\w\+\)/df["\1"]/g

@@ -30,3 +30,6 @@ Example:
 7       bad cli arguments
 8       not enough memory for operation
 255     process was interrupted
+
+How to de-compress multiple file with 7z?
+7z x first_file.001

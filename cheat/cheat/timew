@@ -5,6 +5,7 @@ timew continue
 timew summary
 timew summary yesterday
 
+# show summary with ids
 timew summary :ids
 
 timew delete @2
@@ -21,3 +22,8 @@ task tag
 - sepolicy
 - avts
 - perf
+
+# shorten @1's transcation's time 10min
+timew shorten 10min @1
+
+timew track 13:00 to 14:30 meal

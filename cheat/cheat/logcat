@@ -1,0 +1,7 @@
+# list all buffers of logcat
+
+# capture all buffers of logcat, the default buffers are main
+logcat -b all
+
+# clear all buffers
+logcat -b all -c

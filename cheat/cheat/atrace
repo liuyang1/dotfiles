@@ -1,0 +1,47 @@
+setprop audio.hal.trace 1
+setprop audio.af.trace 1
+atrace --async_start audio
+atrace --async_dump > 1.log
+atrace --async_stop
+
+# trace audio, HAL categoires 5seconds, and save to 1.log
+atrace audio,hal -t 5 -o 1.log
+
+categories
+         gfx - Graphics
+       input - Input
+        view - View System
+     webview - WebView
+          wm - Window Manager
+          am - Activity Manager
+          sm - Sync Manager
+       audio - Audio
+       video - Video
+      camera - Camera
+         hal - Hardware Modules
+         res - Resource Loading
+      dalvik - Dalvik VM
+          rs - RenderScript
+      bionic - Bionic C Library
+       power - Power Management
+          pm - Package Manager
+          ss - System Server
+    database - Database
+     network - Network
+         adb - ADB
+    vibrator - Vibrator
+        aidl - AIDL calls
+         pdx - PDX services
+       sched - CPU Scheduling
+         irq - IRQ Events
+         i2c - I2C Events
+        freq - CPU Frequency
+        idle - CPU Idle
+        disk - Disk I/O
+         mmc - eMMC commands
+        sync - Synchronization
+       workq - Kernel Workqueues
+  regulators - Voltage and Current Regulators
+  binder_driver - Binder Kernel driver
+  binder_lock - Binder global lock trace
+   pagecache - Page cache
