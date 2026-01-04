@@ -41,7 +41,7 @@ export PATH=$HOME/.toolbox/bin:$PATH
 
 # Set up rtx for runtime management
 # active python3 (otherwise, it's python2), repo need this
-eval "$(/home/lyz/.local/share/rtx/bin/rtx activate zsh)"
+[ -f "$HOME/.local/share/rtx/bin/rtx" ] && eval "$(/home/lyz/.local/share/rtx/bin/rtx activate zsh)"
 # source ~/.local/share/rtx/completions.zsh
 ### SLOW, real pain point
 # source /home/lyz/.brazil_completion/zsh_completion
@@ -61,7 +61,6 @@ TZ='Asia/Shanghai'; export TZ
 # Path to your oh-my-zsh installation.
 # echo $PATH | grep -i 'R/bin'
 ZSH=$HOME/.oh-my-zsh
-# echo $PATH | grep -i 'R/bin'
 
 ZSH_THEME=myagnoster
 ZSH_THEME=fast-agnoster
@@ -97,7 +96,6 @@ COMPLETION_WAITING_DOTS="true"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# echo $PATH | grep -i 'R/bin'
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
