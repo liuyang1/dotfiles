@@ -82,3 +82,7 @@ nnoremap <silent> \p "0p
 
 " vertically split window, and goto file path under cursor
 nnoremap <silent> gf  :vsplit<CR>gF
+
+"noremap <silent> <Leader>p :set paste<CR>
+nnoremap <Leader>p :if &paste \| set nopaste \| echo "Paste mode OFF" \| else \| set paste \| echo "Paste mode ON" \| endif<CR>
+autocmd InsertLeave * set nopaste

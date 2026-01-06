@@ -177,6 +177,7 @@ set list!
 
 set scrolloff=1
 set sidescrolloff=5
+set smoothscroll
 
 " set viminfo='100,\"200,:200,%,n~/.viminfo
 " for mark for word
@@ -240,7 +241,7 @@ au FileType qf call AdjustWindowHeight(10, 25)
 " fast <Esc> key
 set showcmd
 set ttimeout
-set timeoutlen=1000 ttimeoutlen=0
+set timeoutlen=500 ttimeoutlen=0
 
 " set keywordprg=man\ -a
 " check manual from page3(library calls), page2(system calls), page1(program)
@@ -287,3 +288,7 @@ endif
 
 set title       " change terminal's title
 " set title titlestring=%t\ -\ Vim
+
+" 性能优化选项
+set ttyfast                 " 更快的终端连接
+set regexpengine=1         " 使用新的正则引擎
