@@ -243,46 +243,46 @@ main() {
       script_output="$($current_dir/checkadb.sh)"
       if echo "$script_output" | grep -q ":dark_gray$"; then
           IFS=' ' read -r -a colors <<< "dark_gray orange"
-          script="#(echo '$script_output' | sed 's/:dark_gray$//')"
+          script="#($current_dir/checkadb.sh | sed 's/:dark_gray$//')"
       else
           IFS=' ' read -r -a colors <<< "dark_purple white"
-          script="#(echo '$script_output')"
+          script="#($current_dir/checkadb.sh)"
       fi
   elif [ $plugin = "checkmw" ]; then
       script_output="$($current_dir/checkmw.sh)"
       if echo "$script_output" | grep -q ":dark_gray$"; then
           IFS=' ' read -r -a colors <<< "dark_gray orange"
-          script="#(echo '$script_output' | sed 's/:dark_gray$//')"
+          script="#($current_dir/checkmw.sh | sed 's/:dark_gray$//')"
       else
           IFS=' ' read -r -a colors <<< "gray white"
-          script="#(echo '$script_output')"
+          script="#($current_dir/checkmw.sh)"
       fi
   elif [ $plugin = "checkdsk" ]; then
       script_output="$($current_dir/checkdsk.sh)"
       if echo "$script_output" | grep -q ":dark_gray$"; then
           IFS=' ' read -r -a colors <<< "dark_gray orange"
-          script="#(echo '$script_output' | sed 's/:dark_gray$//')"
+          script="#($current_dir/checkdsk.sh | sed 's/:dark_gray$//')"
       else
           IFS=' ' read -r -a colors <<< "dark_purple white"
-          script="#(echo '$script_output')"
+          script="#($current_dir/checkdsk.sh)"
       fi
   elif [ $plugin = "checkvpn" ]; then
       script_output="$($current_dir/checkvpn.sh)"
       if echo "$script_output" | grep -q ":dark_gray$"; then
           IFS=' ' read -r -a colors <<< "dark_gray orange"
-          script="#(echo '$script_output' | sed 's/:dark_gray$//')"
+          script="#($current_dir/checkvpn.sh | sed 's/:dark_gray$//')"
       else
           IFS=' ' read -r -a colors <<< "gray white"
-          script="#(echo '$script_output')"
+          script="#($current_dir/checkvpn.sh)"
       fi
   elif [ $plugin = "checkada" ]; then
       script_output="$($current_dir/checkada.sh)"
       if echo "$script_output" | grep -q ":dark_gray$"; then
           IFS=' ' read -r -a colors <<< "dark_gray orange"
-          script="#(echo '$script_output' | sed 's/:dark_gray$//')"
+          script="#($current_dir/checkada.sh | sed 's/:dark_gray$//')"
       else
           IFS=' ' read -r -a colors <<< "dark_purple white"
-          script="#(echo '$script_output')"
+          script="#($current_dir/checkada.sh)"
       fi
   elif [ $plugin = "cpu-usage" ]; then
       IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-cpu-usage-colors" "orange dark_gray")
