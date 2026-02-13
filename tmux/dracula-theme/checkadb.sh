@@ -1,31 +1,33 @@
-#!/usr/bin/env bash
-export LC_ALL=en_US.UTF-8
+#!/bin/bash
 
-current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source $current_dir/utils.sh
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/icons.sh"
 
-check_adb()
-{
-    # 执行adb devices并获取第一个设备（跳过第一行的"List of devices attached"）
-    device=$(adb devices | sed -n '2p' | awk '{print $1}')
+check_adb() {
+    devices=($(adb devices | tail -n +2 | awk '$2=="device" {print $1}'))
+    count=${#devices[@]}
     
-    if [ -z "$device" ]; then
-        #echo "#[bg=red,fg=black]adb:[NA]#[default]"
-        IFS=' ' read -r -a colors <<< "red dark_gray"
-        echo "adb:[NA]"
-    else
-        # 检查设备名长度
-        IFS=' ' read -r -a colors <<< "green dark_gray"
+    if [ $count -eq 0 ]; then
+        format_output "adb" "$(get_icon adb error)" "error"
+    elif [ $count -eq 1 ]; then
+        device="${devices[0]}"
+        product=$(echo 'echo $PRODUCT_NAME' | adb -s "$device" shell 2>/dev/null | tr -d '\r')
+        [ -z "$product" ] && product="unknown"
+        
         if [ ${#device} -gt 10 ]; then
-            # 取前4个和后4个字符
-            shortened="${device:0:4}..${device: -4}"
-            # echo "#[fg=green]adb:$shortened#[default]"
-            echo "adb:$shortened"
-        else
-            # 直接显示完整设备名
-            # echo "#[fg=green]adb:$device#[default]"
-            echo "#[fg=green]adb:$device#[default]"
+            device="${device:0:4}..${device: -4}"
         fi
+        format_output "adb" "$product/$device" "ok"
+    else
+        idx=$(($(date +%s) / 3 % count))
+        device="${devices[$idx]}"
+        product=$(echo 'echo $PRODUCT_NAME' | adb -s "$device" shell 2>/dev/null | tr -d '\r')
+        [ -z "$product" ] && product="unknown"
+        
+        if [ ${#device} -gt 10 ]; then
+            device="${device:0:4}..${device: -4}"
+        fi
+        format_output "adb" "$product/$device[$((idx+1))/$count]" "ok"
     fi
 }
 

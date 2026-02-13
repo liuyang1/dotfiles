@@ -172,13 +172,13 @@ main() {
   # Status left
   if $show_powerline; then
     if $show_edge_icons; then
-      tmux set-option -g status-left "#[bg=${bg_color},fg=${light_purple},bold]#{?client_prefix,#[fg=${orange}],}${show_right_sep}#[bg=${light_purple},fg=${dark_gray}]#{?client_prefix,#[bg=${orange}]#[fg=${dark_gray}],} ${left_icon} #[fg=${light_purple},bg=${bg_color}]#{?client_prefix,#[fg=${orange}],}${left_sep} "
+      tmux set-option -g status-left "#[bg=${bg_color},fg=${green},bold]#{?client_prefix,#[fg=${yellow}],}${show_right_sep}#[bg=${green},fg=${dark_gray}]#{?client_prefix,#[bg=${yellow}],} ${left_icon} #[fg=${green},bg=${bg_color}]#{?client_prefix,#[fg=${yellow}],}${left_sep} "
     else
-      tmux set-option -g status-left "#[bg=${dark_gray},fg=${light_purple}]#[bg=${light_purple},fg=${dark_gray}]#{?client_prefix,#[bg=${orange}]#[fg=${dark_gray}],} ${left_icon} #[fg=${light_purple},bg=${bg_color}]#{?client_prefix,#[fg=${orange}],}${left_sep}"
+      tmux set-option -g status-left "#[bg=${dark_gray},fg=${green}]#[bg=${green},fg=${dark_gray}]#{?client_prefix,#[bg=${yellow}],} ${left_icon} #[fg=${green},bg=${bg_color}]#{?client_prefix,#[fg=${yellow}],}${left_sep}"
     fi
     powerbg=${bg_color}
   else
-    tmux set-option -g status-left "#[bg=${light_purple},fg=${dark_gray}]#{?client_prefix,#[bg=${orange}]#[fg=${dark_gray}],} ${left_icon}"
+    tmux set-option -g status-left "#[bg=${green},fg=${dark_gray}]#{?client_prefix,#[bg=${yellow}],} ${left_icon}"
   fi
 
   # Status right
@@ -241,47 +241,47 @@ main() {
       # cancel to impl dynamic color, due to the FW limit
   elif [ $plugin = "checkadb" ]; then
       script_output="$($current_dir/checkadb.sh)"
-      if echo "$script_output" | grep -q ":dark_gray$"; then
-          IFS=' ' read -r -a colors <<< "dark_gray orange"
-          script="#(echo '$script_output' | sed 's/:dark_gray$//')"
-      else
+      if echo "$script_output" | grep -q ":gray$"; then
           IFS=' ' read -r -a colors <<< "dark_purple white"
+          script="#(echo '$script_output' | sed 's/:gray$//')"
+      else
+          IFS=' ' read -r -a colors <<< "orange dark_gray"
           script="#(echo '$script_output')"
       fi
   elif [ $plugin = "checkmw" ]; then
       script_output="$($current_dir/checkmw.sh)"
-      if echo "$script_output" | grep -q ":dark_gray$"; then
-          IFS=' ' read -r -a colors <<< "dark_gray orange"
-          script="#(echo '$script_output' | sed 's/:dark_gray$//')"
+      if echo "$script_output" | grep -q ":gray$"; then
+          IFS=' ' read -r -a colors <<< "dark_purple white"
+          script="#(echo '$script_output' | sed 's/:gray$//')"
       else
-          IFS=' ' read -r -a colors <<< "gray white"
+          IFS=' ' read -r -a colors <<< "green dark_gray"
           script="#(echo '$script_output')"
       fi
   elif [ $plugin = "checkdsk" ]; then
       script_output="$($current_dir/checkdsk.sh)"
-      if echo "$script_output" | grep -q ":dark_gray$"; then
-          IFS=' ' read -r -a colors <<< "dark_gray orange"
-          script="#(echo '$script_output' | sed 's/:dark_gray$//')"
-      else
+      if echo "$script_output" | grep -q ":gray$"; then
           IFS=' ' read -r -a colors <<< "dark_purple white"
+          script="#(echo '$script_output' | sed 's/:gray$//')"
+      else
+          IFS=' ' read -r -a colors <<< "pink dark_gray"
           script="#(echo '$script_output')"
       fi
   elif [ $plugin = "checkvpn" ]; then
       script_output="$($current_dir/checkvpn.sh)"
-      if echo "$script_output" | grep -q ":dark_gray$"; then
-          IFS=' ' read -r -a colors <<< "dark_gray orange"
-          script="#(echo '$script_output' | sed 's/:dark_gray$//')"
+      if echo "$script_output" | grep -q ":gray$"; then
+          IFS=' ' read -r -a colors <<< "dark_purple white"
+          script="#(echo '$script_output' | sed 's/:gray$//')"
       else
-          IFS=' ' read -r -a colors <<< "gray white"
+          IFS=' ' read -r -a colors <<< "cyan dark_gray"
           script="#(echo '$script_output')"
       fi
   elif [ $plugin = "checkada" ]; then
       script_output="$($current_dir/checkada.sh)"
-      if echo "$script_output" | grep -q ":dark_gray$"; then
-          IFS=' ' read -r -a colors <<< "dark_gray orange"
-          script="#(echo '$script_output' | sed 's/:dark_gray$//')"
-      else
+      if echo "$script_output" | grep -q ":gray$"; then
           IFS=' ' read -r -a colors <<< "dark_purple white"
+          script="#(echo '$script_output' | sed 's/:gray$//')"
+      else
+          IFS=' ' read -r -a colors <<< "orange dark_gray"
           script="#(echo '$script_output')"
       fi
   elif [ $plugin = "cpu-usage" ]; then
@@ -398,18 +398,17 @@ main() {
 
     # edge styling
     if $show_edge_icons; then
-      right_edge_icon=""
+      right_edge_icon="#[bg=${bg_color},fg=${!colors[0]}]${show_left_sep}"
       background_color=${bg_color}
     else
-      right_edge_icon=""
       background_color=${powerbg}
     fi
 
     if $show_powerline; then
       if $show_empty_plugins; then
-        tmux set-option -ga status-right " #[fg=${!colors[0]},bg=${powerbg},nobold,nounderscore,noitalics]${right_sep}#[fg=${!colors[1]},bg=${!colors[0]}] $script$right_edge_icon"
+        tmux set-option -ga status-right " #[fg=${!colors[0]},bg=${background_color},nobold,nounderscore,noitalics]${right_sep}#[fg=${!colors[1]},bg=${!colors[0]}] $script $right_edge_icon"
       else
-    tmux set-option -ga status-right "#{?#{==:$script,},,#[fg=${!colors[0]},bg=${powerbg},nobold,nounderscore,noitalics] ${right_sep}#[fg=${!colors[1]},bg=${!colors[0]}] $script$right_edge_icon}"
+    tmux set-option -ga status-right "#{?#{==:$script,},,#[fg=${!colors[0]},nobold,nounderscore,noitalics] ${right_sep}#[fg=${!colors[1]},bg=${!colors[0]}] $script $right_edge_icon}"
     fi
       powerbg=${!colors[0]}
     else
@@ -421,11 +420,6 @@ main() {
     fi
 
   done
-
-  # Add final edge arrow for status-right
-  if $show_powerline && $show_edge_icons; then
-    tmux set-option -ga status-right " #[fg=${powerbg},bg=${bg_color}]${show_left_sep}"
-  fi
 
   # Window option
   if $show_powerline; then

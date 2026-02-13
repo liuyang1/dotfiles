@@ -1,0 +1,14 @@
+# Tmux local configuration example
+# Copy this file to local.conf and customize per machine
+# local.conf is ignored by git
+
+# Icon style: plain, unicode, emoji
+# plain:   Simple text symbols (ox)
+# unicode: Check/cross marks (✓✗)
+# emoji:   Emoji icons
+#   VPN: 🔗(connected) / 🔌(disconnected)
+#   ADB: 📱(device) / 📵(no device)
+#   MW:  🔑(valid cert) / 🔒(expired)
+#   DSK: ☁️(cloud desktop valid) / ⛔(expired)
+#   ADA: 🎫(valid credentials) / ❌(invalid)
+TMUX_ICON_STYLE="plain"
