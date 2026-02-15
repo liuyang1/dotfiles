@@ -239,6 +239,9 @@ main() {
       script="#($current_dir/gpu_power.sh)"
 
       # cancel to impl dynamic color, due to the FW limit
+  elif [ $plugin = "currentpath" ]; then
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-currentpath-colors" "dark_purple white")
+      script="#($current_dir/current-path.sh)"
   elif [ $plugin = "checkadb" ]; then
       script_output="$($current_dir/checkadb.sh)"
       if echo "$script_output" | grep -q ":dark_gray$"; then

@@ -1,37 +1,17 @@
 [user]
 	email = lyz@amazon.com
 	name = Yang Liu
-
 [color]
-	ui = auto
-[core]
-	pager = less -FMRiX
-[push]
-	default = simple
-[alias]
-	dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
-[ssh]
-	variant = ssh
-
-[url "ssh://lyz@usw2-acos2014-gerrit-mirror.labcollab.net:9418/"]
-    insteadOf = git://gerrit6.labcollab.net/
-    insteadOf = https://gerrit6.labcollab.net/gerrit/
-    insteadOf = http://gerrit6.labcollab.net/gerrit/
-    insteadOf = ssh://gerrit6.labcollab.net:9418/
-    insteadOf = ssh://gerrit6.labcollab.net/
-    insteadOf = ssh://lyz@gerrit6.labcollab.net:9418/
-
-[url "ssh://lyz@gerrit6.labcollab.net:9418/"]
-    pushInsteadOf = git://usw2-acos2014-gerrit-mirror.labcollab.net/
-    pushInsteadOf = ssh://usw2-acos2014-gerrit-mirror.labcollab.net:9418/
-    pushInsteadOf = ssh://lyz@usw2-acos2014-gerrit-mirror.labcollab.net:9418/
-    pushInsteadOf = git://gerrit6.labcollab.net/
-    pushInsteadOf = http://gerrit6.labcollab.net/gerrit/
-    pushInsteadOf = https://gerrit6.labcollab.net/gerrit/
-    pushInsteadOf = ssh://gerrit6.labcollab.net:9418/
-    pushInsteadOf = ssh://gerrit6.labcollab.net/
-    pushInsteadOf = ssh://lyz@gerrit6.labcollab.net:9418/
-
+    ui = auto
+#     branch
+#     diff
+#     status
+#     # status.untracked "blue black bold"
+#     commit
+#     decorator
+#     interactive
+# [color "status"]
+#     untracked = blue black bold
 [alias]
 # fetch
     ft = fetch
@@ -78,6 +58,7 @@
     ll = log          --graph --pretty=format:'%Cred%h%Creset %G? %C(bold green)%<(15,trunc)%an%Creset %C(cyan)%ai merge %C(magenta)%ci %Creset - %s %C(yellow)%d%Creset' --abbrev-commit
     ltxt = log --pretty=format:'- %an - %s' --abbrev-commit
     lg = log --graph --stat
+    lgn = log --graph --stat --no-color
     la = log --stat -1 HEAD
     lp = log -p
     lpp = log -p
@@ -144,6 +125,7 @@
     commitencoding = utf8
 [log]
     date = default
+    # graphColors = red,green,blue,red,green,blue
 [push]
     default = matching
 [commit]
@@ -160,5 +142,8 @@
     textconv = hexdump -v -C
 [diff "ta"]
     textconv = hexdump -v -C
-[receive]
-	denyCurrentBranch = updateInstead
+
+# core.ignorecase true (default)
+
+[init]
+    defaultBranch = master

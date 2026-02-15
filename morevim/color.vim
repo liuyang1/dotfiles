@@ -15,6 +15,8 @@ if ytheme == "dark"
     " let scm="molokai"
     " let scm="borland"
     let scm="dracula"
+    "let scm="sonokai"
+    "let scm="catppuccin"
 elseif ytheme == "light"
     let scm="paper"
 else
@@ -58,6 +60,15 @@ elseif scm == "borland"
 elseif scm == "dracula"
     colorscheme dracula
     " TODO
+elseif scm == "sonokai"
+    colorscheme sonokai
+    " for vim-illuminated word
+    " highlight CurrentWord guibg=#363944 (default)
+    highlight CurrentWord guibg=#505060
+elseif scm == "catppuccin"
+    colorscheme catppuccin_mocha
+    " 改进SpellBad和Cursorline同时enable的，难以分辨问题
+    hi CursorLine cterm=bold gui=bold ctermbg=233 guibg=#121212
 else " make default to desert
     colorscheme desert
 endif
@@ -74,7 +85,7 @@ autocmd FileType java       setlocal colorcolumn=100
 " disable Background color erase
 set t_ut=
 
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+" set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
@@ -117,4 +128,31 @@ highlight SyntasticWarningSign  guifg=darkgreen
 " highlight VimwikiTodo term=reverse cterm=bold ctermfg=32
 highlight VimwikiTodo guifg=#6195B4 cterm=bold
 
-highlight Tag ctermfg=165 cterm=bold guifg=#AF1642
+" highlight Tag ctermfg=165 cterm=bold guifg=#AF1642
+" highlight Tag guibg=#AF1642 guifg=#000000
+highlight VimwikiFixme ctermfg=green
+" match VimwikiFixme /\(>>>\|<<<\)/
+" match VimwikiFixme /^\(>>>\|<<<\).*/
+match VimwikiFixme /.*\(>>>\|<<<\).*/
+
+" 日志文件语法高亮配置
+au BufNewFile,BufRead *.log setlocal syntax=logs
+
+" 定义日志文件的语法高亮
+augroup logs_syntax
+  autocmd!
+  " 定义高亮组
+  highlight LogError ctermbg=red ctermfg=white gui=bold
+  highlight LogWarning ctermbg=yellow ctermfg=black gui=bold
+  highlight LogDebug ctermbg=cyan ctermfg=black gui=bold
+  highlight LogFail ctermbg=magenta ctermfg=white gui=bold
+
+  " 全局匹配并高亮显示以下单词，不区分大小写
+  syntax match LogError /\c\%(error\|except\|exception\|fatal\)/
+  syntax match LogWarning /\c\%(warning\|warn\|err\)/
+  syntax match LogDebug /\cDEBUG/
+  syntax match LogDebug /\cinvalid/
+  syntax match LogDebug /\cnull/
+  syntax match LogDebug /\cunknown/
+  syntax match LogFail /\cfail/
+augroup END

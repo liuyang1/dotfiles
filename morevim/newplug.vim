@@ -64,6 +64,7 @@ Plug 'bling/vim-airline'
 if $YTHEME == "dark"
     " let g:airline_theme             = 'powerlineish'
     let g:airline_theme             = 'dracula'
+    let g:airline_theme = 'catppuccin_mocha'
 elseif $YTHEME == "light"
     let g:airline_theme             = 'zenburn'
 else
@@ -120,7 +121,7 @@ Plug 'nacitar/a.vim', { 'for': [ 'c', 'h', 'cpp' ] }
 """ N means the buffer id, in general, the HEAD is 2th buffer
 " for vim74 compat
 set diffopt+=vertical
-let gitgutter_style="colorful"
+let gitgutter_style="simple"
 if gitgutter_style == "colorful"
     let g:gitgutter_sign_added = '∙'
     let g:gitgutter_sign_removed = '∙'
@@ -162,6 +163,8 @@ Plug 'vimwiki/vimwiki' " { 'for': ['wiki'] }
 let g:vimwiki_hl_headers=1
 let g:vimwiki_hl_cb_checked=1
 let g:vimwiki_conceallevel=0 " disable concel
+let g:vimwiki_list_markers=[] " NOT WORK
+let g:vimwiki_auto_checkbox=0 " NOT WORK, useless
 nnoremap \dd     :VimwikiToggleListItem<cr>
 
 Plug 'tpope/vim-abolish'
@@ -238,6 +241,10 @@ let g:terminal_close=1 " close window if process finished
 
 Plug 'dracula/vim', { 'as': 'dracula' }
 
+Plug 'sainnhe/sonokai'
+
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }"
+
 " syntax highlight accelator for Typescript (otherwise, it's too slow when
 " open ts file
 Plug 'HerringtonDarkholme/yats.vim'
@@ -245,6 +252,8 @@ Plug 'HerringtonDarkholme/yats.vim'
 let g:typescript_ignore_browserwords = 1
 let g:typescript_compiler_binary = 'tsc'
 let g:typescript_compiler_options = ''
+
+Plug 'RRethy/vim-illuminate'
 
 ""
 call plug#end()

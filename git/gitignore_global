@@ -38,9 +38,9 @@ config.status
 *.zip
 
 # log and db
-log
+# log
 *.db
-*.log
+# *.log
 *.sql
 *.sqlite
 
@@ -55,7 +55,7 @@ ehthumbs.db
 Thumbs.db
 
 # video/audio file
-*.ts
+# *.ts typescript file
 *.265
 *.264
 *.261
@@ -92,6 +92,7 @@ vgcore.*
 *.exp
 *.pdb
 *.bak
+*.bkp
 
 gmon.*
 *.flow
@@ -229,3 +230,9 @@ tflite_demo
 
 # prebuilts/*
 testdata/*
+
+*~
+minicom.cap
+repopack-output.txt
+repomix-output.xml
+*.secret

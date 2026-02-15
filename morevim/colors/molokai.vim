@@ -65,7 +65,7 @@ hi Keyword         guifg=#F92672               gui=bold
 hi Label           guifg=#E6DB74               gui=none
 hi Macro           guifg=#C4BE89               gui=italic
 
-hi MatchParen      guifg=#000000 guibg=#FD971F gui=bold
+hi MatchParen      guifg=#000000 guibg=#FD971F gui=italic
 hi ModeMsg         guifg=#E6DB74
 hi MoreMsg         guifg=#E6DB74
 hi Operator        guifg=#F92672
@@ -104,7 +104,9 @@ hi StorageClass    guifg=#FD971F               gui=italic
 hi Structure       guifg=#66D9EF
 " hi Tag             guifg=#F92672               gui=italic
 " 换一种浅红色
-hi Tag             guifg=#E46D6C               gui=bold
+" hi Tag             guifg=#E46D6C               gui=bold
+" 反色
+hi Tag             guifg=#121212 guibg=#AF1642 gui=italic
 hi Title           guifg=#ef5939
 hi Todo            guifg=#707070 guibg=bg      gui=bold
 
@@ -193,7 +195,7 @@ if &t_Co > 255
    hi Macro           ctermfg=193
    hi SpecialKey      ctermfg=81
 
-   hi MatchParen      ctermfg=233  ctermbg=208 cterm=bold
+   hi MatchParen      ctermfg=233  ctermbg=208 cterm=italic
    hi ModeMsg         ctermfg=229
    hi MoreMsg         ctermfg=229
    hi Operator        ctermfg=161
@@ -226,7 +228,7 @@ if &t_Co > 255
    hi StatusLineNC    ctermfg=244 ctermbg=232
    hi StorageClass    ctermfg=208
    hi Structure       ctermfg=81
-   hi Tag             ctermfg=161
+   " hi Tag             ctermfg=161 ctermbg=208 cterm=italic
    hi Title           ctermfg=166
    hi Todo            ctermfg=231 ctermbg=232   cterm=bold
 
@@ -277,7 +279,7 @@ if &t_Co > 255
        hi Repeat          ctermfg=197               cterm=bold
 
        hi Statement       ctermfg=197               cterm=bold
-       hi Tag             ctermfg=197
+       " hi Tag             ctermfg=197
        hi Title           ctermfg=203
        hi Visual                      ctermbg=238
 

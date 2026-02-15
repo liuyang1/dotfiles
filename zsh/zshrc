@@ -57,6 +57,29 @@ TZ='Asia/Shanghai'; export TZ
 # export MCFLY_FUZZY=2
 # export MCFLY_INTERFACE_VIEW=BOTTOM
 # eval "$(mcfly init zsh)"
+# zmodload zsh/zprof
+# Kiro CLI pre block. Keep at the top of this file.
+# [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
+# Amazon Q pre block. Keep at the top of this file.
+# [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
+### for debug
+# gdate +"%T.%3N"
+# set -x
+### END for debug 
+
+# enable light mode with this global env, to contorl tmux/vim/mcfly
+export YTHEME=dark
+
+# BT101 introduce in zsh
+# export PATH=$PATH:/Users/lyz/.toolbox/bin
+eval "$(/opt/homebrew/bin/brew shellenv)"
+# Set up rtx for runtime management
+# eval "$(rtx activate zsh)"
+# rtx is renamed to mise
+# Aug-20, shell PROMPT is blocked by misc
+# eval "$(mise activate zsh)"
+
+export PATH=$HOME/.local/bin/:$HOME/.toolbox/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 # echo $PATH | grep -i 'R/bin'
@@ -109,11 +132,18 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
+### quickly switch directory (autojump -> z -> zoxide)
+## autojump
 # [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
-_ZL_CMD=j
-_ZL_ECHO=1
-_ZL_MATCH_MODE=1
-[[ -f ~/git/pub/z.lua/z.lua ]] && eval "$(lua53 ~/git/pub/z.lua/z.lua --init zsh once)"
+
+## z
+# _ZL_CMD=j
+# _ZL_ECHO=1
+# _ZL_MATCH_MODE=1
+# [[ -f ~/git/pub/z.lua/z.lua ]] && eval "$(lua53 ~/git/pub/z.lua/z.lua --init zsh once)"
+
+## zoxide, rust sponsored, I think it's better performance
+[ -f ~/.zoxide.zsh ] && source ~/.zoxide.zsh
 
 # fasd      fast switch directory, list recent files
 # vi-mode
@@ -127,9 +157,19 @@ unsetopt correct_all
 
 # User configuration
 
-# [[ -f ~/.dircolors ]] && eval `dircolors ~/.dircolors`
-export CLICOLOR=1
-export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
+if command -v gdircolors >/dev/null 2>&1; then
+    [[ -f ~/.dircolors ]] && eval "$(gdircolors -b ~/.dircolors)"
+    alias ls='gls --color=auto'
+else
+    [[ -f ~/.dircolors ]] && eval `dircolors ~/.dircolors`
+fi
+
+# Make all GNU flavor commands available, may override same-name BSD flavor commands
+# For M1 Mac
+# Make (new version)
+export PATH="/opt/homebrew/opt/make/libexec/gnubin/:/opt/homebrew/opt/coreutils/libexec/gnubin:${PATH}"
+export MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:${MANPATH}"
+# mac/freebsd doesn't support dircolors
 # set dircolors colorful completion
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
@@ -143,9 +183,9 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 #XTENSA_SYSTEM=/opt/xtensa/XtDevTools/install/builds/RI-2019.2-linux/Amlogic_v3/config/
 #XTENSA_SYSTEM=/mnt/fileroot2/yang.liu/hifi4/RI-2019.2-linux/Amlogic_v3/config/
 
-PATH=/opt/gcc-linaro-7.3.1-2018.05-x86_64_armv8l-linux-gnueabihf/bin:/opt/gcc-linaro-aarch64-none-elf-4.9-2014.09_linux/bin:$PATH
-XTENSA_CORE=
-XTENSA_SYSTEM=
+# PATH=/opt/gcc-linaro-7.3.1-2018.05-x86_64_armv8l-linux-gnueabihf/bin:/opt/gcc-linaro-aarch64-none-elf-4.9-2014.09_linux/bin:$PATH
+# XTENSA_CORE=
+# XTENSA_SYSTEM=
 #PATH=$PATH:$HOME/.local/bin:$HOME/.cabal/bin
 #PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin
 
@@ -167,6 +207,8 @@ export LESS_TERMCAP_se=$'\E[0m' # end standout-mode
 export LESS_TERMCAP_so=$'\E[01;44;33m' # begin standout-odeinfobox
 export LESS_TERMCAP_ue=$'\E[0m' # end underline
 export LESS_TERMCAP_us=$'\E[01;32m' # begin underline
+# make less support UTF-8, to avoid mosaic char
+export LESSCHARSET=UTF-8
 
 export EDITOR='vim'
 # crontab need this.
@@ -183,15 +225,17 @@ export XIM_PROGRAM=fcitx
 export QT_IM_MODULE="fcitx"
 export GTK_IM_MODULE=xim
 
-export LANGUAGE=
-export LANG="en_US.UTF8"
-export LC_ALL="en_US.UTF8"
+# export LANGUAGE=
+
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 #export LANG="zh_CN.UTF8"
 #export LC_ALL="zh_CN.UTF8"
-export LC_CTYPE="en_US.UTF8"
+export LC_CTYPE="en_US.UTF-8"
 
 # bindkey '^R' history-incremental-search-backward
-# bindkey '^R' zaw-history
+# default bind key for zaw
+bindkey '^R' zaw-history
 # default bind key for zaw
 # ^N         down-line-or-history
 # ^P         up-line-or-history
@@ -232,7 +276,8 @@ export HISTSIZE=10000
 export HISTIGNORE="cd(| *):(ls|dir)(| *):(rm|mv|cp|ln|scp|rmdir|mkdir) *:(echo|print)(| *):(g|)vim(| *):vi:vi *:e *:cat(| *):man *:(which|whence|type)(| *)|[fb]g(| *):feh *:pwd:exit(| *):date:kill(| *):ping *:ssh *:clear *:sleep *:history:tail *:head *:z *"
 export SAVEHIST=1000
 export HISTFILE=~/.zsh_history
-unsetopt INC_APPEND_HISTORY
+#unsetopt INC_APPEND_HISTORY
+setopt INC_APPEND_HISTORY
 #setopt APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt HIST_NO_FUNCTIONS
@@ -310,7 +355,120 @@ bindkey ^j 'select_down_pane'
 
 export CHEATCOLORS=true
 
-source "$HOME/.cargo/env"
-
 export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --border'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# History search
+# config 2-5
+if [[ $YTHEME == "light" ]]; then
+    export MCFLY_LIGHT=TRUE
+else
+    export MCFLY_LIGHT=FALSE
+fi
+export MCFLY_FUZZY=2
+export MCFLY_INTERFACE_VIEW=BOTTOM
+export MCFLY_RESULTS_SORT=LAST_RUN
+eval "$(mcfly init zsh)"
+
+autoload -U colors && colors
+if [[ $YTHEME == "light" ]]; then
+    precmd() { print -rP "%{$fg[black]%}%~" }
+elif [[ $YTHEME == "dark" ]]; then
+    precmd() { print -rP "%{$fg[green]%}%~ %{$fg[blue]%}<$SUBJECT> " }
+else
+    precmd() { print -rP "%{$fg[white]%}%~" }
+fi
+SUBJECT=nil
+# export PROMPT="%# "
+export PROMPT="%{$fg[red]%}\\%{$reset_color%} "
+# rtx may crash with this ISO-8859 char, move to UTF-8 could workaround this issue
+
+### for debug
+# echo "zshrc load"
+# gdate +"%T.%3N"
+### END for debug
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# zshrc Updates to point to Pyenv shims. keep this for python env
+export PATH=$HOME/.pyenv/shims:$PATH
+# temp for dots kats agent
+# export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+# export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
+# export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
+
+# export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+
+gg() {
+    python3 /Users/lyz/.gg/gg.py "$@"
+    if [ "$1" = "load" ]; then
+        if [ -f /Users/lyz/.gg/load_command.txt ]; then
+            cmd=$(cat /Users/lyz/.gg/load_command.txt)
+            if [[ "$SHELL" == */bash ]]; then
+                history -s "$cmd"
+                echo "$cmd"
+            elif [[ "$SHELL" == */zsh ]]; then
+                print -z "$cmd"
+            else
+                echo "Unsupported shell. Please copy the command manually:"
+                echo "$cmd"
+            fi
+        fi
+    fi
+}
+
+
+    autoload -Uz compinit
+    compinit
+
+    _gg_completion() {
+        local -a commands
+        commands=(
+            "list:List all patterns"
+            "view:View a specific pattern"
+            "edit:Edit a specific pattern"
+            "add:Add a new pattern"
+            "load:Load a pattern's command for editing"
+            "lint:Lint all pattern files"
+            "stats:Show pattern statistics"
+            "help:Show help message"
+        )
+
+        _arguments -C \
+            "1: :->command" \
+            "*::arg:->args"
+
+        case $state in
+            command)
+                _describe "command" commands
+                ;;
+            args)
+                case $words[1] in
+                    view|edit|load)
+                        _values "patterns" $(gg list)
+                        ;;
+                    add)
+                        _values "modules" $(ls /Users/lyz/.gg/patterns_personal /Users/lyz/.gg/patterns_central | sed 's/\.txt$//')
+                        ;;
+                esac
+                ;;
+        esac
+    }
+
+    compdef _gg_completion gg
+    
+
+. "$HOME/.local/bin/env"
+
+#export JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk/Contents/Home/
+
+# Amazon Q post block. Keep at the bottom of this file.
+# [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+
+export MODELSCOPE_CACHE=$HOME/.cache/modelscope
+export QUIP_API_TOKEN="QlhIOU1BQ0RiOHk=|1793873815|Upb4JFMBtlmYZgMMudEWcQTL8rqo2Sdh+woqjT9B6UA="
+
+# Kiro CLI post block. Keep at the bottom of this file.
+# [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"

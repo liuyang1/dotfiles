@@ -1,6 +1,22 @@
 filetype plugin on
 
-autocmd FileType python setlocal makeprg=time\ python2\ %
+autocmd FileType python setlocal makeprg=time\ python3\ %
+" 设置 Python 格式化程序为 black
+" autocmd FileType python noremap <buffer> <Leader>cc :call Preserve("%!black\ -\ 2>/dev/null")<cr>
+autocmd FileType python noremap <buffer> <Leader>cc :%!/Users/lyz/.pyenv/shims/black - 2>/dev/null<cr>
+
+" 保留光标位置和未保存的修改
+function! Preserve(command)
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the required command
+    execute a:command
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
 
 autocmd BufNewFile,BufRead Makefrag setf make
 autocmd BufNewFile,BufRead makedefs setf make
@@ -68,6 +84,8 @@ autocmd Filetype vimwiki    setlocal spelllang+=cjk spellcapcheck=
 " shortcut to delete trailing whitelspace
 autocmd Filetype vimwiki    noremap <silent> <Leader>tt :%s/ \+$//g<cr>
 " autocmd Filetype markdown setlocal spell
+" Disable auto-format after newline
+autocmd FileType vimwiki setlocal formatoptions-=n
 
 autocmd FileType xdefaults  setlocal makeprg=xrdb\ %
 
@@ -108,3 +126,30 @@ autocmd Filetype ledger setlocal nofoldenable
 
 """ Android.bp file
 autocmd BufNewFile,BufRead Android.bp :setl ft=go sw=4 sts=4 et
+
+" TypeScript 专门优化
+augroup TypeScriptCustom
+    autocmd!
+    " 仅对 TypeScript 文件应用以下设置
+    autocmd FileType typescript,typescriptreact,typescript.tsx setlocal
+        \ syntax=typescript
+        \ re=0
+        \ synmaxcol=200
+        \ lazyredraw
+        \ nocursorline
+        \ foldmethod=manual
+        \ nofoldenable
+
+    " 限制语法同步
+    autocmd FileType typescript,typescriptreact,typescript.tsx
+        \ syntax sync minlines=200
+        \ maxlines=500
+
+    " 进入缓冲区时重新同步语法
+    autocmd BufEnter *.ts,*.tsx syntax sync fromstart
+
+    " 如果文件较大（比如超过 100KB），则禁用某些特性
+    autocmd BufReadPre *.ts,*.tsx if getfsize(expand('%')) > 100000 |
+        \ setlocal syntax=off |
+        \ endif
+augroup END

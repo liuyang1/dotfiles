@@ -164,8 +164,8 @@ set path=..,.,/usr/include,/usr/src/linux/include,/usr/local/include,
 set wrap
 
 " set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-set listchars=tab:▸\ ,trail:‽,extends:>,precedes:<,nbsp:+
-set listchars=tab:»\ ,trail:$,extends:>,precedes:<,nbsp:+
+" set listchars=tab:▸\ ,trail:‽,extends:>,precedes:<,nbsp:+
+set listchars=tab:»\ ,trail:‽,extends:>,precedes:<,nbsp:+
 " eol:¶
 "▶
 "▸

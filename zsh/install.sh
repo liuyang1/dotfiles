@@ -5,7 +5,7 @@ PWD=`pwd`
 installFile(){
     # installFile $1-> $2
     echo installFile $1
-    rm -f $2
+    mv $2 $2.bak
     ln -s $1 $2
 }
 

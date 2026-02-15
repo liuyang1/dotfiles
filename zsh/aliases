@@ -19,10 +19,10 @@ alias more='less'
 alias ls='ls --color=auto'
 alias lls='\ls -hF --color=tty --show-control-chars --time-style=long-iso'
 alias lll='\ls -l'
-# [[ which exa ]] && alias ls='exa -F'
+alias ls='ls --color=auto'
 alias ll='ls -lF'
 alias mtr='mtr --curses'
-alias cp='cp -i'
+# alias cp='cp -i'
 alias df='df -h'
 alias du='du -h'
 # command -v ack-grep > /dev/null 2>&1 && alias ack='ack-grep'
@@ -33,7 +33,10 @@ alias cmatrix="cmatrix -a -b -s -C blue -u 4"
 alias ta="tmux attach || tmux new"
 alias reposync="repo sync -d -j16"
 # unalias o && alias o="d -e ranger"
-alias wl="watch -d -n 1 ls -l"
+alias wl="watch -d -n 1 ls -lh"
+alias wd="watch -d -n 1 'adb devices; fastboot devices'"
+alias wda="watch -d -n 1 'adb devices; fastboot devices; adb shell cat /proc/asound/cards; adb shell uptime -p'"
+alias minicom="minicom -c on"
 alias af="sag"
 # alias j="fasd_cd -d"
 # alias jc="j -c"
@@ -42,6 +45,7 @@ alias clip="xclip -sel clip < "
 # cdup, relative path, only when it's non-empty, switch to it
 alias gr='d=$(git rev-parse --show-cdup 2>/dev/null); echo "=> $d"; [[ $d != "" ]] && cd $d'
 alias gu='global -u'
+alias gauthor='git commit --amend --author="liuyang1 <liuyang1@ustc.edu.cn>"'
 # TODO
 function find_repo() {
     local d=$(pwd -P 2>/dev/null || command pwd)
@@ -97,7 +101,10 @@ alias nonevi="vi -u NONE -U NONE -N -i NONE"
 
 ### internal use
 # check midway, and ssh to dev to access workspace
-alias ws="( ( mwinit -l | grep cookie >/dev/null ) && ssh dev ) || ( mwinit && ssh dev )"
+
+# update mwinit with specified key
+# alias ws="ssh dev-dsk-lyz-1c-30cffada.us-west-2.amazon.com || ( mwinit -k  ~/.ssh/id_ecdsa.pub && ssh dev-dsk-lyz-2c-30cffada.us-west-2.amazon.com)"
+alias ws="ssh dev|| ( mwinit -k  ~/.ssh/id_ecdsa.pub && ssh dev )"
 
 alias vv="fzf --bind 'enter:become(vim {})'"
 
@@ -108,3 +115,10 @@ function pick() {
     tail -n +"$X" $fn | head -n "$((Y - X))"
 }
 alias pick=pick
+alias vv='vi $(fzf)'
+alias tt='timew'
+alias vt='watch "timew | tail -n 1 | figlet -w $COLUMNS -f roman"'
+
+
+alias wa='watch -d adb shell'
+alias ag='ag -U'
